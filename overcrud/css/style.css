@@ -1,0 +1,16 @@
+body{
+    min-width: 400px;
+}
+
+.darkmodebtn{
+    font-size: smaller;
+}
+
+.loginbtn{
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.loginlogo{
+    width: 45%;
+}
