@@ -1,16 +1,27 @@
+/*--- BODY ---*/
 body{
     min-width: 400px;
 }
 
+
+/*--- DARKMODE ---*/
 .darkmodebtn{
     font-size: smaller;
 }
 
+.darkmodebtnint{
+    font-size: xx-small;
+}
+
+
+/*--- BUTTONS LOGIN & FORM ---*/
 .loginbtn{
     border-radius: 1rem;
     padding: 0.5rem;
 }
 
+
+/*--- LOGO ---*/
 .loginlogo{
     width: 45%;
 }
