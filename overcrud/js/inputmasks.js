@@ -29,3 +29,20 @@ function cpfMask(valor){
     return valor;
 }
 
+
+//------------------------------------------------------------------
+//MÁSCARA PARA CNPJ
+const handleCnpj = (evento) => {
+    let inputCnpj = evento.target;
+    inputCnpj.value = cnpjMask(inputCnpj.value);
+};
+
+function cnpjMask(valor){
+    valor = valor.replace(/\D/g,"");
+    valor = valor.replace(/^(\d{2})(\d)/,"$1.$2");
+    valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
+    valor = valor.replace(/\.(\d{3})(\d)/,".$1/$2");
+    valor = valor.replace(/(\d{4})(\d)/,"$1-$2");
+    return valor;
+};
+
