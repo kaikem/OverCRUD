@@ -93,24 +93,24 @@
         </div>
 
         <!-- CORPO -->
-        <div class="row d-flex justify-content-center mt-5" id="appBody">
+        <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">LISTA DE EMPRESAS</h1>
             <!-- LISTA -->
             <?php foreach ($listaEmp as $empresa) : ?>
-            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+            <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                 <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 14rem;">
                     <!-- CORPO DO CARD -->
-                    <div class="card-header d-flex text-center justify-content-center align-items-center" style="min-height: 5rem;">
-                        <h5> <?= $empresa['nome']; ?> </h5>
+                    <div class="card-header d-flex flex-column text-center justify-content-center align-items-center" style="min-height: 7rem;">
+                        <h4 class=""> <?= $empresa['nome']; ?> </h4>
+                        <h6 class="text-secondary lead"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
                     </div>
                     <div class="card-body">
                         <div class="card-text">
-                            <p class="mb-0 text-decoration-underline fw-bolder"> Nome Fantasia: </p> <div class="mt-0 mb-2"> <?= $empresa['fantasia']; ?> </div> 
-                            <p class="mb-0 text-decoration-underline fw-bolder"> CNPJ: </p> <div class="mt-0 mb-2"> <?= $empresa['cnpj']; ?> </div> 
-                            <p class="mb-0 text-decoration-underline fw-bolder"> Telefone: </p> <div class="mt-0 mb-2"> <?= $empresa['telefone']; ?> </div> 
-                            <p class="mb-0 text-decoration-underline fw-bolder"> Endereço: </p> <div class="mt-0 mb-2"> <?= $empresa['endereco']; ?> </div> 
-                            <p class="mb-0 text-decoration-underline fw-bolder"> Responsável: </p> <div class="mt-0 mb-2"> <?= $empresa['responsavel']; ?> </div> 
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-building"></i> Nome Fantasia: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['fantasia']; ?> </div> 
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['telefone']; ?> </div> 
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i> Endereço: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['endereco']; ?> </div> 
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-user-tie"></i> Responsável: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['responsavel']; ?> </div> 
                         </div>
                     </div>
                 </div>
