@@ -25,3 +25,10 @@ body{
 .loginlogo{
     width: 45%;
 }
+
+
+/*--- FORMS ---*/
+.form-label{
+    margin-top: 0.7rem;
+    margin-bottom: 0;
+}
