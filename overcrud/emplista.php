@@ -99,16 +99,18 @@
             <!-- LISTA -->
             <?php foreach ($listaEmp as $empresa) : ?>
             <div class="col-10 col-sm-8 col-md-6 col-lg-4">
-                <div class="card my-2 mx-2 shadow" id="empcard" style="min-height: 14rem;">
-                    <div class="card-header text-center">
+                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 14rem;">
+                    <!-- CORPO DO CARD -->
+                    <div class="card-header d-flex text-center justify-content-center align-items-center" style="min-height: 5rem;">
                         <h5> <?= $empresa['nome']; ?> </h5>
                     </div>
                     <div class="card-body">
                         <div class="card-text">
-                            <p class="mb-0 fw-bolder"> Nome Fantasia: </p>
-                            <p> <?= $empresa['fantasia']; ?> </p>
-                            <p class="mb-0 fw-bolder"> CNPJ: </p>
-                            <p class="mb-0"> <?= $empresa['cnpj']; ?> </p>
+                            <p class="mb-0 text-decoration-underline fw-bolder"> Nome Fantasia: </p> <div class="mt-0 mb-2"> <?= $empresa['fantasia']; ?> </div> 
+                            <p class="mb-0 text-decoration-underline fw-bolder"> CNPJ: </p> <div class="mt-0 mb-2"> <?= $empresa['cnpj']; ?> </div> 
+                            <p class="mb-0 text-decoration-underline fw-bolder"> Telefone: </p> <div class="mt-0 mb-2"> <?= $empresa['telefone']; ?> </div> 
+                            <p class="mb-0 text-decoration-underline fw-bolder"> Endereço: </p> <div class="mt-0 mb-2"> <?= $empresa['endereco']; ?> </div> 
+                            <p class="mb-0 text-decoration-underline fw-bolder"> Responsável: </p> <div class="mt-0 mb-2"> <?= $empresa['responsavel']; ?> </div> 
                         </div>
                     </div>
                 </div>
@@ -123,6 +125,7 @@
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/darkmodetoggle.js"></script>
+    <script src="./js/modals.js"></script>
 </body>
 
 </html>
