@@ -12,6 +12,20 @@
 </head>
 
 <body>
+    <!-- BASE PHP -->
+    <?php
+    require_once 'config.php';
+
+    //EMPRESAS
+    $listaEmp = [];
+    $sqlConsultaEmp = $pdo->query("SELECT * FROM empresas");
+
+    if ($sqlConsultaEmp->rowCount() > 0) {
+        $listaEmp = $sqlConsultaEmp->fetchAll(PDO::FETCH_ASSOC);
+    };
+    ?>
+
+    <!-- HTML -->
     <div class="container">
         <div class="row" id="navbarTop">
             <!-- NAVBAR -->
@@ -79,10 +93,27 @@
         </div>
 
         <!-- CORPO -->
-        <div class="row mt-5" id="appBody">
-            <div class="col mt-5">
-                <?php ?>
+        <div class="row d-flex justify-content-center mt-5" id="appBody">
+            <!-- TÍTULO DA SEÇÃO -->
+            <h1 class="text-center display-6 my-5">LISTA DE EMPRESAS</h1>
+            <!-- LISTA -->
+            <?php foreach ($listaEmp as $empresa) : ?>
+            <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+                <div class="card my-2 mx-2 shadow" id="empcard" style="min-height: 14rem;">
+                    <div class="card-header text-center">
+                        <h5> <?= $empresa['nome']; ?> </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p class="mb-0 fw-bolder"> Nome Fantasia: </p>
+                            <p> <?= $empresa['fantasia']; ?> </p>
+                            <p class="mb-0 fw-bolder"> CNPJ: </p>
+                            <p class="mb-0"> <?= $empresa['cnpj']; ?> </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
