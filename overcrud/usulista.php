@@ -67,7 +67,7 @@
                                         <ul class="dropdown-menu dropdown-menu-dark">
                                             <li> <a href="usulista.php" class="dropdown-item">Consultar usuários</a>
                                             </li>
-                                            <li> <a href="usucadastro.html" class="dropdown-item">Cadastrar Novo</a>
+                                            <li> <a href="usucadastro.php" class="dropdown-item">Cadastrar Novo</a>
                                             </li>
                                         </ul>
                                     </li>
