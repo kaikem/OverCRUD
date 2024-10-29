@@ -110,12 +110,12 @@
                 $sqlInsert = $pdo->prepare("INSERT INTO empresas (nome, telefone, endereco, fantasia, cnpj, responsavel) VALUES ('$nome', '$telefone', '$endereco', '$fantasia', '$cnpj', '$responsavel')");
 
                 if ($sqlInsert->execute()) {
-                    mensagemRetorno("Dados de $nome cadastrados com sucesso!", "success");
+                    mensagemRetorno("Dados de $nome (CNPJ $cnpj) cadastrados com sucesso!", "success");
                 } else {
-                    mensagemRetorno("ERRO: Dados de $nome não foram cadastrados...", "danger");
+                    mensagemRetorno("ERRO: Dados de $nome (CNPJ $cnpj) não foram cadastrados...", "danger");
                 };
             } else {
-                mensagemRetorno("CNPJ já existente! Use outro CNPJ para este cadastro.", "warning");
+                mensagemRetorno("CNPJ $cnpj já existente! Use outro CNPJ para este cadastro.", "warning");
             };
             ?>
 

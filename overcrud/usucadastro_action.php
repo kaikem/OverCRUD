@@ -112,12 +112,12 @@
                 $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, login, senha, cpf, cnh, carro) VALUES ('$nome', '$telefone', '$endereco', '$login', '$senha', '$cpf', '$cnh', '$carro')");
 
                 if ($sqlInsert->execute()) {
-                    mensagemRetorno("Dados de $nome cadastrados com sucesso!", "success");
+                    mensagemRetorno("Dados de $nome (CPF $cpf) cadastrados com sucesso!", "success");
                 } else {
-                    mensagemRetorno("ERRO: Dados de $nome não foram cadastrados...", "danger");
+                    mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
                 };
             } else {
-                mensagemRetorno("CPF já existente! Use outro CPF para este cadastro.", "warning");
+                mensagemRetorno("CPF $cpf já existente! Use outro CPF para este cadastro.", "warning");
             };
             ?>
 
