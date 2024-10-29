@@ -23,10 +23,17 @@
     $telefone = $_POST['telefone'];
     $endereco = $_POST['endereco'];
     $login = $_POST['login'];
-    $senha = $_POST['senha'];
+    $password = $_POST['password'];
     $cpf = $_POST['cpf'];
     $cnh = $_POST['cnh'];
     $carro = $_POST['carro'];
+    $empregadoEm = intval($_POST['empregadoem']);
+    $tipo = $_POST['tipo'];
+    $status = 0;
+
+    if($empregadoEm!=0){
+        $status = 1;
+    };
     ?>
 
     <!-- HTML -->
@@ -109,7 +116,7 @@
             $sqlVerif->execute();
 
             if ($sqlVerif->rowCount() === 0) {
-                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, login, senha, cpf, cnh, carro) VALUES ('$nome', '$telefone', '$endereco', '$login', '$senha', '$cpf', '$cnh', '$carro')");
+                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, login, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$login', '$password', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
 
                 if ($sqlInsert->execute()) {
                     mensagemRetorno("Dados de $nome (CPF $cpf) cadastrados com sucesso!", "success");
