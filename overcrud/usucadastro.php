@@ -87,7 +87,25 @@
                 <!-- TÍTULO DA SEÇÃO -->
                 <h1 class="text-center display-6 mb-5">CADASTRO DE USUÁRIOS</h1>  
                 <!-- FORMULÁRIO -->      
-                <form action="cadastrar_usu_action.php" method="POST">
+                <form action="usucadastro_action.php" method="POST">
+                    <div class="form-group">
+                        <label for="login" class="form-label">Login:</label>
+                        <input type="text" class="form-control" name="login" id="login" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Senha:</label>
+                        <input type="password" class="form-control" name="password" id="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo" class="form-label">Tipo:</label>
+                        <select class="form-select" name="tipo" id="tipo">
+                                <option value="0">Comum</option>
+                                <option value="1">Admin</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="nome" class="form-label">Nome:</label>
                         <input type="text" class="form-control" name="nome" id="nome" required>
@@ -103,15 +121,6 @@
                         <input type="text" class="form-control" name="endereco" id="endereco">
                     </div>
 
-                    <div class="form-group">
-                        <label for="login" class="form-label">Login:</label>
-                        <input type="text" class="form-control" name="login" id="login" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="senha" class="form-label">Senha:</label>
-                        <input type="text" class="form-control" name="senha" id="senha" required>
-                    </div>
 
                     <div class="form-group">
                         <label for="cpf" class="form-label">CPF:</label>
@@ -126,6 +135,16 @@
                     <div class="form-group">
                         <label for="carro" class="form-label">Carro:</label>
                         <input type="text" class="form-control" name="carro" id="carro">
+                    </div>
+
+                    <div class="form-group">
+                            <label for="empregadoem" class="form-label">Empresa:</label>
+                            <select class="form-select" name="empregadoem" id="empregadoem">
+                                <option value="0">- NENHUMA -</option>
+                            <?php foreach($listaEmp as $empresa): ?>
+                                <option value="<?= $empresa['idempresa']?>"> <?= $empresa['nome']?> </option>
+                            <?php endforeach;?>
+                            </select>
                     </div>
 
                     <div class="form-group my-3">
