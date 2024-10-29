@@ -23,6 +23,14 @@
     if ($sqlConsultaUsu->rowCount() > 0) {
         $listaUsu = $sqlConsultaUsu->fetchAll(PDO::FETCH_ASSOC);
     };
+
+    //EMPRESAS
+    $listaEmp = [];
+    $sqlConsultaEmp = $pdo->query("SELECT * FROM empresas");
+        
+    if ($sqlConsultaEmp->rowCount() > 0) {
+        $listaEmp = $sqlConsultaEmp->fetchAll(PDO::FETCH_ASSOC);
+    };
     ?>
 
     <!-- HTML -->
@@ -109,7 +117,15 @@
                         style="min-height: 7rem;">
                         <h4 class=""> <?= $usuario['nome']; ?> </h4>
                         <h6 class="text-secondary lead"> CPF: <?= $usuario['cpf']; ?> </h6>
-                        <h6 class="text-secondary"> Status: <?= $usuario['status']; ?> </h6>
+                         
+                            <?php 
+                            if($usuario['status']==1){
+                                echo "<h6 class='text-success'> Status: ATIVO</h6>";
+                            }else{
+                                echo "<h6 class='text-danger'> Status: INATIVO</h6>";
+                            };
+                            ?>
+                        
                     </div>
                     <!-- CORPO DO CARD -->
                     <div class="card-body">
@@ -156,7 +172,15 @@
                             <!-- EMPREGAOD EM -->
                             <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i>
                                 Empregado em: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5"> Empresa </div>
+                            <div class="mt-0 mb-2 display-6 fs-5">
+                                <?php 
+                                    if($usuario['idempregadoem']==0){
+                                        echo "- NENHUMA -";
+                                    } else {
+                                        echo $listaEmp[$usuario['idempregadoem']]['nome']; 
+                                    }
+                                ?>
+                            </div>
 
                         </div>
                     </div>
