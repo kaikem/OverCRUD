@@ -27,6 +27,7 @@
 
     <!-- HTML -->
     <div class="container">
+        <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
             <!-- NAVBAR -->
             <nav class="navbar navbar-expand-sm fixed-top text-bg-secondary" style="--bs-bg-opacity: .95;">
@@ -54,7 +55,8 @@
                                         <a href="#" class="nav-link fs-5 dropdown-toggle"
                                             data-bs-toggle="dropdown">Empresas</a>
                                         <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li> <a href="#" class="dropdown-item">Consultar empresas</a> </li>
+                                            <li> <a href="emplista.php" class="dropdown-item">Consultar empresas</a>
+                                            </li>
                                             <li> <a href="empcadastro.html" class="dropdown-item">Cadastrar Nova</a>
                                             </li>
                                         </ul>
@@ -63,7 +65,8 @@
                                         <a href="#" class="nav-link fs-5 dropdown-toggle"
                                             data-bs-toggle="dropdown">Usuários</a>
                                         <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li> <a href="#" class="dropdown-item">Consultar usuários</a> </li>
+                                            <li> <a href="usulista.php" class="dropdown-item">Consultar usuários</a>
+                                            </li>
                                             <li> <a href="usucadastro.html" class="dropdown-item">Cadastrar Novo</a>
                                             </li>
                                         </ul>
@@ -92,7 +95,7 @@
             </nav>
         </div>
 
-        <!-- CORPO -->
+        <!-- ROW DO CORPO -->
         <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">LISTA DE EMPRESAS</h1>
@@ -101,16 +104,25 @@
             <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                 <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 14rem;">
                     <!-- CORPO DO CARD -->
-                    <div class="card-header d-flex flex-column text-center justify-content-center align-items-center" style="min-height: 7rem;">
+                    <div class="card-header d-flex flex-column text-center justify-content-center align-items-center"
+                        style="min-height: 7rem;">
                         <h4 class=""> <?= $empresa['nome']; ?> </h4>
                         <h6 class="text-secondary lead"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
                     </div>
                     <div class="card-body">
                         <div class="card-text">
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-building"></i> Nome Fantasia: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['fantasia']; ?> </div> 
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['telefone']; ?> </div> 
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i> Endereço: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['endereco']; ?> </div> 
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-user-tie"></i> Responsável: </p> <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['responsavel']; ?> </div> 
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-building"></i> Nome
+                                Fantasia: </p>
+                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['fantasia']; ?> </div>
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone:
+                            </p>
+                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['telefone']; ?> </div>
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>
+                                Endereço: </p>
+                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['endereco']; ?> </div>
+                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-user-tie"></i>
+                                Responsável: </p>
+                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['responsavel']; ?> </div>
                         </div>
                     </div>
                 </div>
