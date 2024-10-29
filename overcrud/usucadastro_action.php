@@ -122,7 +122,7 @@
             ?>
 
             <!-- BOTÃO VOLTAR -->
-            <a href="usucadastro.html" class="btn btn-warning">VOLTAR</a>
+            <a href="usucadastro.php" class="btn btn-warning">VOLTAR</a>
         </div>
     </div>
 
