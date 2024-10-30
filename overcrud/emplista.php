@@ -102,13 +102,17 @@
             <!-- LISTA -->
             <?php foreach ($listaEmp as $empresa) : ?>
             <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
-                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 14rem;">
-                    <!-- CORPO DO CARD -->
-                    <div class="card-header d-flex flex-column text-center justify-content-center align-items-center"
-                        style="min-height: 7rem;">
-                        <h4 class="text-uppercase"> <?= $empresa['nome']; ?> </h4>
-                        <h6 class="text-secondary lead"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
+                <!-- CARD -->
+                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 30rem;">
+                    <!-- HEADER DO CARD -->
+                    <div class="card-header d-flex text-center justify-content-center align-items-center"
+                        style="min-height: 8rem; max-height: 8rem;">
+                        <div class="d-flex flex-column">
+                            <h4 class="text-uppercase" id="empnome"> <?= $empresa['nome']; ?> </h4>
+                            <h6 class="text-secondary lead" id="empcnpj"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
+                        </div>
                     </div>
+                    <!-- CORPO DO CARD -->
                     <div class="card-body">
                         <div class="card-text">
                             <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-building"></i> Nome
