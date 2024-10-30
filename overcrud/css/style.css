@@ -1,34 +1,35 @@
 /*--- BODY ---*/
 body{
+    background-color: red;
     min-width: 400px;
-}
+};
+
+/*--- LOGO ---*/
+.loginlogo{
+    width: 65%;
+};
 
 
 /*--- DARKMODE ---*/
 .darkmodebtn{
     font-size: smaller;
-}
+};
+
 
 .darkmodebtnint{
     font-size: xx-small;
-}
+};
 
 
 /*--- BUTTONS LOGIN & FORM ---*/
 .loginbtn{
     border-radius: 1rem;
     padding: 0.5rem;
-}
-
-
-/*--- LOGO ---*/
-.loginlogo{
-    width: 45%;
-}
+};
 
 
 /*--- FORMS ---*/
 .form-label{
     margin-top: 0.7rem;
     margin-bottom: 0;
-}
+};
