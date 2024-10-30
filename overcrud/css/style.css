@@ -1,35 +1,41 @@
 /*--- BODY ---*/
 body{
-    background-color: red;
-    min-width: 400px;
-};
+    min-width: 320px;
+}
 
 /*--- LOGO ---*/
 .loginlogo{
     width: 65%;
-};
+}
 
 
 /*--- DARKMODE ---*/
 .darkmodebtn{
     font-size: smaller;
-};
+}
 
 
 .darkmodebtnint{
     font-size: xx-small;
-};
-
-
-/*--- BUTTONS LOGIN & FORM ---*/
-.loginbtn{
-    border-radius: 1rem;
-    padding: 0.5rem;
-};
+}
 
 
 /*--- FORMS ---*/
+/*--- BUTTONS LOGIN ---*/
+.loginbtn{
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+/*--- LABELS ---*/
 .form-label{
     margin-top: 0.7rem;
     margin-bottom: 0;
-};
+}
+
+
+/*--- CARDS ---*/
+/*--- CARD-HEADER ---*/
+#usunome, #usucpf, #empnome, #empcnpj{
+    font-size: 3vh;
+}
