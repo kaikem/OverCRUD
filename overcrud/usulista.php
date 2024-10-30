@@ -111,13 +111,13 @@
             <?php foreach ($listaUsu as $usuario) : ?>
             <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                 <!-- CARD -->
-                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 14rem;">
+                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 38.5rem">
                     <!-- HEADER DO CARD -->
                     <div class="card-header d-flex text-center justify-content-center align-items-center"
                         style="min-height: 8rem; max-height: 8rem;">
                         <div class="d-flex flex-column">
                             <h4 class="text-uppercase" id="usunome"> <?= $usuario['nome']; ?> </h4>
-                            <h6 class="text-secondary lead"> CPF: <?= $usuario['cpf']; ?> </h6>
+                            <h6 class="text-secondary lead" id="usucpf"> CPF: <?= $usuario['cpf']; ?> </h6>
 
                             <?php
                                 if ($usuario['status'] == 1) {
@@ -186,16 +186,16 @@
                                     ?>
                             </div>
 
-                            <!-- EMPREGAOD EM -->
+                            <!-- EMPREGADO EM -->
                             <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i>
                                 Empregado em: </p>
                             <div class="mt-0 mb-2 display-6 fs-5">
                                 <?php
-                                    if ($usuario['idempregadoem'] == 0) {
-                                        echo "- NENHUMA -";
-                                    } else {
-                                        echo $listaEmp[$usuario['idempregadoem'] - 1]['nome'];
-                                    }
+                                    for ($i = 0; $i < count($listaEmp); $i++) {
+                                        if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
+                                            echo $listaEmp[$i]['nome'];
+                                        };
+                                    };
                                     ?>
                             </div>
 
