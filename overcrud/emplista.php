@@ -106,7 +106,7 @@
                     <!-- CORPO DO CARD -->
                     <div class="card-header d-flex flex-column text-center justify-content-center align-items-center"
                         style="min-height: 7rem;">
-                        <h4 class=""> <?= $empresa['nome']; ?> </h4>
+                        <h4 class="text-uppercase"> <?= $empresa['nome']; ?> </h4>
                         <h6 class="text-secondary lead"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
                     </div>
                     <div class="card-body">
