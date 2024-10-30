@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css" />
     <title>OverCRUD - Usuários</title>
@@ -27,7 +27,7 @@
     //EMPRESAS
     $listaEmp = [];
     $sqlConsultaEmp = $pdo->query("SELECT * FROM empresas");
-        
+
     if ($sqlConsultaEmp->rowCount() > 0) {
         $listaEmp = $sqlConsultaEmp->fetchAll(PDO::FETCH_ASSOC);
     };
@@ -113,19 +113,20 @@
                 <!-- CARD -->
                 <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 14rem;">
                     <!-- HEADER DO CARD -->
-                    <div class="card-header d-flex flex-column text-center justify-content-center align-items-center"
-                        style="min-height: 7rem;">
-                        <h4 class=""> <?= $usuario['nome']; ?> </h4>
-                        <h6 class="text-secondary lead"> CPF: <?= $usuario['cpf']; ?> </h6>
-                         
-                            <?php 
-                            if($usuario['status']==1){
-                                echo "<h6 class='text-success'> Status: ATIVO</h6>";
-                            }else{
-                                echo "<h6 class='text-danger'> Status: INATIVO</h6>";
-                            };
-                            ?>
-                        
+                    <div class="card-header d-flex text-center justify-content-center align-items-center"
+                        style="min-height: 8rem; max-height: 8rem;">
+                        <div class="d-flex flex-column">
+                            <h4 class="text-uppercase" id="usunome"> <?= $usuario['nome']; ?> </h4>
+                            <h6 class="text-secondary lead"> CPF: <?= $usuario['cpf']; ?> </h6>
+
+                            <?php
+                                if ($usuario['status'] == 1) {
+                                    echo "<h6 class='text-success'> Status: ATIVO</h6>";
+                                } else {
+                                    echo "<h6 class='text-danger'> Status: INATIVO</h6>";
+                                };
+                                ?>
+                        </div>
                     </div>
                     <!-- CORPO DO CARD -->
                     <div class="card-body">
@@ -162,24 +163,40 @@
                             <!-- CNH -->
                             <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-id-card"></i>
                                 CNH: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['cnh']; ?> </div>
+                            <div class="mt-0 mb-2 display-6 fs-5">
+                                <?php
+                                    if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
+                                        echo "- NÃO POSSUI -";
+                                    } else {
+                                        echo $usuario['cnh'];
+                                    }
+                                    ?>
+                            </div>
 
                             <!-- CARRO -->
                             <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-car"></i>
                                 Carro: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['carro']; ?> </div>
+                            <div class="mt-0 mb-2 display-6 fs-5">
+                                <?php
+                                    if ($usuario['carro'] == "" || $usuario['carro'] == null) {
+                                        echo "- NENHUM -";
+                                    } else {
+                                        echo $usuario['carro'];
+                                    }
+                                    ?>
+                            </div>
 
                             <!-- EMPREGAOD EM -->
                             <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i>
                                 Empregado em: </p>
                             <div class="mt-0 mb-2 display-6 fs-5">
-                                <?php 
-                                    if($usuario['idempregadoem']==0){
+                                <?php
+                                    if ($usuario['idempregadoem'] == 0) {
                                         echo "- NENHUMA -";
                                     } else {
-                                        echo $listaEmp[$usuario['idempregadoem']]['nome']; 
+                                        echo $listaEmp[$usuario['idempregadoem'] - 1]['nome'];
                                     }
-                                ?>
+                                    ?>
                             </div>
 
                         </div>
