@@ -39,3 +39,8 @@ body{
 #usunome, #usucpf, #empnome, #empcnpj{
     font-size: 3vh;
 }
+
+/*--- CARD-LOGIN ---*/
+#cardlogin{
+    background-color: rgba(128, 128, 128, 0.205);
+}
