@@ -1,3 +1,8 @@
+<?php
+//VERIFICAÇÃO DE SESSÃO
+require_once 'sessionverif.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
@@ -31,7 +36,7 @@
     $tipo = $_POST['tipo'];
     $status = 0;
 
-    if($empregadoEm!=0){
+    if ($empregadoEm != 0) {
         $status = 1;
     };
     ?>
@@ -40,70 +45,7 @@
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
-            <!-- NAVBAR -->
-            <nav class="navbar navbar-expand-sm fixed-top text-bg-secondary" style="--bs-bg-opacity: .95;">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- COLUNA 01 -->
-                        <div class="col-md-4 d-none d-md-flex">
-                            <!-- LOGOTIPO -->
-                            <a href="home.html" class="navbar-brand p-0"><img src="./img/logo_white3.png" class=""
-                                    alt="OverCRUD" style="width: 75%;"></a>
-                        </div>
-
-                        <!-- COLUNA 02 -->
-                        <div class="col-md-6">
-                            <!-- HAMBURUER BUTTON -->
-                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
-                                data-bs-target="#navbarMain">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <!-- LINKS NAVBAR -->
-                            <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
-                                <ul class="navbar-nav gap-3">
-                                    <li class="navbar-item dropdown">
-                                        <a href="#" class="nav-link fs-5 dropdown-toggle"
-                                            data-bs-toggle="dropdown">Empresas</a>
-                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li> <a href="emplista.php" class="dropdown-item">Consultar empresas</a>
-                                            </li>
-                                            <li> <a href="empcadastro.html" class="dropdown-item">Cadastrar Nova</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="navbar-item dropdown">
-                                        <a href="#" class="nav-link fs-5 dropdown-toggle"
-                                            data-bs-toggle="dropdown">Usuários</a>
-                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li> <a href="usulista.php" class="dropdown-item">Consultar usuários</a>
-                                            </li>
-                                            <li> <a href="usucadastro.html" class="dropdown-item">Cadastrar Novo</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="navbar-item">
-                                        <a href="#" class="nav-link fs-5">Contato</a>
-                                    </li>
-                                    <li class="navbar-item">
-                                        <a href="#" class="nav-link fs-5">Sobre</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- COLUNA 03 -->
-                        <div class="col-md-2 d-none d-md-flex align-items-center justify-content-end">
-                            <!-- DARKMODE -->
-                            <div class="btn-group btn-grup-sm">
-                                <button class="btn btn-dark rounded-start-5 darkmodebtnint"
-                                    data-bs-theme-value="dark">Dark</button>
-                                <button class="btn btn-light rounded-end-5 darkmodebtnint"
-                                    data-bs-theme-value="light">Light</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <?php require_once 'navbarTop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
