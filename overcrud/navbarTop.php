@@ -62,8 +62,25 @@ echo "<!-- NAVBAR -->
                                     data-bs-theme-value='light'>Light</button>
                             </div>
                             <!-- SAIR -->
-                            <a class='btn btn-danger rounded-circle ms-3 p-1 sairbtn' href='logout.php'>Sair</a>
+                            <a class='btn btn-danger rounded-circle ms-3 p-1 sairbtn' data-bs-toggle='modal' data-bs-target='#modallogout'>Sair</a>
 </div>
 </div>
 </div>
-</nav>";
+</nav>
+
+<!-- MODAL -->
+<div class='modal fade' id='modallogout'>
+    <div class='modal-dialog modal-sm'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <h1 class='modal-title fs-5'>SAIR DO SISTEMA</h1>
+            </div>
+            <div class='modal-body text-center'>Tem certeza que deseja sair?</div>
+            <div class='modal-footer'>
+                <button class='btn btn-secondary' data-bs-dismiss='modal'>Voltar</button>
+                <a class='btn btn-danger' href='logout.php'>Sair</a>
+            </div>
+        </div>
+    </div>
+</div>
+";
