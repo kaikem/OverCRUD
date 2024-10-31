@@ -24,29 +24,35 @@
         <img src="./img/logo_white2.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
      </div>
 
-    <!-- LOGIN CARD -->
-    <div class="container">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-6 col-sm-8 col-md-4">
+     <div class="container">
+         <div class="row d-flex justify-content-center align-items-center">
+             <div class="col-6 col-sm-8 col-md-4">
+                <!-- LOGIN CARD -->
                 <div class="card shadow" id="cardlogin">
                     <div class="card-body">
                         <h5 class="card-title text-center display-6">LOGIN</h5>
                         <div class="card-text">
                             <form action="" class="mt-4">
+                                <!-- LOGIN -->
                                 <label for="login" class="form-label">Login:</label>
                                 <div class="input-group mb-2">
                                     <i class="input-group-text fa-solid fa-right-to-bracket"></i>
                                     <input type="text" class="form-control form-control-sm" name="login" id="inputlogin">
                                 </div>
+
+                                <!-- SENHA -->
                                 <label for="senha" class="form-label">Senha:</label>
                                 <div class="input-group">
                                     <i class="input-group-text fa-solid fa-lock"></i>
                                     <input type="password" class="form-control form-control-sm" name="senha" id="inputsenha">
                                 </div>
+
+                                <!-- BUTTONS -->
                                 <div class="d-flex mt-3 justify-content-center gap-3">
-                                    <button type="submit" class="btn btn-success loginbtn"> Entrar </button>
+                                    <button type="submit" class="btn btn-primary loginbtn" > Entrar </button>
                                     <a href="home.html">
-                                        <button type="button" class="btn btn-danger loginbtn">Cancelar</button>
+                                        <button type="button" class="btn btn-secondary loginbtn">Cancelar</button>
+                                        <!--onclick="reset()"-->
                                     </a>
                                 </div>
                             </form>
