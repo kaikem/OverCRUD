@@ -40,7 +40,7 @@
                                 <div class="input-group mb-3">
                                     <i class="input-group-text fa-solid fa-right-to-bracket"></i>
                                     <input type="text" class="form-control form-control-sm" name="login" id="inputlogin"
-                                        minlength="6" maxlength="32" placeholder="Login" required>
+                                        minlength="6" maxlength="32" placeholder="Login" autofocus required>
                                 </div>
 
                                 <!-- SENHA -->
@@ -59,10 +59,8 @@
                                 <!-- BUTTONS -->
                                 <div class="d-flex mt-3 justify-content-center gap-3">
                                     <button type="submit" class="btn btn-primary loginbtn"> Entrar </button>
-                                    <a href="home.php">
-                                        <button type="button" class="btn btn-secondary loginbtn">Cancelar</button>
-                                        <!--onclick="reset()"-->
-                                    </a>
+                                    <button type="button" class="btn btn-secondary loginbtn"
+                                        onclick="reset()">Cancelar</button>
                                 </div>
                             </form>
                         </div>
