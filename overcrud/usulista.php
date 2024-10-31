@@ -53,7 +53,7 @@ require_once 'sessionverif.php';
             <?php foreach ($listaUsu as $usuario) : ?>
             <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                 <!-- CARD -->
-                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 38.5rem">
+                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 40rem">
                     <!-- HEADER DO CARD -->
                     <div class="card-header d-flex text-center justify-content-center align-items-center"
                         style="min-height: 8rem; max-height: 8rem;">
