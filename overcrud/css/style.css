@@ -1,11 +1,12 @@
-/*--- BODY ---*/
+/*--------- BODY ---------*/
 body{
     min-width: 320px;
 }
 
+/*--------- NAVBAR ---------*/
 /*--- LOGO ---*/
 .loginlogo{
-    width: 65%;
+    width: 55%;
 }
 
 
@@ -14,13 +15,16 @@ body{
     font-size: smaller;
 }
 
-
 .darkmodebtnint{
     font-size: xx-small;
 }
 
+/*--- DARKMODE ---*/
+.sairbtn{
+    font-size: xx-small;
+}
 
-/*--- FORMS ---*/
+/*--------- FORMS ---------*/
 /*--- BUTTONS LOGIN ---*/
 .loginbtn{
     border-radius: 1rem;
@@ -34,7 +38,7 @@ body{
 }
 
 
-/*--- CARDS ---*/
+/*--------- CARDS ---------*/
 /*--- CARD-HEADER ---*/
 #usunome, #usucpf, #empnome, #empcnpj{
     font-size: 3vh;
