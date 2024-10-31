@@ -71,8 +71,9 @@ require_once 'sessionverif.php';
                     </div>
 
                     <div class="form-group my-3">
-                        <input type="submit" class="btn btn-success loginbtn" value="ENVIAR">
-                        <a href="home.php" class="btn btn-warning loginbtn">VOLTAR</a>
+                        <input type="submit" class="btn btn-primary loginbtn" value="ENVIAR">
+                        <button type="button" class="btn btn-secondary loginbtn" onclick="reset()">LIMPAR</button>
+                        <a href="emplista.php" class="btn btn-danger loginbtn">VOLTAR</a>
                     </div>
                 </form>
             </div>
