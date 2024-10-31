@@ -32,19 +32,20 @@
                     <div class="card-body">
                         <h5 class="card-title text-center display-6">LOGIN</h5>
                         <div class="card-text">
-                            <form action="" class="mt-4">
+                            <!-- FORM -->
+                            <form action="logintest.php" class="mt-4" method="POST">
                                 <!-- LOGIN -->
-                                <label for="login" class="form-label">Login:</label>
-                                <div class="input-group mb-2">
+
+                                <div class="input-group mb-3">
                                     <i class="input-group-text fa-solid fa-right-to-bracket"></i>
-                                    <input type="text" class="form-control form-control-sm" name="login" id="inputlogin">
+                                    <input type="text" class="form-control form-control-sm" name="login" id="inputlogin" minlength="6" maxlength="32" placeholder="Login" required>
                                 </div>
 
                                 <!-- SENHA -->
-                                <label for="senha" class="form-label">Senha:</label>
-                                <div class="input-group">
+
+                                <div class="input-group mb-4">
                                     <i class="input-group-text fa-solid fa-lock"></i>
-                                    <input type="password" class="form-control form-control-sm" name="senha" id="inputsenha">
+                                    <input type="password" class="form-control form-control-sm" name="senha" id="inputsenha" minlength="8" maxlength="32" placeholder="Senha" required>
                                 </div>
 
                                 <!-- BUTTONS -->
