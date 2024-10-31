@@ -135,7 +135,7 @@
                     <div class="form-group">
                         <label for="telefone" class="form-label">Telefone:</label>
                         <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                            minlength="14" onkeyup="handlePhone(event)">
+                            minlength="14" onkeydown="handlePhone(event)">
                     </div>
 
                     <!-- ENDEREÇO -->
@@ -148,7 +148,7 @@
                     <div class="form-group">
                         <label for="cpf" class="form-label">CPF:</label>
                         <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
-                            onkeyup="handleCpf(event)" required>
+                            onkeydown="handleCpf(event)" required>
                     </div>
 
                     <!-- CNH -->
@@ -168,7 +168,7 @@
                         <label for="empregadoem" class="form-label">Empresa:</label>
                         <select class="form-select" name="empregadoem" id="empregadoem">
                             <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                            <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
