@@ -33,8 +33,8 @@
                     <h1 class="display-5 lead">SISTEMA DE GESTÃO</h1>
                 </div>
                 <div class="row d-flex mb-2 justify-content-center align-items-center">
-                <!-- LOGIN CARD -->
-                    <div class="card shadow" id="cardlogin">
+                    <!-- LOGIN CARD -->
+                    <div class="card shadow mb-5" id="cardlogin">
                         <div class="card-body">
                             <h5 class="card-title text-center fs-2">FAÇA SEU LOGIN</h5>
                             <div class="card-text">
@@ -43,8 +43,9 @@
                                     <!-- LOGIN -->
                                     <div class="input-group input-group-lg mb-3">
                                         <i class="input-group-text fa-solid fa-right-to-bracket p-3"></i>
-                                        <input type="text" class="form-control form-control-sm" name="login" id="inputlogin"
-                                            minlength="6" maxlength="32" placeholder="Login" autofocus required>
+                                        <input type="text" class="form-control form-control-sm" name="login"
+                                            id="inputlogin" minlength="6" maxlength="32" placeholder="Login" autofocus
+                                            required>
                                     </div>
 
                                     <!-- SENHA -->
@@ -62,7 +63,8 @@
 
                                     <!-- BUTTONS -->
                                     <div class="row d-flex justify-content-center m-auto" id="loginbtnrow">
-                                        <button type="submit" class="btn btn-primary loginbtn m-2"> <b class="fs-5">ENTRAR</b>  </button>
+                                        <button type="submit" class="btn btn-primary loginbtn m-2"> <b
+                                                class="fs-5">ENTRAR</b> </button>
                                         <!-- <button type="button" class="btn btn-secondary loginbtn" 
                                             onclick="reset()">Cancelar</button> -->
                                     </div>
