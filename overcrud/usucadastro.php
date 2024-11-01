@@ -1,6 +1,12 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
+
+//CONEXÃO COM BD
+require_once 'config.php';
+
+//TABELAS DO BD
+require_once 'sqltables.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,20 +23,6 @@ require_once 'sessionverif.php';
 </head>
 
 <body>
-    <!-- BASE PHP -->
-    <?php
-    require_once 'config.php';
-
-    //EMPRESAS
-    $listaEmp = [];
-    $sqlConsultaEmp = $pdo->query("SELECT * FROM empresas");
-
-    if ($sqlConsultaEmp->rowCount() > 0) {
-        $listaEmp = $sqlConsultaEmp->fetchAll(PDO::FETCH_ASSOC);
-    };
-    ?>
-
-    <!-- HTML -->
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
@@ -110,16 +102,16 @@ require_once 'sessionverif.php';
                         <label for="empregadoem" class="form-label">Empresa:</label>
                         <select class="form-select" name="empregadoem" id="empregadoem">
                             <?php foreach ($listaEmp as $empresa): ?>
-                            <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
 
                     <!-- BUTTONS -->
-                    <div class="form-group my-3">
+                    <div class="form-group my-3 text-center">
+                        <!-- <a href="emplista.php" class="btn btn-danger loginbtn">VOLTAR</a> -->
+                        <button type="button" class="btn btn-secondary loginbtn" onclick="reset()">LIMPAR</button>
                         <input type="submit" class="btn btn-primary loginbtn" value="ENVIAR">
-                        <button type="button" class="btn btn-danger loginbtn" onclick="reset()">LIMPAR</button>
-                        <a href="usulista.php" class="btn btn-secondary loginbtn">VOLTAR</a>
                     </div>
                 </form>
             </div>
