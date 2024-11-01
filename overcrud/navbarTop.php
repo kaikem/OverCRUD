@@ -1,6 +1,4 @@
 <?php
-require_once 'support.php';
-
 echo "<!-- NAVBAR -->
             <nav class='navbar navbar-expand-sm fixed-top text-bg-secondary' style='--bs-bg-opacity: .95;'>
                 <div class='container'>
