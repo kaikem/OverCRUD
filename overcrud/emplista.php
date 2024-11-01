@@ -1,6 +1,12 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
+
+//CONEXÃO COM BD
+require_once 'config.php';
+
+//TABELAS DO BD
+require_once 'sqltables.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,20 +23,6 @@ require_once 'sessionverif.php';
 </head>
 
 <body>
-    <!-- BASE PHP -->
-    <?php
-    require_once 'config.php';
-
-    //EMPRESAS
-    $listaEmp = [];
-    $sqlConsultaEmp = $pdo->query("SELECT * FROM empresas");
-
-    if ($sqlConsultaEmp->rowCount() > 0) {
-        $listaEmp = $sqlConsultaEmp->fetchAll(PDO::FETCH_ASSOC);
-    };
-    ?>
-
-    <!-- HTML -->
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
@@ -43,7 +35,8 @@ require_once 'sessionverif.php';
             <h1 class="text-center display-6 my-5">LISTA DE EMPRESAS</h1>
             <!-- LISTA -->
             <?php foreach ($listaEmp as $empresa) : ?>
-            <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
+            <div
+                class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
                 <!-- CARD -->
                 <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 30rem;">
                     <!-- HEADER DO CARD -->
