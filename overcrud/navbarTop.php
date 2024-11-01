@@ -1,7 +1,7 @@
 <?php
 echo "
             <!-- NAVBAR -->
-            <nav class='navbar navbar-expand-md text-bg-secondary fixed-top p-1' style='--bs-bg-opacity: .95;'>
+            <nav class='navbar navbar-expand-md text-bg-secondary fixed-top p-2' style='--bs-bg-opacity: .95;'>
                 <div class='container'>                   
                     <!-- LOGO & LINKS -->
                     <div class='row align-items-center'>
