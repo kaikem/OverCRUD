@@ -17,7 +17,6 @@ require_once 'sessionverif.php';
 </head>
 
 <body>
-    <!-- HTML -->
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
@@ -70,10 +69,11 @@ require_once 'sessionverif.php';
                             required>
                     </div>
 
-                    <div class="form-group my-3">
-                        <input type="submit" class="btn btn-primary loginbtn" value="ENVIAR">
+                    <!-- BUTTONS -->
+                    <div class="form-group my-3 text-center">
+                        <!-- <a href="emplista.php" class="btn btn-danger loginbtn">VOLTAR</a> -->
                         <button type="button" class="btn btn-secondary loginbtn" onclick="reset()">LIMPAR</button>
-                        <a href="emplista.php" class="btn btn-danger loginbtn">VOLTAR</a>
+                        <input type="submit" class="btn btn-primary loginbtn" value="ENVIAR">
                     </div>
                 </form>
             </div>
