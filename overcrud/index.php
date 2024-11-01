@@ -23,46 +23,51 @@
 
     <!-- LOGO -->
     <div class="row d-flex justify-content-center mb-5">
-        <img src="./img/logo_white2.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
+        <img src="./img/logo_white4.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
     </div>
 
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-6 col-sm-8 col-md-4">
+            <div class="col-8 col-sm-10 col-md-8 col-lg-5">
+                <div class="row d-flex mb-2 text-center">
+                    <h1 class="display-5 lead">SISTEMA DE GESTÃO</h1>
+                </div>
+                <div class="row d-flex mb-2 justify-content-center align-items-center">
                 <!-- LOGIN CARD -->
-                <div class="card shadow" id="cardlogin">
-                    <div class="card-body">
-                        <h5 class="card-title text-center display-6">LOGIN</h5>
-                        <div class="card-text">
-                            <!-- FORM -->
-                            <form action="loginValidation.php" class="mt-4" method="POST">
-                                <!-- LOGIN -->
-                                <div class="input-group mb-3">
-                                    <i class="input-group-text fa-solid fa-right-to-bracket"></i>
-                                    <input type="text" class="form-control form-control-sm" name="login" id="inputlogin"
-                                        minlength="6" maxlength="32" placeholder="Login" autofocus required>
-                                </div>
+                    <div class="card shadow" id="cardlogin">
+                        <div class="card-body">
+                            <h5 class="card-title text-center fs-2">FAÇA SEU LOGIN</h5>
+                            <div class="card-text">
+                                <!-- FORM -->
+                                <form action="loginValidation.php" class="mt-4" method="POST">
+                                    <!-- LOGIN -->
+                                    <div class="input-group input-group-lg mb-3">
+                                        <i class="input-group-text fa-solid fa-right-to-bracket p-3"></i>
+                                        <input type="text" class="form-control form-control-sm" name="login" id="inputlogin"
+                                            minlength="6" maxlength="32" placeholder="Login" autofocus required>
+                                    </div>
 
-                                <!-- SENHA -->
-                                <div class="input-group mb-4">
-                                    <i class="input-group-text fa-solid fa-lock"></i>
-                                    <input type="password" class="form-control form-control-sm" name="senha"
-                                        id="inputsenha" minlength="8" maxlength="32" placeholder="Senha" required>
-                                </div>
+                                    <!-- SENHA -->
+                                    <div class="input-group input-group-lg mb-4">
+                                        <i class="input-group-text fa-solid fa-lock p-3"></i>
+                                        <input type="password" class="form-control form-control-sm" name="senha"
+                                            id="inputsenha" minlength="8" maxlength="32" placeholder="Senha" required>
+                                    </div>
 
-                                <!-- ERRO -->
-                                <div
-                                    class="d-none <?php $loginValido == false ? 'd-flex' : 'd-none'; ?> alert alert-danger">
-                                    Login e/ou senha inválidos!
-                                </div>
+                                    <!-- ERRO -->
+                                    <div
+                                        class="d-none <?php $loginValido == false ? 'd-flex' : 'd-none'; ?> alert alert-danger">
+                                        Login e/ou senha inválidos!
+                                    </div>
 
-                                <!-- BUTTONS -->
-                                <div class="d-flex mt-3 justify-content-center gap-3">
-                                    <button type="submit" class="btn btn-primary loginbtn"> Entrar </button>
-                                    <button type="button" class="btn btn-secondary loginbtn"
-                                        onclick="reset()">Cancelar</button>
-                                </div>
-                            </form>
+                                    <!-- BUTTONS -->
+                                    <div class="row d-flex justify-content-center m-auto" id="loginbtnrow">
+                                        <button type="submit" class="btn btn-primary loginbtn m-2"> <b class="fs-5">ENTRAR</b>  </button>
+                                        <!-- <button type="button" class="btn btn-secondary loginbtn" 
+                                            onclick="reset()">Cancelar</button> -->
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
