@@ -6,7 +6,7 @@ body{
 /*--------- NAVBAR ---------*/
 /*--- LOGO ---*/
 .loginlogo{
-    width: 55%;
+    width: 45%;
 }
 
 
@@ -19,15 +19,16 @@ body{
     font-size: xx-small;
 }
 
-/*--- DARKMODE ---*/
+/*--- SAIR ---*/
 .sairbtn{
     font-size: xx-small;
 }
 
+
 /*--------- FORMS ---------*/
 /*--- BUTTONS LOGIN ---*/
 .loginbtn{
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 0.5rem;
 }
 
@@ -41,8 +42,9 @@ body{
 /*--------- CARDS ---------*/
 /*--- CARD-HEADER ---*/
 #usunome, #usucpf, #empnome, #empcnpj{
-    font-size: 3vh;
+    font-size: 1.5rem;
 }
+
 
 /*--- CARD-LOGIN ---*/
 #cardlogin{
