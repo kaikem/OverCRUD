@@ -1,6 +1,15 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
+
+//CONEXÃO COM BD
+require_once 'config.php';
+
+//TABELAS DO BD
+require_once 'sqltables.php';
+
+//FUNÇÕES DE SUPORTE
+require_once 'support.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,10 +28,6 @@ require_once 'sessionverif.php';
 <body>
     <!-- BASE PHP -->
     <?php
-    //IMPORTAÇÕES
-    require_once 'config.php';
-    require_once 'support.php';
-
     //RECEBIMENTO DE DADOS DO FORMULÁRIO
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
