@@ -18,10 +18,9 @@ require_once 'sessionverif.php';
 
 <body>
     <div class="container">
-
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+            <?php require_once 'navbarTop.php'; ?>
         </div>
 
         <!-- ROW DO CORPO -->
