@@ -1,3 +1,11 @@
+<?php 
+//LIMPEZA DE USUÁRIO
+session_start();
+unset($_SESSION['login']);
+unset($_SESSION['senha']);
+unset($_SESSION['tipo']);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
