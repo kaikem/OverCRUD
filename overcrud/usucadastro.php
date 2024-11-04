@@ -4,9 +4,6 @@ require_once 'sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
 if($tipoUsu!='1'){
-    unset($_SESSION['login']);
-    unset($_SESSION['senha']);
-    unset($_SESSION['tipo']);
     header("Location: index.php");
 };
 
@@ -131,6 +128,7 @@ require_once 'sqltables.php';
     </script>
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
+    <script src="./js/inputValidations.js"></script>
 </body>
 
 </html>
