@@ -68,6 +68,7 @@
                                         <!-- <button type="button" class="btn btn-secondary loginbtn" 
                                             onclick="reset()">Cancelar</button> -->
                                     </div>
+
                                 </form>
                             </div>
                         </div>
