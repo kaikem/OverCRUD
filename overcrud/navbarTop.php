@@ -36,7 +36,7 @@ echo "
                                         <ul class='dropdown-menu dropdown-menu-dark'>
                                             <li> <a href='emplista.php' class='dropdown-item'>Consultar empresas</a>
                                             </li>
-                                            <li> <a href='empcadastro.php' class='dropdown-item'>Cadastrar
+                                            <li> <a href='empcadastro.php' class='dropdown-item <?php $linksAdm ?>'>Cadastrar
 Nova</a>
 </li>
 </ul>
@@ -46,7 +46,7 @@ Nova</a>
     <ul class='dropdown-menu dropdown-menu-dark'>
         <li> <a href='usulista.php' class='dropdown-item'>Consultar usuários</a>
         </li>
-        <li> <a href='usucadastro.php' class='dropdown-item'>Cadastrar Novo</a>
+        <li> <a href='usucadastro.php' class='dropdown-item <?php $linksAdm ?>'>Cadastrar Novo</a>
         </li>
     </ul>
 </li>
