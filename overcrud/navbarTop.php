@@ -36,43 +36,44 @@ echo "
                                         <ul class='dropdown-menu dropdown-menu-dark'>
                                             <li> <a href='emplista.php' class='dropdown-item'>Consultar empresas</a>
                                             </li>
-                                            <li> <a href='empcadastro.php' class='dropdown-item'>Cadastrar Nova</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class='navbar-item dropdown'>
-                                        <a href='#' class='nav-link fs-5 dropdown-toggle'
-                                            data-bs-toggle='dropdown'>Usuários</a>
-                                        <ul class='dropdown-menu dropdown-menu-dark'>
-                                            <li> <a href='usulista.php' class='dropdown-item'>Consultar usuários</a>
-                                            </li>
-                                            <li> <a href='usucadastro.php' class='dropdown-item'>Cadastrar Novo</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class='navbar-item'>
-                                        <a href='#' class='nav-link fs-5'>Contato</a>
-                                    </li>
-                                    <li class='navbar-item'>
-                                        <a href='#' class='nav-link fs-5'>Sobre</a>
-                                    </li>
-                                    <li class='navbar-item d-flex d-md-none'>
-                                        <a href='home.php' class='nav-link text-danger fs-5 fw-bold' data-bs-toggle='modal' data-bs-target='#modallogout'>SAIR</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- COLUNA 03 (DARKMODE & SAIR) -->
-                        <div class='d-none col-md-2 d-md-flex justify-content-end'>
-                            <!-- DARKMODE -->
-                            <div class='btn-group btn-grup-sm'>
-                                <button class='btn btn-dark rounded-start-5 p-1 darkmodebtnint' data-bs-theme-value='dark'>Dark</button>
-                                <button class='btn btn-light rounded-end-5 p-1 darkmodebtnint' data-bs-theme-value='light'>Light</button>
-                            </div>
-                            <!-- SAIR -->
-                            <a class='btn btn-danger rounded-circle p-1 ms-3 sairbtn' data-bs-toggle='modal'
-                                data-bs-target='#modallogout'>Sair</a>
-                        </div>
+                                            <li> <a href='empcadastro.php' class='dropdown-item'>Cadastrar
+Nova</a>
+</li>
+</ul>
+</li>
+<li class='navbar-item dropdown'>
+    <a href='#' class='nav-link fs-5 dropdown-toggle' data-bs-toggle='dropdown'>Usuários</a>
+    <ul class='dropdown-menu dropdown-menu-dark'>
+        <li> <a href='usulista.php' class='dropdown-item'>Consultar usuários</a>
+        </li>
+        <li> <a href='usucadastro.php' class='dropdown-item'>Cadastrar Novo</a>
+        </li>
+    </ul>
+</li>
+<li class='navbar-item'>
+    <a href='#' class='nav-link fs-5'>Contato</a>
+</li>
+<li class='navbar-item'>
+    <a href='#' class='nav-link fs-5'>Sobre</a>
+</li>
+<li class='navbar-item d-flex d-md-none'>
+    <a href='home.php' class='nav-link text-danger fs-5 fw-bold' data-bs-toggle='modal'
+        data-bs-target='#modallogout'>SAIR</a>
+</li>
+</ul>
+</div>
+</div>
+<!-- COLUNA 03 (DARKMODE & SAIR) -->
+<div class='d-none col-md-2 d-md-flex justify-content-end'>
+    <!-- DARKMODE -->
+    <div class='btn-group btn-grup-sm'>
+        <button class='btn btn-dark rounded-start-5 p-1 darkmodebtnint' data-bs-theme-value='dark'>Dark</button>
+        <button class='btn btn-light rounded-end-5 p-1 darkmodebtnint' data-bs-theme-value='light'>Light</button>
+    </div>
+    <!-- SAIR -->
+    <a class='btn btn-danger rounded-circle p-1 ms-3 sairbtn' data-bs-toggle='modal'
+        data-bs-target='#modallogout'>Sair</a>
+</div>
 
 </div>
 </div>
