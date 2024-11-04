@@ -18,8 +18,7 @@ if (!empty($_POST['login']) && !empty($_POST['senha'])) {
         $_SESSION['login'] =  $loginIndex;
         $_SESSION['senha'] = $senhaIndex;
         $_SESSION['tipo'] = $tipoIndex;
-        print_r($_SESSION['tipo']);
-        //header("Location: home.php");
+        header("Location: home.php");
     } else {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
