@@ -4,9 +4,6 @@ require_once 'sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
 if($tipoUsu!='1'){
-    unset($_SESSION['login']);
-    unset($_SESSION['senha']);
-    unset($_SESSION['tipo']);
     header("Location: index.php");
 };
 
