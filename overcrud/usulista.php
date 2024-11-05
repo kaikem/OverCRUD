@@ -135,6 +135,8 @@ require_once 'sqltables.php';
             <?php endforeach; ?>
 
         </div>
+        <!-- FOOTER -->
+        <?php require_once 'footer.php' ?>
     </div>
 
     <!-- SCRIPTS JS -->
