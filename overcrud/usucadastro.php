@@ -107,7 +107,7 @@ require_once 'sqltables.php';
                         <label for="empregadoem" class="form-label">Empresa:</label>
                         <select class="form-select" name="empregadoem" id="empregadoem">
                             <?php foreach ($listaEmp as $empresa): ?>
-                            <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
