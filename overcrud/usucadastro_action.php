@@ -57,7 +57,7 @@ require_once 'support.php';
         <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">CADASTRO DE USUÁRIOS</h1>
-            <!-- VERIFICAÇÃO DE CAMPO CNPJ + INSERÇÃO NO BD -->
+            <!-- VERIFICAÇÃO DE CAMPO CPF + INSERÇÃO NO BD -->
             <?php
             $sqlVerif = $pdo->prepare("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
             $sqlVerif->execute();
