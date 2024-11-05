@@ -70,7 +70,8 @@ require_once 'sessionverif.php';
                     necessitatibus nobis doloremque aliquid quibusdam?</p>
             </div>
         </div>
-
+        <!-- FOOTER -->
+        <?php require_once 'footer.php' ?>
     </div>
 
     <!-- SCRIPTS JS -->
