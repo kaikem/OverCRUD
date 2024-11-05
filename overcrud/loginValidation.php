@@ -2,37 +2,41 @@
 session_start();
 
 //VERIFICAÇÃO DE SUBMIT DO FORM E VARIÁVEIS VAZIAS
-if (!empty($_POST['login']) && !empty($_POST['senha'])) {
+if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
     require_once 'config.php';
 
-    $loginIndex = $_POST['login'];
+    $cpfIndex = $_POST['cpf'];
     $senhaIndex = $_POST['senha'];
     $usuarioIndex = [];
 
-    $sqlVerifUsu = $pdo->query("SELECT * FROM usuarios WHERE `login`='$loginIndex'");
+    $sqlVerifUsuCpf = $pdo->query("SELECT * FROM usuarios WHERE `cpf`='$cpfIndex'");
 
-    if ($sqlVerifUsu->rowCount() > 0) {
-        $usuarioIndex = $sqlVerifUsu->fetchAll(PDO::FETCH_ASSOC);
+    if ($sqlVerifUsuCpf->rowCount() > 0) {
+        $usuarioIndex = $sqlVerifUsuCpf->fetchAll(PDO::FETCH_ASSOC);
         $tipoIndex = $usuarioIndex[0]['tipo'];
+        $nomeLogin = $usuarioIndex[0]['nome'];
         $senhaHash = $usuarioIndex[0]['password'];
 
         if (password_verify($senhaIndex, $senhaHash)) {
-            $_SESSION['login'] =  $loginIndex;
+            $_SESSION['cpf'] =  $cpfIndex;
             $_SESSION['senha'] = $senhaIndex;
             $_SESSION['tipo'] = $tipoIndex;
+            $_SESSION['nome'] = $nomeLogin;
             header("Location: home.php");
         } else {
-            unset($_SESSION['login']);
+            unset($_SESSION['cpf']);
             unset($_SESSION['senha']);
             unset($_SESSION['tipo']);
-            echo "<script>alert('Usuário/Senha inválidos! Tente novamente.')</script>";
+            unset($_SESSION['nome']);
+            echo "<script>alert('CPF/Senha inválidos! Tente novamente.')</script>";
             header("Refresh: 0");
         };
     } else {
-        unset($_SESSION['login']);
+        unset($_SESSION['cpf']);
         unset($_SESSION['senha']);
         unset($_SESSION['tipo']);
-        echo "<script>alert('Usuário/Senha inválidos! Tente novamente.')</script>";
+        unset($_SESSION['nome']);
+        echo "<script>alert('CPF/Senha inválidos! Tente novamente.')</script>";
         header("Refresh: 0");
     };
 } else {
