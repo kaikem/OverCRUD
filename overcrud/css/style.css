@@ -26,6 +26,13 @@ body{
 
 
 /*--------- FORMS ---------*/
+/*--- FORM ---*/
+form{
+    background-color: rgba(128, 128, 128, 0.152);
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+
 /*--- BUTTONS LOGIN ---*/
 .loginbtn{
     border-radius: 0.5rem;
@@ -38,6 +45,21 @@ body{
 .form-label{
     margin-top: 0.7rem;
     margin-bottom: 0;
+}
+
+/*--- FIELDSETS ---*/
+fieldset{
+    margin-bottom: 0.4rem;
+    background-color: rgba(128, 128, 128, 0.205);
+    padding: 1rem;
+    border-radius: 0.4rem;
+}
+
+/*--- LEGENDS ---*/
+legend{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: lighter;
 }
 
 
