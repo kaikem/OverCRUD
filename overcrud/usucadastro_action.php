@@ -33,6 +33,7 @@ require_once 'support.php';
     $endereco = $_POST['endereco'];
     $login = $_POST['login'];
     $password = $_POST['password'];
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $cpf = $_POST['cpf'];
     $cnh = $_POST['cnh'];
     $carro = $_POST['carro'];
@@ -62,9 +63,10 @@ require_once 'support.php';
             $sqlVerif->execute();
 
             if ($sqlVerif->rowCount() === 0) {
-                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, login, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$login', '$password', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
+                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, login, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$login', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
 
                 if ($sqlInsert->execute()) {
+                    mensagemRetorno($passwordHash, "info");
                     mensagemRetorno("Dados de $nome (CPF $cpf) cadastrados com sucesso!", "success");
                 } else {
                     mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
