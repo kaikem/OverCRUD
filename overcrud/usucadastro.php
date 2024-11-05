@@ -37,83 +37,90 @@ require_once 'sqltables.php';
         <!-- ROW DO CORPO -->
         <div class="row d-flex justify-content-center mt-5" id="appBody">
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
-                <!-- TÍTULO DA SEÇÃO -->
+                <!-- TÍTULO DA SESSÃO -->
                 <h1 class="text-center display-6 mb-5">CADASTRO DE USUÁRIOS</h1>
                 <!-- FORMULÁRIO -->
                 <form action="usucadastro_action.php" method="POST">
-                    <!-- LOGIN -->
-                    <div class="form-group">
-                        <label for="login" class="form-label">Login:</label>
-                        <input type="text" class="form-control" name="login" id="login" maxlength="32" minlength="6"
-                            required>
-                    </div>
+                    <!-- FIELDSET CONTA -->
+                    <fieldset>
+                        <legend>DADOS DA CONTA</legend>
+                        <!-- CPF -->
+                        <div class="form-group">
+                            <label for="cpf" class="form-label">CPF:</label>
+                            <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
+                                onkeydown="handleCpf(event)" required>
+                        </div>
 
-                    <!-- SENHA -->
-                    <div class="form-group">
-                        <label for="password" class="form-label">Senha:</label>
-                        <input type="password" class="form-control" name="password" id="password" maxlength="16"
-                            minlength="8" required>
-                    </div>
+                        <!-- SENHA -->
+                        <div class="form-group">
+                            <label for="password" class="form-label">Senha:</label>
+                            <input type="password" class="form-control" name="password" id="password" maxlength="16"
+                                minlength="8" required>
+                        </div>
 
-                    <!-- TIPO -->
-                    <div class="form-group">
-                        <label for="tipo" class="form-label">Tipo:</label>
-                        <select class="form-select" name="tipo" id="tipo">
-                            <option value="0">Comum</option>
-                            <option value="1">Admin</option>
-                        </select>
-                    </div>
+                        <!-- TIPO -->
+                        <div class="form-group">
+                            <label for="tipo" class="form-label">Tipo:</label>
+                            <select class="form-select" name="tipo" id="tipo">
+                                <option value="0">Comum</option>
+                                <option value="1">Admin</option>
+                            </select>
+                        </div>
 
-                    <!-- NOME -->
-                    <div class="form-group">
-                        <label for="nome" class="form-label">Nome:</label>
-                        <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
-                    </div>
+                    </fieldset>
 
-                    <!-- TELEFONE -->
-                    <div class="form-group">
-                        <label for="telefone" class="form-label">Telefone:</label>
-                        <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                            minlength="14" onkeydown="handlePhone(event)">
-                    </div>
+                    <!-- FIELDSET PESSOAIS -->
+                    <fieldset>
+                        <legend>DADOS PESSOAIS</legend>
+                        <!-- NOME -->
+                        <div class="form-group">
+                            <label for="nome" class="form-label">Nome:</label>
+                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
+                        </div>
 
-                    <!-- ENDEREÇO -->
-                    <div class="form-group">
-                        <label for="endereco" class="form-label">Endereço:</label>
-                        <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64">
-                    </div>
+                        <!-- TELEFONE -->
+                        <div class="form-group">
+                            <label for="telefone" class="form-label">Telefone:</label>
+                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+                                minlength="14" onkeydown="handlePhone(event)">
+                        </div>
 
-                    <!-- CPF -->
-                    <div class="form-group">
-                        <label for="cpf" class="form-label">CPF:</label>
-                        <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
-                            onkeydown="handleCpf(event)" required>
-                    </div>
+                        <!-- ENDEREÇO -->
+                        <div class="form-group">
+                            <label for="endereco" class="form-label">Endereço:</label>
+                            <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
+                                required>
+                        </div>
 
-                    <!-- CNH -->
-                    <div class="form-group">
-                        <label for="cnh" class="form-label">CNH:</label>
-                        <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
-                    </div>
+                        <!-- CNH -->
+                        <div class="form-group">
+                            <label for="cnh" class="form-label">CNH:</label>
+                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
+                        </div>
 
-                    <!-- CARRO -->
-                    <div class="form-group">
-                        <label for="carro" class="form-label">Carro:</label>
-                        <input type="text" class="form-control" name="carro" id="carro" maxlength="32">
-                    </div>
+                        <!-- CARRO -->
+                        <div class="form-group">
+                            <label for="carro" class="form-label">Carro:</label>
+                            <input type="text" class="form-control" name="carro" id="carro" maxlength="32">
+                        </div>
+                    </fieldset>
 
-                    <!-- EMPREGADO EM -->
-                    <div class="form-group">
-                        <label for="empregadoem" class="form-label">Empresa:</label>
-                        <select class="form-select" name="empregadoem" id="empregadoem">
-                            <?php foreach ($listaEmp as $empresa): ?>
+                    <!-- FIELDSET EMPREGADO -->
+                    <fieldset>
+                        <!-- EMPREGADO EM -->
+                        <legend>EMPREGADO EM</legend>
+                        <div class="form-group">
+                            <label for="empregadoem" class="form-label">Empresa:</label>
+                            <select class="form-select" name="empregadoem" id="empregadoem">
+                                <?php foreach ($listaEmp as $empresa): ?>
                                 <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </fieldset>
 
                     <!-- BUTTONS -->
-                    <div class="form-group my-3 text-center">
+                    <div class="form-group my-3 text-center align-items-center">
                         <!-- <a href="emplista.php" class="btn btn-danger loginbtn">VOLTAR</a> -->
                         <button type="button" class="btn btn-secondary loginbtn" onclick="reset()">LIMPAR</button>
                         <input type="submit" class="btn btn-primary loginbtn" value="ENVIAR">
