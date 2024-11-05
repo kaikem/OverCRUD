@@ -3,20 +3,22 @@
 session_start();
 
 //VERIFICAÇÃO DE SESSÃO EXISTENTE
-    if ((isset($_SESSION['login']) == true) && (isset($_SESSION['senha']) == true)) {
-        $logado = $_SESSION['login'];
-        $tipoUsu = $_SESSION['tipo'];
-    
-        //HIDE ou SHOW DOS LINKS
-        if ($tipoUsu == '0') {
-            $linksAdm = 'd-none';
-        } else {
-            $linksAdm = '';
-        };
-    
+if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
+    $logado = $_SESSION['cpf'];
+    $tipoUsu = $_SESSION['tipo'];
+    $nomeUsu = $_SESSION['nome'];
+
+
+    //HIDE ou SHOW DOS LINKS
+    if ($tipoUsu == '0') {
+        $linksAdm = 'd-none';
     } else {
-        unset($_SESSION['login']);
-        unset($_SESSION['senha']);
-        unset($_SESSION['tipo']);
-        header("Location: index.php");
+        $linksAdm = '';
     };
+} else {
+    unset($_SESSION['cpf']);
+    unset($_SESSION['senha']);
+    unset($_SESSION['tipo']);
+    unset($_SESSION['nome']);
+    header("Location: index.php");
+};
