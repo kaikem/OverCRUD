@@ -69,6 +69,9 @@ require_once 'support.php';
             <!-- BOTÃO VOLTAR -->
             <a href="empcadastro.php" class="btn btn-warning">VOLTAR</a>
         </div>
+
+        <!-- FOOTER -->
+        <?php require_once 'footer.php' ?>
     </div>
 
 
