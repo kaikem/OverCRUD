@@ -3,7 +3,7 @@
 require_once 'sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
-if($tipoUsu!='1'){
+if ($tipoUsu != '1') {
     header("Location: index.php");
 };
 
@@ -51,7 +51,7 @@ require_once 'sqltables.php';
                     <!-- SENHA -->
                     <div class="form-group">
                         <label for="password" class="form-label">Senha:</label>
-                        <input type="password" class="form-control" name="password" id="password" maxlength="32"
+                        <input type="password" class="form-control" name="password" id="password" maxlength="16"
                             minlength="8" required>
                     </div>
 
@@ -107,7 +107,7 @@ require_once 'sqltables.php';
                         <label for="empregadoem" class="form-label">Empresa:</label>
                         <select class="form-select" name="empregadoem" id="empregadoem">
                             <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                            <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
