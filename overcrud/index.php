@@ -1,9 +1,10 @@
-<?php 
+<?php
 //LIMPEZA DE USUÁRIO
 session_start();
-unset($_SESSION['login']);
+unset($_SESSION['cpf']);
 unset($_SESSION['senha']);
 unset($_SESSION['tipo']);
+unset($_SESSION['nome']);
 ?>
 
 <!DOCTYPE html>
@@ -42,18 +43,19 @@ unset($_SESSION['tipo']);
                 </div>
                 <div class="row d-flex mb-2 justify-content-center align-items-center">
                     <!-- LOGIN CARD -->
-                    <div class="card shadow mb-5" id="cardlogin">
+                    <div class="card shadow" id="cardlogin">
                         <div class="card-body">
                             <h5 class="card-title text-center fs-2">FAÇA SEU LOGIN</h5>
                             <div class="card-text">
                                 <!-- FORM -->
-                                <form action="loginValidation.php" class="mt-4" method="POST">
+                                <form action="loginValidation.php" class="mt-4" style="background-color: none;"
+                                    method="POST">
                                     <!-- LOGIN -->
                                     <div class="input-group input-group-lg mb-3">
                                         <i class="input-group-text fa-solid fa-right-to-bracket p-3"></i>
-                                        <input type="text" class="form-control form-control-sm" name="login"
-                                            id="inputlogin" minlength="6" maxlength="32" placeholder="Login" autofocus
-                                            required>
+                                        <input type="text" class="form-control form-control-sm" name="cpf" id="inputcpf"
+                                            minlength="14" maxlength="14" placeholder="CPF" onkeydown="handleCpf(event)"
+                                            autofocus required>
                                     </div>
 
                                     <!-- SENHA -->
@@ -61,12 +63,6 @@ unset($_SESSION['tipo']);
                                         <i class="input-group-text fa-solid fa-lock p-3"></i>
                                         <input type="password" class="form-control form-control-sm" name="senha"
                                             id="inputsenha" minlength="8" maxlength="32" placeholder="Senha" required>
-                                    </div>
-
-                                    <!-- ERRO -->
-                                    <div
-                                        class="d-none <?php $loginValido == false ? 'd-flex' : 'd-none'; ?> alert alert-danger">
-                                        Login e/ou senha inválidos!
                                     </div>
 
                                     <!-- BUTTONS -->
@@ -91,6 +87,7 @@ unset($_SESSION['tipo']);
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
+    <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
 </body>
 
