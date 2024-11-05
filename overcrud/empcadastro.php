@@ -3,7 +3,7 @@
 require_once 'sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
-if($tipoUsu!='1'){
+if ($tipoUsu != '1') {
     header("Location: index.php");
 };
 
@@ -41,44 +41,50 @@ require_once 'sqltables.php';
                 <h1 class="text-center display-6 mb-5">CADASTRO DE EMPRESAS</h1>
                 <!-- FORMULÁRIO -->
                 <form action="empcadastro_action.php" method="POST">
-                    <!-- NOME -->
-                    <div class="form-group">
-                        <label for="nome" class="form-label">Nome:</label>
-                        <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
-                    </div>
+                    <!-- FIELDSET CONTA -->
+                    <fieldset>
+                        <legend>DADOS DA EMPRESA</legend>
+                        <!-- CNPJ -->
+                        <div class="form-group">
+                            <label for="cnpj" class="form-label">CNPJ:</label>
+                            <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
+                                onkeydown="handleCnpj(event)" required>
+                        </div>
 
-                    <!-- TELEFONE -->
-                    <div class="form-group">
-                        <label for="telefone" class="form-label">Telefone:</label>
-                        <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                            minlength="14" onkeydown="handlePhone(event)">
-                    </div>
+                        <!-- NOME -->
+                        <div class="form-group">
+                            <label for="nome" class="form-label">Nome:</label>
+                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
+                        </div>
 
-                    <!-- ENDEREÇO -->
-                    <div class="form-group">
-                        <label for="endereco" class="form-label">Endereço:</label>
-                        <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64" required>
-                    </div>
+                        <!-- NOME FANTASIA -->
+                        <div class="form-group">
+                            <label for="fantasia" class="form-label">Nome Fantasia:</label>
+                            <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
+                                required>
+                        </div>
 
-                    <!-- NOME FANTASIA -->
-                    <div class="form-group">
-                        <label for="fantasia" class="form-label">Nome Fantasia:</label>
-                        <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64" required>
-                    </div>
+                        <!-- TELEFONE -->
+                        <div class="form-group">
+                            <label for="telefone" class="form-label">Telefone:</label>
+                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+                                minlength="14" onkeydown="handlePhone(event)">
+                        </div>
 
-                    <!-- CNPJ -->
-                    <div class="form-group">
-                        <label for="cnpj" class="form-label">CNPJ:</label>
-                        <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
-                            onkeydown="handleCnpj(event)" required>
-                    </div>
+                        <!-- ENDEREÇO -->
+                        <div class="form-group">
+                            <label for="endereco" class="form-label">Endereço:</label>
+                            <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
+                                required>
+                        </div>
 
-                    <!-- RESPONSÁVEL -->
-                    <div class="form-group">
-                        <label for="responsavel" class="form-label">Responsável:</label>
-                        <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
-                            required>
-                    </div>
+                        <!-- RESPONSÁVEL -->
+                        <div class="form-group">
+                            <label for="responsavel" class="form-label">Responsável:</label>
+                            <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
+                                required>
+                        </div>
+                    </fieldset>
 
                     <!-- BUTTONS -->
                     <div class="form-group my-3 text-center">
