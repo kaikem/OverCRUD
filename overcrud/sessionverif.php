@@ -6,7 +6,7 @@ session_start();
 if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     $logado = $_SESSION['cpf'];
     $tipoUsu = $_SESSION['tipo'];
-    $nomeUsu = $_SESSION['nome'];
+    $nomeUsu = strtok($_SESSION['nome'], " ");
 
 
     //HIDE ou SHOW DOS LINKS
