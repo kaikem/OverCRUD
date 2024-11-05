@@ -31,7 +31,6 @@ require_once 'support.php';
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
     $endereco = $_POST['endereco'];
-    $login = $_POST['login'];
     $password = $_POST['password'];
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $cpf = $_POST['cpf'];
@@ -59,20 +58,21 @@ require_once 'support.php';
             <h1 class="text-center display-6 my-5">CADASTRO DE USUÁRIOS</h1>
             <!-- VERIFICAÇÃO DE CAMPO CPF + INSERÇÃO NO BD -->
             <?php
-            $sqlVerif = $pdo->prepare("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
-            $sqlVerif->execute();
+            $sqlVerifCpf = $pdo->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
+            $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh'");
 
-            if ($sqlVerif->rowCount() === 0) {
-                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, login, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$login', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
+            if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
+                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
 
                 if ($sqlInsert->execute()) {
-                    mensagemRetorno($passwordHash, "info");
                     mensagemRetorno("Dados de $nome (CPF $cpf) cadastrados com sucesso!", "success");
                 } else {
                     mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
                 };
-            } else {
-                mensagemRetorno("CPF $cpf já existente! Use outro CPF para este cadastro.", "warning");
+            } else if ($sqlVerifCpf->rowCount() != 0) {
+                mensagemRetorno("O CPF $cpf já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
+            } else if ($sqlVerifCnh->rowCount() != 0) {
+                mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
             };
             ?>
 
