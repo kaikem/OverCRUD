@@ -20,7 +20,7 @@ unset($_SESSION['nome']);
 </head>
 
 <body>
-    <!-- DARKMODE -->
+    <!-- DARKMODE 
     <div class="container mt-2 mb-4 d-flex justify-content-end">
         <div class="row">
             <div class="btn-group btn-group-sm">
@@ -29,15 +29,19 @@ unset($_SESSION['nome']);
             </div>
         </div>
     </div>
+    -->
 
-    <!-- LOGO -->
-    <div class="row d-flex justify-content-center mb-5">
-        <img src="./img/logo_white4.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
-    </div>
 
     <div class="container">
+        <!-- LOGO -->
+        <div class="row d-flex justify-content-center mb-5 mt-4">
+            <img src="./img/logo_white4.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
+        </div>
+
+        <!-- TÍTULO & CARD DE LOGIN -->
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-8 col-sm-10 col-md-8 col-lg-5">
+                <!-- TÍTULO -->
                 <div class="row d-flex mb-2 text-center">
                     <h1 class="display-5 lead">SISTEMA DE GESTÃO</h1>
                 </div>
