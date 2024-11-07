@@ -21,22 +21,22 @@ foreach ($listaUsu as $usuario): ?>
             <!-- CORPO DO MODAL -->
             <div class='modal-body'>
                 <!-- STATUS -->
-                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-file-invoice"></i>Status: </p>
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-chart-line"></i> Status: </p>
                 <?php
                     if ($usuario['status'] == 1) {
-                        echo "<div class='mt-0 mb-2 display-6 fs-5 text-success'> ATIVO</div>";
+                        echo "<div class='mt-0 mb-3 display-6 fs-5 text-success'> ATIVO</div>";
                     } else {
-                        echo "<div class='mt-0 mb-2 display-6 fs-5 text-danger'> INATIVO</div>";
+                        echo "<div class='mt-0 mb-3 display-6 fs-5 text-danger'> INATIVO</div>";
                     };
                     ?>
 
                 <!-- CPF -->
-                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i> CPF: </p>
-                <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['cpf']; ?> </div>
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-person"></i> CPF: </p>
+                <div class="mt-0 mb-3 display-6 fs-5"> <?= $usuario['cpf']; ?> </div>
 
                 <!-- TELEFONE -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone:</p>
-                <div class="mt-0 mb-2 display-6 fs-5">
+                <div class="mt-0 mb-3 display-6 fs-5">
                     <?php
                         if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
                             echo "- NÃO POSSUI -";
@@ -49,12 +49,12 @@ foreach ($listaUsu as $usuario): ?>
                 <!-- ENDEREÇO -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>
                     Endereço: </p>
-                <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['endereco']; ?> </div>
+                <div class="mt-0 mb-3 display-6 fs-5"> <?= $usuario['endereco']; ?> </div>
 
                 <!-- CNH -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-id-card"></i>
                     CNH: </p>
-                <div class="mt-0 mb-2 display-6 fs-5">
+                <div class="mt-0 mb-3 display-6 fs-5">
                     <?php
                         if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
                             echo "- NÃO POSSUI -";
@@ -67,7 +67,7 @@ foreach ($listaUsu as $usuario): ?>
                 <!-- CARRO -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-car"></i>
                     Carro: </p>
-                <div class="mt-0 mb-2 display-6 fs-5">
+                <div class="mt-0 mb-3 display-6 fs-5">
                     <?php
                         if ($usuario['carro'] == "" || $usuario['carro'] == null) {
                             echo "- NENHUM -";
@@ -81,7 +81,7 @@ foreach ($listaUsu as $usuario): ?>
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-file-invoice"></i>
                     Tipo de
                     Conta: </p>
-                <div class="mt-0 mb-2 display-6 fs-5">
+                <div class="mt-0 mb-3 display-6 fs-5">
                     <?php
                         if ($usuario['tipo'] == 0) {
                             echo "Comum";
@@ -125,6 +125,7 @@ foreach ($listaUsu as $usuario): ?>
                 <tr class="table-secondary text-center">
                     <th>NOME</th>
                     <th>CPF</th>
+                    <th>CNH</th>
                     <th>TELEFONE</th>
                     <th>STATUS</th>
                     <th> </th>
@@ -138,6 +139,15 @@ foreach ($listaUsu as $usuario): ?>
                     <td><?= $usuario['cpf']; ?></td>
                     <td>
                         <?php
+                            if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
+                                echo "- NÃO POSSUI -";
+                            } else {
+                                echo $usuario['cnh'];
+                            }
+                            ?>
+                    </td>
+                    <td>
+                        <?php
                             if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
                                 echo "- NÃO POSSUI -";
                             } else {
@@ -148,9 +158,9 @@ foreach ($listaUsu as $usuario): ?>
                     <td>
                         <?php
                             if ($usuario['status'] == 1) {
-                                echo "<div class='mt-0 mb-2 display-6 fs-5 text-success'> ATIVO</div>";
+                                echo "<div class='text-success'>ATIVO</div>";
                             } else {
-                                echo "<div class='mt-0 mb-2 display-6 fs-5 text-danger'> INATIVO</div>";
+                                echo "<div class='text-danger'>INATIVO</div>";
                             };
                             ?>
                     </td>
