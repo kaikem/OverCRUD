@@ -1,4 +1,4 @@
-/**------ GERAIS ------**/
+/**------ GERAL ------**/
 /** BODY **/
 body{
     min-width: 320px;
@@ -100,10 +100,6 @@ td{
 /** ÍCONES **/
 #deleteicon{
     color: red;
-}
-
-#infoicon{
-    color: rgb(45, 45, 209)
 }
 
 .modalanchor:hover{
