@@ -36,7 +36,7 @@ require_once 'usumodal.php';
         <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">LISTA DE USUÁRIOS</h1>
-            <table id="ListaUsuarios" class="table table-striped">
+            <table id="tabelaUsuarios" class="table table-striped">
                 <!-- TABELA (CABEÇALHO) -->
                 <tr class="table-secondary text-center">
                     <th>NOME</th>
@@ -83,7 +83,7 @@ require_once 'usumodal.php';
                     <td>
                         <a class="modalanchor" data-bs-toggle="modal"
                             data-bs-target="#usumodal<?= $usuario['idusuario'] ?>">
-                            <i class="fa-solid fa-circle-info px-0 py-2" title="Detalhes" id="infoicon"></i>
+                            <i class="fa-solid fa-circle-info text-primary px-0 py-2" title="Detalhes"></i>
                         </a>
                     </td>
                     <td class="<?= $linksAdm ?>">
