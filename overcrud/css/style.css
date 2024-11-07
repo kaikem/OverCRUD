@@ -1,16 +1,26 @@
-/*--------- BODY ---------*/
+/**------ GERAIS ------**/
+/** BODY **/
 body{
     min-width: 320px;
 }
 
-/*--------- NAVBAR ---------*/
-/*--- LOGO ---*/
+
+/*-----------------------------------------------------------------*/
+/**------ FOOTER ------**/
+/** EMAIL **/
+#emailfooter{
+    font-size: 0.8rem;
+}
+
+
+/*-----------------------------------------------------------------*/
+/**------ NAVBAR ------**/
+/** LOGO **/
 .loginlogo{
     width: 45%;
 }
 
-
-/*--- DARKMODE ---*/
+/** DARKMODE **/
 .darkmodebtn{
     font-size: smaller;
 }
@@ -19,21 +29,22 @@ body{
     font-size: xx-small;
 }
 
-/*--- SAIR ---*/
+/** SAIR **/
 .sairbtn{
     font-size: xx-small;
 }
 
 
-/*--------- FORMS ---------*/
-/*--- FORM ---*/
+/*-----------------------------------------------------------------*/
+/**------ FORMS ------**/
+/** FORM **/
 form{
     background-color: rgba(128, 128, 128, 0.152);
     padding: 0.5rem;
     border-radius: 0.4rem;
 }
 
-/*--- BUTTONS LOGIN ---*/
+/** BUTTONS LOGIN **/
 .loginbtn{
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -41,13 +52,13 @@ form{
     margin-right: 0.4rem;
 }
 
-/*--- LABELS ---*/
+/** LABELS **/
 .form-label{
     margin-top: 0.7rem;
     margin-bottom: 0;
 }
 
-/*--- FIELDSETS ---*/
+/** FIELDSETS **/
 fieldset{
     margin-bottom: 0.4rem;
     background-color: rgba(128, 128, 128, 0.205);
@@ -55,7 +66,7 @@ fieldset{
     border-radius: 0.4rem;
 }
 
-/*--- LEGENDS ---*/
+/** LEGENDS **/
 legend{
     margin: 0;
     font-size: 1.5rem;
@@ -63,30 +74,30 @@ legend{
 }
 
 
-/*--------- CARDS ---------*/
-/*--- CARD-HEADER ---*/
+/*-----------------------------------------------------------------*/
+/**------ CARDS ------**/
+/** CARD-HEADER **/
 #usunome, #usucpf, #empnome, #empcnpj{
     font-size: 1.2rem;
 }
 
 
-/*--- CARD-LOGIN ---*/
+/** CARD-LOGIN **/
 #cardlogin{
     background-color: rgba(128, 128, 128, 0.205);
 }
 
 
-/*--------- TABLES ---------*/
-/*--- TD ---*/
+/*-----------------------------------------------------------------*/
+/**------ TABLES ------**/
+/** TD **/
 td{
     text-align: center;
     vertical-align: middle;
     font-size: 0.8rem;
 }
 
-/*--- ÍCONES ---*/
-
-
+/** ÍCONES **/
 #deleteicon{
     color: red;
 }
