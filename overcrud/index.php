@@ -43,7 +43,7 @@ unset($_SESSION['nome']);
             <div class="col-8 col-sm-10 col-md-8 col-lg-5">
                 <!-- TÍTULO -->
                 <div class="row d-flex mb-2 text-center">
-                    <h1 class="display-5 lead">SISTEMA DE GESTÃO</h1>
+                    <h1 class="display-5 fs-1 lead">SISTEMA DE GESTÃO</h1>
                 </div>
                 <div class="row d-flex mb-2 justify-content-center align-items-center">
                     <!-- LOGIN CARD -->
