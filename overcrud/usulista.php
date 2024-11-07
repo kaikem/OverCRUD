@@ -7,7 +7,94 @@ require_once 'config.php';
 
 //TABELAS DO BD
 require_once 'sqltables.php';
-?>
+
+//MODAL USUÁRIO
+foreach ($listaUsu as $usuario): ?>
+    <div class='modal fade' id='usumodal<?= $usuario['idusuario'] ?>'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <!-- HEADER DO MODAL -->
+                <div class='modal-header'>
+                    <h1 class='modal-title text-uppercase fs-5'><?= $usuario['nome'] ?></h1>
+                    <button class='btn-close' data-bs-dismiss='modal'></button>
+                </div>
+                <!-- CORPO DO MODAL -->
+                <div class='modal-body'>
+                    <!-- STATUS -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-file-invoice"></i>Status: </p>
+                    <?php
+                    if ($usuario['status'] == 1) {
+                        echo "<div class='mt-0 mb-2 display-6 fs-5 text-success'> ATIVO</div>";
+                    } else {
+                        echo "<div class='mt-0 mb-2 display-6 fs-5 text-danger'> INATIVO</div>";
+                    };
+                    ?>
+
+                    <!-- CPF -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i> CPF: </p>
+                    <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['cpf']; ?> </div>
+
+                    <!-- TELEFONE -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone:</p>
+                    <div class="mt-0 mb-2 display-6 fs-5">
+                        <?php
+                        if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
+                            echo "- NÃO POSSUI -";
+                        } else {
+                            echo $usuario['telefone'];
+                        }
+                        ?>
+                    </div>
+
+                    <!-- ENDEREÇO -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>
+                        Endereço: </p>
+                    <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['endereco']; ?> </div>
+
+                    <!-- CNH -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-id-card"></i>
+                        CNH: </p>
+                    <div class="mt-0 mb-2 display-6 fs-5">
+                        <?php
+                        if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
+                            echo "- NÃO POSSUI -";
+                        } else {
+                            echo $usuario['cnh'];
+                        }
+                        ?>
+                    </div>
+
+                    <!-- CARRO -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-car"></i>
+                        Carro: </p>
+                    <div class="mt-0 mb-2 display-6 fs-5">
+                        <?php
+                        if ($usuario['carro'] == "" || $usuario['carro'] == null) {
+                            echo "- NENHUM -";
+                        } else {
+                            echo $usuario['carro'];
+                        }
+                        ?>
+                    </div>
+
+                    <!-- TIPO -->
+                    <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-file-invoice"></i>
+                        Tipo de
+                        Conta: </p>
+                    <div class="mt-0 mb-2 display-6 fs-5">
+                        <?php
+                        if ($usuario['tipo'] == 0) {
+                            echo "Comum";
+                        } else {
+                            echo "Admin";
+                        };
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
@@ -33,106 +120,43 @@ require_once 'sqltables.php';
         <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">LISTA DE USUÁRIOS</h1>
-            <!-- LISTA -->
-            <?php foreach ($listaUsu as $usuario) : ?>
-            <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
-                <!-- CARD -->
-                <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 36.1rem">
-                    <!-- HEADER DO CARD -->
-                    <div class="card-header d-flex text-center justify-content-center align-items-center"
-                        style="min-height: 8rem; max-height: 8rem;">
-                        <div class="d-flex flex-column">
-                            <h4 class="text-uppercase" id="usunome"> <?= $usuario['nome']; ?> </h4>
-                            <h6 class="text-secondary lead" id="usucpf"> CPF: <?= $usuario['cpf']; ?> </h6>
-
-                            <?php
-                                if ($usuario['status'] == 1) {
-                                    echo "<h6 class='text-success'> Status: ATIVO</h6>";
-                                } else {
-                                    echo "<h6 class='text-danger'> Status: INATIVO</h6>";
-                                };
-                                ?>
-                        </div>
-                    </div>
-                    <!-- CORPO DO CARD -->
-                    <div class="card-body">
-                        <div class="card-text">
-                            <!-- TIPO -->
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-file-invoice"></i>
-                                Tipo de
-                                Conta: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5">
-                                <?php
-                                    if ($usuario['tipo'] == 0) {
-                                        echo "Comum";
-                                    } else {
-                                        echo "Admin";
-                                    };
-                                    ?>
-                            </div>
-
-                            <!-- TELEFONE -->
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone:
-                            </p>
-                            <div class="mt-0 mb-2 display-6 fs-5">
-                                <?php
-                                    if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
-                                        echo "- NÃO POSSUI -";
-                                    } else {
-                                        echo $usuario['telefone'];
-                                    }
-                                    ?>
-                            </div>
-
-                            <!-- ENDEREÇO -->
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>
-                                Endereço: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['endereco']; ?> </div>
-
-                            <!-- CNH -->
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-id-card"></i>
-                                CNH: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5">
-                                <?php
-                                    if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
-                                        echo "- NÃO POSSUI -";
-                                    } else {
-                                        echo $usuario['cnh'];
-                                    }
-                                    ?>
-                            </div>
-
-                            <!-- CARRO -->
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-car"></i>
-                                Carro: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5">
-                                <?php
-                                    if ($usuario['carro'] == "" || $usuario['carro'] == null) {
-                                        echo "- NENHUM -";
-                                    } else {
-                                        echo $usuario['carro'];
-                                    }
-                                    ?>
-                            </div>
-
-                            <!-- EMPREGADO EM -->
-                            <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i>
-                                Empregado em: </p>
-                            <div class="mt-0 mb-2 display-6 fs-5">
-                                <?php
-                                    for ($i = 0; $i < count($listaEmp); $i++) {
-                                        if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
-                                            echo $listaEmp[$i]['nome'];
-                                        };
-                                    };
-                                    ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <?php endforeach; ?>
+            <table id="ListaUsuarios" class="table table-striped">
+                <!-- TABELA (CABEÇALHO) -->
+                <tr class="table-secondary text-center">
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th>TELEFONE</th>
+                    <th>STATUS</th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+                <?php foreach ($listaUsu as $usuario): ?>
+                    <!-- TABELA (DADOS DA EMPRESA) -->
+                    <tr class="table">
+                        <td><?= $usuario['nome']; ?></td>
+                        <td><?= $usuario['cpf']; ?></td>
+                        <td><?= $usuario['telefone']; ?></td>
+                        <td><?= $usuario['status']; ?></td>
+                        <td>
+                            <a class="modalanchor" data-bs-toggle="modal"
+                                data-bs-target="#usumodal<?= $usuario['idusuario'] ?>">
+                                <i class="fa-solid fa-circle-info p-0" title="Detalhes" id="infoicon"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="emp_deletar.php?idusuario=<?= $usuario['idusuario']; ?>">
+                                <i class="fa-solid fa-trash p-0" title="Deletar" id="deleteicon"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="emp_editar.php?idusuario=<?= $usuario['idusuario']; ?>">
+                                <i class="fa-solid fa-pen-to-square p-0" title="Editar"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
 
         </div>
         <!-- FOOTER -->
