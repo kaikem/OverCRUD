@@ -78,8 +78,8 @@ foreach ($listaEmp as $empresa): ?>
                     <th>NOME FANTASIA</th>
                     <th>CNPJ</th>
                     <th> </th>
-                    <th> </th>
-                    <th> </th>
+                    <th class="<?= $linksAdm ?>"> </th>
+                    <th class="<?= $linksAdm ?>"> </th>
                 </tr>
                 <?php foreach ($listaEmp as $empresa): ?>
                 <!-- TABELA (DADOS DA EMPRESA) -->
@@ -93,12 +93,12 @@ foreach ($listaEmp as $empresa): ?>
                             <i class="fa-solid fa-circle-info p-0" title="Detalhes" id="infoicon"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="<?= $linksAdm ?>">
                         <a href="emp_deletar.php?idempresa=<?= $empresa['idempresa']; ?>">
                             <i class="fa-solid fa-trash p-0" title="Deletar" id="deleteicon"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="<?= $linksAdm ?>">
                         <a href="emp_editar.php?idempresa=<?= $empresa['idempresa']; ?>">
                             <i class="fa-solid fa-pen-to-square p-0" title="Editar"></i>
                         </a>
