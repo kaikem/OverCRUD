@@ -36,42 +36,59 @@ require_once 'empmodal.php';
         <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">LISTA DE EMPRESAS</h1>
+
+            <!-- BOTÕES DE MODO DE DISPLAY -->
+            <div class='col-md-2 d-md-flex justify-content-end'>
+                <div class='btn-group btn-group-lg'>
+                    <button class='btn btn-outline-primary text-white btn-lg rounded-start-3 border-3 p-2'><i
+                            class="fa-solid fa-list" id="displayicon"></i></button>
+                    <button class='btn btn-outline-primary text-white btn-lg rounded-end-3 border-3 p-2'><i
+                            class="fa-solid fa-table-cells" id="displayicon"></i></button>
+                </div>
+            </div>
+
+            <!-- LISTA (CARDS) -->
+            <div class="mostrarCardsEmpresas">
+
+            </div>
             <!-- LISTA (TABELA) -->
-            <table id="ListaEmpresas" class="table table-striped">
-                <!-- TABELA (CABEÇALHO) -->
-                <tr class="table-secondary text-center">
-                    <th>NOME</th>
-                    <th>NOME FANTASIA</th>
-                    <th>CNPJ</th>
-                    <th> </th>
-                    <th class="<?= $linksAdm ?>"> </th>
-                    <th class="<?= $linksAdm ?>"> </th>
-                </tr>
-                <?php foreach ($listaEmp as $empresa): ?>
-                <!-- TABELA (DADOS DA EMPRESA) -->
-                <tr class="table <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
-                    <td><?= $empresa['nome']; ?></td>
-                    <td><?= $empresa['fantasia']; ?></td>
-                    <td><?= $empresa['cnpj']; ?></td>
-                    <td>
-                        <a class="modalanchor" data-bs-toggle="modal"
-                            data-bs-target="#empmodal<?= $empresa['idempresa'] ?>">
-                            <i class="fa-solid fa-circle-info px-0 py-2" title="Detalhes" id="infoicon"></i>
-                        </a>
-                    </td>
-                    <td class="<?= $linksAdm ?>">
-                        <a href="emp_deletar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                            <i class="fa-solid fa-trash px-0 py-2" title="Deletar" id="deleteicon"></i>
-                        </a>
-                    </td>
-                    <td class="<?= $linksAdm ?>">
-                        <a href="emp_editar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                            <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
-                        </a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
+            <div class="mostrarTabelaEmpresas">
+                <table id="tabelaEmpresas" class="table table-striped">
+                    <!-- TABELA (CABEÇALHO) -->
+                    <tr class="table-secondary text-center">
+                        <th>NOME</th>
+                        <th>NOME FANTASIA</th>
+                        <th>CNPJ</th>
+                        <th> </th>
+                        <th class="<?= $linksAdm ?>"> </th>
+                        <th class="<?= $linksAdm ?>"> </th>
+                    </tr>
+                    <?php foreach ($listaEmp as $empresa): ?>
+                    <!-- TABELA (DADOS DA EMPRESA) -->
+                    <tr class="table <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
+                        <td><?= $empresa['nome']; ?></td>
+                        <td><?= $empresa['fantasia']; ?></td>
+                        <td><?= $empresa['cnpj']; ?></td>
+                        <td>
+                            <a class="modalanchor" data-bs-toggle="modal"
+                                data-bs-target="#empmodal<?= $empresa['idempresa'] ?>">
+                                <i class="fa-solid fa-circle-info text-primary px-0 py-2" title="Detalhes"></i>
+                            </a>
+                        </td>
+                        <td class="<?= $linksAdm ?>">
+                            <a href="emp_deletar.php?idempresa=<?= $empresa['idempresa']; ?>">
+                                <i class="fa-solid fa-trash px-0 py-2" title="Deletar" id="deleteicon"></i>
+                            </a>
+                        </td>
+                        <td class="<?= $linksAdm ?>">
+                            <a href="emp_editar.php?idempresa=<?= $empresa['idempresa']; ?>">
+                                <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
         </div>
 
         <!-- FOOTER -->
