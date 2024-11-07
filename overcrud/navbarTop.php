@@ -66,7 +66,7 @@ Nova</a>
 <!-- COLUNA 03 (DARKMODE & SAIR) -->
 <div class='d-none col-md-2 d-md-flex justify-content-end'>
     <!-- DARKMODE -->
-    <div class='btn-group btn-grup-sm'>
+    <div class='btn-group btn-group-sm'>
         <button class='btn btn-dark rounded-start-5 p-1 darkmodebtnint' data-bs-theme-value='dark'>Dark</button>
         <button class='btn btn-light rounded-end-5 p-1 darkmodebtnint' data-bs-theme-value='light'>Light</button>
     </div>
