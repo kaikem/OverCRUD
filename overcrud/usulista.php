@@ -46,7 +46,7 @@ require_once 'usumodal.php';
                 <?php foreach ($listaUsu as $usuario) : ?>
                 <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                     <!-- CARD -->
-                    <div class="card mb-4 me-1 shadow" id="empcard" style="min-height: 39rem">
+                    <div class="card mb-4 me-1 shadow" id="usucard" style="min-height: 39rem">
                         <!-- HEADER DO CARD -->
                         <div class="card-header d-flex text-center justify-content-center align-items-center"
                             style="min-height: 8rem; max-height: 8rem;">
