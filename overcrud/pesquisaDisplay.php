@@ -10,10 +10,10 @@ echo "
                 <!-- BOTÕES DE MODO DE DISPLAY -->
                 <div class='btn-group btn-group-lg'>
                     <button type='button'
-                        class='btn btn-outline-primary text-white btn-lg rounded-start-3 border-3 p-2 active'
+                        class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2 active'
                         id='btndisplaytabela' onclick='mudarDisplayParaTabela()'><i
                             class='fa-solid fa-list'></i></button>
-                    <button type='button' class='btn btn-outline-primary text-white btn-lg rounded-end-3 border-3 p-2'
+                    <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2'
                         id='btndisplaycards' onclick='mudarDisplayParaCards()'><i
                             class='fa-solid fa-table-cells'></i></button>
                 </div>
