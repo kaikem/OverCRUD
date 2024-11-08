@@ -46,7 +46,7 @@ require_once 'usumodal.php';
                 <?php foreach ($listaUsu as $usuario) : ?>
                 <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                     <!-- CARD -->
-                    <div class="card mb-4 me-1 shadow" id="usucard" style="min-height: 39rem">
+                    <div class="card mb-4 me-1" id="usucard" style="min-height: 35rem">
                         <!-- HEADER DO CARD -->
                         <div class="card-header d-flex text-center justify-content-center align-items-center"
                             style="min-height: 8rem; max-height: 8rem;">
@@ -67,10 +67,11 @@ require_once 'usumodal.php';
                         <div class="card-body">
                             <div class="card-text">
                                 <!-- TIPO -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-file-invoice"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                        class="fa-solid fa-file-invoice"></i>
                                     Tipo de
                                     Conta: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5">
+                                <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         if ($usuario['tipo'] == 0) {
                                             echo "Comum";
@@ -81,10 +82,10 @@ require_once 'usumodal.php';
                                 </div>
 
                                 <!-- TELEFONE -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-phone"></i>
                                     Telefone:
                                 </p>
-                                <div class="mt-0 mb-2 display-6 fs-5">
+                                <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
                                             echo "- NÃO POSSUI -";
@@ -95,14 +96,15 @@ require_once 'usumodal.php';
                                 </div>
 
                                 <!-- ENDEREÇO -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                        class="fa-solid fa-location-dot"></i>
                                     Endereço: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5"> <?= $usuario['endereco']; ?> </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $usuario['endereco']; ?> </div>
 
                                 <!-- CNH -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-id-card"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-id-card"></i>
                                     CNH: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5">
+                                <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
                                             echo "- NÃO POSSUI -";
@@ -113,9 +115,9 @@ require_once 'usumodal.php';
                                 </div>
 
                                 <!-- CARRO -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-car"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-car"></i>
                                     Carro: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5">
+                                <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         if ($usuario['carro'] == "" || $usuario['carro'] == null) {
                                             echo "- NENHUM -";
@@ -126,9 +128,10 @@ require_once 'usumodal.php';
                                 </div>
 
                                 <!-- EMPREGADO EM -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                        class="fa-solid fa-briefcase"></i>
                                     Empregado em: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5">
+                                <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         for ($i = 0; $i < count($listaEmp); $i++) {
                                             if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
