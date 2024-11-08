@@ -114,6 +114,7 @@ td{
 /** ÍCONES **/
 #deleteicon{
     color: red;
+    cursor: pointer;
 }
 
 .modalanchor:hover{
