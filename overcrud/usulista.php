@@ -36,7 +36,7 @@ require_once 'usumodal.php';
         <div class="row d-flex mt-5" id="appBody">
 
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center display-6 my-5">LISTA DE USUÁRIOS</h1>
+            <h1 class="text-center text-primary display-6 my-5">LISTA DE USUÁRIOS</h1>
 
             <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
             <?php require_once 'pesquisaDisplay.php' ?>
