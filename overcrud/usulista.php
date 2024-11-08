@@ -46,7 +46,7 @@ require_once 'usumodal.php';
                 <?php foreach ($listaUsu as $usuario) : ?>
                 <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                     <!-- CARD -->
-                    <div class="card mb-4 me-1 shadow" id="empcard" style="min-height: 36.1rem">
+                    <div class="card mb-4 me-1 shadow" id="empcard" style="min-height: 39rem">
                         <!-- HEADER DO CARD -->
                         <div class="card-header d-flex text-center justify-content-center align-items-center"
                             style="min-height: 8rem; max-height: 8rem;">
@@ -138,6 +138,17 @@ require_once 'usumodal.php';
                                         ?>
                                 </div>
                             </div>
+                        </div>
+                        <!-- BOTÕES EDITAR & EXCLUIR -->
+                        <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
+                            <a href="empdeletar.php?idempresa=<?= $empresa['idempresa']; ?>">
+                                <i class="fa-solid fa-trash btn btn-danger p-2 rounded-circle" style="color: black;"
+                                    title="Deletar" id="deleteicon"></i>
+                            </a>
+                            <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
+                                <i class="fa-solid fa-pen-to-square btn btn-warning p-2 rounded-circle"
+                                    title="Editar"></i>
+                            </a>
                         </div>
                     </div>
 
