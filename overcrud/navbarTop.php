@@ -67,8 +67,10 @@ Nova</a>
 <div class='d-none col-md-2 d-md-flex justify-content-end'>
     <!-- DARKMODE -->
     <div class='btn-group btn-group-sm'>
-        <button class='btn btn-dark rounded-start-5 p-1 darkmodebtnint' data-bs-theme-value='dark'>Dark</button>
-        <button class='btn btn-light rounded-end-5 p-1 darkmodebtnint' data-bs-theme-value='light'>Light</button>
+        <button class='btn btn-dark rounded-start-5 p-1 darkmodebtnint' data-bs-theme-value='dark'><i
+                class='fa-solid fa-moon'></i></button>
+        <button class='btn btn-light rounded-end-5 p-1 darkmodebtnint' data-bs-theme-value='light'><i
+                class='fa-solid fa-sun'></i></button>
     </div>
     <!-- SAIR -->
     <a class='btn btn-danger rounded-circle p-1 ms-3 sairbtn' data-bs-toggle='modal'
