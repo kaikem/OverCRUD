@@ -26,7 +26,7 @@ require_once 'sessionverif.php';
         <!-- ROW DO CORPO -->
         <div class="row mt-5" id="appBody">
             <div class="col mt-5">
-                <h1 class="display-5">Seja bem-vindo(a), <b><?= $nomeUsu ?></b>!</h1>
+                <h1 class="display-5 text-primary">Seja bem-vindo(a), <b><?= $nomeUsu ?></b>!</h1>
                 <p class="mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem cupiditate neque
                     voluptatem deleniti
                     labore nostrum, tenetur similique, atque sequi, nam soluta ex! Aspernatur harum odio ipsa error
