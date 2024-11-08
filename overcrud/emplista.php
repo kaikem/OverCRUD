@@ -8,8 +8,9 @@ require_once 'config.php';
 //TABELAS DO BD
 require_once 'sqltables.php';
 
-//MODAL EMPRESA
+//MODALS
 require_once 'empmodal.php';
+require_once 'empdeletemodal.php';
 ?>
 
 <!DOCTYPE html>
@@ -86,9 +87,10 @@ require_once 'empmodal.php';
                         </div>
                         <!-- BOTÕES EDITAR & EXCLUIR -->
                         <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
-                            <a href="empdeletar.php?idempresa=<?= $empresa['idempresa']; ?>">
+                            <!--<a href="empdeletemodal.php?idempresa=<?= $empresa['idempresa']; ?>">-->
+                            <a data-bs-toggle='modal' data-bs-target='#deletemodal<?= $empresa['idempresa'] ?>'>
                                 <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
-                                    title="Deletar"></i>
+                                    title="Excluir"></i>
                             </a>
                             <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
                                 <i class="fa-solid fa-pen-to-square btn btn-outline-warning border-3 p-2 rounded-circle"
@@ -125,8 +127,8 @@ require_once 'empmodal.php';
                             </a>
                         </td>
                         <td class="<?= $linksAdm ?>">
-                            <a href="emp_deletar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                                <i class="fa-solid fa-trash px-0 py-2" title="Deletar" id="deleteicon"></i>
+                            <a data-bs-toggle='modal' data-bs-target='#deletemodal<?= $empresa['idempresa'] ?>'>
+                                <i class="fa-solid fa-trash px-0 py-2" title="Excluir" id="deleteicon"></i>
                             </a>
                         </td>
                         <td class="<?= $linksAdm ?>">
