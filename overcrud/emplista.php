@@ -47,7 +47,7 @@ require_once 'empmodal.php';
                 <div class=" col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center
                 <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
                     <!-- CARD -->
-                    <div class="card mb-4 me-1" id="empcard" style="min-height: 32.9rem;">
+                    <div class="card mb-4 me-1" id="empcard" style="min-height: 29.6rem;">
                         <!-- HEADER DO CARD -->
                         <div class="card-header d-flex text-center justify-content-center align-items-center"
                             style="min-height: 8rem; max-height: 8rem;">
@@ -58,27 +58,29 @@ require_once 'empmodal.php';
                         </div>
                         <!-- CORPO DO CARD -->
                         <div class="card-body">
-                            <div class="card-text h-100">
+                            <div class="card-text" id="cardinfo">
                                 <!-- FANTASIA -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-building"></i> Nome
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-building"></i>
+                                    Nome
                                     Fantasia: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['fantasia']; ?> </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['fantasia']; ?> </div>
 
                                 <!-- TELEFONE -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-phone"></i>
                                     Telefone:
                                 </p>
-                                <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['telefone']; ?> </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['telefone']; ?> </div>
 
                                 <!-- ENDEREÇO -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                        class="fa-solid fa-location-dot"></i>
                                     Endereço: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['endereco']; ?> </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['endereco']; ?> </div>
 
                                 <!-- RESPONSÁVEL -->
-                                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-user-tie"></i>
+                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-user-tie"></i>
                                     Responsável: </p>
-                                <div class="mt-0 mb-2 display-6 fs-5"> <?= $empresa['responsavel']; ?> </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['responsavel']; ?> </div>
 
                             </div>
                         </div>
