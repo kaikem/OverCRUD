@@ -37,24 +37,32 @@ require_once 'empmodal.php';
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center display-6 my-5">LISTA DE EMPRESAS</h1>
 
-            <!-- BOTÕES DE MODO DE DISPLAY -->
-            <div class='col-md-12 d-md-flex mb-3 justify-content-end'>
+            <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
+            <div class='col-12 d-flex mb-3 justify-content-between'>
+                <!-- INPUT DE PESQUISA -->
+                <div class="input-group w-50" id="pesquisalista">
+                    <i class="fa-solid fa-magnifying-glass input-group-text p-2"></i>
+                    <input type="search" class="form-control" placeholder="Pesquise por nome">
+                </div>
+                <!-- BOTÕES DE MODO DE DISPLAY -->
                 <div class='btn-group btn-group-lg'>
-                    <button type="button" class='btn btn-outline-primary text-white btn-lg rounded-start-3 border-3 p-2'
-                        onclick="mudarDisplayParaTabela()"><i class="fa-solid fa-list" id="displaytabela"></i></button>
+                    <button type="button"
+                        class='btn btn-outline-primary text-white btn-lg rounded-start-3 border-3 p-2 active'
+                        id="btndisplaytabela" onclick="mudarDisplayParaTabela()"><i
+                            class="fa-solid fa-list"></i></button>
                     <button type="button" class='btn btn-outline-primary text-white btn-lg rounded-end-3 border-3 p-2'
-                        onclick="mudarDisplayParaCards()"><i class="fa-solid fa-table-cells"
-                            id="displaycards"></i></button>
+                        id="btndisplaycards" onclick="mudarDisplayParaCards()"><i
+                            class="fa-solid fa-table-cells"></i></button>
                 </div>
             </div>
 
             <!-- LISTA (CARDS) -->
-            <div class="mostrarCardsEmpresas d-none">
+            <div class="row d-none" id="mostrarCardsEmpresas">
                 <?php foreach ($listaEmp as $empresa) : ?>
-                <div
-                    class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
+                <div class=" col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center
+                <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
                     <!-- CARD -->
-                    <div class="card my-3 mx-1 shadow" id="empcard" style="min-height: 30rem;">
+                    <div class="card mb-4 me-1 shadow" id="empcard" style="min-height: 30rem;">
                         <!-- HEADER DO CARD -->
                         <div class="card-header d-flex text-center justify-content-center align-items-center"
                             style="min-height: 8rem; max-height: 8rem;">
@@ -86,7 +94,7 @@ require_once 'empmodal.php';
                 <?php endforeach; ?>
             </div>
             <!-- LISTA (TABELA) -->
-            <div class="mostrarTabelaEmpresas">
+            <div class="" id="mostrarTabelaEmpresas">
                 <table id="tabelaEmpresas" class="table table-striped">
                     <!-- TABELA (CABEÇALHO) -->
                     <tr class="table-secondary text-center">
