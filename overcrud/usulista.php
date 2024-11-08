@@ -142,11 +142,11 @@ require_once 'usumodal.php';
                         <!-- BOTÕES EDITAR & EXCLUIR -->
                         <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
                             <a href="empdeletar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                                <i class="fa-solid fa-trash btn btn-danger p-2 rounded-circle" style="color: black;"
-                                    title="Deletar" id="deleteicon"></i>
+                                <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
+                                    title="Deletar"></i>
                             </a>
                             <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                                <i class="fa-solid fa-pen-to-square btn btn-warning p-2 rounded-circle"
+                                <i class="fa-solid fa-pen-to-square btn btn-outline-warning border-3 p-2 rounded-circle"
                                     title="Editar"></i>
                             </a>
                         </div>
