@@ -38,7 +38,7 @@ require_once 'sqltables.php';
         <div class="row d-flex justify-content-center mt-5" id="appBody">
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
                 <!-- TÍTULO DA SEÇÃO -->
-                <h1 class="text-center display-6 mb-5">CADASTRO DE EMPRESAS</h1>
+                <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
                 <!-- FORMULÁRIO -->
                 <form action="empcadastro_action.php" method="POST">
                     <!-- FIELDSET CONTA -->
@@ -102,6 +102,7 @@ require_once 'sqltables.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
 </body>
