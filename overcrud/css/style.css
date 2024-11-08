@@ -12,6 +12,12 @@ body{
     font-size: 0.8rem;
 }
 
+hr{
+    border: none;
+    height: 2px;
+    background-color: var(--bs-primary);
+}
+
 
 /*-----------------------------------------------------------------*/
 /**------ NAVBAR ------**/
