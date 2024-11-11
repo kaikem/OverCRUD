@@ -47,7 +47,7 @@ require_once 'support.php';
         <!-- ROW DO CORPO -->
         <div class="row d-flex mt-5" id="appBody">
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center display-6 my-5">CADASTRO DE EMPRESAS</h1>
+            <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
             <!-- VERIFICAÇÃO DE CAMPO CNPJ + INSERÇÃO NO BD -->
             <?php
             $sqlVerif = $pdo->prepare("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
@@ -67,7 +67,7 @@ require_once 'support.php';
             ?>
 
             <!-- BOTÃO VOLTAR -->
-            <a href="empcadastro.php" class="btn btn-warning">VOLTAR</a>
+            <a href="emplista.php" class="btn btn-warning">VOLTAR</a>
         </div>
 
         <!-- FOOTER -->
