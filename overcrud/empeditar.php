@@ -67,49 +67,53 @@ $empresa = [];
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
-                <form action="editar_emp_action.php" method="POST">
-                    <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
-                    <!-- NOME -->
-                    <div class="form-group">
-                        <label for="nome" class="form-label">Nome:</label>
-                        <input type="text" class="form-control" name="nome" id="nome" value="<?= $empresa['nome'] ?>"
-                            required>
-                    </div>
+                <form action="empeditar_action.php" method="POST">
+                    <fieldset>
+                        <legend>DADOS DA EMPRESA</legend>
+                        <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
+                        <!-- CNPJ -->
+                        <div class="form-group">
+                            <label for="cnpj" class="form-label">CNPJ:</label>
+                            <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
+                                onkeydown="handleCnpj(event)" value="<?= $empresa['cnpj'] ?>" required>
+                        </div>
 
-                    <!-- TELEFONE -->
-                    <div class="form-group">
-                        <label for="telefone" class="form-label">Telefone:</label>
-                        <input type="text" class="form-control" name="telefone" id="telefone"
-                            value="<?= $empresa['telefone'] ?>">
-                    </div>
+                        <!-- NOME -->
+                        <div class="form-group">
+                            <label for="nome" class="form-label">Nome:</label>
+                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64"
+                                value="<?= $empresa['nome'] ?>" required>
+                        </div>
 
-                    <!-- ENDEREÇO -->
-                    <div class="form-group">
-                        <label for="endereco" class="form-label">Endereço:</label>
-                        <input type="text" class="form-control" name="endereco" id="endereco"
-                            value="<?= $empresa['endereco'] ?>">
-                    </div>
+                        <!-- NOME FANTASIA -->
+                        <div class="form-group">
+                            <label for="fantasia" class="form-label">Nome Fantasia:</label>
+                            <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
+                                value="<?= $empresa['fantasia'] ?>">
+                        </div>
 
-                    <!-- FANTASIA -->
-                    <div class="form-group">
-                        <label for="fantasia" class="form-label">Nome Fantasia:</label>
-                        <input type="text" class="form-control" name="fantasia" id="fantasia"
-                            value="<?= $empresa['fantasia'] ?>">
-                    </div>
+                        <!-- TELEFONE -->
+                        <div class="form-group">
+                            <label for="telefone" class="form-label">Telefone:</label>
+                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+                                minlength="14" onkeydown="handlePhone(event)" value="<?= $empresa['telefone'] ?>">
+                        </div>
 
-                    <!-- CNPJ -->
-                    <div class="form-group">
-                        <label for="cnpj" class="form-label">CNPJ:</label>
-                        <input type="text" class="form-control" name="cnpj" id="cnpj" value="<?= $empresa['cnpj'] ?>"
-                            required>
-                    </div>
+                        <!-- ENDEREÇO -->
+                        <div class="form-group">
+                            <label for="endereco" class="form-label">Endereço:</label>
+                            <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
+                                value="<?= $empresa['endereco'] ?>">
+                        </div>
 
-                    <!-- RESPONSÁVEL -->
-                    <div class="form-group">
-                        <label for="responsavel" class="form-label">Responsável:</label>
-                        <input type="text" class="form-control" name="responsavel" id="responsavel"
-                            value="<?= $empresa['responsavel'] ?>" required>
-                    </div>
+                        <!-- RESPONSÁVEL -->
+                        <div class="form-group">
+                            <label for="responsavel" class="form-label">Responsável:</label>
+                            <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
+                                value="<?= $empresa['responsavel'] ?>" required>
+                        </div>
+
+                    </fieldset>
 
                     <!-- BUTTONS -->
                     <div class="form-group my-3 text-center">
@@ -128,6 +132,7 @@ $empresa = [];
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
         <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
+        <script src="./js/inputmasks.js"></script>
         <script src="./js/darkmodetoggle.js"></script>
         <script src="./js/modals.js"></script>
         <script src="./js/empMudarDisplay.js"></script>
