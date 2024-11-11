@@ -61,6 +61,7 @@ $usuario = [];
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
                 <form action="usueditar_action.php" method="POST">
+                    <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
                     <!-- FIELDSET CONTA -->
                     <fieldset>
                         <legend>DADOS DA CONTA</legend>
