@@ -66,7 +66,6 @@ require_once 'sqltables.php';
                                 <option value="1">Admin</option>
                             </select>
                         </div>
-
                     </fieldset>
 
                     <!-- FIELDSET PESSOAIS -->
