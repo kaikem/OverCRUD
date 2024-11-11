@@ -87,10 +87,13 @@ require_once 'empdeletemodal.php';
                             </div>
                             <!-- BOTÕES EDITAR & EXCLUIR -->
                             <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
+                                <!-- EXCLUIR -->
                                 <a data-bs-toggle='modal' data-bs-target='#empdeletemodal<?= $empresa['idempresa'] ?>'>
                                     <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
                                         title="Excluir"></i>
                                 </a>
+
+                                <!-- EDITAR -->
                                 <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
                                     <i class="fa-solid fa-pen-to-square btn btn-outline-warning border-3 p-2 rounded-circle"
                                         title="Editar"></i>
@@ -126,13 +129,16 @@ require_once 'empdeletemodal.php';
                                 </a>
                             </td>
                             <!-- BOTÕES EDITAR & EXCLUIR -->
+                            <!-- EXCLUIR -->
                             <td class="<?= $linksAdm ?>">
                                 <a data-bs-toggle='modal' data-bs-target='#empdeletemodal<?= $empresa['idempresa'] ?>'>
                                     <i class="fa-solid fa-trash px-0 py-2" title="Excluir" id="deleteicon"></i>
                                 </a>
                             </td>
+
+                            <!-- EDITAR -->
                             <td class="<?= $linksAdm ?>">
-                                <a href="emp_editar.php?idempresa=<?= $empresa['idempresa']; ?>">
+                                <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
                                     <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
                                 </a>
                             </td>
