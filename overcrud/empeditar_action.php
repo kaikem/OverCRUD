@@ -11,10 +11,6 @@ require_once 'support.php';
 //TABELAS DO BD
 require_once 'sqltables.php';
 
-//MODALS
-require_once 'empmodal.php';
-require_once 'empdeletemodal.php';
-
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $idempresa = filter_input(INPUT_POST, 'idempresa');
 $cnpj = $_POST['cnpj'];
@@ -49,7 +45,7 @@ $responsavel = $_POST['responsavel'];
         <div class="row d-flex justify-content-center mt-5" id="appBody">
 
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center text-primary display-6 my-5">LISTA DE EMPRESAS</h1>
+            <h1 class="text-center text-primary display-6 my-5">EDITAR EMPRESA</h1>
 
             <!-- CONFIRMAÇÃO DE EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
