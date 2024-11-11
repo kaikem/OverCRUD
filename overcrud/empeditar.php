@@ -11,10 +11,6 @@ require_once 'support.php';
 //TABELAS DO BD
 require_once 'sqltables.php';
 
-//MODALS
-require_once 'empmodal.php';
-require_once 'empdeletemodal.php';
-
 //RECEBIMENTO DE IDEMPRESA
 $idempresa = $_GET['idempresa'];
 $empresa = [];
@@ -44,10 +40,7 @@ $empresa = [];
         <div class="row d-flex justify-content-center mt-5" id="appBody">
 
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center text-primary display-6 my-5">LISTA DE EMPRESAS</h1>
-
-            <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
-            <?php require_once 'pesquisaDisplay.php' ?>
+            <h1 class="text-center text-primary display-6 my-5">EDITAR EMPRESA</h1>
 
             <?php
             if ($idempresa) {
