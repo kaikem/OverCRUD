@@ -87,8 +87,7 @@ require_once 'empdeletemodal.php';
                         </div>
                         <!-- BOTÕES EDITAR & EXCLUIR -->
                         <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
-                            <!--<a href="empdeletemodal.php?idempresa=<?= $empresa['idempresa']; ?>">-->
-                            <a data-bs-toggle='modal' data-bs-target='#deletemodal<?= $empresa['idempresa'] ?>'>
+                            <a data-bs-toggle='modal' data-bs-target='#empdeletemodal<?= $empresa['idempresa'] ?>'>
                                 <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
                                     title="Excluir"></i>
                             </a>
@@ -126,8 +125,9 @@ require_once 'empdeletemodal.php';
                                 <i class="fa-solid fa-circle-info text-primary px-0 py-2" title="Detalhes"></i>
                             </a>
                         </td>
+                        <!-- BOTÕES EDITAR & EXCLUIR -->
                         <td class="<?= $linksAdm ?>">
-                            <a data-bs-toggle='modal' data-bs-target='#deletemodal<?= $empresa['idempresa'] ?>'>
+                            <a data-bs-toggle='modal' data-bs-target='#empdeletemodal<?= $empresa['idempresa'] ?>'>
                                 <i class="fa-solid fa-trash px-0 py-2" title="Excluir" id="deleteicon"></i>
                             </a>
                         </td>
