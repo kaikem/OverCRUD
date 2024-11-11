@@ -45,29 +45,34 @@ require_once 'support.php';
         </div>
 
         <!-- ROW DO CORPO -->
-        <div class="row d-flex mt-5" id="appBody">
+        <div class="row d-flex justify-content-center mt-5" id="appBody">
+
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
+            <h1 class="text-center text-primary display-6 my-5">CADASTRO DE EMPRESAS</h1>
+
             <!-- VERIFICAÇÃO DE CAMPO CNPJ + INSERÇÃO NO BD -->
-            <?php
-            $sqlVerif = $pdo->prepare("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
-            $sqlVerif->execute();
+            <div class="col-4 col-md-6 text-center">
+                <?php
+                $sqlVerif = $pdo->prepare("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
+                $sqlVerif->execute();
 
-            if ($sqlVerif->rowCount() === 0) {
-                $sqlInsert = $pdo->prepare("INSERT INTO empresas (nome, telefone, endereco, fantasia, cnpj, responsavel) VALUES ('$nome', '$telefone', '$endereco', '$fantasia', '$cnpj', '$responsavel')");
+                if ($sqlVerif->rowCount() === 0) {
+                    $sqlInsert = $pdo->prepare("INSERT INTO empresas (nome, telefone, endereco, fantasia, cnpj, responsavel) VALUES ('$nome', '$telefone', '$endereco', '$fantasia', '$cnpj', '$responsavel')");
 
-                if ($sqlInsert->execute()) {
-                    mensagemRetorno("Dados de $nome (CNPJ $cnpj) cadastrados com sucesso!", "success");
+                    if ($sqlInsert->execute()) {
+                        mensagemRetorno("Dados de <b>$nome (CNPJ $cnpj)</b> cadastrados com sucesso!", "success");
+                    } else {
+                        mensagemRetorno("ERRO: Dados de $nome (CNPJ $cnpj) não foram cadastrados...", "danger");
+                    };
                 } else {
-                    mensagemRetorno("ERRO: Dados de $nome (CNPJ $cnpj) não foram cadastrados...", "danger");
+                    mensagemRetorno("CNPJ $cnpj já existente! Use outro CNPJ para este cadastro.", "warning");
                 };
-            } else {
-                mensagemRetorno("CNPJ $cnpj já existente! Use outro CNPJ para este cadastro.", "warning");
-            };
-            ?>
+                ?>
 
-            <!-- BOTÃO VOLTAR -->
-            <a href="emplista.php" class="btn btn-warning">VOLTAR</a>
+                <!-- BOTÃO VOLTAR -->
+                <a href="emplista.php" class="btn btn-warning">VOLTAR</a>
+            </div>
+
         </div>
 
         <!-- FOOTER -->
