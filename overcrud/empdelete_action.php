@@ -20,7 +20,6 @@ $idempresa = $_GET['idempresa'];
 $empresa = [];
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
