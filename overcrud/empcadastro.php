@@ -41,7 +41,7 @@ require_once 'sqltables.php';
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
                 <!-- FORMULÁRIO -->
                 <form action="empcadastro_action.php" method="POST">
-                    <!-- FIELDSET CONTA -->
+                    <!-- FIELDSET GERAL -->
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
                         <!-- CNPJ -->
