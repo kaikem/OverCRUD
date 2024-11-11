@@ -53,31 +53,36 @@ require_once 'support.php';
         </div>
 
         <!-- ROW DO CORPO -->
-        <div class="row d-flex mt-5" id="appBody">
+        <div class="row d-flex justify-content-center mt-5" id="appBody">
+
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center display-6 my-5">CADASTRO DE USUÁRIOS</h1>
+            <h1 class="text-center text-primary display-6 my-5">CADASTRO DE USUÁRIOS</h1>
+
             <!-- VERIFICAÇÃO DE CAMPO CPF + INSERÇÃO NO BD -->
-            <?php
-            $sqlVerifCpf = $pdo->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
-            $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh'");
+            <div class="col-4 col-md-6 text-center">
+                <?php
+                $sqlVerifCpf = $pdo->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
+                $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh'");
 
-            if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
-                $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
+                if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
+                    $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
 
-                if ($sqlInsert->execute()) {
-                    mensagemRetorno("Dados de $nome (CPF $cpf) cadastrados com sucesso!", "success");
-                } else {
-                    mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
+                    if ($sqlInsert->execute()) {
+                        mensagemRetorno("Dados de <b>$nome (CPF $cpf)</b> cadastrados com sucesso!", "success");
+                    } else {
+                        mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
+                    };
+                } else if ($sqlVerifCpf->rowCount() != 0) {
+                    mensagemRetorno("O CPF $cpf já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
+                } else if ($sqlVerifCnh->rowCount() != 0) {
+                    mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
                 };
-            } else if ($sqlVerifCpf->rowCount() != 0) {
-                mensagemRetorno("O CPF $cpf já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
-            } else if ($sqlVerifCnh->rowCount() != 0) {
-                mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
-            };
-            ?>
+                ?>
 
-            <!-- BOTÃO VOLTAR -->
-            <a href="usucadastro.php" class="btn btn-warning">VOLTAR</a>
+                <!-- BOTÃO VOLTAR -->
+                <a href="usulista.php" class="btn btn-warning">VOLTAR</a>
+            </div>
+
         </div>
 
         <!-- FOOTER -->
