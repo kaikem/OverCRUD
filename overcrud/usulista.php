@@ -145,10 +145,13 @@ require_once 'usudeletemodal.php';
                         </div>
                         <!-- BOTÕES EDITAR & EXCLUIR -->
                         <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
+                            <!-- EXCLUIR -->
                             <a data-bs-toggle='modal' data-bs-target='#usudeletemodal<?= $usuario['idusuario'] ?>'>
                                 <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
                                     title="Deletar"></i>
                             </a>
+
+                            <!-- EDITAR -->
                             <a href="usu_editar.php?idempresa=<?= $empresa['idempresa']; ?>">
                                 <i class="fa-solid fa-pen-to-square btn btn-outline-warning border-3 p-2 rounded-circle"
                                     title="Editar"></i>
