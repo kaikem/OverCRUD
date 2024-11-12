@@ -1,10 +1,14 @@
 <?php
+//FUNÇÕES DE SUPORTE
+require_once 'support.php';
+
 //LIMPEZA DE USUÁRIO
 session_start();
 unset($_SESSION['cpf']);
 unset($_SESSION['senha']);
 unset($_SESSION['tipo']);
 unset($_SESSION['nome']);
+
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +45,12 @@ unset($_SESSION['nome']);
         <!-- TÍTULO & CARD DE LOGIN -->
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-8 col-sm-10 col-md-8 col-lg-5">
+
                 <!-- TÍTULO -->
                 <div class="row d-flex mb-2 text-center">
                     <h1 class="display-5 fs-1 lead">SISTEMA DE GESTÃO</h1>
                 </div>
+
                 <div class="row d-flex mb-2 justify-content-center align-items-center">
                     <!-- LOGIN CARD -->
                     <div class="card shadow" id="cardlogin">
@@ -69,6 +75,12 @@ unset($_SESSION['nome']);
                                             id="inputsenha" minlength="8" maxlength="32" placeholder="Senha" required>
                                     </div>
 
+                                    <!-- MENSAGEM DE ERRO -->
+                                    <div class='<?= $_SESSION['valido'] == false ? 'd-flex' : 'd-none' ?> text-center'
+                                        id='errologin'>
+                                        <?php mensagemRetorno("Usuário/senha incorretos! Por favor, tente novamente.", "danger") ?>
+                                    </div>
+
                                     <!-- BUTTONS -->
                                     <div class="row d-flex justify-content-center m-auto" id="loginbtnrow">
                                         <button type="submit" class="btn btn-primary loginbtn m-2"> <b
@@ -85,6 +97,7 @@ unset($_SESSION['nome']);
 
             </div>
         </div>
+
         <!-- FOOTER -->
         <?php require_once 'footer.php' ?>
     </div>
