@@ -2,6 +2,11 @@
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
 
+//VERIFICAÇÃO DE ADMIN
+if ($tipoUsu != '1') {
+    require_once 'logout.php';
+};
+
 //CONEXÃO COM BD
 require_once 'config.php';
 
@@ -10,6 +15,28 @@ require_once 'sqltables.php';
 
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';
+
+//PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
+$nome = $_POST['nome'];
+$telefone = $_POST['telefone'];
+$endereco = $_POST['endereco'];
+$password = $_POST['password'];
+$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+$cpf = $_POST['cpf'];
+$cnh = $_POST['cnh'];
+$carro = $_POST['carro'];
+$empregadoEm = intval($_POST['empregadoem']);
+$tipo = $_POST['tipo'];
+$status = 0;
+
+if ($empregadoEm != 0) {
+    $status = 1;
+};
+
+//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
+if (!isset($nome) && !isset($cpf)) {
+    require_once 'logout.php';
+};
 ?>
 
 <!DOCTYPE html>
@@ -26,27 +53,8 @@ require_once 'support.php';
 </head>
 
 <body>
-    <?php
-    //PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
-    $endereco = $_POST['endereco'];
-    $password = $_POST['password'];
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    $cpf = $_POST['cpf'];
-    $cnh = $_POST['cnh'];
-    $carro = $_POST['carro'];
-    $empregadoEm = intval($_POST['empregadoem']);
-    $tipo = $_POST['tipo'];
-    $status = 0;
-
-    if ($empregadoEm != 0) {
-        $status = 1;
-    };
-    ?>
-
-    <!-- HTML -->
     <div class="container">
+
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
             <?php require_once 'navbarTop.php' ?>
