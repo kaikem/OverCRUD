@@ -2,6 +2,11 @@
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
 
+//VERIFICAÇÃO DE ADMIN
+if ($tipoUsu != '1') {
+    require_once 'logout.php';
+};
+
 //CONEXÃO COM BD
 require_once 'config.php';
 
@@ -14,6 +19,11 @@ require_once 'sqltables.php';
 //RECEBIMENTO DE IDEMPRESA
 $idempresa = $_GET['idempresa'];
 $empresa = [];
+
+//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
+if (!isset($idempresa)) {
+    require_once 'logout.php';
+};
 ?>
 
 <!DOCTYPE html>
