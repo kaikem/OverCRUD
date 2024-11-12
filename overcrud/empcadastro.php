@@ -4,7 +4,7 @@ require_once 'sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    header("Location: index.php");
+    require_once 'logout.php';
 };
 
 //CONEXÃO COM BD
