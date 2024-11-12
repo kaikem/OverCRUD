@@ -12,6 +12,9 @@ require_once 'config.php';
 
 //TABELAS DO BD
 require_once 'sqltables.php';
+
+//FUNÇÕES DE SUPORTE
+require_once 'support.php';
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +52,9 @@ require_once 'sqltables.php';
                             <label for="cpf" class="form-label">CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
                                 onkeydown="handleCpf(event)" required>
+                            <div class="d-none" id="errocpf">
+
+                            </div>
                         </div>
 
                         <!-- SENHA -->
