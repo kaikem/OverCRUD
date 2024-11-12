@@ -17,7 +17,7 @@ require_once 'support.php';
 require_once 'sqltables.php';
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
-$idusuario = filter_input(INPUT_POST, 'idusuario');
+$idusuario = $_POST['idusuario'];
 $cpf = $_POST['cpf'];
 $tipo = $_POST['tipo'];
 $nome = $_POST['nome'];
