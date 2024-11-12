@@ -4,7 +4,7 @@ require_once 'sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    header("Location: index.php");
+    require_once 'logout.php';
 };
 
 //CONEXÃO COM BD
@@ -112,7 +112,7 @@ require_once 'sqltables.php';
                             <label for="empregadoem" class="form-label">Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
