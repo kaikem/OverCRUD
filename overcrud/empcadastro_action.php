@@ -10,6 +10,14 @@ require_once 'sqltables.php';
 
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';
+
+//RECEBIMENTO DE DADOS DO FORMULÁRIO
+$nome = $_POST['nome'];
+$telefone = $_POST['telefone'];
+$endereco = $_POST['endereco'];
+$fantasia = $_POST['fantasia'];
+$cnpj = $_POST['cnpj'];
+$responsavel = $_POST['responsavel'];
 ?>
 
 <!DOCTYPE html>
@@ -26,19 +34,8 @@ require_once 'support.php';
 </head>
 
 <body>
-    <!-- BASE PHP -->
-    <?php
-    //RECEBIMENTO DE DADOS DO FORMULÁRIO
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
-    $endereco = $_POST['endereco'];
-    $fantasia = $_POST['fantasia'];
-    $cnpj = $_POST['cnpj'];
-    $responsavel = $_POST['responsavel'];
-    ?>
-
-    <!-- HTML -->
     <div class="container">
+
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
             <?php require_once 'navbarTop.php' ?>
