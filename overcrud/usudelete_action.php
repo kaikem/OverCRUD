@@ -2,6 +2,11 @@
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
 
+//VERIFICAÇÃO DE ADMIN
+if ($tipoUsu != '1') {
+    require_once 'logout.php';
+};
+
 //CONEXÃO COM BD
 require_once 'config.php';
 
@@ -11,15 +16,15 @@ require_once 'support.php';
 //TABELAS DO BD
 require_once 'sqltables.php';
 
-//MODALS
-require_once 'usumodal.php';
-require_once 'usudeletemodal.php';
-
 //RECEBIMENTO DE IDUSUARIO
 $idusuario = $_GET['idusuario'];
 $usuario = [];
-?>
 
+//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
+if (!isset($idusuario)) {
+    require_once 'logout.php';
+};
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
@@ -63,7 +68,7 @@ $usuario = [];
                         mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
                     }
                 } else {
-                    mensagemRetorno("Usuário(a) não encontrada (atributo inexistente)!", "danger");
+                    mensagemRetorno("Usuário(a) não encontrado(a) (atributo inexistente)!", "danger");
                 };
                 ?>
 
