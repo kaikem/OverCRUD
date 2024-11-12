@@ -28,16 +28,16 @@ if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
             unset($_SESSION['senha']);
             unset($_SESSION['tipo']);
             unset($_SESSION['nome']);
-            echo "<script>alert('CPF/Senha inválidos! Tente novamente.')</script>";
             header("Refresh: 0");
+            $_SESSION['valido'] = false;
         };
     } else {
         unset($_SESSION['cpf']);
         unset($_SESSION['senha']);
         unset($_SESSION['tipo']);
         unset($_SESSION['nome']);
-        echo "<script>alert('CPF/Senha inválidos! Tente novamente.')</script>";
         header("Refresh: 0");
+        $_SESSION['valido'] = false;
     };
 } else {
     header('Location: index.php');
