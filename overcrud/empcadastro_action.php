@@ -2,6 +2,11 @@
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
 
+//VERIFICAÇÃO DE ADMIN
+if ($tipoUsu != '1') {
+    require_once 'logout.php';
+};
+
 //CONEXÃO COM BD
 require_once 'config.php';
 
@@ -18,6 +23,11 @@ $endereco = $_POST['endereco'];
 $fantasia = $_POST['fantasia'];
 $cnpj = $_POST['cnpj'];
 $responsavel = $_POST['responsavel'];
+
+//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
+if (!isset($nome) && !isset($cnpj)) {
+    require_once 'logout.php';
+};
 ?>
 
 <!DOCTYPE html>
