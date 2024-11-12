@@ -17,7 +17,7 @@ require_once 'support.php';
 require_once 'sqltables.php';
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
-$idempresa = filter_input(INPUT_POST, 'idempresa');
+$idempresa = $_POST['idempresa'];
 $cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
 $fantasia = $_POST['fantasia'];
