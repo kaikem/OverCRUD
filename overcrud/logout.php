@@ -5,4 +5,7 @@ unset($_SESSION['senha']);
 unset($_SESSION['tipo']);
 unset($_SESSION['nome']);
 $_SESSION['valido'] = true;
-header('Location: index.php');
+
+if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
+    header('Location: index.php');
+};
