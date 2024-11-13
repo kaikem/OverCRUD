@@ -61,18 +61,18 @@ if (!isset($idusuario)) {
                     if ($sqlConsulta->rowCount() > 0) {
                         $usuario = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
                         mensagemRetorno("Usuario(a) <b>{$usuario['nome']}</b> excluído(a) com sucesso!", "success");
-                        BotaoVoltar('usulista.php', "secondary");
 
                         $sqlExcluir = $pdo->prepare("DELETE FROM usuarios WHERE idusuario='$idusuario'");
                         $sqlExcluir->execute();
                     } else {
                         mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
-                        BotaoVoltar('usulista.php', "secondary");
                     }
                 } else {
                     mensagemRetorno("Usuário(a) não encontrado(a) (atributo inexistente)!", "danger");
-                    BotaoVoltar('usulista.php', "secondary");
                 };
+
+                //BOTÃO VOLTAR
+                BotaoVoltar('usulista.php', "secondary");
                 ?>
             </div>
 
