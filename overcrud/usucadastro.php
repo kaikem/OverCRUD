@@ -90,7 +90,7 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                                minlength="14" onkeydown="handlePhone(event)" required>
+                                minlength="14" onkeydown="handlePhone(event)">
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
@@ -107,7 +107,7 @@ require_once 'support.php';
                         <!-- CNH -->
                         <div class="form-group">
                             <label for="cnh" class="form-label">CNH:</label>
-                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9" required>
+                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
