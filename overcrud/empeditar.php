@@ -52,21 +52,24 @@ if (!isset($idempresa)) {
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">EDITAR EMPRESA</h1>
 
-            <?php
-            if ($idempresa) {
-                $sqlConsulta = $pdo->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
-                $sqlConsulta->execute();
-                if ($sqlConsulta->rowCount() > 0) {
-                    $empresa = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+            <!-- CONFIRMAÇÂO DA EDIÇÃO -->
+            <div class="col-4 col-md-6 text-center">
+                <?php
+                if ($idempresa) {
+                    $sqlConsulta = $pdo->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
+                    $sqlConsulta->execute();
+                    if ($sqlConsulta->rowCount() > 0) {
+                        $empresa = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+                    } else {
+                        mensagemRetorno("Empresa não existe no Banco de Dados!", "danger");
+                        BotaoVoltar('emplista.php', "secondary");
+                    };
                 } else {
-                    mensagemRetorno("Empresa não existe no Banco de Dados!", "danger");
-                    BotaoVoltar('emplista.php');
+                    mensagemRetorno("Empresa não encontrada (atributo inexistente)!", "danger");
+                    BotaoVoltar('emplista.php', "secondary");
                 };
-            } else {
-                mensagemRetorno("Empresa não encontrada (atributo inexistente)!", "danger");
-                BotaoVoltar('emplista.php');
-            };
-            ?>
+                ?>
+            </div>
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
