@@ -65,10 +65,10 @@ if (!isset($idempresa)) {
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CNPJ $cnpj)</b> foram atualizados com sucesso!", "success");
-                ?>
 
-                <!-- BOTÃO VOLTAR -->
-                <a href="emplista.php" class="d-block btn btn-warning">VOLTAR</a>
+                //BOTÃO VOLTAR
+                BotaoVoltar('emplista.php', "secondary");
+                ?>
             </div>
 
             <!-- FOOTER -->
