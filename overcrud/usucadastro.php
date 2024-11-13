@@ -49,7 +49,7 @@ require_once 'support.php';
                         <legend>DADOS DA CONTA</legend>
                         <!-- CPF -->
                         <div class="form-group">
-                            <label for="cpf" class="form-label">CPF:</label>
+                            <label for="cpf" class="form-label"><i class="fa-solid fa-person"></i> CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
                                 onkeypress="handleCpf(event)" required>
                             <div class="valid-feedback">CPF válido</div>
@@ -58,7 +58,7 @@ require_once 'support.php';
 
                         <!-- SENHA -->
                         <div class="form-group">
-                            <label for="password" class="form-label">Senha:</label>
+                            <label for="password" class="form-label"><i class="fa-solid fa-lock"></i> Senha:</label>
                             <input type="password" class="form-control" name="password" id="password" maxlength="16"
                                 minlength="8" required>
                             <div class="valid-feedback"></div>
@@ -67,7 +67,7 @@ require_once 'support.php';
 
                         <!-- TIPO -->
                         <div class="form-group">
-                            <label for="tipo" class="form-label">Tipo:</label>
+                            <label for="tipo" class="form-label"><i class="fa-solid fa-file-invoice"></i> Tipo:</label>
                             <select class="form-select" name="tipo" id="tipo">
                                 <option value="0">Comum</option>
                                 <option value="1">Admin</option>
@@ -80,7 +80,7 @@ require_once 'support.php';
                         <legend>DADOS PESSOAIS</legend>
                         <!-- NOME -->
                         <div class="form-group">
-                            <label for="nome" class="form-label">Nome:</label>
+                            <label for="nome" class="form-label"><i class="fa-solid fa-chart-line"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
@@ -88,7 +88,7 @@ require_once 'support.php';
 
                         <!-- TELEFONE -->
                         <div class="form-group">
-                            <label for="telefone" class="form-label">Telefone:</label>
+                            <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeypress="handlePhone(event)">
                             <div class="valid-feedback"></div>
@@ -97,7 +97,7 @@ require_once 'support.php';
 
                         <!-- ENDEREÇO -->
                         <div class="form-group">
-                            <label for="endereco" class="form-label">Endereço:</label>
+                            <label for="endereco" class="form-label"><i class="fa-solid fa-location-dot"></i> Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
                             <div class="valid-feedback"></div>
@@ -106,7 +106,7 @@ require_once 'support.php';
 
                         <!-- CNH -->
                         <div class="form-group">
-                            <label for="cnh" class="form-label">CNH:</label>
+                            <label for="cnh" class="form-label"><i class="fa-solid fa-id-card"></i> CNH:</label>
                             <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
@@ -114,7 +114,7 @@ require_once 'support.php';
 
                         <!-- CARRO -->
                         <div class="form-group">
-                            <label for="carro" class="form-label">Carro:</label>
+                            <label for="carro" class="form-label"><i class="fa-solid fa-car"></i> Carro:</label>
                             <input type="text" class="form-control" name="carro" id="carro" maxlength="32">
                         </div>
                     </fieldset>
@@ -124,7 +124,7 @@ require_once 'support.php';
                         <!-- EMPREGADO EM -->
                         <legend>EMPREGADO EM</legend>
                         <div class="form-group">
-                            <label for="empregadoem" class="form-label">Empresa:</label>
+                            <label for="empregadoem" class="form-label"><i class="fa-solid fa-briefcase"></i> Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
                                 <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
