@@ -51,7 +51,7 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="cpf" class="form-label">CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
-                                onkeydown="handleCpf(event)" required>
+                                onkeypress="handleCpf(event)" required>
                             <div class="valid-feedback">CPF válido</div>
                             <div class="invalid-feedback">CPF inválido!</div>
                         </div>
@@ -90,7 +90,7 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                                minlength="14" onkeydown="handlePhone(event)">
+                                minlength="14" onkeypress="handlePhone(event)">
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
