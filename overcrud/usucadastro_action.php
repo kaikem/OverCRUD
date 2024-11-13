@@ -85,6 +85,9 @@ if (!isset($nome) && !isset($cpf)) {
                 } else if ($sqlVerifCnh->rowCount() != 0) {
                     mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
                 };
+
+                //BOTÃO VOLTAR
+                BotaoVoltar('usulista.php', "secondary");
                 ?>
 
                 <!-- BOTÃO VOLTAR -->
