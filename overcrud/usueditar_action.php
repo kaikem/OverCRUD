@@ -67,10 +67,11 @@ if (!isset($idusuario)) {
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CPF $cpf)</b> foram atualizados com sucesso!", "success");
+
+                //BOTÃO VOLTAR
+                BotaoVoltar('usulista.php', "secondary");
                 ?>
 
-                <!-- BOTÃO VOLTAR -->
-                <a href="usulista.php" class="d-block btn btn-warning">VOLTAR</a>
             </div>
 
             <!-- FOOTER -->
