@@ -40,7 +40,7 @@ require_once 'sqltables.php';
                 <!-- TÍTULO DA SEÇÃO -->
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
                 <!-- FORMULÁRIO -->
-                <form action="empcadastro_action.php" method="POST">
+                <form class="needs-validation" action="empcadastro_action.php" method="POST" id="formempcadastro" novalidate>
                     <!-- FIELDSET GERAL -->
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
@@ -49,12 +49,16 @@ require_once 'sqltables.php';
                             <label for="cnpj" class="form-label">CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 onkeydown="handleCnpj(event)" required>
+                            <div class="valid-feedback">CNPJ válido</div>
+                            <div class="invalid-feedback">CNPJ inválido!</div>
                         </div>
 
                         <!-- NOME -->
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
                         <!-- NOME FANTASIA -->
@@ -62,6 +66,8 @@ require_once 'sqltables.php';
                             <label for="fantasia" class="form-label">Nome Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
                                 required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
@@ -69,6 +75,8 @@ require_once 'sqltables.php';
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeydown="handlePhone(event)">
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
                         <!-- ENDEREÇO -->
@@ -76,6 +84,8 @@ require_once 'sqltables.php';
                             <label for="endereco" class="form-label">Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
                         <!-- RESPONSÁVEL -->
@@ -83,6 +93,8 @@ require_once 'sqltables.php';
                             <label for="responsavel" class="form-label">Responsável:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
                                 required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>
 
@@ -105,6 +117,7 @@ require_once 'sqltables.php';
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
+    <script src="./js/formValidations.js"></script>
 </body>
 
 </html>
