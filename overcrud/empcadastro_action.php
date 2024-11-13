@@ -74,10 +74,10 @@ if (!isset($nome) && !isset($cnpj)) {
                 } else {
                     mensagemRetorno("CNPJ $cnpj já existente! Use outro CNPJ para este cadastro.", "warning");
                 };
-                ?>
 
-                <!-- BOTÃO VOLTAR -->
-                <a href="emplista.php" class="btn btn-warning">VOLTAR</a>
+                //BOTÃO VOLTAR
+                BotaoVoltar('emplista.php', "secondary");
+                ?>
             </div>
 
         </div>
