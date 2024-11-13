@@ -5,5 +5,7 @@ const form = document.querySelector('.needs-validation');
 form.addEventListener('submit', (evento)=>{
     if(!form.checkValidity()){
         evento.preventDefault();
+        alert("Dados incorretos! Por favor, verifique o formulário.");
     };
+    form.classList.add('was-validated');
 });
