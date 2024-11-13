@@ -68,9 +68,9 @@ foreach ($listaUsu as $usuario): ?>
                 </div>
 
                 <!-- EMPREGADO EM -->
-                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-briefcase"></i>
-                    Empregado em: </p>
-                <div class="cardinfo mt-0 mb-2 display-6">
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i>
+                    Empregado(a) em: </p>
+                <div class="mt-0 mb-3 display-6 fs-5">
                     <?php
                         for ($i = 0; $i < count($listaEmp); $i++) {
                             if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
