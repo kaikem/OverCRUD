@@ -5,7 +5,7 @@ foreach ($listaUsu as $usuario): ?>
         <div class='modal-content'>
             <!-- HEADER DO MODAL -->
             <div class='modal-header'>
-                <h1 class='modal-title text-uppercase fs-5'><?= $usuario['nome'] ?></h1>
+                <h1 class='modal-title text-uppercase fs-5'><i class="fa-solid fa-user"></i> <?= $usuario['nome'] ?></h1>
                 <button class='btn-close' data-bs-dismiss='modal'></button>
             </div>
             <!-- CORPO DO MODAL -->
