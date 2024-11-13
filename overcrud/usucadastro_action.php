@@ -70,7 +70,7 @@ if (!isset($nome) && !isset($cpf)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 $sqlVerifCpf = $pdo->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
-                $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh'");
+                $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
 
                 if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
                     $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
@@ -90,8 +90,6 @@ if (!isset($nome) && !isset($cpf)) {
                 BotaoVoltar('usulista.php', "secondary");
                 ?>
 
-                <!-- BOTÃO VOLTAR -->
-                <a href="usulista.php" class="btn btn-warning">VOLTAR</a>
             </div>
 
         </div>
