@@ -17,7 +17,7 @@ require_once 'support.php';
 require_once 'sqltables.php';
 
 //RECEBIMENTO DE IDUSUARIO
-$idusuario = $_GET['idusuario'];
+$idusuario = $_POST['idusuario'];
 $usuario = [];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
