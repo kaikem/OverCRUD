@@ -61,18 +61,18 @@ if (!isset($idempresa)) {
                     if ($sqlConsulta->rowCount() > 0) {
                         $empresa = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
                         mensagemRetorno("Empresa <b>{$empresa['nome']}</b> excluída com sucesso!", "success");
-                        BotaoVoltar('emplista.php', "secondary");
 
                         $sqlExcluir = $pdo->prepare("DELETE FROM empresas WHERE idempresa='$idempresa'");
                         $sqlExcluir->execute();
                     } else {
                         mensagemRetorno("Empresa não existe no Banco de Dados!", "danger");
-                        BotaoVoltar('emplista.php', "secondary");
                     }
                 } else {
                     mensagemRetorno("Empresa não encontrada (atributo inexistente)!", "danger");
-                    BotaoVoltar('emplista.php', "secondary");
                 };
+                
+                //BOTÃO VOLTAR
+                BotaoVoltar('emplista.php', "secondary");
                 ?>
             </div>
 
