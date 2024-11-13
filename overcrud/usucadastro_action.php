@@ -77,17 +77,18 @@ if (!isset($nome) && !isset($cpf)) {
 
                     if ($sqlInsert->execute()) {
                         mensagemRetorno("Dados de <b>$nome (CPF $cpf)</b> cadastrados com sucesso!", "success");
+                        BotaoVoltar('usulista.php', "secondary");
                     } else {
                         mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
+                        BotaoVoltar('usucadastro.php', "secondary");
                     };
                 } else if ($sqlVerifCpf->rowCount() != 0) {
                     mensagemRetorno("O CPF $cpf já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
+                    BotaoVoltar('usucadastro.php', "secondary");
                 } else if ($sqlVerifCnh->rowCount() != 0) {
                     mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
+                    BotaoVoltar('usucadastro.php', "secondary");
                 };
-
-                //BOTÃO VOLTAR
-                BotaoVoltar('usulista.php', "secondary");
                 ?>
 
             </div>
