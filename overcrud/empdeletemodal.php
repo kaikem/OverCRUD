@@ -9,18 +9,19 @@ foreach ($listaEmp as $empresa): ?>
             </div>
             <!-- CORPO DO MODAL -->
             <div class='modal-body'>
-                Tem certeza que quer excluir a empresa <b><?= $empresa['nome'] ?> (CNPJ: <?= $empresa['cnpj'] ?>)</b>?
+                Tem certeza que deseja excluir esta empresa? <br><b>NOME: <?= $empresa['nome'] ?> <br>CNPJ:
+                    <?= $empresa['cnpj'] ?></b>
             </div>
+
+            <!-- FOOTER DO MODAL -->
             <div class='modal-footer'>
                 <button class='btn btn-secondary' data-bs-dismiss='modal'>Voltar</button>
                 <form action="empdelete_action.php" method="POST" style="background-color: transparent;">
                     <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
                     <div class="form-group">
-                        <input type="submit" class="btn btn-danger loginbtn" value="EXCLUIR">
+                        <input type="submit" class="btn btn-danger" value="EXCLUIR">
                     </div>
                 </form>
-                <!--<a class='btn btn-danger'
-                    href='empdelete_action.php?idempresa=<?= $empresa['idempresa']; ?>'>Excluir</a>-->
             </div>
         </div>
     </div>
