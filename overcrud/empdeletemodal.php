@@ -13,8 +13,14 @@ foreach ($listaEmp as $empresa): ?>
             </div>
             <div class='modal-footer'>
                 <button class='btn btn-secondary' data-bs-dismiss='modal'>Voltar</button>
-                <a class='btn btn-danger'
-                    href='empdelete_action.php?idempresa=<?= $empresa['idempresa']; ?>'>Excluir</a>
+                <form action="empdelete_action.php" method="POST" style="background-color: transparent;">
+                    <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-danger loginbtn" value="EXCLUIR">
+                    </div>
+                </form>
+                <!--<a class='btn btn-danger'
+                    href='empdelete_action.php?idempresa=<?= $empresa['idempresa']; ?>'>Excluir</a>-->
             </div>
         </div>
     </div>
