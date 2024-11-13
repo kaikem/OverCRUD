@@ -16,8 +16,8 @@ require_once 'support.php';
 //TABELAS DO BD
 require_once 'sqltables.php';
 
-//RECEBIMENTO DE IDEMPRESA
-$idempresa = $_GET['idempresa'];
+//RECEBIMENTO DO IDEMPRESA
+$idempresa = $_POST['idempresa'];
 $empresa = [];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
