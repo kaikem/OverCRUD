@@ -1,14 +1,20 @@
 <?php
-//FUNÇÕES DE SUPORTE
-require_once 'support.php';
+//VERIFICAÇÃO DE SESSÃO
+require_once 'sessionverif.php';
 
 //LIMPEZA DE USUÁRIO
-session_start();
 unset($_SESSION['cpf']);
 unset($_SESSION['senha']);
 unset($_SESSION['tipo']);
 unset($_SESSION['nome']);
+if ($_SESSION['valido'] !== true) {
+    $_SESSION['valido'] = false;
+} else {
+    $_SESSION['valido'] = true;
+};
 
+//FUNÇÕES DE SUPORTE
+require_once 'support.php';
 ?>
 
 <!DOCTYPE html>
