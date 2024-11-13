@@ -68,16 +68,17 @@ if (!isset($nome) && !isset($cnpj)) {
 
                     if ($sqlInsert->execute()) {
                         mensagemRetorno("Dados de <b>$nome (CNPJ $cnpj)</b> cadastrados com sucesso!", "success");
+                        BotaoVoltar('emplista.php', "secondary");
                     } else {
                         mensagemRetorno("ERRO: Dados de $nome (CNPJ $cnpj) não foram cadastrados...", "danger");
+                        BotaoVoltar('empcadastro.php', "secondary");
                     };
                 } else {
                     mensagemRetorno("CNPJ $cnpj já existente! Use outro CNPJ para este cadastro.", "warning");
+                    BotaoVoltar('empcadastro.php', "secondary");
                 };
-
-                //BOTÃO VOLTAR
-                BotaoVoltar('emplista.php', "secondary");
                 ?>
+                
             </div>
 
         </div>
