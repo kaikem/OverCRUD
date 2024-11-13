@@ -43,7 +43,7 @@ require_once 'support.php';
                 <!-- TÍTULO DA SESSÃO -->
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE USUÁRIOS</h1>
                 <!-- FORMULÁRIO -->
-                <form action="usucadastro_action.php" method="POST">
+                <form class="needs-validation" action="usucadastro_action.php" method="POST" id="formusucadastro" novalidate>
                     <!-- FIELDSET CONTA -->
                     <fieldset>
                         <legend>DADOS DA CONTA</legend>
@@ -52,9 +52,8 @@ require_once 'support.php';
                             <label for="cpf" class="form-label">CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
                                 onkeydown="handleCpf(event)" required>
-                            <div class="d-none" id="errocpf">
-
-                            </div>
+                            <div class="valid-feedback">CPF válido</div>
+                            <div class="invalid-feedback">CPF inválido!</div>
                         </div>
 
                         <!-- SENHA -->
@@ -62,6 +61,8 @@ require_once 'support.php';
                             <label for="password" class="form-label">Senha:</label>
                             <input type="password" class="form-control" name="password" id="password" maxlength="16"
                                 minlength="8" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">A senha precisa conter pelo menos 8 caracteres</div>
                         </div>
 
                         <!-- TIPO -->
@@ -81,13 +82,17 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                                minlength="14" onkeydown="handlePhone(event)">
+                                minlength="14" onkeydown="handlePhone(event)" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
                         <!-- ENDEREÇO -->
@@ -95,12 +100,16 @@ require_once 'support.php';
                             <label for="endereco" class="form-label">Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
                         <!-- CNH -->
                         <div class="form-group">
                             <label for="cnh" class="form-label">CNH:</label>
-                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
+                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
 
                         <!-- CARRO -->
@@ -144,6 +153,7 @@ require_once 'support.php';
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/inputValidations.js"></script>
+    <script src="./js/formValidations.js"></script>
 </body>
 
 </html>
