@@ -52,21 +52,24 @@ if (!isset($idusuario)) {
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">EDITAR USUÁRIO(A)</h1>
 
-            <?php
-            if ($idusuario) {
-                $sqlConsulta = $pdo->prepare("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
-                $sqlConsulta->execute();
-                if ($sqlConsulta->rowCount() > 0) {
-                    $usuario = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+            <!-- CONFIRMAÇÂO DA EDIÇÃO -->
+            <div class="col-4 col-md-6 text-center">
+                <?php
+                if ($idusuario) {
+                    $sqlConsulta = $pdo->prepare("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
+                    $sqlConsulta->execute();
+                    if ($sqlConsulta->rowCount() > 0) {
+                        $usuario = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+                    } else {
+                        mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
+                        BotaoVoltar('usulista.php', "secondary");
+                    };
                 } else {
-                    mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
-                    BotaoVoltar('usulista.php');
+                    mensagemRetorno("Usuário(a) não encontrado(a) (atributo inexistente)!", "danger");
+                    BotaoVoltar('usulista.php', "secondary");
                 };
-            } else {
-                mensagemRetorno("Usuário(a) não encontrado(a) (atributo inexistente)!", "danger");
-                BotaoVoltar('usulista.php');
-            };
-            ?>
+                ?>
+            </div>
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
