@@ -6,6 +6,7 @@ session_start();
 if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     $logado = $_SESSION['cpf'];
     $tipoUsu = $_SESSION['tipo'];
+    $_SESSION['valido'] = true;
     $nomeUsu = strtok($_SESSION['nome'], " ");
 
 
@@ -20,5 +21,7 @@ if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     unset($_SESSION['senha']);
     unset($_SESSION['tipo']);
     unset($_SESSION['nome']);
-    header("Location: index.php");
+    if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
+        header('Location: index.php');
+    };
 };
