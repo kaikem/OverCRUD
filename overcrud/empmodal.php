@@ -24,11 +24,11 @@ foreach ($listaEmp as $empresa): ?>
                 <div class="mt-0 mb-3 display-6 fs-5"> <?= $empresa['telefone']; ?> </div>
 
                 <!-- ENDEREÇO -->
-                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i>Endereço: </p>
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i> Endereço: </p>
                 <div class="mt-0 mb-3 display-6 fs-5"> <?= $empresa['endereco']; ?> </div>
 
                 <!-- RESPONSÁVEL -->
-                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-user-tie"></i>Responsável: </p>
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-user-tie"></i> Responsável: </p>
                 <div class="mt-0 mb-3 display-6 fs-5"> <?= $empresa['responsavel']; ?> </div>
             </div>
         </div>
