@@ -5,7 +5,8 @@ foreach ($listaEmp as $empresa): ?>
         <div class='modal-content'>
             <!-- HEADER DO MODAL -->
             <div class='modal-header'>
-                <h1 class='modal-title text-uppercase fs-5'><?= $empresa['nome'] ?></h1>
+                <h1 class='modal-title text-uppercase fs-5'><i class="fa-solid fa-shop"></i> <?= $empresa['nome'] ?>
+                </h1>
                 <button class='btn-close' data-bs-dismiss='modal'></button>
             </div>
             <!-- CORPO DO MODAL -->
