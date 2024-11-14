@@ -40,13 +40,14 @@ require_once 'sqltables.php';
                 <!-- TÍTULO DA SEÇÃO -->
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
                 <!-- FORMULÁRIO -->
-                <form class="needs-validation" action="empcadastro_action.php" method="POST" id="formempcadastro" novalidate>
+                <form class="needs-validation" action="empcadastro_action.php" method="POST" id="formempcadastro"
+                    novalidate>
                     <!-- FIELDSET GERAL -->
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
                         <!-- CNPJ -->
                         <div class="form-group">
-                            <label for="cnpj" class="form-label">CNPJ:</label>
+                            <label for="cnpj" class="form-label"><i class="fa-solid fa-briefcase"></i> CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 onkeydown="handleCnpj(event)" required>
                             <div class="valid-feedback">CNPJ válido</div>
@@ -55,7 +56,7 @@ require_once 'sqltables.php';
 
                         <!-- NOME -->
                         <div class="form-group">
-                            <label for="nome" class="form-label">Nome:</label>
+                            <label for="nome" class="form-label"><i class="fa-solid fa-shop"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
@@ -63,7 +64,8 @@ require_once 'sqltables.php';
 
                         <!-- NOME FANTASIA -->
                         <div class="form-group">
-                            <label for="fantasia" class="form-label">Nome Fantasia:</label>
+                            <label for="fantasia" class="form-label"><i class="fa-solid fa-building"></i> Nome
+                                Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
                                 required>
                             <div class="valid-feedback"></div>
@@ -72,7 +74,7 @@ require_once 'sqltables.php';
 
                         <!-- TELEFONE -->
                         <div class="form-group">
-                            <label for="telefone" class="form-label">Telefone:</label>
+                            <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeydown="handlePhone(event)">
                             <div class="valid-feedback"></div>
@@ -81,7 +83,8 @@ require_once 'sqltables.php';
 
                         <!-- ENDEREÇO -->
                         <div class="form-group">
-                            <label for="endereco" class="form-label">Endereço:</label>
+                            <label for="endereco" class="form-label"><i class="fa-solid fa-location-dot"></i>
+                                Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
                             <div class="valid-feedback"></div>
@@ -90,7 +93,8 @@ require_once 'sqltables.php';
 
                         <!-- RESPONSÁVEL -->
                         <div class="form-group">
-                            <label for="responsavel" class="form-label">Responsável:</label>
+                            <label for="responsavel" class="form-label"><i class="fa-solid fa-user-tie"></i>
+                                Responsável:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
                                 required>
                             <div class="valid-feedback"></div>
