@@ -37,6 +37,11 @@ if ($empregadoEm != 0) {
 if (!isset($nome) && !isset($cpf)) {
     require_once 'logout.php';
 };
+
+//VALIDAÇÃO DE CPF
+require_once 'validaCpf.php';
+if (validaCPF($cpf)) {
+};
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +111,6 @@ if (!isset($nome) && !isset($cpf)) {
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
-    <script src="./js/inputValidations.js"></script>
 </body>
 
 </html>
