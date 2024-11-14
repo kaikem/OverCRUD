@@ -40,8 +40,10 @@ require_once 'support.php';
         <!-- ROW DO CORPO -->
         <div class="row d-flex justify-content-center mt-5" id="appBody">
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
+
                 <!-- TÍTULO DA SESSÃO -->
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE USUÁRIOS</h1>
+
                 <!-- FORMULÁRIO -->
                 <form class="needs-validation" action="usucadastro_action.php" method="POST" id="formusucadastro"
                     novalidate>
@@ -51,10 +53,9 @@ require_once 'support.php';
                         <!-- CPF -->
                         <div class="form-group">
                             <label for="cpf" class="form-label"><i class="fa-solid fa-person"></i> CPF:</label>
-                            <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14"
-                                onkeypress="handleCpf(event); validaCPF();" required>
-                            <div class="d-none" id="cpfvalido">CPF válido</div>
-                            <div class="d-none" id="cpfinvalido">CPF inválido!</div>
+                            <input type="text" class="form-control" name="cpf" id="cpf" minlength="14" maxlength="14"
+                                onkeypress="handleCpf(event);" required>
+                            <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
                         </div>
 
                         <!-- SENHA -->
@@ -155,7 +156,6 @@ require_once 'support.php';
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
-    <script src="./js/inputValidations.js"></script>
     <script src="./js/formValidations.js"></script>
 </body>
 
