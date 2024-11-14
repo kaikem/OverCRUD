@@ -5,19 +5,19 @@ foreach ($listaEmp as $empresa): ?>
         <div class='modal-content'>
             <!-- HEADER DO MODAL -->
             <div class='modal-header'>
-                <h1 class='modal-title text-uppercase fs-5'><i class="fa-solid fa-shop"></i> <?= $empresa['nome'] ?>
+                <h1 class='modal-title text-uppercase fs-5'><i class="fa-solid fa-building"></i> <?= $empresa['nome'] ?>
                 </h1>
                 <button class='btn-close' data-bs-dismiss='modal'></button>
             </div>
             <!-- CORPO DO MODAL -->
             <div class='modal-body'>
                 <!-- FANTASIA -->
-                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-building"></i> Nome
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-shop"></i> Nome
                     Fantasia: </p>
                 <div class="mt-0 mb-3 display-6 fs-5"> <?= $empresa['fantasia']; ?> </div>
 
                 <!-- CNPJ -->
-                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-briefcase"></i> CNPJ: </p>
+                <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-tree-city"></i> CNPJ: </p>
                 <div class="mt-0 mb-3 display-6 fs-5"> <?= $empresa['cnpj']; ?> </div>
 
                 <!-- TELEFONE -->
