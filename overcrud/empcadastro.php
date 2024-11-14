@@ -47,7 +47,7 @@ require_once 'sqltables.php';
                         <legend>DADOS DA EMPRESA</legend>
                         <!-- CNPJ -->
                         <div class="form-group">
-                            <label for="cnpj" class="form-label"><i class="fa-solid fa-briefcase"></i> CNPJ:</label>
+                            <label for="cnpj" class="form-label"><i class="fa-solid fa-tree-city"></i> CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 onkeydown="handleCnpj(event)" required>
                             <div class="valid-feedback">CNPJ válido</div>
@@ -56,7 +56,7 @@ require_once 'sqltables.php';
 
                         <!-- NOME -->
                         <div class="form-group">
-                            <label for="nome" class="form-label"><i class="fa-solid fa-shop"></i> Nome:</label>
+                            <label for="nome" class="form-label"><i class="fa-solid fa-building"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
@@ -64,7 +64,7 @@ require_once 'sqltables.php';
 
                         <!-- NOME FANTASIA -->
                         <div class="form-group">
-                            <label for="fantasia" class="form-label"><i class="fa-solid fa-building"></i> Nome
+                            <label for="fantasia" class="form-label"><i class="fa-solid fa-shop"></i> Nome
                                 Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
                                 required>
