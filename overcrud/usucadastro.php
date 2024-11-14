@@ -43,17 +43,18 @@ require_once 'support.php';
                 <!-- TÍTULO DA SESSÃO -->
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE USUÁRIOS</h1>
                 <!-- FORMULÁRIO -->
-                <form class="needs-validation" action="usucadastro_action.php" method="POST" id="formusucadastro" novalidate>
+                <form class="needs-validation" action="usucadastro_action.php" method="POST" id="formusucadastro"
+                    novalidate>
                     <!-- FIELDSET CONTA -->
                     <fieldset>
                         <legend>DADOS DA CONTA</legend>
                         <!-- CPF -->
                         <div class="form-group">
                             <label for="cpf" class="form-label"><i class="fa-solid fa-person"></i> CPF:</label>
-                            <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
-                                onkeypress="handleCpf(event)" required>
-                            <div class="valid-feedback">CPF válido</div>
-                            <div class="invalid-feedback">CPF inválido!</div>
+                            <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14"
+                                onkeypress="handleCpf(event); validaCPF();" required>
+                            <div class="d-none" id="cpfvalido">CPF válido</div>
+                            <div class="d-none" id="cpfinvalido">CPF inválido!</div>
                         </div>
 
                         <!-- SENHA -->
@@ -97,7 +98,8 @@ require_once 'support.php';
 
                         <!-- ENDEREÇO -->
                         <div class="form-group">
-                            <label for="endereco" class="form-label"><i class="fa-solid fa-location-dot"></i> Endereço:</label>
+                            <label for="endereco" class="form-label"><i class="fa-solid fa-location-dot"></i>
+                                Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
                             <div class="valid-feedback"></div>
@@ -124,10 +126,11 @@ require_once 'support.php';
                         <!-- EMPREGADO EM -->
                         <legend>EMPREGADO EM</legend>
                         <div class="form-group">
-                            <label for="empregadoem" class="form-label"><i class="fa-solid fa-briefcase"></i> Empresa:</label>
+                            <label for="empregadoem" class="form-label"><i class="fa-solid fa-briefcase"></i>
+                                Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
