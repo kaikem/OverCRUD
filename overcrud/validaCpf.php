@@ -1,9 +1,11 @@
 <?php
-function validaCPF($cpf) {
- 
+function validaCPF($cpf)
+{
+
     // Extrai somente os números
-    $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-     
+    $cpf = preg_replace('/[^0-9]/is', '', $cpf);
+    echo "<div><?= $cpf ?></div>";
+
     // Verifica se foi informado todos os digitos corretamente
     if (strlen($cpf) != 11) {
         return false;
@@ -19,7 +21,8 @@ function validaCPF($cpf) {
         for ($d = 0, $c = 0; $c < $t; $c++) {
             $d += $cpf[$c] * (($t + 1) - $c);
         }
-        $d = ((10 * $d) % 11) % 10;
+        $d = ((10 * $d) % 11) %
+            10;
         if ($cpf[$c] != $d) {
             return false;
         }
