@@ -81,7 +81,7 @@ require_once 'support.php';
                         <legend>DADOS PESSOAIS</legend>
                         <!-- NOME -->
                         <div class="form-group">
-                            <label for="nome" class="form-label"><i class="fa-solid fa-chart-line"></i> Nome:</label>
+                            <label for="nome" class="form-label"><i class="fa-solid fa-user"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
@@ -130,7 +130,7 @@ require_once 'support.php';
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
