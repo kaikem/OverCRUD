@@ -1,19 +1,13 @@
 //VALIDAÇÃO DE CPF
-const cpfValido = document.getElementById('cpfvalido');
-const cpfInvalido = document.getElementById('cpfinvalido');
-const form = document.getElementById('formusucadastro');
-const inputCpf = document.getElementById('cpf');
-
 function validaCPF(cpf) {
   //VARIÁVEIS DE INTERESSE
+  var inputCpfValue = document.getElementById('cpf').value;
   var Soma = 0
   var Resto
-
 
   //REMOVER PONTOS E TRAÇOS
   var strCPF = String(cpf).replace(/[^d]/g, '');
   alert(strCPF);
-  
 
   //VERIFICAÇÃO DE TAMANHO
   if (strCPF.length !== 11) {
@@ -36,23 +30,19 @@ function validaCPF(cpf) {
     ].indexOf(strCPF) !== -1)
     return false;
 
-
   //CÁLCULO DA VARIÁVEL RESTO
   for (i=1; i<=9; i++)
     Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
 
   Resto = (Soma * 10) % 11
 
-
   //SE RESTO = 10 OU 11 PRECISA SER ZERADO
   if ((Resto == 10) || (Resto == 11)) 
     Resto = 0
 
-
   //RESTO DEVE SER DIFERENTE DO VALOR DO 10º CARACTERE
   if (Resto != parseInt(strCPF.substring(9, 10)) )
     return false
-
 
   //DEFINIR SOMA PARA NOVA VALIDÇÃO COM RESTO
   Soma = 0
@@ -62,14 +52,11 @@ function validaCPF(cpf) {
 
   Resto = (Soma * 10) % 11
 
-
   //SE RESTO = 10 OU 11 PRECISA SER ZERADO
   if ((Resto == 10) || (Resto == 11)) Resto = 0;
 
-
   //RESTO DEVE SER DIFERENTE DO VALOR DO 11º CARACTERE
   if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
-
 
   //CPF VÁLIDO
   return true;
