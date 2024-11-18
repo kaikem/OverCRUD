@@ -73,7 +73,7 @@ if (!isset($idusuario)) {
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
-                <form action="usueditar_action.php" method="POST">
+                <form class="needs-validation" action="usueditar_action.php" method="POST" novalidate>
                     <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
                     <!-- FIELDSET CONTA -->
                     <fieldset>
@@ -83,6 +83,7 @@ if (!isset($idusuario)) {
                             <label for="cpf" class="form-label">CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
                                 onkeydown="handleCpf(event)" value="<?= $usuario['cpf'] ?>" required>
+                            <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
                         </div>
 
                         <!-- SENHA
@@ -111,6 +112,8 @@ if (!isset($idusuario)) {
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64"
                                 value="<?= $usuario['nome'] ?>" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
@@ -118,6 +121,8 @@ if (!isset($idusuario)) {
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeydown="handlePhone(event)" value="<?= $usuario['telefone'] ?>">
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
                         <!-- ENDEREÇO -->
@@ -125,6 +130,8 @@ if (!isset($idusuario)) {
                             <label for="endereco" class="form-label">Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 value="<?= $usuario['endereco'] ?>" required>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
                         <!-- CNH -->
@@ -132,6 +139,8 @@ if (!isset($idusuario)) {
                             <label for="cnh" class="form-label">CNH:</label>
                             <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9"
                                 value="<?= $usuario['cnh'] ?>">
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
 
                         <!-- CARRO -->
@@ -181,6 +190,7 @@ if (!isset($idusuario)) {
         <script src="./js/darkmodetoggle.js"></script>
         <script src="./js/modals.js"></script>
         <script src="./js/empMudarDisplay.js"></script>
+        <script src="./js/usuFormValidations.js"></script>
 </body>
 
 </html>
