@@ -194,7 +194,7 @@ require_once 'usudeletemodal.php';
                         <td>
                             <?php
                                 if ($usuario['tipo'] == "1") {
-                                    echo "<div class='text-info'>ADMIN</div>";
+                                    echo "<div class='text-primary'>ADMIN</div>";
                                 } else {
                                     echo "Comum";
                                 }
