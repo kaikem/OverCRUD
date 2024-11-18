@@ -42,7 +42,7 @@ require_once 'support.php';
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
 
                 <!-- TÍTULO DA SESSÃO -->
-                <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE USUÁRIOS</h1>
+                <h1 class="text-center text-primary display-6 mb-5" id="sessiontitle">CADASTRO DE USUÁRIOS</h1>
 
                 <!-- FORMULÁRIO -->
                 <form class="needs-validation" action="usucadastro_action.php" method="POST" id="formusucadastro"
@@ -131,7 +131,7 @@ require_once 'support.php';
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -156,7 +156,7 @@ require_once 'support.php';
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
-    <script src="./js/formValidations.js"></script>
+    <script src="./js/usuFormValidations.js"></script>
 </body>
 
 </html>
