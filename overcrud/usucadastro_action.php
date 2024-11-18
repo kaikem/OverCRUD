@@ -29,6 +29,7 @@ $empregadoEm = intval($_POST['empregadoem']);
 $tipo = $_POST['tipo'];
 $status = 0;
 
+//VERIFICAÇÃO DE EMPREGADO EM
 if ($empregadoEm != 0) {
     $status = 1;
 };
@@ -36,11 +37,6 @@ if ($empregadoEm != 0) {
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($nome) && !isset($cpf)) {
     require_once 'logout.php';
-};
-
-//VALIDAÇÃO DE CPF
-require_once 'validaCpf.php';
-if (validaCPF($cpf)) {
 };
 ?>
 
