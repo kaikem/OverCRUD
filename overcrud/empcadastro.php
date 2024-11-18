@@ -37,8 +37,10 @@ require_once 'sqltables.php';
         <!-- CORPO -->
         <div class="row d-flex justify-content-center mt-5" id="appBody">
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
+
                 <!-- TÍTULO DA SEÇÃO -->
                 <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
+
                 <!-- FORMULÁRIO -->
                 <form class="needs-validation" action="empcadastro_action.php" method="POST" id="formempcadastro"
                     novalidate>
@@ -57,7 +59,6 @@ require_once 'sqltables.php';
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-building"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -67,7 +68,6 @@ require_once 'sqltables.php';
                                 Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
                                 required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
@@ -76,7 +76,6 @@ require_once 'sqltables.php';
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeydown="handlePhone(event)">
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
@@ -86,7 +85,6 @@ require_once 'sqltables.php';
                                 Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
@@ -96,7 +94,6 @@ require_once 'sqltables.php';
                                 Responsável:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
                                 required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>
