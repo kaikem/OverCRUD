@@ -25,7 +25,13 @@ $telefone = $_POST['telefone'];
 $endereco = $_POST['endereco'];
 $cnh = $_POST['cnh'];
 $carro = $_POST['carro'];
-$empregadoem = $_POST['empregadoem'];
+$empregadoEm = $_POST['empregadoem'];
+$status = 0;
+
+//VERIFICAÇÃO DE EMPREGADO EM
+if ($empregadoEm != 0) {
+    $status = 1;
+};
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
@@ -63,7 +69,7 @@ if (!isset($idusuario)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = $pdo->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', endereco='$endereco', cpf='$cpf', cnh='$cnh', carro='$carro', idempregadoem='$empregadoem', tipo='$tipo' WHERE idusuario='$idusuario'");
+                $sqlAtualizar = $pdo->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', endereco='$endereco', cpf='$cpf', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status' WHERE idusuario='$idusuario'");
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CPF $cpf)</b> foram atualizados com sucesso!", "success");
