@@ -73,7 +73,7 @@ if (!isset($idempresa)) {
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
-                <form action="empeditar_action.php" method="POST">
+                <form class="needs-validation" action="empeditar_action.php" method="POST" novalidate>
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
                         <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
@@ -82,6 +82,7 @@ if (!isset($idempresa)) {
                             <label for="cnpj" class="form-label">CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 onkeydown="handleCnpj(event)" value="<?= $empresa['cnpj'] ?>" required>
+                            <div class="invalid-feedback" id="cnpjinvalido">CNPJ inválido!</div>
                         </div>
 
                         <!-- NOME -->
@@ -89,13 +90,15 @@ if (!isset($idempresa)) {
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64"
                                 value="<?= $empresa['nome'] ?>" required>
+                            <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
                         <!-- NOME FANTASIA -->
                         <div class="form-group">
                             <label for="fantasia" class="form-label">Nome Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
-                                value="<?= $empresa['fantasia'] ?>">
+                                value="<?= $empresa['fantasia'] ?>" required>
+                            <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
@@ -103,13 +106,15 @@ if (!isset($idempresa)) {
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeydown="handlePhone(event)" value="<?= $empresa['telefone'] ?>">
+                            <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
                         <!-- ENDEREÇO -->
                         <div class="form-group">
                             <label for="endereco" class="form-label">Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
-                                value="<?= $empresa['endereco'] ?>">
+                                value="<?= $empresa['endereco'] ?>" required>
+                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
                         <!-- RESPONSÁVEL -->
@@ -117,6 +122,7 @@ if (!isset($idempresa)) {
                             <label for="responsavel" class="form-label">Responsável:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
                                 value="<?= $empresa['responsavel'] ?>" required>
+                            <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
 
                     </fieldset>
@@ -142,6 +148,7 @@ if (!isset($idempresa)) {
         <script src="./js/darkmodetoggle.js"></script>
         <script src="./js/modals.js"></script>
         <script src="./js/empMudarDisplay.js"></script>
+        <script src="./js/empFormValidations.js"></script>
 </body>
 
 </html>
