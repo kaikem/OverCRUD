@@ -43,7 +43,7 @@ require_once 'usudeletemodal.php';
             <?php require_once 'pesquisaDisplay.php' ?>
 
             <!-- LISTA (CARDS) -->
-            <div class="row d-none" id="mostrarCardsUsuarios">
+            <div class="row d-none" id="mostrarcardsusuarios">
                 <?php foreach ($listaUsu as $usuario) : ?>
                 <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
                     <!-- CARD -->
@@ -164,8 +164,8 @@ require_once 'usudeletemodal.php';
             </div>
 
             <!-- LISTA (TABELA) -->
-            <div class="" id="mostrarTabelaUsuarios">
-                <table id="tabelaUsuarios" class="table table-striped">
+            <div class="" id="mostrartabelausuarios">
+                <table id="tabelausuarios" class="table table-striped">
                     <!-- TABELA (CABEÇALHO) -->
                     <tr class="table-secondary text-center">
                         <th>NOME</th>
@@ -249,6 +249,7 @@ require_once 'usudeletemodal.php';
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
     <script src="./js/usuMudarDisplay.js"></script>
+    <script src="./js/ordenarNome.js"></script>
 </body>
 
 </html>
