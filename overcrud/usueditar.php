@@ -112,7 +112,6 @@ if (!isset($idusuario)) {
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64"
                                 value="<?= $usuario['nome'] ?>" required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -121,7 +120,6 @@ if (!isset($idusuario)) {
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeydown="handlePhone(event)" value="<?= $usuario['telefone'] ?>">
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
@@ -130,7 +128,6 @@ if (!isset($idusuario)) {
                             <label for="endereco" class="form-label">Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 value="<?= $usuario['endereco'] ?>" required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
@@ -139,7 +136,6 @@ if (!isset($idusuario)) {
                             <label for="cnh" class="form-label">CNH:</label>
                             <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9"
                                 value="<?= $usuario['cnh'] ?>">
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
 
