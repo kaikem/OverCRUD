@@ -78,7 +78,7 @@ if (!isset($nome) && !isset($cnpj)) {
                     BotaoVoltar('empcadastro.php', "secondary");
                 };
                 ?>
-                
+
             </div>
 
         </div>
@@ -94,6 +94,7 @@ if (!isset($nome) && !isset($cnpj)) {
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
+    <script src="./js/empFormValidations.js"></script>
 </body>
 
 </html>
