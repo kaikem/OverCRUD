@@ -1,6 +1,7 @@
 //VARIÁVEIS DOM
 const formUsu = document.querySelector('.needs-validation');
 const inputCpf = document.getElementById('cpf');
+const cpfInvalido = document.getElementById('cpfinvalido');
 
 //VALIDAÇÃO DE CPF
 function ValidaCPF(cpf) {	
@@ -53,11 +54,13 @@ formUsu.addEventListener('submit', (evento)=>{
         evento.stopPropagation();
         alert("Dados incorretos! Por favor, verifique o formulário.");
         formUsu.classList.add('was-validated');
+		cpfInvalido.classList.add('d-none');
     } else if(!retornoCpf){
         evento.preventDefault();
         evento.stopPropagation();
         alert("CPF inválido! Por favor, verifique o número e tente novamente.");
         formUsu.classList.add('was-validated');
+		cpfInvalido.classList.remove('d-none');
         inputCpf.classList.add('is-invalid');
         inputCpf.classList.remove('is-valid');
     };
