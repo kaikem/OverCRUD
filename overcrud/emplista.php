@@ -43,7 +43,7 @@ require_once 'empdeletemodal.php';
             <?php require_once 'pesquisaDisplay.php' ?>
 
             <!-- LISTA (CARDS) -->
-            <div class="row d-none" id="mostrarCardsEmpresas">
+            <div class="row d-none" id="mostrarcardsempresas">
                 <?php foreach ($listaEmp as $empresa) : ?>
                 <div class=" col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center
                 <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
@@ -105,8 +105,8 @@ require_once 'empdeletemodal.php';
             </div>
 
             <!-- LISTA (TABELA) -->
-            <div class="" id="mostrarTabelaEmpresas">
-                <table id="tabelaEmpresas" class="table table-striped">
+            <div class="" id="mostrartabelaempresas">
+                <table id="tabelaempresas" class="table table-striped">
                     <!-- TABELA (CABEÇALHO) -->
                     <tr class="table-secondary text-center">
                         <th>NOME</th>
@@ -160,6 +160,7 @@ require_once 'empdeletemodal.php';
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
     <script src="./js/empMudarDisplay.js"></script>
+    <script src="./js/ordenarNome.js"></script>
 </body>
 
 </html>
