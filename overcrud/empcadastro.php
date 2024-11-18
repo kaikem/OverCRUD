@@ -50,7 +50,6 @@ require_once 'sqltables.php';
                             <label for="cnpj" class="form-label"><i class="fa-solid fa-tree-city"></i> CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 onkeydown="handleCnpj(event)" required>
-                            <div class="valid-feedback">CNPJ válido</div>
                             <div class="invalid-feedback">CNPJ inválido!</div>
                         </div>
 
@@ -121,7 +120,7 @@ require_once 'sqltables.php';
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
     <script src="./js/inputmasks.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
-    <script src="./js/formValidations.js"></script>
+    <script src="./js/empFormValidations.js"></script>
 </body>
 
 </html>
