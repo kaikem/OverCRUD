@@ -67,15 +67,12 @@ formEmp.addEventListener('submit', (evento)=>{
         evento.preventDefault();
         evento.stopPropagation();
         alert("Dados incorretos! Por favor, verifique o formulário.");
-        formEmp.classList.add('was-validated');
-        cnpjInvalido.classList.add('d-none');
     } else if(!retornoCnpj){
         evento.preventDefault();
         evento.stopPropagation();
         alert("CNPJ inválido! Por favor, verifique o número e tente novamente.");
-        formEmp.classList.add('was-validated');
-        cnpjInvalido.classList.remove('d-none');
         inputCnpj.classList.add('is-invalid');
         inputCnpj.classList.remove('is-valid');
     };
+    formEmp.classList.add('was-validated');
 });
