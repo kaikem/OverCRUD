@@ -1,6 +1,7 @@
 //VARIÁVEIS DOM
 const formEmp = document.querySelector('.needs-validation');
 const inputCnpj = document.getElementById('cnpj');
+const cnpjInvalido = document.getElementById('cnpjinvalido');
 
 //VALIDAÇÃO DE CPF
 function ValidaCNPJ(cnpj) {
@@ -67,11 +68,13 @@ formEmp.addEventListener('submit', (evento)=>{
         evento.stopPropagation();
         alert("Dados incorretos! Por favor, verifique o formulário.");
         formEmp.classList.add('was-validated');
+        cnpjInvalido.classList.add('d-none');
     } else if(!retornoCnpj){
         evento.preventDefault();
         evento.stopPropagation();
         alert("CNPJ inválido! Por favor, verifique o número e tente novamente.");
         formEmp.classList.add('was-validated');
+        cnpjInvalido.classList.remove('d-none');
         inputCnpj.classList.add('is-invalid');
         inputCnpj.classList.remove('is-valid');
     };
