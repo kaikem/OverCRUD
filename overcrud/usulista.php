@@ -170,8 +170,8 @@ require_once 'usudeletemodal.php';
                     <tr class="table-secondary text-center">
                         <th>NOME</th>
                         <th>CPF</th>
-                        <th>CNH</th>
                         <th>TELEFONE</th>
+                        <th>TIPO</th>
                         <th>STATUS</th>
                         <th> </th>
                         <th class="<?= $linksAdm ?>"> </th>
@@ -184,19 +184,19 @@ require_once 'usudeletemodal.php';
                         <td><?= $usuario['cpf']; ?></td>
                         <td>
                             <?php
-                                if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
+                                if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
                                     echo "- NÃO POSSUI -";
                                 } else {
-                                    echo $usuario['cnh'];
+                                    echo $usuario['telefone'];
                                 }
                                 ?>
                         </td>
                         <td>
                             <?php
-                                if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
-                                    echo "- NÃO POSSUI -";
+                                if ($usuario['tipo'] == "1") {
+                                    echo "<div class='text-info'>ADMIN</div>";
                                 } else {
-                                    echo $usuario['telefone'];
+                                    echo "Comum";
                                 }
                                 ?>
                         </td>
