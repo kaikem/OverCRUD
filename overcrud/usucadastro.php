@@ -63,7 +63,6 @@ require_once 'support.php';
                             <label for="password" class="form-label"><i class="fa-solid fa-lock"></i> Senha:</label>
                             <input type="password" class="form-control" name="password" id="password" maxlength="16"
                                 minlength="8" required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">A senha precisa conter pelo menos 8 caracteres</div>
                         </div>
 
@@ -84,7 +83,6 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-user"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -93,7 +91,6 @@ require_once 'support.php';
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
                                 minlength="14" onkeypress="handlePhone(event)">
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
@@ -103,7 +100,6 @@ require_once 'support.php';
                                 Endereço:</label>
                             <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
                                 required>
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">O endereço precisa ser preenchido</div>
                         </div>
 
@@ -111,7 +107,6 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="cnh" class="form-label"><i class="fa-solid fa-id-card"></i> CNH:</label>
                             <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
-                            <div class="valid-feedback"></div>
                             <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
 
@@ -131,7 +126,7 @@ require_once 'support.php';
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
