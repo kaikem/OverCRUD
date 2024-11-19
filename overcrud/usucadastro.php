@@ -41,7 +41,7 @@ require_once 'support.php';
         <div class="row d-flex justify-content-center mt-5" id="appBody">
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
 
-                <!-- TÍTULO DA SESSÃO -->
+                <!-- TÍTULO DA SEÇÃO -->
                 <h1 class="text-center text-primary display-6 mb-5" id="sessiontitle">CADASTRO DE USUÁRIOS</h1>
 
                 <!-- FORMULÁRIO -->
@@ -126,7 +126,7 @@ require_once 'support.php';
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
