@@ -51,7 +51,7 @@ require_once 'sqltables.php';
                         <div class="form-group">
                             <label for="cnpj" class="form-label"><i class="fa-solid fa-tree-city"></i> CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
-                                onkeydown="handleCnpj(event)" required>
+                                data-mask="00.000.000/0000-00" required>
                             <div class="invalid-feedback">CNPJ inválido!</div>
                         </div>
 
@@ -75,7 +75,7 @@ require_once 'sqltables.php';
                         <div class="form-group">
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                                minlength="14" onkeydown="handlePhone(event)">
+                                minlength="14" data-mask="(00) 00000-0000">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
@@ -115,9 +115,11 @@ require_once 'sqltables.php';
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
-    <script src="./js/inputmasks.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/empFormValidations.js"></script>
+
 </body>
 
 </html>
