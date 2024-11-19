@@ -17,11 +17,16 @@ require_once 'sqltables.php';
 require_once 'support.php';
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
-$nome = $_POST['nome'];
-$telefone = $_POST['telefone'];
-$endereco = $_POST['endereco'];
-$fantasia = $_POST['fantasia'];
 $cnpj = $_POST['cnpj'];
+$nome = $_POST['nome'];
+$fantasia = $_POST['fantasia'];
+$telefone = $_POST['telefone'];
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 $responsavel = $_POST['responsavel'];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
@@ -64,7 +69,7 @@ if (!isset($nome) && !isset($cnpj)) {
                 $sqlVerif->execute();
 
                 if ($sqlVerif->rowCount() === 0) {
-                    $sqlInsert = $pdo->prepare("INSERT INTO empresas (nome, telefone, endereco, fantasia, cnpj, responsavel) VALUES ('$nome', '$telefone', '$endereco', '$fantasia', '$cnpj', '$responsavel')");
+                    $sqlInsert = $pdo->prepare("INSERT INTO empresas (cnpj, nome, fantasia, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro, responsavel) VALUES ('$cnpj', '$nome', '$fantasia', '$telefone', '$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$responsavel')");
 
                     if ($sqlInsert->execute()) {
                         mensagemRetorno("Dados de <b>$nome (CNPJ $cnpj)</b> cadastrados com sucesso!", "success");
@@ -74,7 +79,7 @@ if (!isset($nome) && !isset($cnpj)) {
                         BotaoVoltar('empcadastro.php', "secondary");
                     };
                 } else {
-                    mensagemRetorno("CNPJ $cnpj já existente! Use outro CNPJ para este cadastro.", "warning");
+                    mensagemRetorno("CNPJ $cnpj já existe! Use outro CNPJ para este cadastro.", "warning");
                     BotaoVoltar('empcadastro.php', "secondary");
                 };
                 ?>
