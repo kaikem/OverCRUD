@@ -70,7 +70,7 @@ require_once 'support.php';
                                     <div class="input-group input-group-lg mb-3">
                                         <i class="input-group-text fa-solid fa-right-to-bracket p-3"></i>
                                         <input type="text" class="form-control form-control-sm" name="cpf" id="inputcpf"
-                                            minlength="14" maxlength="14" placeholder="CPF" onkeydown="handleCpf(event)"
+                                            minlength="14" maxlength="14" placeholder="CPF" data-mask="000.000.000-00"
                                             autofocus required>
                                     </div>
 
@@ -112,7 +112,8 @@ require_once 'support.php';
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
-    <script src="./js/inputmasks.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
 </body>
 
