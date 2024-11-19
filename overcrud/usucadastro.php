@@ -120,13 +120,13 @@ require_once 'support.php';
                     <!-- FIELDSET EMPREGADO -->
                     <fieldset>
                         <!-- EMPREGADO EM -->
-                        <legend>EMPREGADO EM</legend>
+                        <legend>EMPREGADO EM...</legend>
                         <div class="form-group">
                             <label for="empregadoem" class="form-label"><i class="fa-solid fa-briefcase"></i>
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -134,7 +134,6 @@ require_once 'support.php';
 
                     <!-- BUTTONS -->
                     <div class="form-group my-3 text-center align-items-center">
-                        <!-- <a href="emplista.php" class="btn btn-danger loginbtn">VOLTAR</a> -->
                         <button type="button" class="btn btn-secondary loginbtn" onclick="reset()">LIMPAR</button>
                         <input type="submit" class="btn btn-primary loginbtn" value="ENVIAR">
                     </div>
