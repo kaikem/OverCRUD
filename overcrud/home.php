@@ -19,7 +19,7 @@ require_once 'sqltables.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
-    <title>OverCRUD - Home</title>
+    <title>OverCRUD</title>
 </head>
 
 <body>
@@ -47,20 +47,34 @@ require_once 'sqltables.php';
 
             <!-- CARD EMPRESAS -->
             <div class="col-12 col-md-10 col-lg-5 justify-content-center" id="homecards">
-                <div class="card text-info" id="emphomecard">
-                    <div class="card-header d-flex justify-content-center align-items-center">
-                        <h3>EMPRESAS</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-text">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item text-info"><b>CADASTROS:</b></li>
-                                <li class="list-group-item text-info"></li>
-                                <li class="list-group-item text-info"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <b class="text-info">EMPRESAS CADASTRADAS: </b>
+                        <span class="fw-bolder bg-primary p-2"><?= (count($listaEmp) - 1) ?></span>
+                    </li>
+                    <li class="list-group-item">
+                        <b class="text-info">USUÁRIOS CADASTRADOS: </b>
+                        <span class="fw-bolder bg-primary p-2"><?= count($listaUsu) ?></span>
+                    </li>
+                    <li class="list-group-item">
+                        <b class="text-info">USUÁRIOS COMUNS:</b>
+                        <span class="fw-bolder bg-primary p-2"><?= count($listaUsu) - count($listaUsuAdmins) ?></span>
+                    </li>
+                    <li class="list-group-item">
+                        <b class="text-info">USUÁRIOS ADMINS: </b>
+                        <span class="fw-bolder bg-primary p-2"><?= count($listaUsuAdmins) ?></span>
+                    </li>
+                    <li class="list-group-item">
+                        <b class="text-info">USUÁRIOS ATIVOS: </b>
+                        <span class="fw-bolder bg-primary p-2"><?= count($listaUsuAtivos) ?></span>
+                    </li>
+                    <li class="list-group-item">
+                        <b class="text-info">USUÁRIOS INATIVOS:</b>
+                        <span class="fw-bolder bg-primary p-2"><?= count($listaUsu) - count($listaUsuAtivos) ?></span>
+                    </li>
+                </ul>
+
             </div>
 
         </div>
