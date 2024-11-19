@@ -82,7 +82,7 @@ if (!isset($idusuario)) {
                         <div class="form-group">
                             <label for="cpf" class="form-label">CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
-                                onkeydown="handleCpf(event)" value="<?= $usuario['cpf'] ?>" required>
+                                data-mask="000.000.000-00" value="<?= $usuario['cpf'] ?>" required>
                             <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
                         </div>
 
@@ -119,7 +119,7 @@ if (!isset($idusuario)) {
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                                minlength="14" onkeydown="handlePhone(event)" value="<?= $usuario['telefone'] ?>">
+                                minlength="14" data-mask="(00) 00000-0000" value="<?= $usuario['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
 
@@ -182,7 +182,8 @@ if (!isset($idusuario)) {
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
         <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
-        <script src="./js/inputmasks.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <script src="./js/darkmodetoggle.js"></script>
         <script src="./js/modals.js"></script>
         <script src="./js/empMudarDisplay.js"></script>
