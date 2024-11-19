@@ -26,7 +26,7 @@ echo "
                             </button>
                             <!-- LINKS NAVBAR -->
                             <div class='collapse navbar-collapse justify-content-end' id='navbarMain'>
-                                <ul class='navbar-nav gap-3'>
+                                <ul class='navbar-nav nav-underline gap-3'>
                                     <li class='navbar-item d-flex d-md-none'>
                                         <a href='home.php' class='nav-link fs-5'>Home</a>
                                     </li>
