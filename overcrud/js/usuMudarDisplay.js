@@ -1,5 +1,5 @@
-const cardsUsuarios = document.getElementById('mostrarcardsusuarios');
-const tabelaUsuarios = document.getElementById('mostrartabelausuarios');
+const cardsUsuarios = document.getElementById('mostrarcards');
+const tabelaUsuarios = document.getElementById('mostrartabela');
 const botaoDisplayTabela = document.getElementById('btndisplaytabela');
 const botaoDisplayCards = document.getElementById('btndisplaycards');
 
