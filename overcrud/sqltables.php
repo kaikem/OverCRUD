@@ -2,6 +2,8 @@
 //USUÁRIOS
 $listaUsu = [];
 $listaUsuNomes = [];
+$listaUsuAdmins = [];
+$listaUsuAtivos = [];
 
 $sqlConsultaUsu = $pdo->query("SELECT * FROM usuarios");
 if ($sqlConsultaUsu->rowCount() > 0) {
@@ -11,6 +13,16 @@ if ($sqlConsultaUsu->rowCount() > 0) {
 $sqlConsultaUsuNomes = $pdo->query("SELECT nome FROM usuarios");
 if ($sqlConsultaUsuNomes->rowCount() > 0) {
     $listaUsuNomes = $sqlConsultaUsuNomes->fetchAll(PDO::FETCH_ASSOC);
+};
+
+$sqlConsultaUsuAdmin = $pdo->query("SELECT * FROM usuarios WHERE tipo='1'");
+if ($sqlConsultaUsuAdmin->rowCount() > 0) {
+    $listaUsuAdmins = $sqlConsultaUsuAdmin->fetchAll(PDO::FETCH_ASSOC);
+};
+
+$sqlConsultaUsuStatus = $pdo->query("SELECT * FROM usuarios WHERE status='1'");
+if ($sqlConsultaUsuStatus->rowCount() > 0) {
+    $listaUsuAtivos = $sqlConsultaUsuStatus->fetchAll(PDO::FETCH_ASSOC);
 };
 
 
@@ -29,7 +41,7 @@ if ($sqlConsultaEmpNomes->rowCount() > 0) {
     $listaEmpNomes = $sqlConsultaEmpNomes->fetchAll(PDO::FETCH_ASSOC);
 };
 
-foreach($listaEmpNomes as $empNome){
+foreach ($listaEmpNomes as $empNome) {
     array_push($listaEmpNomesSomente, $empNome['nome']);
     sort($listaEmpNomesSomente);
 };
