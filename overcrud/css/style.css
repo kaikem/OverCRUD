@@ -117,6 +117,11 @@ td{
     font-size: 0.8rem;
 }
 
+/** TABLE HEADER **/
+.tableheader{
+    cursor: pointer;
+}
+
 /** ÍCONES **/
 #deleteicon{
     color: red;
