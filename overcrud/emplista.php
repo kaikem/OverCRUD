@@ -76,7 +76,12 @@ require_once 'empdeletemodal.php';
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i
                                         class="fa-solid fa-location-dot"></i>
                                     Endereço: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['endereco']; ?> </div>
+                                <div class="cardinfo mt-0 display-6"> <?= $empresa['logradouro']; ?>, nº
+                                    <?= $empresa['numlogradouro']; ?> (Bairro: <?= $empresa['bairro']; ?>)
+                                </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['cidade']; ?> -
+                                    <?= $empresa['estado']; ?>
+                                </div>
 
                                 <!-- RESPONSÁVEL -->
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-user-tie"></i>
