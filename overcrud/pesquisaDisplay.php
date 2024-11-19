@@ -10,7 +10,7 @@ echo "
 
                 <!-- BOTÕES DE ORDENAÇÃO -->
                 <!-- ORDENAÇÃO POR NOME CRESCENTE -->
-                <div class='btn-group btn-group-lg'>
+                <div class='btn-group btn-group-lg d-none' id='btnordem'>
                 <button type='button' class='btn btn-outline-secondary btn-lg rounded-start-3 border-3 p-2'
                         id='btnordenarpornome' onclick='ordenarPorNomeCres()' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
                 
