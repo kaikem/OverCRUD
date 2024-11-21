@@ -17,16 +17,21 @@ require_once 'sqltables.php';
 require_once 'support.php';
 
 //PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
-$nome = $_POST['nome'];
-$telefone = $_POST['telefone'];
-$endereco = $_POST['endereco'];
+$cpf = $_POST['cpf'];
 $password = $_POST['password'];
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-$cpf = $_POST['cpf'];
+$tipo = $_POST['tipo'];
+$nome = $_POST['nome'];
+$telefone = $_POST['telefone'];
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 $cnh = $_POST['cnh'];
 $carro = $_POST['carro'];
 $empregadoEm = intval($_POST['empregadoem']);
-$tipo = $_POST['tipo'];
 $status = 0;
 
 //VERIFICAÇÃO DE EMPREGADO EM
@@ -74,7 +79,7 @@ if (!isset($nome) && !isset($cpf)) {
                 $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
 
                 if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
-                    $sqlInsert = $pdo->prepare("INSERT INTO usuarios (nome, telefone, endereco, password, cpf, cnh, carro, tipo, status, idempregadoem) VALUES ('$nome', '$telefone', '$endereco', '$passwordHash', '$cpf', '$cnh', '$carro', '$tipo', '$status', '$empregadoEm')");
+                    $sqlInsert = $pdo->prepare("INSERT INTO usuarios (cpf, password, tipo, nome, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro,  cnh, carro, status, idempregadoem) VALUES ('$cpf', '$passwordHash', '$tipo', '$nome', '$telefone', '$cep',  '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$cnh', '$carro', '$status', '$empregadoEm')");
 
                     if ($sqlInsert->execute()) {
                         mensagemRetorno("Dados de <b>$nome (CPF $cpf)</b> cadastrados com sucesso!", "success");
