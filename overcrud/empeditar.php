@@ -74,6 +74,7 @@ if (!isset($idempresa)) {
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="empeditar_action.php" method="POST" novalidate>
+                    <!-- FIELDSET EMPRESA -->
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
                         <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
@@ -108,15 +109,90 @@ if (!isset($idempresa)) {
                                 minlength="14" data-mask="(00) 00000-0000" value="<?= $empresa['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
+                    </fieldset>
 
-                        <!-- ENDEREÇO -->
+                    <!-- FIELDSET ENDEREÇO -->
+                    <fieldset>
+                        <!-- CEP -->
                         <div class="form-group">
-                            <label for="endereco" class="form-label">Endereço:</label>
-                            <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
-                                value="<?= $empresa['endereco'] ?>" required>
-                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
+                            <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
+                                CEP:</label>
+                            <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
+                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $empresa['cep'] ?>" required>
+                            <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
+                        <!-- CIDADE & ESTADO -->
+                        <div class="form-group">
+                            <label for="cidadeestado" class="form-label"><i class="fa-solid fa-city"></i>
+                                Cidade e Estado:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
+                                    style="width: 65%;" value="<?= $empresa['cidade'] ?>" required>
+                                <span class="input-group-text">UF</span>
+                                <select class="form-select" name="estadocidade" id="estadocidade"
+                                    value="<?= $empresa['estado'] ?>" required>
+                                    <option value="AC" <?= $empresa['estado'] == "AC" ? 'selected' : ''; ?>>AC
+                                    </option>
+                                    <option value="AL" <?= $empresa['estado'] == "AL" ? 'selected' : ''; ?>>AL</option>
+                                    <option value="AP" <?= $empresa['estado'] == "AP" ? 'selected' : ''; ?>>AP</option>
+                                    <option value="AM" <?= $empresa['estado'] == "AM" ? 'selected' : ''; ?>>AM</option>
+                                    <option value="BA" <?= $empresa['estado'] == "BA" ? 'selected' : ''; ?>>BA</option>
+                                    <option value="CE" <?= $empresa['estado'] == "CE" ? 'selected' : ''; ?>>CE</option>
+                                    <option value="DF" <?= $empresa['estado'] == "DF" ? 'selected' : ''; ?>>DF</option>
+                                    <option value="ES" <?= $empresa['estado'] == "ES" ? 'selected' : ''; ?>>ES</option>
+                                    <option value="GO" <?= $empresa['estado'] == "GO" ? 'selected' : ''; ?>>GO</option>
+                                    <option value="MA" <?= $empresa['estado'] == "MA" ? 'selected' : ''; ?>>MA</option>
+                                    <option value="MT" <?= $empresa['estado'] == "MT" ? 'selected' : ''; ?>>CE</option>
+                                    <option value="MS" <?= $empresa['estado'] == "MS" ? 'selected' : ''; ?>>MS</option>
+                                    <option value="MG" <?= $empresa['estado'] == "MG" ? 'selected' : ''; ?>>MG</option>
+                                    <option value="PA" <?= $empresa['estado'] == "PA" ? 'selected' : ''; ?>>GO</option>
+                                    <option value="PB" <?= $empresa['estado'] == "PB" ? 'selected' : ''; ?>>PB</option>
+                                    <option value="PR" <?= $empresa['estado'] == "PR" ? 'selected' : ''; ?>>PR</option>
+                                    <option value="PE" <?= $empresa['estado'] == "PE" ? 'selected' : ''; ?>>PE</option>
+                                    <option value="PI" <?= $empresa['estado'] == "PI" ? 'selected' : ''; ?>>PI</option>
+                                    <option value="RJ" <?= $empresa['estado'] == "RJ" ? 'selected' : ''; ?>>RJ</option>
+                                    <option value="RS" <?= $empresa['estado'] == "RS" ? 'selected' : ''; ?>>RS</option>
+                                    <option value="RO" <?= $empresa['estado'] == "RO" ? 'selected' : ''; ?>>RO</option>
+                                    <option value="RR" <?= $empresa['estado'] == "RR" ? 'selected' : ''; ?>>RR</option>
+                                    <option value="SC" <?= $empresa['estado'] == "SC" ? 'selected' : ''; ?>>SC</option>
+                                    <option value="SP" <?= $empresa['estado'] == "SP" ? 'selected' : ''; ?>>SP</option>
+                                    <option value="SE" <?= $empresa['estado'] == "SE" ? 'selected' : ''; ?>>SE</option>
+                                    <option value="TO" <?= $empresa['estado'] == "TO" ? 'selected' : ''; ?>>GO</option>
+                                </select>
+                                <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
+                            </div>
+                        </div>
+
+                        <!-- LOGRADOURO -->
+                        <div class="form-group">
+                            <label for="logradouro" class="form-label"><i class="fa-solid fa-road"></i>
+                                Endereço:</label>
+                            <div class="input-group">
+                                <!-- ENDEREÇO -->
+                                <input type="text" class="form-control" name="logradouro" id="logradouro"
+                                    style="width: 60%;" value="<?= $empresa['logradouro'] ?>" required>
+                                <span class="input-group-text">nº</span>
+                                <!-- NÚMERO -->
+                                <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
+                                    maxlength="6" value="<?= $empresa['numlogradouro'] ?>" required>
+                                <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
+                            </div>
+                        </div>
+
+                        <!-- BAIRRO -->
+                        <div class="form-group">
+                            <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
+                                Bairro:</label>
+                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64"
+                                value="<?= $empresa['bairro'] ?>" required>
+                            <div class="invalid-feedback">O bairro precisa ser preenchido</div>
+                        </div>
+                    </fieldset>
+
+                    <!-- FIELDSET RESPONSÁVEL -->
+                    <fieldset>
+                        <legend>RESPONSÁVEL</legend>
                         <!-- RESPONSÁVEL -->
                         <div class="form-group">
                             <label for="responsavel" class="form-label">Responsável:</label>
@@ -124,7 +200,6 @@ if (!isset($idempresa)) {
                                 value="<?= $empresa['responsavel'] ?>" required>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
-
                     </fieldset>
 
                     <!-- BUTTONS -->
@@ -147,9 +222,9 @@ if (!isset($idempresa)) {
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <script src="./js/darkmodetoggle.js"></script>
-        <script src="./js/modals.js"></script>
         <script src="./js/empMudarDisplay.js"></script>
         <script src="./js/empFormValidations.js"></script>
+        <script src="./js/buscaCep.js"></script>
 </body>
 
 </html>
