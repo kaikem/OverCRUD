@@ -30,14 +30,15 @@ require_once 'empdeletemodal.php';
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+            <?php require_once 'navbarTop.php'
+            ?>
         </div>
 
         <!-- ROW DO CORPO -->
         <div class="row d-flex mt-5" id="appBody">
 
             <!-- TÍTULO DA SEÇÃO -->
-            <h1 class="text-center text-primary display-6 my-5">LISTA DE EMPRESAS</h1>
+            <h1 class="text-center text-primary display-6 my-5" id="sessiontitle">LISTA DE EMPRESAS</h1>
 
             <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
             <?php require_once 'pesquisaDisplay.php' ?>
@@ -46,15 +47,15 @@ require_once 'empdeletemodal.php';
             <div class="row d-none" id="mostrarcards">
                 <?php foreach ($listaEmp as $empresa) : ?>
                     <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center
-                <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
+                <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>" id="card">
                         <!-- CARD -->
-                        <div class="card mb-4 me-1" id="empcard" style="min-height: 29.6rem;">
+                        <div class="card mb-4 me-1" style="min-height: 29.6rem;">
                             <!-- HEADER DO CARD -->
                             <div class="card-header d-flex text-center justify-content-center align-items-center"
                                 style="min-height: 8rem; max-height: 8rem;">
                                 <div class="d-flex flex-column">
-                                    <h4 class="text-uppercase" id="empnome"> <?= $empresa['nome']; ?> </h4>
-                                    <h6 class="text-secondary lead" id="empcnpj"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
+                                    <h4 class="text-uppercase" id="ch_empnome"> <?= $empresa['nome']; ?> </h4>
+                                    <h6 class="text-secondary lead" id="ch_empcnpj"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
                                 </div>
                             </div>
                             <!-- CORPO DO CARD -->
