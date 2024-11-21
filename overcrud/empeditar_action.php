@@ -22,7 +22,12 @@ $cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
 $fantasia = $_POST['fantasia'];
 $telefone = $_POST['telefone'];
-$endereco = $_POST['endereco'];
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 $responsavel = $_POST['responsavel'];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
@@ -61,7 +66,7 @@ if (!isset($idempresa)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = $pdo->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', endereco='$endereco', fantasia='$fantasia', cnpj='$cnpj', responsavel='$responsavel' WHERE idempresa='$idempresa'");
+                $sqlAtualizar = $pdo->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', fantasia='$fantasia', cnpj='$cnpj', responsavel='$responsavel' WHERE idempresa='$idempresa'");
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CNPJ $cnpj)</b> foram atualizados com sucesso!", "success");
