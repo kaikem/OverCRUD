@@ -93,16 +93,89 @@ require_once 'support.php';
                                 minlength="14" data-mask="(00) 00000-0000">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
+                    </fieldset>
 
-                        <!-- ENDEREÇO -->
+                    <!-- FIELDSET ENDEREÇO -->
+                    <fieldset>
+                        <legend>ENDEREÇO</legend>
+                        <!-- CEP -->
                         <div class="form-group">
-                            <label for="endereco" class="form-label"><i class="fa-solid fa-location-dot"></i>
-                                Endereço:</label>
-                            <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
-                                required>
-                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
+                            <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
+                                CEP:</label>
+                            <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
+                                data-mask="00.000-000" oninput="buscaCep()" required>
+                            <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
+                        <!-- CIDADE & ESTADO -->
+                        <div class="form-group">
+                            <label for="cidadeestado" class="form-label"><i class="fa-solid fa-city"></i>
+                                Cidade e Estado:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
+                                    style="width: 65%;" required>
+                                <span class="input-group-text">UF</span>
+                                <select class="form-select" name="estadocidade" id="estadocidade" required>
+                                    <option disabled selected value>--</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">CE</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">GO</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">GO</option>
+                                </select>
+                                <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
+                            </div>
+                        </div>
+
+                        <!-- LOGRADOURO -->
+                        <div class="form-group">
+                            <label for="logradouro" class="form-label"><i class="fa-solid fa-road"></i>
+                                Endereço:</label>
+                            <div class="input-group">
+                                <!-- ENDEREÇO -->
+                                <input type="text" class="form-control" name="logradouro" id="logradouro"
+                                    style="width: 60%;" required>
+                                <span class="input-group-text">nº</span>
+                                <!-- NÚMERO -->
+                                <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
+                                    maxlength="6" required>
+                                <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
+                            </div>
+                        </div>
+
+                        <!-- BAIRRO -->
+                        <div class="form-group">
+                            <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
+                                Bairro:</label>
+                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64" required>
+                            <div class="invalid-feedback">O bairro precisa ser preenchido</div>
+                        </div>
+                    </fieldset>
+
+                    <!-- FIELDSET CARRO -->
+                    <fieldset>
+                        <legend>HABILITAÇÃO E VEÍCULO</legend>
                         <!-- CNH -->
                         <div class="form-group">
                             <label for="cnh" class="form-label"><i class="fa-solid fa-id-card"></i> CNH:</label>
@@ -119,14 +192,14 @@ require_once 'support.php';
 
                     <!-- FIELDSET EMPREGADO -->
                     <fieldset>
-                        <!-- EMPREGADO EM -->
                         <legend>EMPREGADO EM...</legend>
+                        <!-- EMPREGADO EM -->
                         <div class="form-group">
                             <label for="empregadoem" class="form-label"><i class="fa-solid fa-briefcase"></i>
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -152,6 +225,7 @@ require_once 'support.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/usuFormValidations.js"></script>
+    <script src="./js/buscaCep.js"></script>
 </body>
 
 </html>
