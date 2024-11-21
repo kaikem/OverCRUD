@@ -3,7 +3,6 @@ const form = document.querySelector('.needs-validation');
 function buscaCep() {
     let inputCep = document.querySelector('input[name=cep]');
     let cep = inputCep.value.replace(/[^0-9]/g, '');
-    console.log(`CEP: ${cep}`);
     const cep_teste = document.getElementById('cepTesteUser');
 
     if(cep.length == 8) {
