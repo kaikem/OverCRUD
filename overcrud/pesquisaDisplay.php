@@ -1,14 +1,4 @@
-<?php
-
-$pagina = $_SERVER['REQUEST_URI'];
-echo $pagina;
-if (str_contains($pagina, 'usulista')) {
-    echo "TRUE";
-} else {
-    echo "FALSE";
-};
-//<?= str_contains($pagina, 'usulista') ? 'usucadastro.php;' 'empcadastro.php;'; 
-?>
+<?php $pagina = $_SERVER['REQUEST_URI']; ?>; 
 
 <div class='col-12 d-flex mb-3 justify-content-between align-items-center'>
     <!-- INPUT DE PESQUISA -->
@@ -33,7 +23,7 @@ if (str_contains($pagina, 'usulista')) {
     <!-- BOTÕES -->
     <div class='btn-group btn-group-lg'>
         <!-- BOTÃO DE CADASTRO -->
-        <a href='usucadastro.php' class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2' id='btncadastro'
+        <a href='<?= str_contains($pagina, 'usulista') ? 'usucadastro.php' : 'empcadastro.php'?>' class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2' id='btncadastro'
             title='Cadastrar novo'><i class='fa-solid fa-plus'></i></a>
 
         <!-- BOTÃO TABELA -->
