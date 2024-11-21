@@ -45,3 +45,5 @@ foreach ($listaEmpNomes as $empNome) {
     array_push($listaEmpNomesSomente, $empNome['nome']);
     sort($listaEmpNomesSomente);
 };
+
+asort($listaEmp);
