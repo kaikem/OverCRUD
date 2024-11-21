@@ -22,7 +22,12 @@ $cpf = $_POST['cpf'];
 $tipo = $_POST['tipo'];
 $nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
-$endereco = $_POST['endereco'];
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 $cnh = $_POST['cnh'];
 $carro = $_POST['carro'];
 $empregadoEm = $_POST['empregadoem'];
@@ -69,7 +74,7 @@ if (!isset($idusuario)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = $pdo->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', endereco='$endereco', cpf='$cpf', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status' WHERE idusuario='$idusuario'");
+                $sqlAtualizar = $pdo->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status' WHERE idusuario='$idusuario'");
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CPF $cpf)</b> foram atualizados com sucesso!", "success");
