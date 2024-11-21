@@ -84,7 +84,6 @@ require_once 'sqltables.php';
                     <!-- FIELDSET ENDEREÇO -->
                     <fieldset>
                         <legend>ENDEREÇO</legend>
-
                         <!-- CEP -->
                         <div class="form-group">
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
@@ -183,6 +182,7 @@ require_once 'sqltables.php';
                 </form>
             </div>
         </div>
+
         <!-- FOOTER -->
         <?php require_once 'footer.php' ?>
     </div>
