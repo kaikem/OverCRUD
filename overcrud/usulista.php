@@ -100,7 +100,12 @@ require_once 'usudeletemodal.php';
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i
                                         class="fa-solid fa-location-dot"></i>
                                     Endereço: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $usuario['endereco']; ?> </div>
+                                <div class="cardinfo mt-0 display-6"> <?= $usuario['logradouro']; ?>, nº
+                                    <?= $usuario['numlogradouro']; ?> (Bairro: <?= $usuario['bairro']; ?>)
+                                </div>
+                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $usuario['cidade']; ?> -
+                                    <?= $usuario['estado']; ?>
+                                </div>
 
                                 <!-- CNH -->
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-id-card"></i>
