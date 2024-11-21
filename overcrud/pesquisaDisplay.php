@@ -1,4 +1,4 @@
-<?php $pagina = $_SERVER['REQUEST_URI']; ?>; 
+<?php $pagina = $_SERVER['REQUEST_URI']; ?>
 
 <div class='col-12 d-flex mb-3 justify-content-between align-items-center'>
     <!-- INPUT DE PESQUISA -->
@@ -10,9 +10,8 @@
     <!-- BOTÕES DE ORDENAÇÃO -->
     <!-- ORDENAÇÃO POR NOME CRESCENTE -->
     <div class='btn-group btn-group-lg d-none' id='btnordem'>
-        <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2'
-            id='btnordenarpornome' onclick='ordenarPorNomeCres()' title='Ordenar nomes A-Z'><i
-                class='fa-solid fa-arrow-down-a-z'></i></button>
+        <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2' id='btnordenarpornome'
+            onclick='ordenarPorNomeCres()' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
 
         <!-- ORDENAÇÃO POR NOME DECRESCENTE -->
         <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2' id='btnordenarpornome'
@@ -23,7 +22,8 @@
     <!-- BOTÕES -->
     <div class='btn-group btn-group-lg'>
         <!-- BOTÃO DE CADASTRO -->
-        <a href='<?= str_contains($pagina, 'usulista') ? 'usucadastro.php' : 'empcadastro.php'?>' class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2' id='btncadastro'
+        <a href='<?= str_contains($pagina, 'usulista') ? 'usucadastro.php' : 'empcadastro.php' ?>'
+            class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2' id='btncadastro'
             title='Cadastrar novo'><i class='fa-solid fa-plus'></i></a>
 
         <!-- BOTÃO TABELA -->
@@ -36,4 +36,3 @@
             onclick='mudarDisplayParaCards()' title='Modo Cards'><i class='fa-solid fa-table-cells'></i></button>
     </div>
 </div>
-";
