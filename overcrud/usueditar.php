@@ -122,15 +122,91 @@ if (!isset($idusuario)) {
                                 minlength="14" data-mask="(00) 00000-0000" value="<?= $usuario['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
+                    </fieldset>
 
-                        <!-- ENDEREÇO -->
+                    <!-- FIELDSET ENDEREÇO -->
+                    <fieldset>
+                        <legend>ENDEREÇO</legend>
+                        <!-- CEP -->
                         <div class="form-group">
-                            <label for="endereco" class="form-label">Endereço:</label>
-                            <input type="text" class="form-control" name="endereco" id="endereco" maxlength="64"
-                                value="<?= $usuario['endereco'] ?>" required>
-                            <div class="invalid-feedback">O endereço precisa ser preenchido</div>
+                            <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
+                                CEP:</label>
+                            <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
+                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $usuario['cep'] ?>" required>
+                            <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
+                        <!-- CIDADE & ESTADO -->
+                        <div class="form-group">
+                            <label for="cidadeestado" class="form-label"><i class="fa-solid fa-city"></i>
+                                Cidade e Estado:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
+                                    style="width: 65%;" value="<?= $usuario['cidade'] ?>" required>
+                                <span class="input-group-text">UF</span>
+                                <select class="form-select" name="estadocidade" id="estadocidade"
+                                    value="<?= $usuario['estado'] ?>" required>
+                                    <option value="AC" <?= $usuario['estado'] == "AC" ? 'selected' : ''; ?>>AC
+                                    </option>
+                                    <option value="AL" <?= $usuario['estado'] == "AL" ? 'selected' : ''; ?>>AL</option>
+                                    <option value="AP" <?= $usuario['estado'] == "AP" ? 'selected' : ''; ?>>AP</option>
+                                    <option value="AM" <?= $usuario['estado'] == "AM" ? 'selected' : ''; ?>>AM</option>
+                                    <option value="BA" <?= $usuario['estado'] == "BA" ? 'selected' : ''; ?>>BA</option>
+                                    <option value="CE" <?= $usuario['estado'] == "CE" ? 'selected' : ''; ?>>CE</option>
+                                    <option value="DF" <?= $usuario['estado'] == "DF" ? 'selected' : ''; ?>>DF</option>
+                                    <option value="ES" <?= $usuario['estado'] == "ES" ? 'selected' : ''; ?>>ES</option>
+                                    <option value="GO" <?= $usuario['estado'] == "GO" ? 'selected' : ''; ?>>GO</option>
+                                    <option value="MA" <?= $usuario['estado'] == "MA" ? 'selected' : ''; ?>>MA</option>
+                                    <option value="MT" <?= $usuario['estado'] == "MT" ? 'selected' : ''; ?>>CE</option>
+                                    <option value="MS" <?= $usuario['estado'] == "MS" ? 'selected' : ''; ?>>MS</option>
+                                    <option value="MG" <?= $usuario['estado'] == "MG" ? 'selected' : ''; ?>>MG</option>
+                                    <option value="PA" <?= $usuario['estado'] == "PA" ? 'selected' : ''; ?>>GO</option>
+                                    <option value="PB" <?= $usuario['estado'] == "PB" ? 'selected' : ''; ?>>PB</option>
+                                    <option value="PR" <?= $usuario['estado'] == "PR" ? 'selected' : ''; ?>>PR</option>
+                                    <option value="PE" <?= $usuario['estado'] == "PE" ? 'selected' : ''; ?>>PE</option>
+                                    <option value="PI" <?= $usuario['estado'] == "PI" ? 'selected' : ''; ?>>PI</option>
+                                    <option value="RJ" <?= $usuario['estado'] == "RJ" ? 'selected' : ''; ?>>RJ</option>
+                                    <option value="RS" <?= $usuario['estado'] == "RS" ? 'selected' : ''; ?>>RS</option>
+                                    <option value="RO" <?= $usuario['estado'] == "RO" ? 'selected' : ''; ?>>RO</option>
+                                    <option value="RR" <?= $usuario['estado'] == "RR" ? 'selected' : ''; ?>>RR</option>
+                                    <option value="SC" <?= $usuario['estado'] == "SC" ? 'selected' : ''; ?>>SC</option>
+                                    <option value="SP" <?= $usuario['estado'] == "SP" ? 'selected' : ''; ?>>SP</option>
+                                    <option value="SE" <?= $usuario['estado'] == "SE" ? 'selected' : ''; ?>>SE</option>
+                                    <option value="TO" <?= $usuario['estado'] == "TO" ? 'selected' : ''; ?>>GO</option>
+                                </select>
+                                <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
+                            </div>
+                        </div>
+
+                        <!-- LOGRADOURO -->
+                        <div class="form-group">
+                            <label for="logradouro" class="form-label"><i class="fa-solid fa-road"></i>
+                                Endereço:</label>
+                            <div class="input-group">
+                                <!-- ENDEREÇO -->
+                                <input type="text" class="form-control" name="logradouro" id="logradouro"
+                                    style="width: 60%;" value="<?= $usuario['logradouro'] ?>" required>
+                                <span class="input-group-text">nº</span>
+                                <!-- NÚMERO -->
+                                <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
+                                    maxlength="6" value="<?= $usuario['numlogradouro'] ?>" required>
+                                <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
+                            </div>
+                        </div>
+
+                        <!-- BAIRRO -->
+                        <div class="form-group">
+                            <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
+                                Bairro:</label>
+                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64"
+                                value="<?= $usuario['bairro'] ?>" required>
+                            <div class="invalid-feedback">O bairro precisa ser preenchido</div>
+                        </div>
+                    </fieldset>
+
+                    <!-- FIELDSET CARRO -->
+                    <fieldset>
+                        <legend>HABILITAÇÃO E VEÍCULO</legend>
                         <!-- CNH -->
                         <div class="form-group">
                             <label for="cnh" class="form-label">CNH:</label>
@@ -185,9 +261,9 @@ if (!isset($idusuario)) {
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <script src="./js/darkmodetoggle.js"></script>
-        <script src="./js/modals.js"></script>
         <script src="./js/empMudarDisplay.js"></script>
         <script src="./js/usuFormValidations.js"></script>
+        <script src="./js/buscaCep.js"></script>
 </body>
 
 </html>
