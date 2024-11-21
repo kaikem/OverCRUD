@@ -9,8 +9,17 @@ if(tabelaDeUsuarios !== null){
     var linhasTabelaUsuarios = tabelaDeUsuarios.rows;
 };
 
+/*DOM - DIV DOS CARDS
+const divCards = document.getElementById('mostrarcards');
+var cards = document.querySelectorAll('#card');
+var cardsHeadersH4 = document.querySelectorAll('#ch_empnome');
+var cardsHeadersNomes = [];
+cardsHeadersH4.forEach((h4)=>{
+    cardsHeadersNomes.push(h4.innerText);
+});*/
 
-//FUNÇÕES
+
+//FUNÇÕES DAS TABELAS
 function ordenar(n){
     var switching, i, elemento1, elemento2, shouldSwitch, direcao, switchCount = 0;
     switching = true
@@ -88,37 +97,37 @@ function ordenar(n){
 };
 
 
-/*
+/*FUNÇÕES DOS CARDS
 function ordenarPorNomeCres(){
     var shouldSwitch, elemento1, elemento2;
     var switching = true;
 
-    if(tabelaDeEmpresas !== null){
+    if(divCards !== null){
         while(switching){
             switching = false;
-            for(i=1; i<(linhasTabelaEmpresas.length-1); i++){
+            for(i=0; i<(cardsHeadersNomes.length); i++){
                 shouldSwitch = false;
-                elemento1 = linhasTabelaEmpresas[i].getElementsByTagName("TD")[0];
-                elemento2 = linhasTabelaEmpresas[i + 1].getElementsByTagName("TD")[0];
+                elemento1 = cardsHeadersNomes[i];
+                elemento2 = cardsHeadersNomes[i + 1];
             
-                if (elemento1.innerHTML.toLowerCase() > elemento2.innerHTML.toLowerCase()){
+                if (elemento1 > elemento2){
                     shouldSwitch = true;
                     break;
                 };
             };
                 
             if(shouldSwitch){
-                linhasTabelaEmpresas[i].parentNode.insertBefore(linhasTabelaEmpresas[i + 1], linhasTabelaEmpresas[i]);
+                cardsHeadersNomes[i].parentNode.insertBefore(cardsHeadersNomes[i + 1], cardsHeadersNomes[i]);
                 switching = true;
             };
         };
     } else {
         while(switching){
             switching = false;
-            for(i=1; i<(linhasTabelaUsuarios.length-1); i++){
+            for(i=1; i<(cardsHeadersNomes.length-1); i++){
                 shouldSwitch = false;
-                elemento1 = linhasTabelaUsuarios[i].getElementsByTagName("TD")[0];
-                elemento2 = linhasTabelaUsuarios[i + 1].getElementsByTagName("TD")[0];
+                elemento1 = cardsHeadersNomes[i];
+                elemento2 = cardsHeadersNomes[i + 1];
             
                 if (elemento1.innerHTML.toLowerCase() > elemento2.innerHTML.toLowerCase()){
                     shouldSwitch = true;
@@ -127,13 +136,14 @@ function ordenarPorNomeCres(){
             };
                 
             if(shouldSwitch){
-                linhasTabelaUsuarios[i].parentNode.insertBefore(linhasTabelaUsuarios[i + 1], linhasTabelaUsuarios[i]);
+                cardsHeadersNomes[i].parentNode.insertBefore(cardsHeadersNomes[i + 1], cardsHeadersNomes[i]);
                 switching = true;
             };
         };
     }
 };
 
+/*
 function ordenarPorNomeDecres(){
     var shouldSwitch, elemento1, elemento2;
     var switching = true;
