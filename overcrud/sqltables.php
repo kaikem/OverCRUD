@@ -46,4 +46,5 @@ foreach ($listaEmpNomes as $empNome) {
     sort($listaEmpNomesSomente);
 };
 
-asort($listaEmp);
+$listaEmpOrdenada = array_column($listaEmp, 'nome');
+array_multisort($listaEmpOrdenada, SORT_ASC, $listaEmp);
