@@ -1,7 +1,9 @@
 <?php
 //USUÁRIOS
 $listaUsu = [];
+$listaUsuDesc = [];
 $listaUsuNomes = [];
+$listaUsuNomesSomente = [];
 $listaUsuAdmins = [];
 $listaUsuAtivos = [];
 
@@ -25,9 +27,17 @@ if ($sqlConsultaUsuStatus->rowCount() > 0) {
     $listaUsuAtivos = $sqlConsultaUsuStatus->fetchAll(PDO::FETCH_ASSOC);
 };
 
+foreach ($listaUsuNomes as $usuNome) {
+    array_push($listaUsuNomesSomente, $usuNome['nome']);
+};
+
+$listaUsuOrdenada = array_column($listaUsu, 'nome');
+array_multisort($listaUsuOrdenada, SORT_ASC, $listaUsu);
+
 
 //EMPRESAS
 $listaEmp = [];
+$listaEmpDesc = [];
 $listaEmpNomes = [];
 $listaEmpNomesSomente = [];
 
@@ -43,7 +53,6 @@ if ($sqlConsultaEmpNomes->rowCount() > 0) {
 
 foreach ($listaEmpNomes as $empNome) {
     array_push($listaEmpNomesSomente, $empNome['nome']);
-    sort($listaEmpNomesSomente);
 };
 
 $listaEmpOrdenada = array_column($listaEmp, 'nome');
