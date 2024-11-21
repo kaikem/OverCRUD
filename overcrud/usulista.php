@@ -45,126 +45,126 @@ require_once 'usudeletemodal.php';
             <!-- LISTA (CARDS) -->
             <div class="row d-none" id="mostrarcards">
                 <?php foreach ($listaUsu as $usuario) : ?>
-                <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
-                    <!-- CARD -->
-                    <div class="card mb-4 me-1" id="usucard" style="min-height: 35rem">
-                        <!-- HEADER DO CARD -->
-                        <div class="card-header d-flex text-center justify-content-center align-items-center"
-                            style="min-height: 8rem; max-height: 8rem;">
-                            <div class="d-flex flex-column">
-                                <h4 class="text-uppercase" id="usunome"> <?= $usuario['nome']; ?> </h4>
-                                <h6 class="text-secondary lead" id="usucpf"> CPF: <?= $usuario['cpf']; ?> </h6>
+                    <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center">
+                        <!-- CARD -->
+                        <div class="card mb-4 me-1" id="usucard" style="min-height: 35rem">
+                            <!-- HEADER DO CARD -->
+                            <div class="card-header d-flex text-center justify-content-center align-items-center"
+                                style="min-height: 8rem; max-height: 8rem;">
+                                <div class="d-flex flex-column">
+                                    <h4 class="text-uppercase" id="ch_usunome"> <?= $usuario['nome']; ?> </h4>
+                                    <h6 class="text-secondary lead" id="ch_usucpf"> CPF: <?= $usuario['cpf']; ?> </h6>
 
-                                <?php
+                                    <?php
                                     if ($usuario['status'] == 1) {
                                         echo "<h6 class='text-success'> Status: ATIVO</h6>";
                                     } else {
                                         echo "<h6 class='text-danger'> Status: INATIVO</h6>";
                                     };
                                     ?>
+                                </div>
                             </div>
-                        </div>
-                        <!-- CORPO DO CARD -->
-                        <div class="card-body">
-                            <div class="card-text">
-                                <!-- TIPO -->
-                                <p class="cardlabel mb-0 text-secondary display-6"> <i
-                                        class="fa-solid fa-file-invoice"></i>
-                                    Tipo de
-                                    Conta: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6">
-                                    <?php
+                            <!-- CORPO DO CARD -->
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <!-- TIPO -->
+                                    <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                            class="fa-solid fa-file-invoice"></i>
+                                        Tipo de
+                                        Conta: </p>
+                                    <div class="cardinfo mt-0 mb-2 display-6">
+                                        <?php
                                         if ($usuario['tipo'] == 0) {
                                             echo "Comum";
                                         } else {
                                             echo "Admin";
                                         };
                                         ?>
-                                </div>
+                                    </div>
 
-                                <!-- TELEFONE -->
-                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-phone"></i>
-                                    Telefone:
-                                </p>
-                                <div class="cardinfo mt-0 mb-2 display-6">
-                                    <?php
+                                    <!-- TELEFONE -->
+                                    <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-phone"></i>
+                                        Telefone:
+                                    </p>
+                                    <div class="cardinfo mt-0 mb-2 display-6">
+                                        <?php
                                         if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
                                             echo "- NÃO POSSUI -";
                                         } else {
                                             echo $usuario['telefone'];
                                         }
                                         ?>
-                                </div>
+                                    </div>
 
-                                <!-- ENDEREÇO -->
-                                <p class="cardlabel mb-0 text-secondary display-6"> <i
-                                        class="fa-solid fa-location-dot"></i>
-                                    Endereço: </p>
-                                <div class="cardinfo mt-0 display-6"> <?= $usuario['logradouro']; ?>, nº
-                                    <?= $usuario['numlogradouro']; ?> (Bairro: <?= $usuario['bairro']; ?>)
-                                </div>
-                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $usuario['cidade']; ?> -
-                                    <?= $usuario['estado']; ?>
-                                </div>
+                                    <!-- ENDEREÇO -->
+                                    <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                            class="fa-solid fa-location-dot"></i>
+                                        Endereço: </p>
+                                    <div class="cardinfo mt-0 display-6"> <?= $usuario['logradouro']; ?>, nº
+                                        <?= $usuario['numlogradouro']; ?> (Bairro: <?= $usuario['bairro']; ?>)
+                                    </div>
+                                    <div class="cardinfo mt-0 mb-2 display-6"> <?= $usuario['cidade']; ?> -
+                                        <?= $usuario['estado']; ?>
+                                    </div>
 
-                                <!-- CNH -->
-                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-id-card"></i>
-                                    CNH: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6">
-                                    <?php
+                                    <!-- CNH -->
+                                    <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-id-card"></i>
+                                        CNH: </p>
+                                    <div class="cardinfo mt-0 mb-2 display-6">
+                                        <?php
                                         if ($usuario['cnh'] == "" || $usuario['cnh'] == null) {
                                             echo "- NÃO POSSUI -";
                                         } else {
                                             echo $usuario['cnh'];
                                         }
                                         ?>
-                                </div>
+                                    </div>
 
-                                <!-- CARRO -->
-                                <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-car"></i>
-                                    Carro: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6">
-                                    <?php
+                                    <!-- CARRO -->
+                                    <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-car"></i>
+                                        Carro: </p>
+                                    <div class="cardinfo mt-0 mb-2 display-6">
+                                        <?php
                                         if ($usuario['carro'] == "" || $usuario['carro'] == null) {
                                             echo "- NENHUM -";
                                         } else {
                                             echo $usuario['carro'];
                                         }
                                         ?>
-                                </div>
+                                    </div>
 
-                                <!-- EMPREGADO EM -->
-                                <p class="cardlabel mb-0 text-secondary display-6"> <i
-                                        class="fa-solid fa-briefcase"></i>
-                                    Empregado em: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6">
-                                    <?php
+                                    <!-- EMPREGADO EM -->
+                                    <p class="cardlabel mb-0 text-secondary display-6"> <i
+                                            class="fa-solid fa-briefcase"></i>
+                                        Empregado em: </p>
+                                    <div class="cardinfo mt-0 mb-2 display-6">
+                                        <?php
                                         for ($i = 0; $i < count($listaEmp); $i++) {
                                             if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
                                                 echo $listaEmp[$i]['nome'];
                                             };
                                         };
                                         ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- BOTÕES EDITAR & EXCLUIR -->
-                        <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
-                            <!-- EXCLUIR -->
-                            <a data-bs-toggle='modal' data-bs-target='#usudeletemodal<?= $usuario['idusuario'] ?>'>
-                                <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
-                                    title="Deletar"></i>
-                            </a>
+                            <!-- BOTÕES EDITAR & EXCLUIR -->
+                            <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
+                                <!-- EXCLUIR -->
+                                <a data-bs-toggle='modal' data-bs-target='#usudeletemodal<?= $usuario['idusuario'] ?>'>
+                                    <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
+                                        title="Deletar"></i>
+                                </a>
 
-                            <!-- EDITAR -->
-                            <a href="usueditar.php?idusuario=<?= $usuario['idusuario']; ?>">
-                                <i class="fa-solid fa-pen-to-square btn btn-outline-warning border-3 p-2 rounded-circle"
-                                    title="Editar"></i>
-                            </a>
+                                <!-- EDITAR -->
+                                <a href="usueditar.php?idusuario=<?= $usuario['idusuario']; ?>">
+                                    <i class="fa-solid fa-pen-to-square btn btn-outline-warning border-3 p-2 rounded-circle"
+                                        title="Editar"></i>
+                                </a>
+                            </div>
                         </div>
+
                     </div>
-
-                </div>
                 <?php endforeach; ?>
             </div>
 
@@ -183,59 +183,59 @@ require_once 'usudeletemodal.php';
                         <th class="<?= $linksAdm ?>"> </th>
                     </tr>
                     <?php foreach ($listaUsu as $usuario): ?>
-                    <!-- TABELA (DADOS DO USUÁRIO -->
-                    <tr class="table">
-                        <td><?= $usuario['nome']; ?></td>
-                        <td><?= $usuario['cpf']; ?></td>
-                        <td>
-                            <?php
+                        <!-- TABELA (DADOS DO USUÁRIO -->
+                        <tr class="table">
+                            <td><?= $usuario['nome']; ?></td>
+                            <td><?= $usuario['cpf']; ?></td>
+                            <td>
+                                <?php
                                 if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
                                     echo "- NÃO POSSUI -";
                                 } else {
                                     echo $usuario['telefone'];
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <?php
+                            </td>
+                            <td>
+                                <?php
                                 if ($usuario['tipo'] == "1") {
                                     echo "<div class='text-primary'>ADMIN</div>";
                                 } else {
                                     echo "Comum";
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <?php
+                            </td>
+                            <td>
+                                <?php
                                 if ($usuario['status'] == 1) {
                                     echo "<div class='text-success'>ATIVO</div>";
                                 } else {
                                     echo "<div class='text-danger'>INATIVO</div>";
                                 };
                                 ?>
-                        </td>
-                        <td>
-                            <a class="modalanchor" data-bs-toggle="modal"
-                                data-bs-target="#usumodal<?= $usuario['idusuario'] ?>">
-                                <i class="fa-solid fa-circle-info text-primary px-0 py-2" title="Detalhes"></i>
-                            </a>
-                        </td>
+                            </td>
+                            <td>
+                                <a class="modalanchor" data-bs-toggle="modal"
+                                    data-bs-target="#usumodal<?= $usuario['idusuario'] ?>">
+                                    <i class="fa-solid fa-circle-info text-primary px-0 py-2" title="Detalhes"></i>
+                                </a>
+                            </td>
 
-                        <!-- BOTÕES EDITAR & EXCLUIR -->
-                        <!-- EXCLUIR -->
-                        <td class="<?= $linksAdm ?>">
-                            <a data-bs-toggle='modal' data-bs-target='#usudeletemodal<?= $usuario['idusuario'] ?>'>
-                                <i class="fa-solid fa-trash px-0 py-2" title="Deletar" id="deleteicon"></i>
-                            </a>
-                        </td>
+                            <!-- BOTÕES EDITAR & EXCLUIR -->
+                            <!-- EXCLUIR -->
+                            <td class="<?= $linksAdm ?>">
+                                <a data-bs-toggle='modal' data-bs-target='#usudeletemodal<?= $usuario['idusuario'] ?>'>
+                                    <i class="fa-solid fa-trash px-0 py-2" title="Deletar" id="deleteicon"></i>
+                                </a>
+                            </td>
 
-                        <!-- EDITAR -->
-                        <td class="<?= $linksAdm ?>">
-                            <a href="usueditar.php?idusuario=<?= $usuario['idusuario']; ?>">
-                                <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
-                            </a>
-                        </td>
-                    </tr>
+                            <!-- EDITAR -->
+                            <td class="<?= $linksAdm ?>">
+                                <a href="usueditar.php?idusuario=<?= $usuario['idusuario']; ?>">
+                                    <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
+                                </a>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </table>
             </div>
