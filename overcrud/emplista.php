@@ -46,9 +46,9 @@ require_once 'empdeletemodal.php';
             <!-- LISTA (CARDS) -->
             <div class="row d-none" id="mostrarcards">
                 <?php foreach ($listaEmp as $empresa) : ?>
+                    <!-- CARD -->
                     <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center
                 <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>" id="card">
-                        <!-- CARD -->
                         <div class="card mb-4 me-1" style="min-height: 29.6rem;">
                             <!-- HEADER DO CARD -->
                             <div class="card-header d-flex text-center justify-content-center align-items-center"
