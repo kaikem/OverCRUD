@@ -28,7 +28,7 @@ require_once 'sqltables.php';
     <div class='btn-group btn-group-lg'>
         <!-- BOTÃO DE CADASTRO -->
         <a href='<?= str_contains($pagina, 'usulista') ? 'usucadastro.php' : 'empcadastro.php' ?>'
-            class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2' id='btncadastro'
+            class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2 <?= $linksAdm ?>' id='btncadastro'
             title='Cadastrar novo'><i class='fa-solid fa-plus'></i></a>
 
         <!-- BOTÃO TABELA -->
