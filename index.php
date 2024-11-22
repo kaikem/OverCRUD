@@ -7,11 +7,6 @@ unset($_SESSION['cpf']);
 unset($_SESSION['senha']);
 unset($_SESSION['tipo']);
 unset($_SESSION['nome']);
-if ($_SESSION['valido'] !== true) {
-    $_SESSION['valido'] = false;
-} else {
-    $_SESSION['valido'] = true;
-};
 
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';
@@ -82,7 +77,7 @@ require_once 'support.php';
                                     </div>
 
                                     <!-- MENSAGEM DE ERRO -->
-                                    <div class='<?= $_SESSION['valido'] == false ? 'd-flex' : 'd-none' ?> text-center'
+                                    <div class='<?= $_SESSION['valido'] == "erro" ? 'd-flex' : 'd-none' ?> text-center'
                                         id='errologin'>
                                         <?php mensagemRetorno("Usuário/senha incorretos! Por favor, tente novamente.", "danger") ?>
                                     </div>
