@@ -23,13 +23,14 @@ if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
             $_SESSION['tipo'] = $tipoIndex;
             $_SESSION['nome'] = $nomeLogin;
             header("Location: home.php");
+            $_SESSION['valido'] = "validado";
         } else {
             unset($_SESSION['cpf']);
             unset($_SESSION['senha']);
             unset($_SESSION['tipo']);
             unset($_SESSION['nome']);
             header("Refresh: 0");
-            $_SESSION['valido'] = false;
+            $_SESSION['valido'] = "erro";
         };
     } else {
         unset($_SESSION['cpf']);
@@ -37,7 +38,7 @@ if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
         unset($_SESSION['tipo']);
         unset($_SESSION['nome']);
         header("Refresh: 0");
-        $_SESSION['valido'] = false;
+        $_SESSION['valido'] = "erro";
     };
 } else {
     header('Location: index.php');
