@@ -12,7 +12,7 @@ if(tabelaDeUsuarios !== null){
 //DOM - DIV DOS CARDS
 var cardsHeadersH4 = document.querySelectorAll('#ch_empnome');
 const divCards = document.getElementById('mostrarcards');
-var cards = document.querySelectorAll('#card');
+const cardsHTML = divCards.children;
 
 
 //FUNÇÕES DAS TABELAS
@@ -94,63 +94,33 @@ function ordenar(n){
 
 
 //FUNÇÕES DOS CARDS
-function ordenarCres(){
-    var shouldSwitch, card1, card2;
-    const divCards = document.getElementById('mostrarcards');
-    var cards = document.querySelectorAll('#card');
-    var switching = true;
+function ordenarCards(direcao) {
+    var switching, i, card1, card2, shouldSwitch;
+    switching = true;
+    while (switching) {
+      switching = false;
 
-    while(switching){
-        switching = false;
-        for(i=0; i<(cards.length)-1; i++){
-            shouldSwitch = false;
-            card1 = cards[i];
-            card2 = cards[i+1];
-            
-            if (card1.querySelector('#ch_empnome').innerText.toLowerCase() < card2.querySelector('#ch_empnome').innerText.toLowerCase()){
+      for (i = 0; i < (cardsHTML.length - 1); i++) {
+        shouldSwitch = false;
+        card1 = cardsHTML[i];
+        card2 = cardsHTML[i + 1];
+
+        if (direcao == "asc") {
+            if (card1.querySelector('#ch_nome').innerText.toLowerCase() > card2.querySelector('#ch_nome').innerText.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            };
+        } else if (direcao == "dec") {
+            if (card1.querySelector('#ch_nome').innerText.toLowerCase() < card2.querySelector('#ch_nome').innerText.toLowerCase()) {
                 shouldSwitch = true;
                 break;
             };
         };
-                
-        if(shouldSwitch){
-            card1.parentNode.insertBefore(card1, card2);
-            switching = true;
-        };
-    };
-};
-
-
-function sortTable() {
-    var switching, i, card1, card2, shouldSwitch;
-    switching = true;
-
-    while (switching) {
-      switching = false;
-
-      for (i = 0; i < (cards.length - 1); i++) {
-        shouldSwitch = false;
-        /* Get the two elements you want to compare,
-        one from current row and one from the next: */
-        card1 = cards[i];
-        card2 = cards[i + 1];
-        console.log(card1);
-        console.log(card2);
-
-        if (card1.querySelector('#ch_empnome').innerText.toLowerCase() > card2.querySelector('#ch_empnome').innerText.toLowerCase()) {
-            console.log("VERIF TITULO");
-          shouldSwitch = true;
-          break;
-        } else {
-            shouldSwitch = false;
-        };
       };
 
       if (shouldSwitch) {
-        console.log("SWITCH 1");
-        divCards.insertBefore(card2, card1);
+        cardsHTML[i].parentNode.insertBefore(cardsHTML[i+1], cardsHTML[i]);
         switching = true;
-        console.log("SWITCH 2");
       };
     };
-  };
+};
