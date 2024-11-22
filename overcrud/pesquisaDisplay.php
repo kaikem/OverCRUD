@@ -17,11 +17,11 @@ require_once 'sqltables.php';
     <!-- ORDENAÇÃO POR NOME CRESCENTE -->
     <div class='btn-group btn-group-lg d-none' id='btnordem'>
         <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2' id='btnordenarpornome'
-            onclick='sortTable()' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
+            onclick='ordenarCards("asc")' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
 
         <!-- ORDENAÇÃO POR NOME DECRESCENTE -->
         <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2' id='btnordenarpornome'
-            onclick='ordenarDecr()' title='Ordenar nomes Z-A'><i class='fa-solid fa-arrow-down-z-a'></i></button>
+            onclick='ordenarCards("dec")' title='Ordenar nomes Z-A'><i class='fa-solid fa-arrow-down-z-a'></i></button>
     </div>
 
     <!-- BOTÕES -->
