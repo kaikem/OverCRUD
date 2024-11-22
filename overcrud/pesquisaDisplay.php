@@ -1,4 +1,10 @@
-<?php $pagina = $_SERVER['REQUEST_URI']; ?>
+<?php
+//ENDEREÇO DA PÁGINA ATUAL
+$pagina = $_SERVER['REQUEST_URI'];
+
+//TABELAS DO BD
+require_once 'sqltables.php';
+?>
 
 <div class='col-12 d-flex mb-3 justify-content-between align-items-center'>
     <!-- INPUT DE PESQUISA -->
@@ -11,12 +17,11 @@
     <!-- ORDENAÇÃO POR NOME CRESCENTE -->
     <div class='btn-group btn-group-lg d-none' id='btnordem'>
         <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2' id='btnordenarpornome'
-            onclick='ordenarPorNomeCres()' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
+            onclick='sortTable()' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
 
         <!-- ORDENAÇÃO POR NOME DECRESCENTE -->
         <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2' id='btnordenarpornome'
-            onclick='ordenarPorNomeDecres()' title='Ordenar nomes Z-A'><i
-                class='fa-solid fa-arrow-down-z-a'></i></button>
+            onclick='ordenarDecr()' title='Ordenar nomes Z-A'><i class='fa-solid fa-arrow-down-z-a'></i></button>
     </div>
 
     <!-- BOTÕES -->
