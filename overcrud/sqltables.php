@@ -56,4 +56,16 @@ foreach ($listaEmpNomes as $empNome) {
 };
 
 $listaEmpOrdenada = array_column($listaEmp, 'nome');
-array_multisort($listaEmpOrdenada, SORT_ASC, $listaEmp);
+//array_multisort($listaEmpOrdenada, SORT_DESC, $listaEmp);
+
+
+//FUNÇÕES GERAIS
+function OrdernarCres($listaOrdenada, $listaFinal)
+{
+    array_multisort($$listaOrdenada, SORT_ASC, $$listaFinal);
+};
+
+function OrdernarDecr($listaOrdenada, $listaFinal)
+{
+    array_multisort($listaOrdenada, SORT_DESC, $listaFinal);
+};
