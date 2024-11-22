@@ -32,7 +32,7 @@ foreach ($listaUsuNomes as $usuNome) {
 };
 
 $listaUsuOrdenada = array_column($listaUsu, 'nome');
-array_multisort($listaUsuOrdenada, SORT_ASC, $listaUsu);
+//array_multisort($listaUsuOrdenada, SORT_ASC, $listaUsu);
 
 
 //EMPRESAS
@@ -62,7 +62,7 @@ $listaEmpOrdenada = array_column($listaEmp, 'nome');
 //FUNÇÕES GERAIS
 function OrdernarCres($listaOrdenada, $listaFinal)
 {
-    array_multisort($$listaOrdenada, SORT_ASC, $$listaFinal);
+    array_multisort($listaOrdenada, SORT_ASC, $listaFinal);
 };
 
 function OrdernarDecr($listaOrdenada, $listaFinal)
