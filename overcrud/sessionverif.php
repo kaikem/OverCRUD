@@ -6,7 +6,7 @@ session_start();
 if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     $logado = $_SESSION['cpf'];
     $tipoUsu = $_SESSION['tipo'];
-    $_SESSION['valido'] = true;
+    $_SESSION['valido'] = "validado";
     $nomeUsu = strtok($_SESSION['nome'], " ");
 
 
