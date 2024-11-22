@@ -9,14 +9,10 @@ if(tabelaDeUsuarios !== null){
     var linhasTabelaUsuarios = tabelaDeUsuarios.rows;
 };
 
-/*DOM - DIV DOS CARDS
+//DOM - DIV DOS CARDS
+var cardsHeadersH4 = document.querySelectorAll('#ch_empnome');
 const divCards = document.getElementById('mostrarcards');
 var cards = document.querySelectorAll('#card');
-var cardsHeadersH4 = document.querySelectorAll('#ch_empnome');
-var cardsHeadersNomes = [];
-cardsHeadersH4.forEach((h4)=>{
-    cardsHeadersNomes.push(h4.innerText);
-});*/
 
 
 //FUNÇÕES DAS TABELAS
@@ -97,95 +93,64 @@ function ordenar(n){
 };
 
 
-/*FUNÇÕES DOS CARDS
-function ordenarPorNomeCres(){
-    var shouldSwitch, elemento1, elemento2;
+//FUNÇÕES DOS CARDS
+function ordenarCres(){
+    var shouldSwitch, card1, card2;
+    const divCards = document.getElementById('mostrarcards');
+    var cards = document.querySelectorAll('#card');
     var switching = true;
 
-    if(divCards !== null){
-        while(switching){
-            switching = false;
-            for(i=0; i<(cardsHeadersNomes.length); i++){
-                shouldSwitch = false;
-                elemento1 = cardsHeadersNomes[i];
-                elemento2 = cardsHeadersNomes[i + 1];
+    while(switching){
+        switching = false;
+        for(i=0; i<(cards.length)-1; i++){
+            shouldSwitch = false;
+            card1 = cards[i];
+            card2 = cards[i+1];
             
-                if (elemento1 > elemento2){
-                    shouldSwitch = true;
-                    break;
-                };
-            };
-                
-            if(shouldSwitch){
-                cardsHeadersNomes[i].parentNode.insertBefore(cardsHeadersNomes[i + 1], cardsHeadersNomes[i]);
-                switching = true;
+            if (card1.querySelector('#ch_empnome').innerText.toLowerCase() < card2.querySelector('#ch_empnome').innerText.toLowerCase()){
+                shouldSwitch = true;
+                break;
             };
         };
-    } else {
-        while(switching){
-            switching = false;
-            for(i=1; i<(cardsHeadersNomes.length-1); i++){
-                shouldSwitch = false;
-                elemento1 = cardsHeadersNomes[i];
-                elemento2 = cardsHeadersNomes[i + 1];
-            
-                if (elemento1.innerHTML.toLowerCase() > elemento2.innerHTML.toLowerCase()){
-                    shouldSwitch = true;
-                    break;
-                };
-            };
                 
-            if(shouldSwitch){
-                cardsHeadersNomes[i].parentNode.insertBefore(cardsHeadersNomes[i + 1], cardsHeadersNomes[i]);
-                switching = true;
-            };
+        if(shouldSwitch){
+            card1.parentNode.insertBefore(card1, card2);
+            switching = true;
         };
-    }
+    };
 };
 
-/*
-function ordenarPorNomeDecres(){
-    var shouldSwitch, elemento1, elemento2;
-    var switching = true;
 
-    if(tabelaDeEmpresas !== null){
-        while(switching){
-            switching = false;
-            for(i=1; i<(linhasTabelaEmpresas.length-1); i++){
-                shouldSwitch = false;
-                elemento1 = linhasTabelaEmpresas[i].getElementsByTagName("TD")[0];
-                elemento2 = linhasTabelaEmpresas[i + 1].getElementsByTagName("TD")[0];
-            
-                if (elemento1.innerHTML.toLowerCase() > elemento2.innerHTML.toLowerCase()){
-                    shouldSwitch = true;
-                    break;
-                };
-            };
-                
-            if(shouldSwitch){
-                linhasTabelaEmpresas[i].parentNode.insertAfter(linhasTabelaEmpresas[i + 1], linhasTabelaEmpresas[i]);
-                switching = true;
-            };
+function sortTable() {
+    var switching, i, card1, card2, shouldSwitch;
+    switching = true;
+
+    while (switching) {
+      switching = false;
+
+      for (i = 0; i < (cards.length - 1); i++) {
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        card1 = cards[i];
+        card2 = cards[i + 1];
+        console.log(card1);
+        console.log(card2);
+
+        if (card1.querySelector('#ch_empnome').innerText.toLowerCase() > card2.querySelector('#ch_empnome').innerText.toLowerCase()) {
+            console.log("VERIF TITULO");
+          shouldSwitch = true;
+          break;
+        } else {
+            shouldSwitch = false;
         };
-    } else {
-        while(switching){
-            switching = false;
-            for(i=1; i<(linhasTabelaUsuarios.length-1); i++){
-                shouldSwitch = false;
-                elemento1 = linhasTabelaUsuarios[i].getElementsByTagName("TD")[0];
-                elemento2 = linhasTabelaUsuarios[i + 1].getElementsByTagName("TD")[0];
-            
-                if (elemento1.innerHTML.toLowerCase() > elemento2.innerHTML.toLowerCase()){
-                    shouldSwitch = true;
-                    break;
-                };
-            };
-                
-            if(shouldSwitch){
-                linhasTabelaUsuarios[i].parentNode.insertAfter(linhasTabelaUsuarios[i + 1], linhasTabelaUsuarios[i]);
-                switching = true;
-            };
-        };
-    }
-};
-*/
+      };
+
+      if (shouldSwitch) {
+        console.log("SWITCH 1");
+        divCards.insertBefore(card2, card1);
+        switching = true;
+        console.log("SWITCH 2");
+      };
+    };
+  };
