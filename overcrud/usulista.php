@@ -193,7 +193,7 @@ require_once 'usudeletemodal.php';
                     </tr>
                     <?php foreach ($listaUsu as $usuario): ?>
                     <!-- TABELA (DADOS DO USUÁRIO -->
-                    <tr class="table_row">
+                    <tr>
                         <td id="tr_nome"><?= $usuario['nome']; ?></td>
                         <td id="tr_doc"><?= $usuario['cpf']; ?></td>
                         <td>
@@ -241,7 +241,7 @@ require_once 'usudeletemodal.php';
                         <!-- EDITAR -->
                         <td class="<?= $linksAdm ?>">
                             <a href="usueditar.php?idusuario=<?= $usuario['idusuario']; ?>">
-                                <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
+                                <i class="fa-solid fa-pen-to-square px-0 py-2" style="color: white;" title="Editar"></i>
                             </a>
                         </td>
                     </tr>

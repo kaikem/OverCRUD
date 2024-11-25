@@ -124,7 +124,7 @@ require_once 'empdeletemodal.php';
                     </tr>
                     <?php foreach ($listaEmp as $empresa): ?>
                         <!-- TABELA (DADOS DA EMPRESA) -->
-                        <tr class="table <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
+                        <tr class="<?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
                             <td id="tr_nome"><?= $empresa['nome']; ?></td>
                             <td><?= $empresa['fantasia']; ?></td>
                             <td id="tr_doc"><?= $empresa['cnpj']; ?></td>
@@ -145,7 +145,7 @@ require_once 'empdeletemodal.php';
                             <!-- EDITAR -->
                             <td class="<?= $linksAdm ?>">
                                 <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                                    <i class="fa-solid fa-pen-to-square px-0 py-2" title="Editar"></i>
+                                    <i class="fa-solid fa-pen-to-square px-0 py-2" style="color: white;" title="Editar"></i>
                                 </a>
                             </td>
                         </tr>
