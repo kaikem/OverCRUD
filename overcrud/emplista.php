@@ -55,7 +55,7 @@ require_once 'empdeletemodal.php';
                                 style="min-height: 8rem; max-height: 8rem;">
                                 <div class="d-flex flex-column">
                                     <h4 class="text-uppercase" id="ch_nome"> <?= $empresa['nome']; ?> </h4>
-                                    <h6 class="text-secondary lead" id="ch_empcnpj"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
+                                    <h6 class="text-secondary lead" id="ch_doc"> CNPJ: <?= $empresa['cnpj']; ?> </h6>
                                 </div>
                             </div>
                             <!-- CORPO DO CARD -->
