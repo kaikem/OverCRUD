@@ -10,9 +10,7 @@ if(tabelaDeUsuarios !== null){
 };
 
 //DOM - DIV DOS CARDS
-var cardsHeadersH4 = document.querySelectorAll('#ch_empnome');
-const divCards = document.getElementById('mostrarcards');
-const cardsHTML = divCards.children;
+var cardsHTML = divCards.children;
 
 
 //FUNÇÕES DAS TABELAS
