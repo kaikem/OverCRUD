@@ -10,7 +10,12 @@ require_once 'sqltables.php';
     <!-- INPUT DE PESQUISA -->
     <div class='input-group w-50' id='pesquisalista'>
         <i class='fa-solid fa-magnifying-glass input-group-text p-2'></i>
-        <input type='search' class='form-control' id='inputpesquisa' placeholder='Pesquisa por documento'>
+        <select class="form-select form-select-sm fit-content" name="pesquisaselect" id="pesquisaselect">
+            <option value="nome">Nome</option>
+            <option value="cpf" class="<?= str_contains($pagina, 'usulista') ? 'd-flex' : 'd-none' ?>">CPF</option>
+            <option value="cnpj" class="<?= str_contains($pagina, 'emplista') ? 'd-flex' : 'd-none' ?>">CNPJ</option>
+        </select>
+        <input type='search' class='form-control' id='inputpesquisa' oninput="pesquisa()" placeholder='Pesquisar'>
     </div>
 
     <!-- BOTÕES DE ORDENAÇÃO -->
@@ -33,11 +38,12 @@ require_once 'sqltables.php';
 
         <!-- BOTÃO TABELA -->
         <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2 active'
-            id='btndisplaytabela' onclick='mudarDisplayParaTabela()' title='Modo Tabela'><i
+            id='btndisplaytabela' onclick='mudarDisplayParaTabela(); pesquisa()' title='Modo Tabela'><i
                 class='fa-solid fa-list'></i></button>
 
         <!-- BOTÃO CARDS -->
         <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2' id='btndisplaycards'
-            onclick='mudarDisplayParaCards()' title='Modo Cards'><i class='fa-solid fa-table-cells'></i></button>
+            onclick='mudarDisplayParaCards(); pesquisa()' title='Modo Cards'><i
+                class='fa-solid fa-table-cells'></i></button>
     </div>
 </div>
