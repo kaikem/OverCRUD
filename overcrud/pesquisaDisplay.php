@@ -11,9 +11,9 @@ require_once 'sqltables.php';
     <div class='input-group w-50' id='pesquisalista'>
         <i class='fa-solid fa-magnifying-glass input-group-text p-2'></i>
         <select class="form-select form-select-sm fit-content" name="pesquisaselect" id="pesquisaselect">
-            <option value="#ch_nome" selected>Nome</option>
-            <option value="#tr_cpf" class="<?= str_contains($pagina, 'usulista') ? 'd-flex' : 'd-none' ?>">CPF</option>
-            <option value="#tr_cnpj" class="<?= str_contains($pagina, 'emplista') ? 'd-flex' : 'd-none' ?>">CNPJ
+            <option value="nome" selected>Nome</option>
+            <option value="doc" class="<?= str_contains($pagina, 'usulista') ? 'd-flex' : 'd-none' ?>">CPF</option>
+            <option value="doc" class="<?= str_contains($pagina, 'emplista') ? 'd-flex' : 'd-none' ?>">CNPJ
             </option>
         </select>
         <input type='search' class='form-control' id='inputpesquisa' oninput="pesquisa()" placeholder='Pesquisar'>
