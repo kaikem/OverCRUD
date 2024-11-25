@@ -53,7 +53,7 @@ require_once 'usudeletemodal.php';
                             style="min-height: 8rem; max-height: 8rem;">
                             <div class="d-flex flex-column">
                                 <h4 class="text-uppercase" id="ch_nome"> <?= $usuario['nome']; ?> </h4>
-                                <h6 class="text-secondary lead" id="ch_usucpf"> CPF: <?= $usuario['cpf']; ?> </h6>
+                                <h6 class="text-secondary lead" id="ch_doc"> CPF: <?= $usuario['cpf']; ?> </h6>
 
 
                             </div>
