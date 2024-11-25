@@ -125,9 +125,9 @@ require_once 'empdeletemodal.php';
                     <?php foreach ($listaEmp as $empresa): ?>
                         <!-- TABELA (DADOS DA EMPRESA) -->
                         <tr class="table <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>">
-                            <td><?= $empresa['nome']; ?></td>
+                            <td id="tr_nome"><?= $empresa['nome']; ?></td>
                             <td><?= $empresa['fantasia']; ?></td>
-                            <td><?= $empresa['cnpj']; ?></td>
+                            <td id="tr_doc"><?= $empresa['cnpj']; ?></td>
                             <td>
                                 <a class="modalanchor" data-bs-toggle="modal"
                                     data-bs-target="#empmodal<?= $empresa['idempresa'] ?>">
@@ -163,10 +163,12 @@ require_once 'empdeletemodal.php';
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
     <script src="./js/empMudarDisplay.js"></script>
     <script src="./js/ordenarNome.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 
 </html>
