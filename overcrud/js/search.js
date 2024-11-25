@@ -5,6 +5,7 @@ var selectPesquisa = document.getElementById('pesquisaselect');
 var selectValor  = document.getElementById('pesquisaselect').value;
 selectPesquisa.addEventListener('change', ()=>{
     selectValor = selectPesquisa.value;
+    pesquisa();
 });
 
 //FUNÇÃO DE PESQUISA
