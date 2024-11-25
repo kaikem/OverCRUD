@@ -193,9 +193,9 @@ require_once 'usudeletemodal.php';
                     </tr>
                     <?php foreach ($listaUsu as $usuario): ?>
                     <!-- TABELA (DADOS DO USUÁRIO -->
-                    <tr class="table">
-                        <td><?= $usuario['nome']; ?></td>
-                        <td><?= $usuario['cpf']; ?></td>
+                    <tr class="table_row">
+                        <td id="tr_nome"><?= $usuario['nome']; ?></td>
+                        <td id="tr_doc"><?= $usuario['cpf']; ?></td>
                         <td>
                             <?php
                                 if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
@@ -260,10 +260,12 @@ require_once 'usudeletemodal.php';
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
     <script src="./js/usuMudarDisplay.js"></script>
     <script src="./js/ordenarNome.js"></script>
+    <script src="./js/search.js"></script>
 </body>
 
 </html>
