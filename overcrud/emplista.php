@@ -49,7 +49,7 @@ require_once 'empdeletemodal.php';
                     <!-- CARD -->
                     <div class="col-12 col-md-10 col-lg-6 col-xl-4 justify-content-center
                 <?php echo $empresa['idempresa'] == '0' ? 'd-none' : '' ?>" id="card">
-                        <div class="card mb-4 me-1" style="min-height: 29.6rem;">
+                        <div class="card mb-4 me-1" id="empcard" style="min-height: 33.4rem;">
                             <!-- HEADER DO CARD -->
                             <div class="card-header d-flex text-center justify-content-center align-items-center"
                                 style="min-height: 8rem; max-height: 8rem;">
