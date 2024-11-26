@@ -81,7 +81,7 @@ if (!isset($idempresa)) {
                         <!-- CNPJ -->
                         <div class="form-group">
                             <label for="cnpj" class="form-label">CNPJ:</label>
-                            <input type="text" class="form-control" name="cnpj" id="cnpj" minlength="18" maxlength="18"
+                            <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 data-mask="00.000.000/0000-00" value="<?= $empresa['cnpj'] ?>" required>
                             <div class="invalid-feedback" id="cnpjinvalido">CNPJ inválido!</div>
                         </div>
@@ -89,7 +89,7 @@ if (!isset($idempresa)) {
                         <!-- NOME -->
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome:</label>
-                            <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
+                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64"
                                 value="<?= $empresa['nome'] ?>" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
@@ -97,16 +97,16 @@ if (!isset($idempresa)) {
                         <!-- NOME FANTASIA -->
                         <div class="form-group">
                             <label for="fantasia" class="form-label">Nome Fantasia:</label>
-                            <input type="text" class="form-control" name="fantasia" id="fantasia" minlength="1"
-                                maxlength="64" value="<?= $empresa['fantasia'] ?>" required>
+                            <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
+                                value="<?= $empresa['fantasia'] ?>" required>
                             <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
-                            <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000" value="<?= $empresa['telefone'] ?>">
+                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+                                minlength="14" data-mask="(00) 00000-0000" value="<?= $empresa['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>
@@ -128,8 +128,7 @@ if (!isset($idempresa)) {
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" value="<?= $empresa['cidade'] ?>"
-                                    required>
+                                    style="width: 65%;" value="<?= $empresa['cidade'] ?>" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade"
                                     value="<?= $empresa['estado'] ?>" required>
@@ -172,12 +171,11 @@ if (!isset($idempresa)) {
                             <div class="input-group">
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                    style="width: 60%;" minlength="1" maxlength="64"
-                                    value="<?= $empresa['logradouro'] ?>" required>
+                                    style="width: 60%;" value="<?= $empresa['logradouro'] ?>" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" value="<?= $empresa['numlogradouro'] ?>" required>
+                                    maxlength="6" value="<?= $empresa['numlogradouro'] ?>" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -186,8 +184,8 @@ if (!isset($idempresa)) {
                         <div class="form-group">
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
-                            <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" value="<?= $empresa['bairro'] ?>" required>
+                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64"
+                                value="<?= $empresa['bairro'] ?>" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
@@ -198,8 +196,8 @@ if (!isset($idempresa)) {
                         <!-- RESPONSÁVEL -->
                         <div class="form-group">
                             <label for="responsavel" class="form-label">Responsável:</label>
-                            <input type="text" class="form-control" name="responsavel" id="responsavel" minlength="1"
-                                maxlength="64" value="<?= $empresa['responsavel'] ?>" required>
+                            <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
+                                value="<?= $empresa['responsavel'] ?>" required>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>
