@@ -50,7 +50,7 @@ require_once 'sqltables.php';
                         <!-- CNPJ -->
                         <div class="form-group">
                             <label for="cnpj" class="form-label"><i class="fa-solid fa-tree-city"></i> CNPJ:</label>
-                            <input type="text" class="form-control" name="cnpj" id="cnpj" minlength="18" maxlength="18"
+                            <input type="text" class="form-control" name="cnpj" id="cnpj" maxlength="18" minlength="18"
                                 data-mask="00.000.000/0000-00" required>
                             <div class="invalid-feedback">CNPJ inválido!</div>
                         </div>
@@ -59,8 +59,7 @@ require_once 'sqltables.php';
                         <!-- NOME -->
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-building"></i> Nome:</label>
-                            <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
-                                required>
+                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -68,16 +67,16 @@ require_once 'sqltables.php';
                         <div class="form-group">
                             <label for="fantasia" class="form-label"><i class="fa-solid fa-shop"></i> Nome
                                 Fantasia:</label>
-                            <input type="text" class="form-control" name="fantasia" id="fantasia" minlength="1"
-                                maxlength="64" required>
+                            <input type="text" class="form-control" name="fantasia" id="fantasia" maxlength="64"
+                                required>
                             <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
                         <div class="form-group">
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
-                            <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000">
+                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+                                minlength="14" data-mask="(00) 00000-0000">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>
@@ -100,7 +99,7 @@ require_once 'sqltables.php';
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" required>
+                                    style="width: 65%;" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade" required>
                                     <option disabled selected value>--</option>
@@ -142,11 +141,11 @@ require_once 'sqltables.php';
                             <div class="input-group">
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                    style="width: 60%;" minlength="1" maxlength="64" required>
+                                    style="width: 60%;" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" required>
+                                    maxlength="6" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -155,8 +154,7 @@ require_once 'sqltables.php';
                         <div class="form-group">
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
-                            <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" required>
+                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
@@ -169,8 +167,8 @@ require_once 'sqltables.php';
                         <div class="form-group">
                             <label for="responsavel" class="form-label"><i class="fa-solid fa-user-tie"></i>
                                 Responsável pela empresa:</label>
-                            <input type="text" class="form-control" name="responsavel" id="responsavel" minlength="1"
-                                maxlength="64" required>
+                            <input type="text" class="form-control" name="responsavel" id="responsavel" maxlength="64"
+                                required>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>
