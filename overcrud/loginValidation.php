@@ -3,7 +3,7 @@ session_start();
 
 //VERIFICAÇÃO DE SUBMIT DO FORM E VARIÁVEIS VAZIAS
 if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
-    require_once 'config.php';
+    require_once './config/databases/config.php';
 
     $cpfIndex = $_POST['cpf'];
     $senhaIndex = $_POST['senha'];

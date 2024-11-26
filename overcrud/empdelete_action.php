@@ -8,13 +8,13 @@ if ($tipoUsu != '1') {
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once './config/databases/config.php';
 
 //FUNÇÃO DE MENSAGENS
 require_once 'support.php';
 
 //TABELAS DO BD
-require_once 'sqltables.php';
+require_once './src/databases/sqltables.php';
 
 //RECEBIMENTO DO IDEMPRESA
 $idempresa = $_POST['idempresa'];
@@ -70,7 +70,7 @@ if (!isset($idempresa)) {
                 } else {
                     mensagemRetorno("Empresa não encontrada (atributo inexistente)!", "danger");
                 };
-                
+
                 //BOTÃO VOLTAR
                 BotaoVoltar('emplista.php', "secondary");
                 ?>
