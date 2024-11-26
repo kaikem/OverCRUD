@@ -8,10 +8,10 @@ if ($tipoUsu != '1') {
 };
 
 //CONEXÃO COM BD
-require_once './config/databases/config.php';;
+require_once 'config.php';
 
 //TABELAS DO BD
-require_once './src/databases/sqltables.php';
+require_once 'sqltables.php';
 ?>
 
 <!DOCTYPE html>
