@@ -15,8 +15,7 @@
 * [Título e Imagem de capa](#Título-e-Imagem-de-capa)
 * [Badges](#badges)
 * [Descrição do Projeto](#descrição-do-projeto)
-* [Status do Projeto](#status-do-Projeto)
-* [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
+* [Funcionalidades(#funcionalidades)
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
 * [Pessoas Contribuidoras](#pessoas-contribuidoras)
@@ -25,7 +24,7 @@
 * [Conclusão](#conclusão)
 
 
-# Descrição do projeto
+# Descrição do Projeto
 <p>
   Projeto 01 do programa de estágio 2024 da Overdrive Softwares e Consultoria.
 </p>
@@ -35,5 +34,33 @@
 <p align="justify">
   Este sistema foi desenvolvido com base em dois tipos de usuários: Comum (tem acesso apenas à consulta de dados) e Admin (acesso total para consultas e alterações).
 </p>
+
+
+# Funcionalidades
+- :mag_right:`CONSULTE`: Consulta rápida e ordenada de funcionários e empresas cadastradas.
+- :pencil2:`EDITE`: Edição de dados com atualização em tempo real.
+- :heavy_plus_sign:`ADICIONE`: Adição e remoção de cadastros para ambas categorias. 
+- :small_red_triangle:`CONTROLE`: Dois níveis de acesso para melhor atribuição.
+
+
+# Tecnologias Utilizadas
+- ``HTML``
+- ``CSS``
+- ``JavaScript``
+- ``PHP``
+- ``SQL``
+
+
+# Acesso ao Projeto
+Baixá-lo ou cóidog fonte
+
+# Pessoas Contribuidoras
+
+# Pessoas Contribuidoras
+<p>Gostaria de deixar aqui um agradecimento em especial ao - [@felipedegodoy16] (https://www.github.com/felipedegodoy16) e [@username] (https://www.github.com/username)</p>
+
+# Pessoas Desenvolvedoras
+
+# Licença
 
 
