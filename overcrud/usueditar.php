@@ -81,7 +81,7 @@ if (!isset($idusuario)) {
                         <!-- CPF -->
                         <div class="form-group">
                             <label for="cpf" class="form-label">CPF:</label>
-                            <input type="text" class="form-control" name="cpf" id="cpf" minlength="14" maxlength="14"
+                            <input type="text" class="form-control" name="cpf" id="cpf" maxlength="14" minlength="14"
                                 data-mask="000.000.000-00" value="<?= $usuario['cpf'] ?>" required>
                             <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
                         </div>
@@ -110,7 +110,7 @@ if (!isset($idusuario)) {
                         <!-- NOME -->
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome:</label>
-                            <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
+                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64"
                                 value="<?= $usuario['nome'] ?>" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
@@ -118,8 +118,8 @@ if (!isset($idusuario)) {
                         <!-- TELEFONE -->
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
-                            <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000" value="<?= $usuario['telefone'] ?>">
+                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
+                                minlength="14" data-mask="(00) 00000-0000" value="<?= $usuario['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>
@@ -142,8 +142,7 @@ if (!isset($idusuario)) {
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" value="<?= $usuario['cidade'] ?>"
-                                    required>
+                                    style="width: 65%;" value="<?= $usuario['cidade'] ?>" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade"
                                     value="<?= $usuario['estado'] ?>" required>
@@ -186,12 +185,11 @@ if (!isset($idusuario)) {
                             <div class="input-group">
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                    style="width: 60%;" minlength="1" maxlength="64"
-                                    value="<?= $usuario['logradouro'] ?>" required>
+                                    style="width: 60%;" value="<?= $usuario['logradouro'] ?>" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" value="<?= $usuario['numlogradouro'] ?>" required>
+                                    maxlength="6" value="<?= $usuario['numlogradouro'] ?>" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -200,8 +198,8 @@ if (!isset($idusuario)) {
                         <div class="form-group">
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
-                            <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" value="<?= $usuario['bairro'] ?>" required>
+                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64"
+                                value="<?= $usuario['bairro'] ?>" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
@@ -212,7 +210,7 @@ if (!isset($idusuario)) {
                         <!-- CNH -->
                         <div class="form-group">
                             <label for="cnh" class="form-label">CNH:</label>
-                            <input type="text" class="form-control" name="cnh" id="cnh" minlength="9" maxlength="11"
+                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9"
                                 value="<?= $usuario['cnh'] ?>">
                             <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
@@ -234,10 +232,10 @@ if (!isset($idusuario)) {
                             <select class="form-select" name="empregadoem" id="empregadoem"
                                 value="<?= $usuario['idempregadoem'] ?>">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                    <option value="<?= $empresa['idempresa'] ?>"
-                                        <?= $usuario['idempregadoem'] == $empresa['idempresa'] ? 'selected' : '' ?>>
-                                        <?= $empresa['nome'] ?>
-                                    </option>
+                                <option value="<?= $empresa['idempresa'] ?>"
+                                    <?= $usuario['idempregadoem'] == $empresa['idempresa'] ? 'selected' : '' ?>>
+                                    <?= $empresa['nome'] ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
