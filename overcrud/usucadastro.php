@@ -61,8 +61,8 @@ require_once 'support.php';
                         <!-- SENHA -->
                         <div class="form-group">
                             <label for="password" class="form-label"><i class="fa-solid fa-lock"></i> Senha:</label>
-                            <input type="password" class="form-control" name="password" id="password" maxlength="16"
-                                minlength="8" required>
+                            <input type="password" class="form-control" name="password" id="password" minlength="8"
+                                maxlength="32" required>
                             <div class="invalid-feedback">A senha precisa conter pelo menos 8 caracteres</div>
                         </div>
 
@@ -70,7 +70,7 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="tipo" class="form-label"><i class="fa-solid fa-file-invoice"></i> Tipo:</label>
                             <select class="form-select" name="tipo" id="tipo">
-                                <option value="0">Comum</option>
+                                <option value="0" selected>Comum</option>
                                 <option value="1">Admin</option>
                             </select>
                         </div>
@@ -82,15 +82,16 @@ require_once 'support.php';
                         <!-- NOME -->
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-user"></i> Nome:</label>
-                            <input type="text" class="form-control" name="nome" id="nome" maxlength="64" required>
+                            <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
+                                required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
                         <!-- TELEFONE -->
                         <div class="form-group">
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
-                            <input type="tel" class="form-control" name="telefone" id="telefone" maxlength="15"
-                                minlength="14" data-mask="(00) 00000-0000">
+                            <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
+                                maxlength="15" data-mask="(00) 00000-0000">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>
@@ -113,7 +114,7 @@ require_once 'support.php';
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" required>
+                                    style="width: 65%;" minlength="1" maxlength="32" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade" required>
                                     <option disabled selected value>--</option>
@@ -155,11 +156,11 @@ require_once 'support.php';
                             <div class="input-group">
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                    style="width: 60%;" required>
+                                    style="width: 60%;" minlength="1" maxlength="64" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    maxlength="6" required>
+                                    minlength="1" maxlength="6" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -168,7 +169,8 @@ require_once 'support.php';
                         <div class="form-group">
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
-                            <input type="text" class="form-control" name="bairro" id="bairro" maxlength="64" required>
+                            <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
+                                maxlength="32" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
@@ -179,7 +181,7 @@ require_once 'support.php';
                         <!-- CNH -->
                         <div class="form-group">
                             <label for="cnh" class="form-label"><i class="fa-solid fa-id-card"></i> CNH:</label>
-                            <input type="text" class="form-control" name="cnh" id="cnh" maxlength="11" minlength="9">
+                            <input type="text" class="form-control" name="cnh" id="cnh" minlength="9" maxlength="11">
                             <div class="invalid-feedback">A CNH precisa ter entre 9 e 11 números</div>
                         </div>
 
@@ -199,7 +201,7 @@ require_once 'support.php';
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
