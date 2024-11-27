@@ -13,14 +13,11 @@ require_once './resources/listas.php';
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
-    <title>OverCRUD</title>
-</head>
+<!-- HEAD -->
+<?php
+require_once './partials/head.php';
+head('');
+?>
 
 <body>
     <div class="container">
