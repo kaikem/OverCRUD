@@ -39,7 +39,8 @@ require_once 'sqltables.php';
             <div class="col-8 col-sm-10 col-md-8 col-lg-6 mt-5">
 
                 <!-- TÍTULO DA SEÇÃO -->
-                <h1 class="text-center text-primary display-6 mb-5">CADASTRO DE EMPRESAS</h1>
+                <h1 class="text-center text-primary display-6 mb-5">
+                    CADASTRO DE EMPRESAS</h1>
 
                 <!-- FORMULÁRIO -->
                 <form class="needs-validation" action="empcadastro_action.php" method="POST" id="formempcadastro"
