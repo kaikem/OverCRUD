@@ -16,6 +16,10 @@ require_once 'sqltables.php';
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';
 
+//CLASSES
+require_once './src/classes/Empresa.php';
+require_once './src/classes/Endereco.php';
+
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
@@ -28,6 +32,22 @@ $logradouro = $_POST['logradouro'];
 $numlogradouro = $_POST['numlogradouro'];
 $bairro = $_POST['bairro'];
 $responsavel = $_POST['responsavel'];
+
+$novaEmpresa = new Empresa();
+$novaEmpresa->setNome($nome);
+$novaEmpresa->setCnpj($cnpj);
+$novaEmpresa->setFantasia($fantasia);
+$novaEmpresa->setTelefone($telefone);
+$novaEmpresa->setResponsavel($responsavel);
+
+$novoEndereco = new Endereco();
+$novoEndereco->setCep($cep);
+$novoEndereco->setCidade($cidade);
+$novoEndereco->setEstado($estado);
+$novoEndereco->setLogradouro($logradouro);
+$novoEndereco->setNumlogradouro($numlogradouro);
+$novoEndereco->setBairro($bairro);
+
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($nome) && !isset($cnpj)) {
