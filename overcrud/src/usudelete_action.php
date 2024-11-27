@@ -1,20 +1,17 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once '../validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once '../components/ConexaoBD.php';
 
-//FUNÇÃO DE MENSAGENS
-require_once 'support.php';
-
-//TABELAS DO BD
-require_once 'sqltables.php';
+//FUNÇÕES DE SUPORTE
+require_once '../resources/support.php';
 
 //RECEBIMENTO DE IDUSUARIO
 $idusuario = $_POST['idusuario'];
@@ -22,7 +19,7 @@ $usuario = [];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 ?>
 
@@ -42,8 +39,8 @@ if (!isset($idusuario)) {
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once '../partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -56,13 +53,13 @@ if (!isset($idusuario)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 if ($idusuario) {
-                    $sqlConsulta = $pdo->query("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
+                    $sqlConsulta = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
 
                     if ($sqlConsulta->rowCount() > 0) {
                         $usuario = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
                         mensagemRetorno("Usuario(a) <b>{$usuario['nome']}</b> excluído(a) com sucesso!", "success");
 
-                        $sqlExcluir = $pdo->prepare("DELETE FROM usuarios WHERE idusuario='$idusuario'");
+                        $sqlExcluir = ConexaoBD::conectarBD()->prepare("DELETE FROM usuarios WHERE idusuario='$idusuario'");
                         $sqlExcluir->execute();
                     } else {
                         mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
@@ -72,14 +69,14 @@ if (!isset($idusuario)) {
                 };
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('usulista.php', "secondary");
+                BotaoVoltar('../usulista.php', "secondary");
                 ?>
             </div>
 
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once '../partials/footer.php' ?>
     </div>
 
 

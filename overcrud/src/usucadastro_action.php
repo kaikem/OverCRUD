@@ -1,24 +1,21 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once '../validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
-
-//TABELAS DO BD
-require_once 'sqltables.php';
+require_once '../components/ConexaoBD.php';
 
 //FUNÇÕES DE SUPORTE
-require_once 'support.php';
+require_once '../resources/support.php';
 
 //CLASSES
-require_once './src/classes/Usuario.php';
-require_once './src/classes/Endereco.php';
+require_once '../components/Usuario.php';
+require_once '../components/Endereco.php';
 
 //PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cpf = $_POST['cpf'];
@@ -59,12 +56,13 @@ $novoEndereco->setBairro($bairro);
 
 //VERIFICAÇÃO DE EMPREGADO EM
 if ($empregadoEm != 0) {
+    $status = 1;
     $novoUsuario->setStatus($status);
 };
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
-if (!isset($nome) && !isset($cpf)) {
-    require_once 'logout.php';
+if (!isset($nome) && !isset($cnpj)) {
+    require_once '../resources/logout.php';
 };
 ?>
 
@@ -85,8 +83,8 @@ if (!isset($nome) && !isset($cpf)) {
     <div class="container">
 
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once '../partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -98,25 +96,25 @@ if (!isset($nome) && !isset($cpf)) {
             <!-- VERIFICAÇÃO DE CAMPO CPF + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                $sqlVerifCpf = $pdo->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
-                $sqlVerifCnh = $pdo->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
+                $sqlVerifCpf = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
+                $sqlVerifCnh = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
 
                 if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
-                    $sqlInsert = $pdo->prepare("INSERT INTO usuarios (cpf, password, tipo, nome, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro,  cnh, carro, status, idempregadoem) VALUES ('$cpf', '$passwordHash', '$tipo', '$nome', '$telefone', '$cep',  '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$cnh', '$carro', '$status', '$empregadoEm')");
+                    $sqlInsert = ConexaoBD::conectarBD()->prepare("INSERT INTO usuarios (cpf, password, tipo, nome, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro,  cnh, carro, status, idempregadoem) VALUES ('$cpf', '$passwordHash', '$tipo', '$nome', '$telefone', '$cep',  '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$cnh', '$carro', '$status', '$empregadoEm')");
 
                     if ($sqlInsert->execute()) {
                         mensagemRetorno("Dados de <b>$nome (CPF $cpf)</b> cadastrados com sucesso!", "success");
-                        BotaoVoltar('usulista.php', "secondary");
+                        BotaoVoltar('../usulista.php', "secondary");
                     } else {
                         mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
-                        BotaoVoltar('usucadastro.php', "secondary");
+                        BotaoVoltar('../usucadastro.php', "secondary");
                     };
                 } else if ($sqlVerifCpf->rowCount() != 0) {
                     mensagemRetorno("O CPF $cpf já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
-                    BotaoVoltar('usucadastro.php', "secondary");
+                    BotaoVoltar('../usucadastro.php', "secondary");
                 } else if ($sqlVerifCnh->rowCount() != 0) {
                     mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
-                    BotaoVoltar('usucadastro.php', "secondary");
+                    BotaoVoltar('../usucadastro.php', "secondary");
                 };
                 ?>
 
@@ -125,7 +123,7 @@ if (!isset($nome) && !isset($cpf)) {
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once '../partials/footer.php' ?>
     </div>
 
 

@@ -1,20 +1,21 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once '../validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once '../components/ConexaoBD.php';
 
-//FUNÇÃO DE MENSAGENS
-require_once 'support.php';
+//FUNÇÕES DE SUPORTE
+require_once '../resources/support.php';
 
-//TABELAS DO BD
-require_once 'sqltables.php';
+//CLASSES
+require_once '../components/Usuario.php';
+require_once '../components/Endereco.php';
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $idusuario = $_POST['idusuario'];
@@ -33,14 +34,33 @@ $carro = $_POST['carro'];
 $empregadoEm = $_POST['empregadoem'];
 $status = 0;
 
+$novoUsuario = new Usuario();
+$novoUsuario->setNome($nome);
+$novoUsuario->setTelefone($telefone);
+$novoUsuario->setCpf($cpf);
+$novoUsuario->setCnh($cnh);
+$novoUsuario->setCarro($carro);
+$novoUsuario->setIdempregadoem($empregadoEm);
+$novoUsuario->setTipo($tipo);
+$novoUsuario->setStatus($status);
+
+$novoEndereco = new Endereco();
+$novoEndereco->setCep($cep);
+$novoEndereco->setCidade($cidade);
+$novoEndereco->setEstado($estado);
+$novoEndereco->setLogradouro($logradouro);
+$novoEndereco->setNumlogradouro($numlogradouro);
+$novoEndereco->setBairro($bairro);
+
 //VERIFICAÇÃO DE EMPREGADO EM
 if ($empregadoEm != 0) {
     $status = 1;
+    $novoUsuario->setStatus($status);
 };
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 ?>
 
@@ -60,8 +80,8 @@ if (!isset($idusuario)) {
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once '../partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -74,19 +94,19 @@ if (!isset($idusuario)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = $pdo->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status' WHERE idusuario='$idusuario'");
+                $sqlAtualizar = ConexaoBD::conectarBD()->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status' WHERE idusuario='$idusuario'");
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CPF $cpf)</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('usulista.php', "secondary");
+                BotaoVoltar('../usulista.php', "secondary");
                 ?>
 
             </div>
 
             <!-- FOOTER -->
-            <?php require_once 'footer.php' ?>
+            <?php require_once '../partials/footer.php' ?>
         </div>
 
 
