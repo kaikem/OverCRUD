@@ -8,6 +8,9 @@ unset($_SESSION['senha']);
 unset($_SESSION['tipo']);
 unset($_SESSION['nome']);
 
+//ARRAYS DE DADOS
+require_once './resources/listas.php';
+
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';
 ?>
@@ -73,15 +76,14 @@ require_once 'support.php';
                                     <div class="input-group input-group-lg mb-4">
                                         <i class="input-group-text fa-solid fa-lock p-3"></i>
                                         <input type="password" class="form-control form-control-sm" name="senha"
-                                            id="inputsenha" minlength="8" maxlength="32" placeholder="Senha" required>
+                                            id="inputsenha" minlength="8" maxlength="16" placeholder="Senha" required>
                                     </div>
 
                                     <!-- MENSAGEM DE ERRO -->
                                     <div class='<?= $_SESSION['valido'] == "erro" ? 'd-flex' : 'd-none' ?> text-center'
                                         id='errologin'>
-                                        <?php mensagemRetorno("Usuário/senha incorretos! Por favor, tente novamente.", "danger") ?>
+                                        <?php mensagemRetorno("CPF/Senha incorretos! Por favor, tente novamente.", "danger") ?>
                                     </div>
-
                                     <!-- BUTTONS -->
                                     <div class="row d-flex justify-content-center m-auto" id="loginbtnrow">
                                         <button type="submit" class="btn btn-primary loginbtn m-2"> <b
