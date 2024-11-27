@@ -11,7 +11,6 @@ selectPesquisa.addEventListener('change', ()=>{
 //FUNÇÃO DE PESQUISA
 function pesquisa() {  
     var pesquisa = searchInput.value;
-    console.log(selectValor);
     if(!divCards.classList.contains('d-none')){
         for(i=0; i<cardsHTML.length; i++){
             if(!(cardsHTML[i].querySelector('#ch_'+selectValor).innerText.toLowerCase()).includes(pesquisa)){
