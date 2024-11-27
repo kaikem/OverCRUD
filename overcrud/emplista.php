@@ -2,15 +2,12 @@
 //VERIFICAÇÃO DE SESSÃO
 require_once 'sessionverif.php';
 
-//CONEXÃO COM BD
-require_once 'config.php';
-
-//TABELAS DO BD
-require_once 'sqltables.php';
-
 //MODALS
 require_once 'empmodal.php';
 require_once 'empdeletemodal.php';
+
+//ARRAYS DE DADOS
+require_once './resources/listas.php';
 ?>
 
 <!DOCTYPE html>
