@@ -101,11 +101,32 @@ head('- Usuários');
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i
                                         class="fa-solid fa-location-dot"></i>
                                     Endereço: </p>
-                                <div class="cardinfo mt-0 display-6"> <?= $usuario['logradouro']; ?>, nº
-                                    <?= $usuario['numlogradouro']; ?> (Bairro: <?= $usuario['bairro']; ?>)
+                                <div class="cardinfo mt-0 display-6">
+                                    <?php
+                                        for ($i = 0; $i < count($listaEnd); $i++) {
+                                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                                echo "End.: ".$listaEnd[$i]['logradouro'].", nº ".$listaEnd[$i]['numlogradouro'];
+                                            };
+                                        };
+                                    ?>
                                 </div>
-                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $usuario['cidade']; ?> -
-                                    <?= $usuario['estado']; ?>
+                                <div class="cardinfo mt-0 display-6">
+                                    <?php
+                                        for ($i = 0; $i < count($listaEnd); $i++) {
+                                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                                echo "Bairro: ".$listaEnd[$i]['bairro'];
+                                            };
+                                        };
+                                    ?>
+                                </div>
+                                <div class="cardinfo mt-0 mb-2 display-6">
+                                    <?php
+                                        for ($i = 0; $i < count($listaEnd); $i++) {
+                                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                                echo "Cidade: ".$listaEnd[$i]['cidade']." - ".$listaEnd[$i]['estado'];
+                                            };
+                                        };
+                                    ?>
                                 </div>
 
                                 <!-- CNH -->
