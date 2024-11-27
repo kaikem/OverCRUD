@@ -1,20 +1,17 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once './validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once './resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once './components/ConexaoBD.php';
 
 //TABELAS DO BD
-require_once 'sqltables.php';
-
-//FUNÇÕES DE SUPORTE
-require_once 'support.php';
+require_once './resources/listas.php';
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +30,8 @@ require_once 'support.php';
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once './partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -45,7 +42,7 @@ require_once 'support.php';
                 <h1 class="text-center text-primary display-6 mb-5" id="sessiontitle">CADASTRO DE USUÁRIOS</h1>
 
                 <!-- FORMULÁRIO -->
-                <form class="needs-validation" action="usucadastro_action.php" method="POST" id="formusucadastro"
+                <form class="needs-validation" action="./src/usucadastro_action.php" method="POST" id="formusucadastro"
                     novalidate>
                     <!-- FIELDSET CONTA -->
                     <fieldset>
@@ -215,8 +212,9 @@ require_once 'support.php';
                 </form>
             </div>
         </div>
+
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once './partials/footer.php' ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
