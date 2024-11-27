@@ -1,20 +1,21 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once '../validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once '../components/ConexaoBD.php';
 
-//FUNÇÃO DE MENSAGENS
-require_once 'support.php';
+//FUNÇÕES DE SUPORTE
+require_once '../resources/support.php';
 
-//TABELAS DO BD
-require_once 'sqltables.php';
+//CLASSES
+require_once '../components/Empresa.php';
+require_once '../components/Endereco.php';
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $idempresa = $_POST['idempresa'];
@@ -30,9 +31,24 @@ $numlogradouro = $_POST['numlogradouro'];
 $bairro = $_POST['bairro'];
 $responsavel = $_POST['responsavel'];
 
+$novaEmpresa = new Empresa();
+$novaEmpresa->setNome($nome);
+$novaEmpresa->setCnpj($cnpj);
+$novaEmpresa->setFantasia($fantasia);
+$novaEmpresa->setTelefone($telefone);
+$novaEmpresa->setResponsavel($responsavel);
+
+$novoEndereco = new Endereco();
+$novoEndereco->setCep($cep);
+$novoEndereco->setCidade($cidade);
+$novoEndereco->setEstado($estado);
+$novoEndereco->setLogradouro($logradouro);
+$novoEndereco->setNumlogradouro($numlogradouro);
+$novoEndereco->setBairro($bairro);
+
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 ?>
 
@@ -52,8 +68,8 @@ if (!isset($idempresa)) {
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once '../partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -66,18 +82,18 @@ if (!isset($idempresa)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = $pdo->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', fantasia='$fantasia', cnpj='$cnpj', responsavel='$responsavel' WHERE idempresa='$idempresa'");
+                $sqlAtualizar = ConexaoBD::conectarBD()->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', fantasia='$fantasia', cnpj='$cnpj', responsavel='$responsavel' WHERE idempresa='$idempresa'");
                 $sqlAtualizar->execute();
 
                 mensagemRetorno("Os dados de <b>$nome (CNPJ $cnpj)</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('emplista.php', "secondary");
+                BotaoVoltar('../emplista.php', "secondary");
                 ?>
             </div>
 
             <!-- FOOTER -->
-            <?php require_once 'footer.php' ?>
+            <?php require_once '../partials/footer.php' ?>
         </div>
 
 

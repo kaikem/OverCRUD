@@ -1,24 +1,21 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once '../validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
-
-//TABELAS DO BD
-require_once './';
+require_once '../components/ConexaoBD.php';
 
 //FUNÇÕES DE SUPORTE
-require_once 'support.php';
+require_once '../resources/support.php';
 
 //CLASSES
-require_once './src/classes/Empresa.php';
-require_once './src/classes/Endereco.php';
+require_once '../components/Empresa.php';
+require_once '../components/Endereco.php';
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cnpj = $_POST['cnpj'];
@@ -51,7 +48,7 @@ $novoEndereco->setBairro($bairro);
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($nome) && !isset($cnpj)) {
-    require_once 'logout.php';
+    require_once '../resources/logout.php';
 };
 ?>
 
@@ -72,8 +69,8 @@ if (!isset($nome) && !isset($cnpj)) {
     <div class="container">
 
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once '../partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -85,22 +82,22 @@ if (!isset($nome) && !isset($cnpj)) {
             <!-- VERIFICAÇÃO DE CAMPO CNPJ + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                $sqlVerif = $pdo->prepare("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
+                $sqlVerif = ConexaoBD::conectarBD()->prepare("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
                 $sqlVerif->execute();
 
                 if ($sqlVerif->rowCount() === 0) {
-                    $sqlInsert = $pdo->prepare("INSERT INTO empresas (cnpj, nome, fantasia, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro, responsavel) VALUES ('$cnpj', '$nome', '$fantasia', '$telefone', '$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$responsavel')");
+                    $sqlInsert = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (cnpj, nome, fantasia, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro, responsavel) VALUES ('$cnpj', '$nome', '$fantasia', '$telefone', '$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$responsavel')");
 
                     if ($sqlInsert->execute()) {
                         mensagemRetorno("Dados de <b>$nome (CNPJ $cnpj)</b> cadastrados com sucesso!", "success");
-                        BotaoVoltar('emplista.php', "secondary");
+                        BotaoVoltar('../emplista.php', "secondary");
                     } else {
                         mensagemRetorno("ERRO: Dados de $nome (CNPJ $cnpj) não foram cadastrados...", "danger");
-                        BotaoVoltar('empcadastro.php', "secondary");
+                        BotaoVoltar('../empcadastro.php', "secondary");
                     };
                 } else {
                     mensagemRetorno("CNPJ $cnpj já existe! Use outro CNPJ para este cadastro.", "warning");
-                    BotaoVoltar('empcadastro.php', "secondary");
+                    BotaoVoltar('../empcadastro.php', "secondary");
                 };
                 ?>
 
@@ -109,7 +106,7 @@ if (!isset($nome) && !isset($cnpj)) {
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once '../partials/footer.php' ?>
     </div>
 
 
