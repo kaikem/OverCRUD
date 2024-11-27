@@ -11,17 +11,13 @@
 
 
 # Índice 
-
-* [Título e Imagem de capa](#Título-e-Imagem-de-capa)
-* [Badges](#badges)
-* [Descrição do Projeto](#descrição-do-projeto)
-* [Funcionalidades(#funcionalidades)
-* [Acesso ao Projeto](#acesso-ao-projeto)
-* [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Pessoas Contribuidoras](#pessoas-contribuidoras)
-* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
-* [Licença](#licença)
-* [Conclusão](#conclusão)
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Acesso ao Projeto](#acesso-ao-projeto)
+- [Pessoas Contribuidoras](#pessoas-contribuidoras)
+- [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
+- [Licença](#licença)
 
 
 # Descrição do Projeto
@@ -52,14 +48,18 @@
 
 
 # Acesso ao Projeto
-Baixá-lo ou cóidog fonte
+Você pode acessar o [código fonte do projeto](https://github.com/kaikem/OverCRUD).
+
+
+# Abrir e rodar o projeto
+
 
 # Pessoas Contribuidoras
+Gostaria de deixar aqui um agradecimento aos monstros sagrados [Felipão](https://www.github.com/felipedegodoy16) e [Pombo](https://www.github.com/rpm) pela parceria e ao mestre [Diego](https://www.github.com/diegonegretto) pela paciência!
 
-# Pessoas Contribuidoras
-<p>Gostaria de deixar aqui um agradecimento em especial ao - [@felipedegodoy16] (https://www.github.com/felipedegodoy16) e [@username] (https://www.github.com/username)</p>
 
 # Pessoas Desenvolvedoras
+
 
 # Licença
 
