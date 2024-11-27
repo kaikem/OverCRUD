@@ -11,7 +11,7 @@ if ($tipoUsu != '1') {
 require_once 'config.php';
 
 //TABELAS DO BD
-require_once 'sqltables.php';
+require_once './';
 
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';

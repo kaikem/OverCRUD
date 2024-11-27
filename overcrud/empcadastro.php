@@ -1,6 +1,6 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once './validations/sessionverif.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
