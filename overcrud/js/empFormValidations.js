@@ -4,7 +4,7 @@ const inputCnpj = document.getElementById('cnpj');
 const cnpjInvalido = document.getElementById('cnpjinvalido');
 
 //VALIDAÇÃO DE CPF
-function ValidaCNPJ(cnpj) {
+function validaCNPJ(cnpj) {
  
     cnpj = cnpj.replace(/[^\d]+/g,'');
  
@@ -61,7 +61,7 @@ function ValidaCNPJ(cnpj) {
 //VERIFICAÇÕES NO SUBMIT
 formEmp.addEventListener('submit', (evento)=>{
     var inputCnpjValue = document.getElementById('cnpj').value;
-    var retornoCnpj = ValidaCNPJ(inputCnpjValue);
+    var retornoCnpj = validaCNPJ(inputCnpjValue);
   
     if(!formEmp.checkValidity()){
         evento.preventDefault();

@@ -4,7 +4,7 @@ const inputCpf = document.getElementById('cpf');
 const cpfInvalido = document.getElementById('cpfinvalido');
 
 //VALIDAÇÃO DE CPF
-function ValidaCPF(cpf) {	
+function validaCPF(cpf) {	
 	cpf = cpf.replace(/[^\d]+/g,'');	
 	if(cpf == '') return false;	
 
@@ -47,7 +47,7 @@ function ValidaCPF(cpf) {
 //VERIFICAÇÕES NO SUBMIT
 formUsu.addEventListener('submit', (evento)=>{
     var inputCpfValue = document.getElementById('cpf').value;
-    var retornoCpf = ValidaCPF(inputCpfValue);
+    var retornoCpf = validaCPF(inputCpfValue);
   
     if(!formUsu.checkValidity()){
         evento.preventDefault();
