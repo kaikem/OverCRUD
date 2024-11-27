@@ -41,11 +41,32 @@ foreach ($listaUsu as $usuario): ?>
 
                 <!-- ENDEREÇO -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i> Endereço: </p>
-                <div class="mt-0 display-6 fs-5"> <?= $usuario['logradouro']; ?>, nº
-                    <?= $usuario['numlogradouro']; ?> (Bairro: <?= $usuario['bairro']; ?>)
+                <div class="mt-0 display-6 fs-5">
+                    <?php
+                        for ($i = 0; $i < count($listaEnd); $i++) {
+                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                echo "End.: ".$listaEnd[$i]['logradouro'].", nº ".$listaEnd[$i]['numlogradouro'];
+                            };
+                        };
+                    ?>
                 </div>
-                <div class="mt-0 mb-3 display-6 fs-5"> <?= $usuario['cidade']; ?> -
-                    <?= $usuario['estado']; ?>
+                <div class="mt-0 display-6 fs-5">
+                    <?php
+                        for ($i = 0; $i < count($listaEnd); $i++) {
+                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                echo "Bairro: ".$listaEnd[$i]['bairro'];
+                            };
+                        };
+                    ?>
+                </div>
+                <div class="mt-0 mb-3 display-6 fs-5">
+                    <?php
+                        for ($i = 0; $i < count($listaEnd); $i++) {
+                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                echo "Cidade: ".$listaEnd[$i]['cidade']." - ".$listaEnd[$i]['estado'];
+                            };
+                        };
+                    ?>
                 </div>
 
                 <!-- CNH -->
