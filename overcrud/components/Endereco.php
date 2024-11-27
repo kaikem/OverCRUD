@@ -88,4 +88,19 @@ class Endereco
 
         return $this;
     }
+
+
+    //-----------------------------------------------------------------------------
+    //FUNÇÕES PRÓPIRAS
+    //listar endereços
+    public function listarEnderecos()
+    {
+        $listaEnd = [];
+        $sqlConsultaEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos");
+
+        if ($sqlConsultaEnd->rowCount() > 0) {
+            $listaEnd = $sqlConsultaEnd->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEnd;
+        };
+    }
 }
