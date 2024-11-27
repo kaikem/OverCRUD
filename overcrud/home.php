@@ -1,9 +1,9 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once './validations/session_validation.php';
 
 //CONEXÃO COM BD
-require_once './src/classes/ConexaoBD.php';
+require_once './components/ConexaoBD.php';
 
 //ARRAYS DE DADOS
 require_once './resources/listas.php';
@@ -25,8 +25,8 @@ require_once './resources/listas.php';
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php'; ?>
+        <div class="row" id="navbartop">
+            <?php require_once './partials/navbartop.php'; ?>
         </div>
 
         <!-- ROW DO TÍTULO -->
@@ -87,7 +87,7 @@ require_once './resources/listas.php';
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once './partials/footer.php' ?>
 
         <!-- SCRIPTS JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

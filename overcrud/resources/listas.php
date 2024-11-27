@@ -1,6 +1,6 @@
 <?php
-require_once './src/classes/Empresa.php';
-require_once './src/classes/Usuario.php';
+require_once './components/Empresa.php';
+require_once './components/Usuario.php';
 
 //-----------------------------------------------------------------------------
 //INSTÂNCIAS
