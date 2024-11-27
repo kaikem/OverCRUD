@@ -1,6 +1,6 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once './validations/session_validation.php';
 
 //LIMPEZA DE USUÁRIO
 unset($_SESSION['cpf']);
@@ -12,7 +12,7 @@ unset($_SESSION['nome']);
 require_once './resources/listas.php';
 
 //FUNÇÕES DE SUPORTE
-require_once 'support.php';
+require_once './resources/support.php';
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +62,8 @@ require_once 'support.php';
                             <h5 class="card-title text-center fs-2">FAÇA SEU LOGIN</h5>
                             <div class="card-text">
                                 <!-- FORM -->
-                                <form action="loginValidation.php" class="mt-4" style="background-color: none;"
-                                    method="POST">
+                                <form action="./validations/login_validation.php" class="mt-4"
+                                    style="background-color: none;" method="POST">
                                     <!-- LOGIN -->
                                     <div class="input-group input-group-lg mb-3">
                                         <i class="input-group-text fa-solid fa-right-to-bracket p-3"></i>
@@ -102,7 +102,7 @@ require_once 'support.php';
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once './partials/footer.php' ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
