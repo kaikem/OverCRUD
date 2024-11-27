@@ -1,4 +1,6 @@
 <?php
+require_once './resources/listas.php';
+
 foreach ($listaUsu as $usuario): ?>
 <div class='modal fade' id='usumodal<?= $usuario['idusuario'] ?>'>
     <div class='modal-dialog'>
