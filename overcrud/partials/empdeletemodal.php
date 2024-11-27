@@ -16,7 +16,7 @@ foreach ($listaEmp as $empresa): ?>
             <!-- FOOTER DO MODAL -->
             <div class='modal-footer'>
                 <button class='btn btn-secondary' data-bs-dismiss='modal'>Voltar</button>
-                <form action="empdelete_action.php" method="POST" style="background-color: transparent;">
+                <form action="./src/empdelete_action.php" method="POST" style="background-color: transparent;">
                     <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
                     <div class="form-group">
                         <input type="submit" class="btn btn-danger" value="EXCLUIR">

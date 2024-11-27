@@ -16,7 +16,7 @@ foreach ($listaUsu as $usuario): ?>
                 <!-- FOOTER DO MODAL -->
                 <div class='modal-footer'>
                     <button class='btn btn-secondary' data-bs-dismiss='modal'>Voltar</button>
-                    <form action="usudelete_action.php" method="POST" style="background-color: transparent;">
+                    <form action="./src/usudelete_action.php" method="POST" style="background-color: transparent;">
                         <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
                         <div class="form-group">
                             <input type="submit" class="btn btn-danger text-center" value="EXCLUIR">
