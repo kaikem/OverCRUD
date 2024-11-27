@@ -16,6 +16,10 @@ require_once 'sqltables.php';
 //FUNÇÕES DE SUPORTE
 require_once 'support.php';
 
+//CLASSES
+require_once './src/classes/Usuario.php';
+require_once './src/classes/Endereco.php';
+
 //PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cpf = $_POST['cpf'];
 $password = $_POST['password'];
@@ -34,9 +38,28 @@ $carro = $_POST['carro'];
 $empregadoEm = intval($_POST['empregadoem']);
 $status = 0;
 
+$novoUsuario = new Usuario();
+$novoUsuario->setNome($nome);
+$novoUsuario->setTelefone($telefone);
+$novoUsuario->setPassword($passwordHash);
+$novoUsuario->setCpf($cpf);
+$novoUsuario->setCnh($cnh);
+$novoUsuario->setCarro($carro);
+$novoUsuario->setIdempregadoem($empregadoEm);
+$novoUsuario->setTipo($tipo);
+$novoUsuario->setStatus($status);
+
+$novoEndereco = new Endereco();
+$novoEndereco->setCep($cep);
+$novoEndereco->setCidade($cidade);
+$novoEndereco->setEstado($estado);
+$novoEndereco->setLogradouro($logradouro);
+$novoEndereco->setNumlogradouro($numlogradouro);
+$novoEndereco->setBairro($bairro);
+
 //VERIFICAÇÃO DE EMPREGADO EM
 if ($empregadoEm != 0) {
-    $status = 1;
+    $novoUsuario->setStatus($status);
 };
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
