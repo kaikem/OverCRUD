@@ -1,20 +1,20 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once 'sessionverif.php';
+require_once './validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once './resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once './components/ConexaoBD.php';
 
 //FUNÇÃO DE MENSAGENS
-require_once 'support.php';
+require_once './resources/support.php';
 
 //TABELAS DO BD
-require_once 'sqltables.php';
+require_once './resources/listas.php';
 
 //RECEBIMENTO DE IDEMPRESA
 $idempresa = $_GET['idempresa'];
@@ -22,7 +22,7 @@ $empresa = [];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
-    require_once 'logout.php';
+    require_once './resources/logout.php';
 };
 ?>
 
@@ -42,8 +42,8 @@ if (!isset($idempresa)) {
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once './partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -56,7 +56,7 @@ if (!isset($idempresa)) {
             <div class="col-4 col-md-6 text-center">
                 <?php
                 if ($idempresa) {
-                    $sqlConsulta = $pdo->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
+                    $sqlConsulta = ConexaoBD::conectarBD()->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
                     $sqlConsulta->execute();
                     if ($sqlConsulta->rowCount() > 0) {
                         $empresa = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
@@ -73,7 +73,7 @@ if (!isset($idempresa)) {
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
-                <form class="needs-validation" action="empeditar_action.php" method="POST" novalidate>
+                <form class="needs-validation" action="./src/empeditar_action.php" method="POST" novalidate>
                     <!-- FIELDSET EMPRESA -->
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
@@ -213,7 +213,7 @@ if (!isset($idempresa)) {
             </div>
 
             <!-- FOOTER -->
-            <?php require_once 'footer.php' ?>
+            <?php require_once './partials/footer.php' ?>
         </div>
 
 

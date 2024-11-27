@@ -1,17 +1,17 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once './validations/sessionverif.php';
+require_once './validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'logout.php';
+    require_once './resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once './components/ConexaoBD.php';
 
 //TABELAS DO BD
-require_once 'sqltables.php';
+require_once './resources/listas.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +30,8 @@ require_once 'sqltables.php';
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
-        <div class="row" id="navbarTop">
-            <?php require_once 'navbarTop.php' ?>
+        <div class="row" id="navbartop">
+            <?php require_once './partials/navbartop.php' ?>
         </div>
 
         <!-- CORPO -->
@@ -43,7 +43,7 @@ require_once 'sqltables.php';
                     CADASTRO DE EMPRESAS</h1>
 
                 <!-- FORMULÁRIO -->
-                <form class="needs-validation" action="empcadastro_action.php" method="POST" id="formempcadastro"
+                <form class="needs-validation" action="./src/empcadastro_action.php" method="POST" id="formempcadastro"
                     novalidate>
                     <!-- FIELDSET EMPRESA -->
                     <fieldset>
@@ -130,7 +130,7 @@ require_once 'sqltables.php';
                                     <option value="SC">SC</option>
                                     <option value="SP">SP</option>
                                     <option value="SE">SE</option>
-                                    <option value="TO">GO</option>
+                                    <option value="TO">TO</option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
                             </div>
@@ -187,7 +187,7 @@ require_once 'sqltables.php';
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'footer.php' ?>
+        <?php require_once './partials/footer.php' ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
