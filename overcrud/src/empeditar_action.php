@@ -98,7 +98,7 @@ head('- Editar Empresa');
         <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
         <script src="./js/darkmodetoggle.js"></script>
         <script src="./js/modals.js"></script>
-        <script src="./js/empMudarDisplay.js"></script>
+        <script src="./js/mudarDisplay.js"></script>
 </body>
 
 </html>

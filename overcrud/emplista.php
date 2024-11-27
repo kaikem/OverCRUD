@@ -178,7 +178,7 @@ head('- Empresas');
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/darkmodetoggle.js"></script>
     <script src="./js/modals.js"></script>
-    <script src="./js/empMudarDisplay.js"></script>
+    <script src="./js/mudarDisplay.js"></script>
     <script src="./js/ordenarNome.js"></script>
     <script src="./js/search.js"></script>
 </body>

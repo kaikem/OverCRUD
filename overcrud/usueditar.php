@@ -258,7 +258,7 @@ head('- Editar Usuário');
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <script src="./js/darkmodetoggle.js"></script>
-        <script src="./js/empMudarDisplay.js"></script>
+        <script src="./js/mudarDisplay.js"></script>
         <script src="./js/usuFormValidations.js"></script>
         <script src="./js/buscaCep.js"></script>
 </body>
