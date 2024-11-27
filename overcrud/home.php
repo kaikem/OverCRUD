@@ -3,10 +3,10 @@
 require_once 'sessionverif.php';
 
 //CONEXÃO COM BD
-require_once 'config.php';
+require_once './src/classes/ConexaoBD.php';
 
-//TABELAS DO BD
-require_once 'sqltables.php';
+//ARRAYS DE DADOS
+require_once './resources/listas.php';
 ?>
 
 <!-- HTML -->
@@ -33,7 +33,9 @@ require_once 'sqltables.php';
         <div class="row mt-5" id="appBody">
             <div class="col mt-5">
                 <!-- TÍTULO DA SEÇÃO -->
-                <h1 class="display-5 text-primary">Seja bem-vindo(a), <b><?= $nomeUsu ?></b>!</h1>
+                <h1 class="display-5 text-primary">Seja bem-vindo(a),
+                    <b><?= $nomeUsu ?></b>!
+                </h1>
             </div>
         </div>
 
@@ -51,7 +53,8 @@ require_once 'sqltables.php';
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <b class="text-info fs-4">EMPRESAS CADASTRADAS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= (count($listaEmp) - 1) ?></span>
+                        <span
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= (count($listaEmp) - 1) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <b class="text-info fs-4">USUÁRIOS CADASTRADOS</b>
@@ -59,19 +62,23 @@ require_once 'sqltables.php';
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <b class="text-info fs-4">USUÁRIOS COMUNS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) - count($listaUsuAdmins) ?></span>
+                        <span
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) - count($listaUsuAdmins) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <b class="text-info fs-4">USUÁRIOS ADMINS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsuAdmins) ?></span>
+                        <span
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsuAdmins) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <b class="text-info fs-4">USUÁRIOS ATIVOS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsuAtivos) ?></span>
+                        <span
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsuAtivos) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <b class="text-info fs-4">USUÁRIOS INATIVOS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) - count($listaUsuAtivos) ?></span>
+                        <span
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) - count($listaUsuAtivos) ?></span>
                     </li>
                 </ul>
 
