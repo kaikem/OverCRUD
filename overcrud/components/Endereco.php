@@ -3,6 +3,7 @@ require_once 'ConexaoBD.php';
 
 class Endereco
 {
+    private int $idendereco;
     private string $cep;
     private string $cidade;
     private string $estado;
@@ -17,6 +18,18 @@ class Endereco
 
     //-----------------------------------------------------------------------------
     //GETTERS E SETTERS
+    //cep
+    public function getIdendereco()
+    {
+        return $this->idendereco;
+    }
+    public function setIdendereco($idenderecoSet)
+    {
+        $this->idendereco = $idenderecoSet;
+
+        return $this;
+    }
+
     //cep
     public function getCep()
     {
