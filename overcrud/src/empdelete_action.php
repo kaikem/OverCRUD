@@ -1,4 +1,5 @@
 <?php
+//SELECT idempresa FROM empresas WHERE idempresa IN (SELECT idempregadoem FROM usuarios WHERE usuarios.idempregadoem = empresas.idempresa);
 //VERIFICAÇÃO DE SESSÃO
 require_once '../validations/session_validation.php';
 
