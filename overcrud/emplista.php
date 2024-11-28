@@ -62,7 +62,15 @@ head('- Empresas');
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i class="fa-solid fa-phone"></i>
                                     Telefone:
                                 </p>
-                                <div class="cardinfo mt-0 mb-2 display-6"> <?= $empresa['telefone']; ?> </div>
+                                <div class="cardinfo mt-0 mb-2 display-6">
+                                    <?php
+                                        if ($empresa['telefone'] == "" || $empresa['telefone'] == null) {
+                                            echo "- NÃO POSSUI -";
+                                        } else {
+                                            echo $empresa['telefone'];
+                                        }
+                                        ?>
+                                </div>
 
                                 <!-- ENDEREÇO -->
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i
@@ -72,28 +80,28 @@ head('- Empresas');
                                     <?php
                                         for ($i = 0; $i < count($listaEnd); $i++) {
                                             if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
-                                                echo "End.: ".$listaEnd[$i]['logradouro'].", nº ".$listaEnd[$i]['numlogradouro'];
+                                                echo "End.: " . $listaEnd[$i]['logradouro'] . ", nº " . $listaEnd[$i]['numlogradouro'];
                                             };
                                         };
-                                    ?>
+                                        ?>
                                 </div>
                                 <div class="cardinfo mt-0 display-6">
                                     <?php
                                         for ($i = 0; $i < count($listaEnd); $i++) {
                                             if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
-                                                echo "Bairro: ".$listaEnd[$i]['bairro'];
+                                                echo "Bairro: " . $listaEnd[$i]['bairro'];
                                             };
                                         };
-                                    ?>
+                                        ?>
                                 </div>
                                 <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         for ($i = 0; $i < count($listaEnd); $i++) {
                                             if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
-                                                echo "Cidade: ".$listaEnd[$i]['cidade']." - ".$listaEnd[$i]['estado'];
+                                                echo "Cidade: " . $listaEnd[$i]['cidade'] . " - " . $listaEnd[$i]['estado'];
                                             };
                                         };
-                                    ?>
+                                        ?>
                                 </div>
 
                                 <!-- RESPONSÁVEL -->
