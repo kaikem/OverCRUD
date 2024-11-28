@@ -24,7 +24,15 @@ foreach ($listaEmp as $empresa): ?>
 
                 <!-- TELEFONE -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-phone"></i> Telefone:</p>
-                <div class="mt-0 mb-3 display-6 fs-5"> <?= $empresa['telefone']; ?> </div>
+                <div class="mt-0 mb-3 display-6 fs-5">
+                    <?php
+                        if ($empresa['telefone'] == "" || $empresa['telefone'] == null) {
+                            echo "- NÃO POSSUI -";
+                        } else {
+                            echo $empresa['telefone'];
+                        }
+                        ?>
+                </div>
 
                 <!-- ENDEREÇO -->
                 <p class="mb-0 text-secondary display-6 fs-4"> <i class="fa-solid fa-location-dot"></i> Endereço: </p>
@@ -32,28 +40,28 @@ foreach ($listaEmp as $empresa): ?>
                     <?php
                         for ($i = 0; $i < count($listaEnd); $i++) {
                             if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
-                                echo "End.: ".$listaEnd[$i]['logradouro'].", nº ".$listaEnd[$i]['numlogradouro'];
+                                echo "End.: " . $listaEnd[$i]['logradouro'] . ", nº " . $listaEnd[$i]['numlogradouro'];
                             };
                         };
-                    ?>
+                        ?>
                 </div>
                 <div class="mt-0 display-6 fs-5">
                     <?php
                         for ($i = 0; $i < count($listaEnd); $i++) {
                             if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
-                                echo "Bairro: ".$listaEnd[$i]['bairro'];
+                                echo "Bairro: " . $listaEnd[$i]['bairro'];
                             };
                         };
-                    ?>
+                        ?>
                 </div>
                 <div class="mt-0 mb-3 display-6 fs-5">
                     <?php
                         for ($i = 0; $i < count($listaEnd); $i++) {
                             if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
-                                echo "Cidade: ".$listaEnd[$i]['cidade']." - ".$listaEnd[$i]['estado'];
+                                echo "Cidade: " . $listaEnd[$i]['cidade'] . " - " . $listaEnd[$i]['estado'];
                             };
                         };
-                    ?>
+                        ?>
                 </div>
 
                 <!-- RESPONSÁVEL -->
