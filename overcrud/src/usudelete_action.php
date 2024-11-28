@@ -27,7 +27,7 @@ if (!isset($idusuario)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once './partials/head.php';
+require_once '../partials/head.php';
 head('- Excluir Usuário');
 ?>
 
