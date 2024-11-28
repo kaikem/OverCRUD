@@ -36,6 +36,7 @@ $novaEmpresa->setCnpj($cnpj);
 $novaEmpresa->setFantasia($fantasia);
 $novaEmpresa->setTelefone($telefone);
 $novaEmpresa->setResponsavel($responsavel);
+$idenderecoemp = 0;
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
@@ -56,7 +57,7 @@ if (!isset($nome) && !isset($cnpj)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once './partials/head.php';
+require_once '../partials/head.php';
 head('- Cadastrar Empresa');
 ?>
 
@@ -77,21 +78,33 @@ head('- Cadastrar Empresa');
             <!-- VERIFICAÇÃO DE CAMPO CNPJ + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                $sqlVerif = ConexaoBD::conectarBD()->prepare("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
-                $sqlVerif->execute();
+                $sqlVerifCnpj = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
 
-                if ($sqlVerif->rowCount() === 0) {
-                    $sqlInsert = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (cnpj, nome, fantasia, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro, responsavel) VALUES ('$cnpj', '$nome', '$fantasia', '$telefone', '$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$responsavel')");
+                //VERIFICAÇÃO CNPJ
+                if ($sqlVerifCnpj->rowCount() === 0) {
+                    //PREPARAÇÃO PARA INSERIR DADOS DO ENDEREÇO
+                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInsertEnd->execute();
 
-                    if ($sqlInsert->execute()) {
-                        mensagemRetorno("Dados de <b>$nome (CNPJ $cnpj)</b> cadastrados com sucesso!", "success");
+                    $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+                    if ($sqlGetIdEnd->rowCount() > 0) {
+                        $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
+                        $idenderecoemp = $idendereco[0]["MIN(idendereco)"];
+                    };
+
+                    //PREPARAÇÃO PARA INSERIR DADOS DA EMPRESA
+                    $sqlInsertEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('$nome', '$telefone', '$cnpj', '$fantasia', '$responsavel', '$idenderecoemp')");
+
+                    //EXECUÇÃO E VERIFICAÇÃO DAS INSERÇÕES
+                    if ($sqlInsertEmp->execute()) {
+                        mensagemRetorno("Dados de <b>" . $novaEmpresa->getNome() . " (CNPJ " . $novaEmpresa->getCnpj() . ")</b> cadastrados com sucesso!", "success");
                         BotaoVoltar('../emplista.php', "secondary");
                     } else {
-                        mensagemRetorno("ERRO: Dados de $nome (CNPJ $cnpj) não foram cadastrados...", "danger");
+                        mensagemRetorno("ERRO: Dados de " . $novaEmpresa->getNome() . " (CNPJ " . $novaEmpresa->getCnpj() . ") não foram cadastrados...", "danger");
                         BotaoVoltar('../empcadastro.php', "secondary");
                     };
                 } else {
-                    mensagemRetorno("CNPJ $cnpj já existe! Use outro CNPJ para este cadastro.", "warning");
+                    mensagemRetorno("CNPJ " . $novaEmpresa->getCnpj() . " já existe! Use outro CNPJ para este cadastro.", "warning");
                     BotaoVoltar('../empcadastro.php', "secondary");
                 };
                 ?>

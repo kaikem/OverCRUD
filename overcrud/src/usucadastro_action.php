@@ -45,6 +45,7 @@ $novoUsuario->setCarro($carro);
 $novoUsuario->setIdempregadoem($empregadoEm);
 $novoUsuario->setTipo($tipo);
 $novoUsuario->setStatus($status);
+$idenderecousu = 0;
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
@@ -70,7 +71,7 @@ if (!isset($nome) && !isset($cnpj)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once './partials/head.php';
+require_once '../partials/head.php';
 head('- Cadastrar Usuário');
 ?>
 
@@ -94,21 +95,34 @@ head('- Cadastrar Usuário');
                 $sqlVerifCpf = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
                 $sqlVerifCnh = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
 
+                //VERIFICAÇÃO CPF + CNH
                 if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
-                    $sqlInsert = ConexaoBD::conectarBD()->prepare("INSERT INTO usuarios (cpf, password, tipo, nome, telefone, cep, cidade, estado, logradouro, numlogradouro, bairro,  cnh, carro, status, idempregadoem) VALUES ('$cpf', '$passwordHash', '$tipo', '$nome', '$telefone', '$cep',  '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro', '$cnh', '$carro', '$status', '$empregadoEm')");
+                    //PREPARAÇÃO PARA INSERIR DADOS DO ENDEREÇO
+                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInsertEnd->execute();
 
-                    if ($sqlInsert->execute()) {
-                        mensagemRetorno("Dados de <b>$nome (CPF $cpf)</b> cadastrados com sucesso!", "success");
+                    $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+                    if ($sqlGetIdEnd->rowCount() > 0) {
+                        $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
+                        $idenderecousu = $idendereco[0]["MIN(idendereco)"];
+                    };
+
+                    //PREPARAÇÃO PARA INSERIR DADOS DO USUÁRIO
+                    $sqlInsertUsu = ConexaoBD::conectarBD()->prepare("INSERT INTO usuarios (nome, telefone, cpf, password, cnh, carro, tipo, status, idempregadoem, idenderecousu) VALUES ('$nome', '$telefone', '$cpf', '$passwordHash', '$cnh', '$carro',  '$tipo', '$status','$empregadoEm', '$idenderecousu')");
+
+                    //EXECUÇÃO E VERIFICAÇÃO DAS INSERÇÕES
+                    if ($sqlInsertUsu->execute()) {
+                        mensagemRetorno("Dados de <b>" . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getCpf() . ")</b> cadastrados com sucesso!", "success");
                         BotaoVoltar('../usulista.php', "secondary");
                     } else {
-                        mensagemRetorno("ERRO: Dados de $nome (CPF $cpf) não foram cadastrados...", "danger");
+                        mensagemRetorno("ERRO: Dados de " . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getCpf() . ") não foram cadastrados...", "danger");
                         BotaoVoltar('../usucadastro.php', "secondary");
                     };
                 } else if ($sqlVerifCpf->rowCount() != 0) {
-                    mensagemRetorno("O CPF $cpf já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
+                    mensagemRetorno("O CPF " . $novoUsuario->getCpf() . " já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
                     BotaoVoltar('../usucadastro.php', "secondary");
                 } else if ($sqlVerifCnh->rowCount() != 0) {
-                    mensagemRetorno("A CNH $cnh já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
+                    mensagemRetorno("A CNH " . $novoUsuario->getCnh() . " já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
                     BotaoVoltar('../usucadastro.php', "secondary");
                 };
                 ?>
