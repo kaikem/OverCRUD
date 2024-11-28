@@ -94,19 +94,24 @@ head('- Cadastrar Usuário');
                 <?php
                 $sqlVerifCpf = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
                 $sqlVerifCnh = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
+                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+
+                //VERIFICAÇÃO ENDEREÇO DUPLICADO
+                if ($sqlVerifEnd->rowCount() === 0) {
+                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
+                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInsertEnd->execute();
+                };
+
+                //IDENDERECO DO ENDEREÇO NECESSÁRIO
+                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+                if ($sqlGetIdEnd->rowCount() > 0) {
+                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
+                    $idenderecousu = $idendereco[0]["MIN(idendereco)"];
+                };
 
                 //VERIFICAÇÃO CPF + CNH
                 if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
-                    //PREPARAÇÃO PARA INSERIR DADOS DO ENDEREÇO
-                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInsertEnd->execute();
-
-                    $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
-                    if ($sqlGetIdEnd->rowCount() > 0) {
-                        $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
-                        $idenderecousu = $idendereco[0]["MIN(idendereco)"];
-                    };
-
                     //PREPARAÇÃO PARA INSERIR DADOS DO USUÁRIO
                     $sqlInsertUsu = ConexaoBD::conectarBD()->prepare("INSERT INTO usuarios (nome, telefone, cpf, password, cnh, carro, tipo, status, idempregadoem, idenderecousu) VALUES ('$nome', '$telefone', '$cpf', '$passwordHash', '$cnh', '$carro',  '$tipo', '$status','$empregadoEm', '$idenderecousu')");
 

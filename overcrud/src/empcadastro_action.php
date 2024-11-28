@@ -79,19 +79,24 @@ head('- Cadastrar Empresa');
             <div class="col-4 col-md-6 text-center">
                 <?php
                 $sqlVerifCnpj = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
+                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+
+                //VERIFICAÇÃO ENDEREÇO DUPLICADO
+                if ($sqlVerifEnd->rowCount() === 0) {
+                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
+                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInsertEnd->execute();
+                };
+
+                //IDENDERECO DO ENDEREÇO NECESSÁRIO
+                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+                if ($sqlGetIdEnd->rowCount() > 0) {
+                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
+                    $idenderecoemp = $idendereco[0]["MIN(idendereco)"];
+                };
 
                 //VERIFICAÇÃO CNPJ
                 if ($sqlVerifCnpj->rowCount() === 0) {
-                    //PREPARAÇÃO PARA INSERIR DADOS DO ENDEREÇO
-                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInsertEnd->execute();
-
-                    $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
-                    if ($sqlGetIdEnd->rowCount() > 0) {
-                        $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
-                        $idenderecoemp = $idendereco[0]["MIN(idendereco)"];
-                    };
-
                     //PREPARAÇÃO PARA INSERIR DADOS DA EMPRESA
                     $sqlInsertEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('$nome', '$telefone', '$cnpj', '$fantasia', '$responsavel', '$idenderecoemp')");
 
