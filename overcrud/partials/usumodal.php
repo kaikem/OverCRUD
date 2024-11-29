@@ -1,5 +1,8 @@
 <?php
-require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
+//PATHING
+require_once 'pathing.php';
+
+require_once "$rootOvercrud/resources/listas.php";
 
 foreach ($listaUsu as $usuario): ?>
 <div class='modal fade' id='usumodal<?= $usuario['idusuario'] ?>'>

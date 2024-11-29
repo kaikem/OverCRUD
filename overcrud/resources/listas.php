@@ -1,7 +1,10 @@
 <?php
-require_once 'C:/xampp/htdocs/overcrud/components/Empresa.php';
-require_once 'C:/xampp/htdocs/overcrud/components/Usuario.php';
-require_once 'C:/xampp/htdocs/overcrud/components/Endereco.php';
+//PATHING
+require_once 'pathing.php';
+
+require_once "$rootOvercrud/components/Empresa.php";
+require_once "$rootOvercrud/components/Usuario.php";
+require_once "$rootOvercrud/components/Endereco.php";
 
 //-----------------------------------------------------------------------------
 //INSTÂNCIAS

@@ -1,20 +1,23 @@
 <?php
+//PATHING
+require_once "pathing.php";
+
 //VERIFICAÇÃO DE SESSÃO
-require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
+require_once "$rootOvercrud/validations/session_validation.php";
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
+    require_once "$rootOvercrud/resources/logout.php";
 };
 
 //CONEXÃO COM BD
-require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
+require_once "$rootOvercrud/components/ConexaoBD.php";
 
 //FUNÇÕES DE SUPORTE
-require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
+require_once "$rootOvercrud/resources/support.php";
 
 //FUNÇÕES DE SUPORTE
-require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
+require_once "$rootOvercrud/resources/listas.php";
 
 //RECEBIMENTO DO IDEMPRESA
 $idempresa = $_POST['idempresa'];
@@ -23,7 +26,7 @@ $empresaComVinculo = false;
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
-    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
+    require_once "$rootOvercrud/resources/logout.php";
 };
 ?>
 
@@ -31,7 +34,7 @@ if (!isset($idempresa)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
+require_once "$rootOvercrud/partials/head.php";
 head('- Excluir Empresa');
 ?>
 
@@ -39,7 +42,7 @@ head('- Excluir Empresa');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
+            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -94,7 +97,7 @@ head('- Excluir Empresa');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
+        <?php require_once "$rootOvercrud/partials/footer.php" ?>
     </div>
 
 

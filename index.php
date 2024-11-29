@@ -1,6 +1,6 @@
 <?php
 //PATHING
-require_once 'pathing.php';
+require_once "pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
@@ -12,10 +12,10 @@ unset($_SESSION['tipo']);
 unset($_SESSION['nome']);
 
 //ARRAYS DE DADOS
-require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
+require_once "$rootOvercrud/resources/listas.php";
 
 //FUNÇÕES DE SUPORTE
-require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
+require_once "$rootOvercrud/resources/support.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
 
 <!-- HEAD -->
 <?php
-require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
+require_once "$rootOvercrud/partials/head.php";
 head('- Login');
 ?>
 
@@ -102,7 +102,7 @@ head('- Login');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
+        <?php require_once "$rootOvercrud/partials/footer.php" ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -1,20 +1,23 @@
 <?php
+//PATHING
+require_once "pathing.php";
+
 //VERIFICAÇÃO DE SESSÃO
-require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
+require_once "$rootOvercrud/validations/session_validation.php";
 
 //MODALS
-require_once 'C:/xampp/htdocs/overcrud/partials/usumodal.php';
-require_once 'C:/xampp/htdocs/overcrud/partials/usudeletemodal.php';
+require_once "$rootOvercrud/partials/usumodal.php";
+require_once "$rootOvercrud/partials/usudeletemodal.php";
 
 //ARRAYS DE DADOS
-require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
+require_once "$rootOvercrud/resources/listas.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
+require_once "$rootOvercrud/partials/head.php";
 head('- Usuários');
 ?>
 
@@ -22,7 +25,7 @@ head('- Usuários');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
+            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -32,7 +35,7 @@ head('- Usuários');
             <h1 class="text-center text-primary display-6 my-5">LISTA DE USUÁRIOS</h1>
 
             <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
-            <?php require_once 'C:/xampp/htdocs/overcrud/partials/searchbar.php' ?>
+            <?php require_once "$rootOvercrud/partials/searchbar.php" ?>
 
             <!-- LISTA (CARDS) -->
             <div class="row d-none" id="mostrarcards">
@@ -265,7 +268,7 @@ head('- Usuários');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
+        <?php require_once "$rootOvercrud/partials/footer.php" ?>
     </div>
 
     <!-- SCRIPTS JS -->

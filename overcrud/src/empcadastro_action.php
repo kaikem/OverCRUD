@@ -1,21 +1,24 @@
 <?php
+//PATHING
+require_once "pathing.php";
+
 //VERIFICAÇÃO DE SESSÃO
-require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
+require_once "$rootOvercrud/validations/session_validation.php";
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
+    require_once "$rootOvercrud/resources/logout.php";
 };
 
 //CONEXÃO COM BD
-require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
+require_once "$rootOvercrud/components/ConexaoBD.php";
 
 //FUNÇÕES DE SUPORTE
-require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
+require_once "$rootOvercrud/resources/support.php";
 
 //CLASSES
-require_once 'C:/xampp/htdocs/overcrud/components/Empresa.php';
-require_once 'C:/xampp/htdocs/overcrud/components/Endereco.php';
+require_once "$rootOvercrud/components/Empresa.php";
+require_once "$rootOvercrud/components/Endereco.php";
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cnpj = $_POST['cnpj'];
@@ -49,7 +52,7 @@ $novoEndereco->setBairro($bairro);
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($nome) && !isset($cnpj)) {
-    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
+    require_once "$rootOvercrud/resources/logout.php";
 };
 ?>
 
@@ -57,7 +60,7 @@ if (!isset($nome) && !isset($cnpj)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
+require_once "$rootOvercrud/partials/head.php";
 head('- Cadastrar Empresa');
 ?>
 
@@ -66,7 +69,7 @@ head('- Cadastrar Empresa');
 
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
+            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -119,7 +122,7 @@ head('- Cadastrar Empresa');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
+        <?php require_once "$rootOvercrud/partials/footer.php" ?>
     </div>
 
 
