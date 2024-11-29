@@ -1,6 +1,7 @@
 <?php
 //PATHING
-require_once "pathing.php";
+$root = $_SERVER["DOCUMENT_ROOT"];
+require_once "$root/overcrud/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";

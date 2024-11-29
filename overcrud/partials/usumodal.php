@@ -1,7 +1,9 @@
 <?php
 //PATHING
-require_once 'pathing.php';
+$root = $_SERVER["DOCUMENT_ROOT"];
+require_once "$root/overcrud/pathing.php";
 
+//TABELAS DO BD
 require_once "$rootOvercrud/resources/listas.php";
 
 foreach ($listaUsu as $usuario): ?>

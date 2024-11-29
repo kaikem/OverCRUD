@@ -1,6 +1,7 @@
 <?php
 //PATHING
-require_once 'pathing.php';
+$root = $_SERVER["DOCUMENT_ROOT"];
+require_once "$root/overcrud/pathing.php";
 
 //ENDEREÇO DA PÁGINA ATUAL
 $pagina = $_SERVER['REQUEST_URI'];
