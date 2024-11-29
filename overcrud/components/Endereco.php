@@ -8,7 +8,7 @@ class Endereco
     private string $cidade;
     private string $estado;
     private string $logradouro;
-    private int $numlogradouro;
+    private string $numlogradouro;
     private string $bairro;
 
     //-----------------------------------------------------------------------------
