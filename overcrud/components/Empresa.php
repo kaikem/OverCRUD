@@ -103,4 +103,16 @@ class Empresa
             return $listaEmp;
         };
     }
+
+    //listar empresas vinculadas
+    public function listarEmpresasVinculadas()
+    {
+        $listaEmpVinculadas = [];
+        $sqlConsultaEmpVinculada = ConexaoBD::conectarBD()->query("SELECT idempresa FROM empresas WHERE idempresa IN (SELECT idempregadoem FROM usuarios WHERE usuarios.idempregadoem = empresas.idempresa)");
+
+        if ($sqlConsultaEmpVinculada->rowCount() > 0) {
+            $listaEmpVinculadas = $sqlConsultaEmpVinculada->fetchAll(PDO::FETCH_ASSOC);
+            return $listaEmpVinculadas;
+        };
+    }
 };
