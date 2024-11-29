@@ -1,20 +1,20 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once './validations/session_validation.php';
+require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
 
 //MODALS
-require_once './partials/usumodal.php';
-require_once './partials/usudeletemodal.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/usumodal.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/usudeletemodal.php';
 
 //ARRAYS DE DADOS
-require_once './resources/listas.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once './partials/head.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
 head('- Usuários');
 ?>
 
@@ -22,7 +22,7 @@ head('- Usuários');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once './partials/navbartop.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -32,7 +32,7 @@ head('- Usuários');
             <h1 class="text-center text-primary display-6 my-5">LISTA DE USUÁRIOS</h1>
 
             <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
-            <?php require_once './partials/searchbar.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/searchbar.php' ?>
 
             <!-- LISTA (CARDS) -->
             <div class="row d-none" id="mostrarcards">
@@ -105,28 +105,28 @@ head('- Usuários');
                                     <?php
                                         for ($i = 0; $i < count($listaEnd); $i++) {
                                             if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
-                                                echo "End.: ".$listaEnd[$i]['logradouro'].", nº ".$listaEnd[$i]['numlogradouro'];
+                                                echo "End.: " . $listaEnd[$i]['logradouro'] . ", nº " . $listaEnd[$i]['numlogradouro'];
                                             };
                                         };
-                                    ?>
+                                        ?>
                                 </div>
                                 <div class="cardinfo mt-0 display-6">
                                     <?php
                                         for ($i = 0; $i < count($listaEnd); $i++) {
                                             if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
-                                                echo "Bairro: ".$listaEnd[$i]['bairro'];
+                                                echo "Bairro: " . $listaEnd[$i]['bairro'];
                                             };
                                         };
-                                    ?>
+                                        ?>
                                 </div>
                                 <div class="cardinfo mt-0 mb-2 display-6">
                                     <?php
                                         for ($i = 0; $i < count($listaEnd); $i++) {
                                             if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
-                                                echo "Cidade: ".$listaEnd[$i]['cidade']." - ".$listaEnd[$i]['estado'];
+                                                echo "Cidade: " . $listaEnd[$i]['cidade'] . " - " . $listaEnd[$i]['estado'];
                                             };
                                         };
-                                    ?>
+                                        ?>
                                 </div>
 
                                 <!-- CNH -->
@@ -265,7 +265,7 @@ head('- Usuários');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once './partials/footer.php' ?>
+        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
     </div>
 
     <!-- SCRIPTS JS -->

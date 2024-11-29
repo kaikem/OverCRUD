@@ -1,20 +1,20 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once './validations/session_validation.php';
+require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
 
 //MODALS
-require_once './partials/empmodal.php';
-require_once './partials/empdeletemodal.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/empmodal.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/empdeletemodal.php';
 
 //ARRAYS DE DADOS
-require_once './resources/listas.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once './partials/head.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
 head('- Empresas');
 ?>
 
@@ -22,7 +22,7 @@ head('- Empresas');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once './partials/navbartop.php'; ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php'; ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -32,7 +32,7 @@ head('- Empresas');
             <h1 class="text-center text-primary display-6 my-5" id="sessiontitle">LISTA DE EMPRESAS</h1>
 
             <!-- PESQUISA & BOTÕES DE MODO DE DISPLAY -->
-            <?php require_once './partials/searchbar.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/searchbar.php' ?>
 
             <!-- LISTA (CARDS) -->
             <div class="row d-none" id="mostrarcards">
@@ -175,7 +175,7 @@ head('- Empresas');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once './partials/footer.php' ?>
+        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
     </div>
 
 

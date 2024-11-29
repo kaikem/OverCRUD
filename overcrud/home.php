@@ -1,12 +1,12 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once './validations/session_validation.php';
+require_once "$rootOvercrud/validations/session_validation.php";
 
 //CONEXÃO COM BD
-require_once './components/ConexaoBD.php';
+require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
 
 //ARRAYS DE DADOS
-require_once './resources/listas.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 ?>
 
 <!-- HTML -->
@@ -15,7 +15,7 @@ require_once './resources/listas.php';
 
 <!-- HEAD -->
 <?php
-require_once './partials/head.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
 head('');
 ?>
 
@@ -23,7 +23,7 @@ head('');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once './partials/navbartop.php'; ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php'; ?>
         </div>
 
         <!-- ROW DO TÍTULO -->
@@ -84,7 +84,7 @@ head('');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once './partials/footer.php' ?>
+        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
 
         <!-- SCRIPTS JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -3,7 +3,7 @@ session_start();
 
 //VERIFICAÇÃO DE SUBMIT DO FORM E VARIÁVEIS VAZIAS
 if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
-    require_once '../components/ConexaoBD.php';
+    require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
 
     $cpfIndex = $_POST['cpf'];
     $senhaIndex = $_POST['senha'];

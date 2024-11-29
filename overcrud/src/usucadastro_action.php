@@ -1,21 +1,21 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once '../validations/session_validation.php';
+require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once '../resources/logout.php';
+    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once '../components/ConexaoBD.php';
+require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
 
 //FUNÇÕES DE SUPORTE
-require_once '../resources/support.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
 
 //CLASSES
-require_once '../components/Usuario.php';
-require_once '../components/Endereco.php';
+require_once 'C:/xampp/htdocs/overcrud/components/Usuario.php';
+require_once 'C:/xampp/htdocs/overcrud/components/Endereco.php';
 
 //PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cpf = $_POST['cpf'];
@@ -63,7 +63,7 @@ if ($empregadoEm != 0) {
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($nome) && !isset($cnpj)) {
-    require_once '../resources/logout.php';
+    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
 };
 ?>
 
@@ -71,7 +71,7 @@ if (!isset($nome) && !isset($cnpj)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once '../partials/head.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
 head('- Cadastrar Usuário');
 ?>
 
@@ -80,7 +80,7 @@ head('- Cadastrar Usuário');
 
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once '../partials/navbartop.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -137,7 +137,7 @@ head('- Cadastrar Usuário');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once '../partials/footer.php' ?>
+        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
     </div>
 
 

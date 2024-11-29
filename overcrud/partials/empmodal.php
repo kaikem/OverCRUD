@@ -1,5 +1,5 @@
 <?php
-require_once './resources/listas.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 
 foreach ($listaEmp as $empresa): ?>
 <div class='modal fade' id='empmodal<?= $empresa['idempresa'] ?>'>

@@ -1,20 +1,20 @@
 <?php
 //VERIFICAÇÃO DE SESSÃO
-require_once './validations/session_validation.php';
+require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once './resources/logout.php';
+    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once './components/ConexaoBD.php';
+require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
 
 //FUNÇÃO DE MENSAGENS
-require_once './resources/support.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
 
 //TABELAS DO BD
-require_once './resources/listas.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 
 //RECEBIMENTO DE IDEMPRESA
 $idempresa = $_GET['idempresa'];
@@ -22,7 +22,7 @@ $empresa = [];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
-    require_once './resources/logout.php';
+    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
 };
 ?>
 
@@ -31,7 +31,7 @@ if (!isset($idempresa)) {
 
 <!-- HEAD -->
 <?php
-require_once './partials/head.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
 head('- Editar Empresa');
 ?>
 
@@ -39,7 +39,7 @@ head('- Editar Empresa');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once './partials/navbartop.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -209,7 +209,7 @@ head('- Editar Empresa');
             </div>
 
             <!-- FOOTER -->
-            <?php require_once './partials/footer.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
         </div>
 
 

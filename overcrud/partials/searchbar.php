@@ -3,7 +3,7 @@
 $pagina = $_SERVER['REQUEST_URI'];
 
 //TABELAS DO BD
-require_once './resources/listas.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 ?>
 
 <div class='col-12 d-flex mb-3 justify-content-between align-items-center'>
