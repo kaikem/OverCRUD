@@ -27,6 +27,9 @@ $cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
 $fantasia = $_POST['fantasia'];
 $telefone = $_POST['telefone'];
+$idenderecoemp = $_POST['idendereco'];
+
+$idendereco = $_POST['idendereco'];
 $cep = $_POST['cep'];
 $cidade = $_POST['cidadeestado'];
 $estado = $_POST['estadocidade'];
@@ -76,15 +79,20 @@ head('- Editar Empresa');
 
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">EDITAR EMPRESA</h1>
+            <?= $idenderecoemp; ?>
+            <?= $idendereco; ?>
 
             <!-- CONFIRMAÇÃO DE EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
                 //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = ConexaoBD::conectarBD()->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', fantasia='$fantasia', cnpj='$cnpj', responsavel='$responsavel' WHERE idempresa='$idempresa'");
-                $sqlAtualizar->execute();
+                $sqlAtualizarEmp = ConexaoBD::conectarBD()->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cnpj='$cnpj', fantasia='$fantasia', responsavel='$responsavel', idenderecoemp='$idenderecoemp' WHERE idempresa='$idempresa'");
+                $sqlAtualizarEmp->execute();
 
-                mensagemRetorno("Os dados de <b>$nome (CNPJ $cnpj)</b> foram atualizados com sucesso!", "success");
+                $sqlAtualizarEnd = ConexaoBD::conectarBD()->prepare("UPDATE enderecos SET cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro' WHERE idendereco='$idendereco'");
+                $sqlAtualizarEnd->execute();
+
+                mensagemRetorno("Os dados de <b>" . $novaEmpresa['nome'] . " (CNPJ " . $novaEmpresa['cnpj'] . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
                 BotaoVoltar('../emplista.php', "secondary");
