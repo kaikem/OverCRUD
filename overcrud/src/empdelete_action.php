@@ -59,13 +59,6 @@ head('- Excluir Empresa');
                     //CONSULTA DE EMPRESA POR ID
                     $sqlConsultaIdEmp = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE idempresa='$idempresa'");
 
-                    /*CONSULTA DE EMPRESAS VINCULADAS
-                    $sqlConsultaEmpVinculada = ConexaoBD::conectarBD()->query("SELECT idempresa FROM empresas WHERE idempresa IN (SELECT idempregadoem FROM usuarios WHERE usuarios.idempregadoem = empresas.idempresa)");
-
-                    if ($sqlConsultaEmpVinculada->rowCount() > 0) {
-                        $listaEmpVinculadas = $sqlConsultaEmpVinculada->fetchAll(PDO::FETCH_ASSOC);
-                    };*/
-
                     //VERIFICAÇÃO SE A EMPRESA ESTÁ VINCULADA
                     foreach ($listaEmpVinculadas as $empresaVinculada) {
                         if ($empresaVinculada['idempresa'] == $idempresa) {
@@ -82,7 +75,7 @@ head('- Excluir Empresa');
                         $sqlExcluir = ConexaoBD::conectarBD()->prepare("DELETE FROM empresas WHERE idempresa='$idempresa'");
                         $sqlExcluir->execute();
                     } else if ($sqlConsultaIdEmp->rowCount() == 0) {
-                        mensagemRetorno("Empresa não existe no Banco de Dados!", "danger");
+                        mensagemRetorno("Esta empresa não existe no Banco de Dados!", "danger");
                     } else if ($empresaComVinculo) {
                         mensagemRetorno("Empresa vinculada à usuário(s)! Por favor, faça a desvinculação antes de excluir.", "danger");
                     };
