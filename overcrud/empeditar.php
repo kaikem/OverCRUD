@@ -55,12 +55,23 @@ head('- Editar Empresa');
             <div class="col-4 col-md-6 text-center">
                 <?php
                 if ($idempresa) {
-                    $sqlConsulta = ConexaoBD::conectarBD()->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
-                    $sqlConsulta->execute();
-                    if ($sqlConsulta->rowCount() > 0) {
-                        $empresa = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+                    //CONSULTA DE EMPRESA POR ID
+                    $sqlConsultaIdEmp = ConexaoBD::conectarBD()->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
+                    $sqlConsultaIdEmp->execute();
+
+                    //VERIFICAÇÃO SE EXISTE EMPRESA COM O ID
+                    if ($sqlConsultaIdEmp->rowCount() > 0) {
+                        $empresa = $sqlConsultaIdEmp->fetch(PDO::FETCH_ASSOC);
+
+                        //VERIFICAÇÃO SE EXISTE ENDEREÇO PARA A EMPRESA
+                        $enderecoEmp = 0;
+                        for ($i = 0; $i < count($listaEnd); $i++) {
+                            if ($empresa['idenderecoemp'] == $listaEnd[$i]['idendereco']) {
+                                $enderecoEmp = $listaEnd[$i];
+                            };
+                        };
                     } else {
-                        mensagemRetorno("Empresa não existe no Banco de Dados!", "danger");
+                        mensagemRetorno("Esta empresa não existe no Banco de Dados!", "danger");
                         BotaoVoltar('emplista.php', "secondary");
                     };
                 } else {
@@ -71,12 +82,13 @@ head('- Editar Empresa');
             </div>
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
-            <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
+            <div class="col-6 col-md-8 <?php if ($sqlConsultaIdEmp->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="./src/empeditar_action.php" method="POST" novalidate>
                     <!-- FIELDSET EMPRESA -->
                     <fieldset>
                         <legend>DADOS DA EMPRESA</legend>
                         <input type="hidden" name="idempresa" value="<?= $empresa['idempresa'] ?>">
+                        <input type="hidden" name="idendereco" value="<?= $enderecoEmp['idendereco'] ?>">
                         <!-- CNPJ -->
                         <div class="form-group">
                             <label for="cnpj" class="form-label">CNPJ:</label>
@@ -117,7 +129,7 @@ head('- Editar Empresa');
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
                                 CEP:</label>
                             <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
-                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $empresa['cep'] ?>" required>
+                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $enderecoEmp['cep'] ?>" required>
                             <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
@@ -127,38 +139,63 @@ head('- Editar Empresa');
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" value="<?= $empresa['cidade'] ?>"
-                                    required>
+                                    style="width: 65%;" minlength="1" maxlength="32"
+                                    value="<?= $enderecoEmp['cidade'] ?>" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade"
-                                    value="<?= $empresa['estado'] ?>" required>
-                                    <option value="AC" <?= $empresa['estado'] == "AC" ? 'selected' : ''; ?>>AC
+                                    value="<?= $enderecoEmp['estado'] ?>" required>
+                                    <option value="AC" <?= $enderecoEmp['estado'] == "AC" ? 'selected' : ''; ?>>AC
                                     </option>
-                                    <option value="AL" <?= $empresa['estado'] == "AL" ? 'selected' : ''; ?>>AL</option>
-                                    <option value="AP" <?= $empresa['estado'] == "AP" ? 'selected' : ''; ?>>AP</option>
-                                    <option value="AM" <?= $empresa['estado'] == "AM" ? 'selected' : ''; ?>>AM</option>
-                                    <option value="BA" <?= $empresa['estado'] == "BA" ? 'selected' : ''; ?>>BA</option>
-                                    <option value="CE" <?= $empresa['estado'] == "CE" ? 'selected' : ''; ?>>CE</option>
-                                    <option value="DF" <?= $empresa['estado'] == "DF" ? 'selected' : ''; ?>>DF</option>
-                                    <option value="ES" <?= $empresa['estado'] == "ES" ? 'selected' : ''; ?>>ES</option>
-                                    <option value="GO" <?= $empresa['estado'] == "GO" ? 'selected' : ''; ?>>GO</option>
-                                    <option value="MA" <?= $empresa['estado'] == "MA" ? 'selected' : ''; ?>>MA</option>
-                                    <option value="MT" <?= $empresa['estado'] == "MT" ? 'selected' : ''; ?>>CE</option>
-                                    <option value="MS" <?= $empresa['estado'] == "MS" ? 'selected' : ''; ?>>MS</option>
-                                    <option value="MG" <?= $empresa['estado'] == "MG" ? 'selected' : ''; ?>>MG</option>
-                                    <option value="PA" <?= $empresa['estado'] == "PA" ? 'selected' : ''; ?>>GO</option>
-                                    <option value="PB" <?= $empresa['estado'] == "PB" ? 'selected' : ''; ?>>PB</option>
-                                    <option value="PR" <?= $empresa['estado'] == "PR" ? 'selected' : ''; ?>>PR</option>
-                                    <option value="PE" <?= $empresa['estado'] == "PE" ? 'selected' : ''; ?>>PE</option>
-                                    <option value="PI" <?= $empresa['estado'] == "PI" ? 'selected' : ''; ?>>PI</option>
-                                    <option value="RJ" <?= $empresa['estado'] == "RJ" ? 'selected' : ''; ?>>RJ</option>
-                                    <option value="RS" <?= $empresa['estado'] == "RS" ? 'selected' : ''; ?>>RS</option>
-                                    <option value="RO" <?= $empresa['estado'] == "RO" ? 'selected' : ''; ?>>RO</option>
-                                    <option value="RR" <?= $empresa['estado'] == "RR" ? 'selected' : ''; ?>>RR</option>
-                                    <option value="SC" <?= $empresa['estado'] == "SC" ? 'selected' : ''; ?>>SC</option>
-                                    <option value="SP" <?= $empresa['estado'] == "SP" ? 'selected' : ''; ?>>SP</option>
-                                    <option value="SE" <?= $empresa['estado'] == "SE" ? 'selected' : ''; ?>>SE</option>
-                                    <option value="TO" <?= $empresa['estado'] == "TO" ? 'selected' : ''; ?>>GO</option>
+                                    <option value="AL" <?= $enderecoEmp['estado'] == "AL" ? 'selected' : ''; ?>>AL
+                                    </option>
+                                    <option value="AM" <?= $enderecoEmp['estado'] == "AM" ? 'selected' : ''; ?>>AM
+                                    </option>
+                                    <option value="AP" <?= $enderecoEmp['estado'] == "AP" ? 'selected' : ''; ?>>AP
+                                    </option>
+                                    <option value="BA" <?= $enderecoEmp['estado'] == "BA" ? 'selected' : ''; ?>>BA
+                                    </option>
+                                    <option value="CE" <?= $enderecoEmp['estado'] == "CE" ? 'selected' : ''; ?>>CE
+                                    </option>
+                                    <option value="DF" <?= $enderecoEmp['estado'] == "DF" ? 'selected' : ''; ?>>DF
+                                    </option>
+                                    <option value="ES" <?= $enderecoEmp['estado'] == "ES" ? 'selected' : ''; ?>>ES
+                                    </option>
+                                    <option value="GO" <?= $enderecoEmp['estado'] == "GO" ? 'selected' : ''; ?>>GO
+                                    </option>
+                                    <option value="MA" <?= $enderecoEmp['estado'] == "MA" ? 'selected' : ''; ?>>MA
+                                    </option>
+                                    <option value="MG" <?= $enderecoEmp['estado'] == "MG" ? 'selected' : ''; ?>>MG
+                                    </option>
+                                    <option value="MS" <?= $enderecoEmp['estado'] == "MS" ? 'selected' : ''; ?>>MS
+                                    </option>
+                                    <option value="MT" <?= $enderecoEmp['estado'] == "MT" ? 'selected' : ''; ?>>CE
+                                    </option>
+                                    <option value="PA" <?= $enderecoEmp['estado'] == "PA" ? 'selected' : ''; ?>>GO
+                                    </option>
+                                    <option value="PB" <?= $enderecoEmp['estado'] == "PB" ? 'selected' : ''; ?>>PB
+                                    </option>
+                                    <option value="PE" <?= $enderecoEmp['estado'] == "PE" ? 'selected' : ''; ?>>PE
+                                    </option>
+                                    <option value="PI" <?= $enderecoEmp['estado'] == "PI" ? 'selected' : ''; ?>>PI
+                                    </option>
+                                    <option value="PR" <?= $enderecoEmp['estado'] == "PR" ? 'selected' : ''; ?>>PR
+                                    </option>
+                                    <option value="RJ" <?= $enderecoEmp['estado'] == "RJ" ? 'selected' : ''; ?>>RJ
+                                    </option>
+                                    <option value="RO" <?= $enderecoEmp['estado'] == "RO" ? 'selected' : ''; ?>>RO
+                                    </option>
+                                    <option value="RR" <?= $enderecoEmp['estado'] == "RR" ? 'selected' : ''; ?>>RR
+                                    </option>
+                                    <option value="RS" <?= $enderecoEmp['estado'] == "RS" ? 'selected' : ''; ?>>RS
+                                    </option>
+                                    <option value="SC" <?= $enderecoEmp['estado'] == "SC" ? 'selected' : ''; ?>>SC
+                                    </option>
+                                    <option value="SE" <?= $enderecoEmp['estado'] == "SE" ? 'selected' : ''; ?>>SE
+                                    </option>
+                                    <option value="SP" <?= $enderecoEmp['estado'] == "SP" ? 'selected' : ''; ?>>SP
+                                    </option>
+                                    <option value="TO" <?= $enderecoEmp['estado'] == "TO" ? 'selected' : ''; ?>>TO
+                                    </option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
                             </div>
@@ -172,11 +209,11 @@ head('- Editar Empresa');
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
                                     style="width: 60%;" minlength="1" maxlength="64"
-                                    value="<?= $empresa['logradouro'] ?>" required>
+                                    value="<?= $enderecoEmp['logradouro'] ?>" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" value="<?= $empresa['numlogradouro'] ?>" required>
+                                    minlength="1" maxlength="6" value="<?= $enderecoEmp['numlogradouro'] ?>" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -186,7 +223,7 @@ head('- Editar Empresa');
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" value="<?= $empresa['bairro'] ?>" required>
+                                maxlength="32" value="<?= $enderecoEmp['bairro'] ?>" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
