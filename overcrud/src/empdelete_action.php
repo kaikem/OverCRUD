@@ -1,26 +1,29 @@
 <?php
-//SELECT idempresa FROM empresas WHERE idempresa IN (SELECT idempregadoem FROM usuarios WHERE usuarios.idempregadoem = empresas.idempresa);
 //VERIFICAÇÃO DE SESSÃO
-require_once '../validations/session_validation.php';
+require_once 'C:/xampp/htdocs/overcrud/validations/session_validation.php';
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once '../resources/logout.php';
+    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
 };
 
 //CONEXÃO COM BD
-require_once '../components/ConexaoBD.php';
+require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
 
 //FUNÇÕES DE SUPORTE
-require_once '../resources/support.php';
+require_once 'C:/xampp/htdocs/overcrud/resources/support.php';
+
+//FUNÇÕES DE SUPORTE
+require_once 'C:/xampp/htdocs/overcrud/resources/listas.php';
 
 //RECEBIMENTO DO IDEMPRESA
 $idempresa = $_POST['idempresa'];
 $empresa = [];
+$empresaComVinculo = false;
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
-    require_once '../resources/logout.php';
+    require_once 'C:/xampp/htdocs/overcrud/resources/logout.php';
 };
 ?>
 
@@ -28,7 +31,7 @@ if (!isset($idempresa)) {
 <html lang="pt-br" data-bs-theme="dark">
 
 <?php
-require_once '../partials/head.php';
+require_once 'C:/xampp/htdocs/overcrud/partials/head.php';
 head('- Excluir Empresa');
 ?>
 
@@ -36,7 +39,7 @@ head('- Excluir Empresa');
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once '../partials/navbartop.php' ?>
+            <?php require_once 'C:/xampp/htdocs/overcrud/partials/navbartop.php' ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -49,17 +52,36 @@ head('- Excluir Empresa');
             <div class="col-4 col-md-6 text-center">
                 <?php
                 if ($idempresa) {
-                    $sqlConsulta = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE idempresa='$idempresa'");
+                    //CONSULTA DE EMPRESA POR ID
+                    $sqlConsultaIdEmp = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE idempresa='$idempresa'");
 
-                    if ($sqlConsulta->rowCount() > 0) {
-                        $empresa = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+                    /*CONSULTA DE EMPRESAS VINCULADAS
+                    $sqlConsultaEmpVinculada = ConexaoBD::conectarBD()->query("SELECT idempresa FROM empresas WHERE idempresa IN (SELECT idempregadoem FROM usuarios WHERE usuarios.idempregadoem = empresas.idempresa)");
+
+                    if ($sqlConsultaEmpVinculada->rowCount() > 0) {
+                        $listaEmpVinculadas = $sqlConsultaEmpVinculada->fetchAll(PDO::FETCH_ASSOC);
+                    };*/
+
+                    //VERIFICAÇÃO SE A EMPRESA ESTÁ VINCULADA
+                    foreach ($listaEmpVinculadas as $empresaVinculada) {
+                        if ($empresaVinculada['idempresa'] == $idempresa) {
+                            $empresaComVinculo = true;
+                            break;
+                        };
+                    };
+
+                    //VERIFICAÇÃO SE EXISTE EMPRESA COM O ID E SE ELA ESTÁ VINCULADA
+                    if ($sqlConsultaIdEmp->rowCount() > 0 && $empresaComVinculo == false) {
+                        $empresa = $sqlConsultaIdEmp->fetch(PDO::FETCH_ASSOC);
                         mensagemRetorno("Empresa <b>{$empresa['nome']}</b> excluída com sucesso!", "success");
 
                         $sqlExcluir = ConexaoBD::conectarBD()->prepare("DELETE FROM empresas WHERE idempresa='$idempresa'");
                         $sqlExcluir->execute();
-                    } else {
+                    } else if ($sqlConsultaIdEmp->rowCount() == 0) {
                         mensagemRetorno("Empresa não existe no Banco de Dados!", "danger");
-                    }
+                    } else if ($empresaComVinculo) {
+                        mensagemRetorno("Empresa vinculada à usuário(s)! Por favor, faça a desvinculação antes de excluir.", "danger");
+                    };
                 } else {
                     mensagemRetorno("Empresa não encontrada (atributo inexistente)!", "danger");
                 };
@@ -72,7 +94,7 @@ head('- Excluir Empresa');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once '../partials/footer.php' ?>
+        <?php require_once 'C:/xampp/htdocs/overcrud/partials/footer.php' ?>
     </div>
 
 

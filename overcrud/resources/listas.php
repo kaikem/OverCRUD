@@ -1,7 +1,7 @@
 <?php
-require_once './components/Empresa.php';
-require_once './components/Usuario.php';
-require_once './components/Endereco.php';
+require_once 'C:/xampp/htdocs/overcrud/components/Empresa.php';
+require_once 'C:/xampp/htdocs/overcrud/components/Usuario.php';
+require_once 'C:/xampp/htdocs/overcrud/components/Endereco.php';
 
 //-----------------------------------------------------------------------------
 //INSTÂNCIAS
@@ -14,6 +14,9 @@ $instanciaEnd = new Endereco();
 //EMPRESAS
 //Lista Completa de Empresas
 $listaEmp = $instanciaEmp->listarEmpresas();
+
+//Lista de Empresas Vinculadas
+$listaEmpVinculadas = $instanciaEmp->listarEmpresasVinculadas();
 
 
 //-----------------------------------------------------------------------------
