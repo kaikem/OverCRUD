@@ -147,31 +147,56 @@ head('- Editar Usuário');
                                     value="<?= $usuario['estado'] ?>" required>
                                     <option value="AC" <?= $usuario['estado'] == "AC" ? 'selected' : ''; ?>>AC
                                     </option>
-                                    <option value="AL" <?= $usuario['estado'] == "AL" ? 'selected' : ''; ?>>AL</option>
-                                    <option value="AP" <?= $usuario['estado'] == "AP" ? 'selected' : ''; ?>>AP</option>
-                                    <option value="AM" <?= $usuario['estado'] == "AM" ? 'selected' : ''; ?>>AM</option>
-                                    <option value="BA" <?= $usuario['estado'] == "BA" ? 'selected' : ''; ?>>BA</option>
-                                    <option value="CE" <?= $usuario['estado'] == "CE" ? 'selected' : ''; ?>>CE</option>
-                                    <option value="DF" <?= $usuario['estado'] == "DF" ? 'selected' : ''; ?>>DF</option>
-                                    <option value="ES" <?= $usuario['estado'] == "ES" ? 'selected' : ''; ?>>ES</option>
-                                    <option value="GO" <?= $usuario['estado'] == "GO" ? 'selected' : ''; ?>>GO</option>
-                                    <option value="MA" <?= $usuario['estado'] == "MA" ? 'selected' : ''; ?>>MA</option>
-                                    <option value="MT" <?= $usuario['estado'] == "MT" ? 'selected' : ''; ?>>CE</option>
-                                    <option value="MS" <?= $usuario['estado'] == "MS" ? 'selected' : ''; ?>>MS</option>
-                                    <option value="MG" <?= $usuario['estado'] == "MG" ? 'selected' : ''; ?>>MG</option>
-                                    <option value="PA" <?= $usuario['estado'] == "PA" ? 'selected' : ''; ?>>GO</option>
-                                    <option value="PB" <?= $usuario['estado'] == "PB" ? 'selected' : ''; ?>>PB</option>
-                                    <option value="PR" <?= $usuario['estado'] == "PR" ? 'selected' : ''; ?>>PR</option>
-                                    <option value="PE" <?= $usuario['estado'] == "PE" ? 'selected' : ''; ?>>PE</option>
-                                    <option value="PI" <?= $usuario['estado'] == "PI" ? 'selected' : ''; ?>>PI</option>
-                                    <option value="RJ" <?= $usuario['estado'] == "RJ" ? 'selected' : ''; ?>>RJ</option>
-                                    <option value="RS" <?= $usuario['estado'] == "RS" ? 'selected' : ''; ?>>RS</option>
-                                    <option value="RO" <?= $usuario['estado'] == "RO" ? 'selected' : ''; ?>>RO</option>
-                                    <option value="RR" <?= $usuario['estado'] == "RR" ? 'selected' : ''; ?>>RR</option>
-                                    <option value="SC" <?= $usuario['estado'] == "SC" ? 'selected' : ''; ?>>SC</option>
-                                    <option value="SP" <?= $usuario['estado'] == "SP" ? 'selected' : ''; ?>>SP</option>
-                                    <option value="SE" <?= $usuario['estado'] == "SE" ? 'selected' : ''; ?>>SE</option>
-                                    <option value="TO" <?= $usuario['estado'] == "TO" ? 'selected' : ''; ?>>GO</option>
+                                    <option value="AL" <?= $usuario['estado'] == "AL" ? 'selected' : ''; ?>>AL
+                                    </option>
+                                    <option value="AM" <?= $usuario['estado'] == "AM" ? 'selected' : ''; ?>>AM
+                                    </option>
+                                    <option value="AP" <?= $usuario['estado'] == "AP" ? 'selected' : ''; ?>>AP
+                                    </option>
+                                    <option value="BA" <?= $usuario['estado'] == "BA" ? 'selected' : ''; ?>>BA
+                                    </option>
+                                    <option value="CE" <?= $usuario['estado'] == "CE" ? 'selected' : ''; ?>>CE
+                                    </option>
+                                    <option value="DF" <?= $usuario['estado'] == "DF" ? 'selected' : ''; ?>>DF
+                                    </option>
+                                    <option value="ES" <?= $usuario['estado'] == "ES" ? 'selected' : ''; ?>>ES
+                                    </option>
+                                    <option value="GO" <?= $usuario['estado'] == "GO" ? 'selected' : ''; ?>>GO
+                                    </option>
+                                    <option value="MA" <?= $usuario['estado'] == "MA" ? 'selected' : ''; ?>>MA
+                                    </option>
+                                    <option value="MG" <?= $usuario['estado'] == "MG" ? 'selected' : ''; ?>>MG
+                                    </option>
+                                    <option value="MS" <?= $usuario['estado'] == "MS" ? 'selected' : ''; ?>>MS
+                                    </option>
+                                    <option value="MT" <?= $usuario['estado'] == "MT" ? 'selected' : ''; ?>>CE
+                                    </option>
+                                    <option value="PA" <?= $usuario['estado'] == "PA" ? 'selected' : ''; ?>>GO
+                                    </option>
+                                    <option value="PB" <?= $usuario['estado'] == "PB" ? 'selected' : ''; ?>>PB
+                                    </option>
+                                    <option value="PE" <?= $usuario['estado'] == "PE" ? 'selected' : ''; ?>>PE
+                                    </option>
+                                    <option value="PI" <?= $usuario['estado'] == "PI" ? 'selected' : ''; ?>>PI
+                                    </option>
+                                    <option value="PR" <?= $usuario['estado'] == "PR" ? 'selected' : ''; ?>>PR
+                                    </option>
+                                    <option value="RJ" <?= $usuario['estado'] == "RJ" ? 'selected' : ''; ?>>RJ
+                                    </option>
+                                    <option value="RO" <?= $usuario['estado'] == "RO" ? 'selected' : ''; ?>>RO
+                                    </option>
+                                    <option value="RR" <?= $usuario['estado'] == "RR" ? 'selected' : ''; ?>>RR
+                                    </option>
+                                    <option value="RS" <?= $usuario['estado'] == "RS" ? 'selected' : ''; ?>>RS
+                                    </option>
+                                    <option value="SC" <?= $usuario['estado'] == "SC" ? 'selected' : ''; ?>>SC
+                                    </option>
+                                    <option value="SE" <?= $usuario['estado'] == "SE" ? 'selected' : ''; ?>>SE
+                                    </option>
+                                    <option value="SP" <?= $usuario['estado'] == "SP" ? 'selected' : ''; ?>>SP
+                                    </option>
+                                    <option value="TO" <?= $usuario['estado'] == "TO" ? 'selected' : ''; ?>>TO
+                                    </option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
                             </div>
