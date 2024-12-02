@@ -19,6 +19,7 @@ class ConexaoBD
         $db_password = '';
         $pdo = new PDO("mysql:dbname=$db_name;host=$db_host", $db_user, $db_password);
         return $pdo;
+        
 
         /*BD CASA
         $db_name = 'overcrud';
@@ -28,7 +29,6 @@ class ConexaoBD
         $db_password = '';        
         $pdo = new PDO("mysql:dbname=$db_name;host=$db_host", $db_user, $db_password);
         return $pdo;
-        ?>
-*/
-}
+        */
+    }
 };
