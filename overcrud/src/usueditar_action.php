@@ -115,7 +115,7 @@ head('- Editar Usuário');
                 $sqlAtualizarUsu = ConexaoBD::conectarBD()->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status', idenderecousu='$idenderecousu' WHERE idusuario='$idusuario'");
                 $sqlAtualizarUsu->execute();
 
-                mensagemRetorno("Os dados de <b> " . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getNome() . ")</b> foram atualizados com sucesso!", "success");
+                mensagemRetorno("Os dados de <b> " . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getCpf() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
                 BotaoVoltar('../usulista.php', "secondary");
