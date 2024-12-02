@@ -3,6 +3,7 @@ require_once 'ConexaoBD.php';
 
 class Endereco
 {
+    //ATRIBUTOS
     private int $idendereco;
     private string $cep;
     private string $cidade;
@@ -10,6 +11,7 @@ class Endereco
     private string $logradouro;
     private string $numlogradouro;
     private string $bairro;
+
 
     //-----------------------------------------------------------------------------
     //CONSTRUTOR
@@ -101,19 +103,4 @@ class Endereco
 
         return $this;
     }
-
-
-    //-----------------------------------------------------------------------------
-    //FUNÇÕES PRÓPIRAS
-    //listar endereços
-    public function listarEnderecos()
-    {
-        $listaEnd = [];
-        $sqlConsultaEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos");
-
-        if ($sqlConsultaEnd->rowCount() > 0) {
-            $listaEnd = $sqlConsultaEnd->fetchAll(PDO::FETCH_ASSOC);
-            return $listaEnd;
-        };
-    }
-}
+};

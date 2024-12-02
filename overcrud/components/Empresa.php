@@ -3,6 +3,7 @@ require_once 'Endereco.php';
 
 class Empresa
 {
+    //ATRIBUTOS
     private string $nome;
     private string $telefone;
     private int $idempresa;
@@ -87,32 +88,5 @@ class Empresa
     public function setEndereco($enderecoSet)
     {
         $this->idendereco = $enderecoSet;
-    }
-
-
-    //-----------------------------------------------------------------------------
-    //FUNÇÕES PRÓPIRAS
-    //listar empresas
-    public function listarEmpresas()
-    {
-        $listaEmp = [];
-        $sqlConsultaEmp = ConexaoBD::conectarBD()->query("SELECT * FROM empresas");
-
-        if ($sqlConsultaEmp->rowCount() > 0) {
-            $listaEmp = $sqlConsultaEmp->fetchAll(PDO::FETCH_ASSOC);
-            return $listaEmp;
-        };
-    }
-
-    //listar empresas vinculadas
-    public function listarEmpresasVinculadas()
-    {
-        $listaEmpVinculadas = [];
-        $sqlConsultaEmpVinculada = ConexaoBD::conectarBD()->query("SELECT idempresa FROM empresas WHERE idempresa IN (SELECT idempregadoem FROM usuarios WHERE usuarios.idempregadoem = empresas.idempresa)");
-
-        if ($sqlConsultaEmpVinculada->rowCount() > 0) {
-            $listaEmpVinculadas = $sqlConsultaEmpVinculada->fetchAll(PDO::FETCH_ASSOC);
-            return $listaEmpVinculadas;
-        };
     }
 };
