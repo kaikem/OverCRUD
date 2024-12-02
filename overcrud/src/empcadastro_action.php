@@ -79,17 +79,17 @@ head('- Cadastrar Empresa');
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">CADASTRO DE EMPRESAS</h1>
 
-            <!-- VERIFICAÇÃO DE CAMPO CNPJ + INSERÇÃO NO BD -->
+            <!-- VERIFICAÇÃO DE CNPJ E ENDEREÇO + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
                 $sqlVerifCnpj = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
-                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
 
                 //VERIFICAÇÃO ENDEREÇO DUPLICADO
                 if ($sqlVerifEnd->rowCount() === 0) {
                     //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
-                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInsertEnd->execute();
+                    $sqlInserirEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInserirEnd->execute();
                 };
 
                 //IDENDERECO DO ENDEREÇO NECESSÁRIO
