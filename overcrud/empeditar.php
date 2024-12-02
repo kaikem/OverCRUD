@@ -188,13 +188,13 @@ head('- Editar Empresa');
                                     </option>
                                     <option value="RS" <?= $enderecoEmp['estado'] == "RS" ? 'selected' : ''; ?>>RS
                                     </option>
-                                    <option value="SC" <?= $enderecoEmp['estado'] == "SC" ? 'selected' : ''; ?>>SC
-                                    </option>
                                     <option value="SE" <?= $enderecoEmp['estado'] == "SE" ? 'selected' : ''; ?>>SE
+                                    </option>
+                                    <option value="SC" <?= $enderecoEmp['estado'] == "SC" ? 'selected' : ''; ?>>SC
                                     </option>
                                     <option value="SP" <?= $enderecoEmp['estado'] == "SP" ? 'selected' : ''; ?>>SP
                                     </option>
-                                    <option value="TO" <?= $enderecoEmp['estado'] == "TO" ? 'selected' : ''; ?>>TO
+                                    <option value="TO" <?= $enderecoEmp['estado'] == "TO" ? 'selected' : ''; ?>>GO
                                     </option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
