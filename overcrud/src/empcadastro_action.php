@@ -18,8 +18,8 @@ require_once "$rootOvercrud/components/ConexaoBD.php";
 require_once "$rootOvercrud/resources/support.php";
 
 //CLASSES
-require_once "$rootOvercrud/components/Empresa.php";
-require_once "$rootOvercrud/components/Endereco.php";
+require_once "$rootOvercrud/components/EmpresaDAO.php";
+require_once "$rootOvercrud/components/EnderecoDAO.php";
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cnpj = $_POST['cnpj'];
@@ -41,6 +41,7 @@ $novaEmpresa->setFantasia($fantasia);
 $novaEmpresa->setTelefone($telefone);
 $novaEmpresa->setResponsavel($responsavel);
 $idenderecoemp = 0;
+$novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
@@ -49,6 +50,7 @@ $novoEndereco->setEstado($estado);
 $novoEndereco->setLogradouro($logradouro);
 $novoEndereco->setNumlogradouro($numlogradouro);
 $novoEndereco->setBairro($bairro);
+$novoEnderecoDAO = new EnderecoDAO($novoEndereco);
 
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
@@ -82,7 +84,7 @@ head('- Cadastrar Empresa');
             <!-- VERIFICAÇÃO DE CNPJ E ENDEREÇO + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                $sqlVerifCnpj = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
+                
                 $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
 
                 //VERIFICAÇÃO ENDEREÇO DUPLICADO
@@ -100,7 +102,7 @@ head('- Cadastrar Empresa');
                 };
 
                 //VERIFICAÇÃO CNPJ
-                if ($sqlVerifCnpj->rowCount() === 0) {
+                if (($novaEmpresaDAO->buscarPorCnpj($cnpj))->rowCount() === 0) {
                     //PREPARAÇÃO PARA INSERIR DADOS DA EMPRESA
                     $sqlInsertEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('$nome', '$telefone', '$cnpj', '$fantasia', '$responsavel', '$idenderecoemp')");
 
