@@ -32,6 +32,7 @@ if (!isset($idusuario)) {
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
+<!-- HEAD -->
 <?php
 require_once "$rootOvercrud/partials/head.php";
 head('- Editar Usuário');
@@ -54,10 +55,21 @@ head('- Editar Usuário');
             <div class="col-4 col-md-6 text-center">
                 <?php
                 if ($idusuario) {
-                    $sqlConsulta = ConexaoBD::conectarBD()->prepare("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
-                    $sqlConsulta->execute();
-                    if ($sqlConsulta->rowCount() > 0) {
-                        $usuario = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
+                    //CONSULTA DE USUÁRIO POR ID
+                    $sqlConsultaIdUsu = ConexaoBD::conectarBD()->prepare("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
+                    $sqlConsultaIdUsu->execute();
+
+                    //VERIFICAÇÃO SE EXISTE USUÁRIO COM O ID
+                    if ($sqlConsultaIdUsu->rowCount() > 0) {
+                        $usuario = $sqlConsultaIdUsu->fetch(PDO::FETCH_ASSOC);
+
+                        //VERIFICAÇÃO SE EXISTE ENDEREÇO PARA O USUÁRIO
+                        $enderecoUsu = 0;
+                        for ($i = 0; $i < count($listaEnd); $i++) {
+                            if ($usuario['idenderecousu'] == $listaEnd[$i]['idendereco']) {
+                                $enderecoUsu = $listaEnd[$i];
+                            };
+                        };
                     } else {
                         mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
                         BotaoVoltar('usulista.php', "secondary");
@@ -70,9 +82,10 @@ head('- Editar Usuário');
             </div>
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
-            <div class="col-6 col-md-8 <?php if ($sqlConsulta->rowCount() == 0) echo 'd-none'; ?>">
+            <div class="col-6 col-md-8 <?php if ($sqlConsultaIdUsu->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="./src/usueditar_action.php" method="POST" novalidate>
                     <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
+                    <input type="hidden" name="idendereco" value="<?= $enderecoUsu['idendereco'] ?>">
                     <!-- FIELDSET CONTA -->
                     <fieldset>
                         <legend>DADOS DA CONTA</legend>
@@ -130,7 +143,7 @@ head('- Editar Usuário');
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
                                 CEP:</label>
                             <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
-                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $usuario['cep'] ?>" required>
+                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $enderecoUsu['cep'] ?>" required>
                             <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
@@ -140,62 +153,62 @@ head('- Editar Usuário');
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" value="<?= $usuario['cidade'] ?>"
-                                    required>
+                                    style="width: 65%;" minlength="1" maxlength="32"
+                                    value="<?= $enderecoUsu['cidade'] ?>" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade"
-                                    value="<?= $usuario['estado'] ?>" required>
-                                    <option value="AC" <?= $usuario['estado'] == "AC" ? 'selected' : ''; ?>>AC
+                                    value="<?= $enderecoUsu['estado'] ?>" required>
+                                    <option value="AC" <?= $enderecoUsu['estado'] == "AC" ? 'selected' : ''; ?>>AC
                                     </option>
-                                    <option value="AL" <?= $usuario['estado'] == "AL" ? 'selected' : ''; ?>>AL
+                                    <option value="AL" <?= $enderecoUsu['estado'] == "AL" ? 'selected' : ''; ?>>AL
                                     </option>
-                                    <option value="AM" <?= $usuario['estado'] == "AM" ? 'selected' : ''; ?>>AM
+                                    <option value="AP" <?= $enderecoUsu['estado'] == "AP" ? 'selected' : ''; ?>>AP
                                     </option>
-                                    <option value="AP" <?= $usuario['estado'] == "AP" ? 'selected' : ''; ?>>AP
+                                    <option value="AM" <?= $enderecoUsu['estado'] == "AM" ? 'selected' : ''; ?>>AM
                                     </option>
-                                    <option value="BA" <?= $usuario['estado'] == "BA" ? 'selected' : ''; ?>>BA
+                                    <option value="BA" <?= $enderecoUsu['estado'] == "BA" ? 'selected' : ''; ?>>BA
                                     </option>
-                                    <option value="CE" <?= $usuario['estado'] == "CE" ? 'selected' : ''; ?>>CE
+                                    <option value="CE" <?= $enderecoUsu['estado'] == "CE" ? 'selected' : ''; ?>>CE
                                     </option>
-                                    <option value="DF" <?= $usuario['estado'] == "DF" ? 'selected' : ''; ?>>DF
+                                    <option value="DF" <?= $enderecoUsu['estado'] == "DF" ? 'selected' : ''; ?>>DF
                                     </option>
-                                    <option value="ES" <?= $usuario['estado'] == "ES" ? 'selected' : ''; ?>>ES
+                                    <option value="ES" <?= $enderecoUsu['estado'] == "ES" ? 'selected' : ''; ?>>ES
                                     </option>
-                                    <option value="GO" <?= $usuario['estado'] == "GO" ? 'selected' : ''; ?>>GO
+                                    <option value="GO" <?= $enderecoUsu['estado'] == "GO" ? 'selected' : ''; ?>>GO
                                     </option>
-                                    <option value="MA" <?= $usuario['estado'] == "MA" ? 'selected' : ''; ?>>MA
+                                    <option value="MA" <?= $enderecoUsu['estado'] == "MA" ? 'selected' : ''; ?>>MA
                                     </option>
-                                    <option value="MG" <?= $usuario['estado'] == "MG" ? 'selected' : ''; ?>>MG
+                                    <option value="MT" <?= $enderecoUsu['estado'] == "MT" ? 'selected' : ''; ?>>CE
                                     </option>
-                                    <option value="MS" <?= $usuario['estado'] == "MS" ? 'selected' : ''; ?>>MS
+                                    <option value="MS" <?= $enderecoUsu['estado'] == "MS" ? 'selected' : ''; ?>>MS
                                     </option>
-                                    <option value="MT" <?= $usuario['estado'] == "MT" ? 'selected' : ''; ?>>CE
+                                    <option value="MG" <?= $enderecoUsu['estado'] == "MG" ? 'selected' : ''; ?>>MG
                                     </option>
-                                    <option value="PA" <?= $usuario['estado'] == "PA" ? 'selected' : ''; ?>>GO
+                                    <option value="PA" <?= $enderecoUsu['estado'] == "PA" ? 'selected' : ''; ?>>GO
                                     </option>
-                                    <option value="PB" <?= $usuario['estado'] == "PB" ? 'selected' : ''; ?>>PB
+                                    <option value="PB" <?= $enderecoUsu['estado'] == "PB" ? 'selected' : ''; ?>>PB
                                     </option>
-                                    <option value="PE" <?= $usuario['estado'] == "PE" ? 'selected' : ''; ?>>PE
+                                    <option value="PR" <?= $enderecoUsu['estado'] == "PR" ? 'selected' : ''; ?>>PR
                                     </option>
-                                    <option value="PI" <?= $usuario['estado'] == "PI" ? 'selected' : ''; ?>>PI
+                                    <option value="PE" <?= $enderecoUsu['estado'] == "PE" ? 'selected' : ''; ?>>PE
                                     </option>
-                                    <option value="PR" <?= $usuario['estado'] == "PR" ? 'selected' : ''; ?>>PR
+                                    <option value="PI" <?= $enderecoUsu['estado'] == "PI" ? 'selected' : ''; ?>>PI
                                     </option>
-                                    <option value="RJ" <?= $usuario['estado'] == "RJ" ? 'selected' : ''; ?>>RJ
+                                    <option value="RJ" <?= $enderecoUsu['estado'] == "RJ" ? 'selected' : ''; ?>>RJ
                                     </option>
-                                    <option value="RO" <?= $usuario['estado'] == "RO" ? 'selected' : ''; ?>>RO
+                                    <option value="RS" <?= $enderecoUsu['estado'] == "RS" ? 'selected' : ''; ?>>RS
                                     </option>
-                                    <option value="RR" <?= $usuario['estado'] == "RR" ? 'selected' : ''; ?>>RR
+                                    <option value="RO" <?= $enderecoUsu['estado'] == "RO" ? 'selected' : ''; ?>>RO
                                     </option>
-                                    <option value="RS" <?= $usuario['estado'] == "RS" ? 'selected' : ''; ?>>RS
+                                    <option value="RR" <?= $enderecoUsu['estado'] == "RR" ? 'selected' : ''; ?>>RR
                                     </option>
-                                    <option value="SC" <?= $usuario['estado'] == "SC" ? 'selected' : ''; ?>>SC
+                                    <option value="SC" <?= $enderecoUsu['estado'] == "SC" ? 'selected' : ''; ?>>SC
                                     </option>
-                                    <option value="SE" <?= $usuario['estado'] == "SE" ? 'selected' : ''; ?>>SE
+                                    <option value="SP" <?= $enderecoUsu['estado'] == "SP" ? 'selected' : ''; ?>>SP
                                     </option>
-                                    <option value="SP" <?= $usuario['estado'] == "SP" ? 'selected' : ''; ?>>SP
+                                    <option value="SE" <?= $enderecoUsu['estado'] == "SE" ? 'selected' : ''; ?>>SE
                                     </option>
-                                    <option value="TO" <?= $usuario['estado'] == "TO" ? 'selected' : ''; ?>>TO
+                                    <option value="TO" <?= $enderecoUsu['estado'] == "TO" ? 'selected' : ''; ?>>GO
                                     </option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
@@ -210,11 +223,11 @@ head('- Editar Usuário');
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
                                     style="width: 60%;" minlength="1" maxlength="64"
-                                    value="<?= $usuario['logradouro'] ?>" required>
+                                    value="<?= $enderecoUsu['logradouro'] ?>" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" value="<?= $usuario['numlogradouro'] ?>" required>
+                                    minlength="1" maxlength="6" value="<?= $enderecoUsu['numlogradouro'] ?>" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -224,7 +237,7 @@ head('- Editar Usuário');
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" value="<?= $usuario['bairro'] ?>" required>
+                                maxlength="32" value="<?= $enderecoUsu['bairro'] ?>" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
