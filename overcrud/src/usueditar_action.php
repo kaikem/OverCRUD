@@ -24,19 +24,22 @@ require_once "$rootOvercrud/components/Endereco.php";
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
 $idusuario = $_POST['idusuario'];
 $cpf = $_POST['cpf'];
-$tipo = $_POST['tipo'];
 $nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
+$cnh = $_POST['cnh'];
+$carro = $_POST['carro'];
+$tipo = $_POST['tipo'];
+$status = 0;
+$empregadoEm = $_POST['empregadoem'];
+$idenderecousu = $_POST['idendereco'];
+
+$idendereco = $_POST['idendereco'];
 $cep = $_POST['cep'];
 $cidade = $_POST['cidadeestado'];
 $estado = $_POST['estadocidade'];
 $logradouro = $_POST['logradouro'];
 $numlogradouro = $_POST['numlogradouro'];
 $bairro = $_POST['bairro'];
-$cnh = $_POST['cnh'];
-$carro = $_POST['carro'];
-$empregadoEm = $_POST['empregadoem'];
-$status = 0;
 
 $novoUsuario = new Usuario();
 $novoUsuario->setNome($nome);
@@ -92,11 +95,27 @@ head('- Editar Usuário');
             <!-- CONFIRMAÇÃO DE EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizar = ConexaoBD::conectarBD()->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status' WHERE idusuario='$idusuario'");
-                $sqlAtualizar->execute();
+                //VERIFICAÇÃO DE EXISTÊNCIA DE ENDEREÇO
+                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
 
-                mensagemRetorno("Os dados de <b>$nome (CPF $cpf)</b> foram atualizados com sucesso!", "success");
+                if ($sqlVerifEnd->rowCount() === 0) {
+                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
+                    $sqlInserirEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInserirEnd->execute();
+                };
+
+                //IDENDERECO DO ENDEREÇO NECESSÁRIO
+                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
+                if ($sqlGetIdEnd->rowCount() > 0) {
+                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
+                    $idenderecousu = $idendereco[0]["MIN(idendereco)"];
+                };
+
+                //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
+                $sqlAtualizarUsu = ConexaoBD::conectarBD()->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status', idenderecousu='$idenderecousu' WHERE idusuario='$idusuario'");
+                $sqlAtualizarUsu->execute();
+
+                mensagemRetorno("Os dados de <b> " . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getNome() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
                 BotaoVoltar('../usulista.php', "secondary");
