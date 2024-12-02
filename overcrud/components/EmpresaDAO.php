@@ -40,4 +40,10 @@ class EmpresaDAO
             return $listaEmpVinculadas;
         };
     }
+
+    //buscar empresa por cnpj
+    public function buscarPorCnpj($cnpj){
+        $sqlVerifCnpj = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
+        return $sqlVerifCnpj;
+    }
 }
