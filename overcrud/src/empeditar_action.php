@@ -79,20 +79,31 @@ head('- Editar Empresa');
 
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">EDITAR EMPRESA</h1>
-            <?= $idenderecoemp; ?>
-            <?= $idendereco; ?>
 
             <!-- CONFIRMAÇÃO DE EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
+                //VERIFICAÇÃO DE EXISTÊNCIA DE ENDEREÇO
+                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
+
+                if ($sqlVerifEnd->rowCount() === 0) {
+                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
+                    $sqlInserirEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
+                    $sqlInserirEnd->execute();
+                };
+
+                //IDENDERECO DO ENDEREÇO NECESSÁRIO
+                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
+                if ($sqlGetIdEnd->rowCount() > 0) {
+                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
+                    $idenderecoemp = $idendereco[0]["MIN(idendereco)"];
+                };
+
+                //ATUALIZAÇÃO DE CAMPOS DA EMPRESA NO BANCO DE DADOS
                 $sqlAtualizarEmp = ConexaoBD::conectarBD()->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cnpj='$cnpj', fantasia='$fantasia', responsavel='$responsavel', idenderecoemp='$idenderecoemp' WHERE idempresa='$idempresa'");
                 $sqlAtualizarEmp->execute();
 
-                $sqlAtualizarEnd = ConexaoBD::conectarBD()->prepare("UPDATE enderecos SET cep='$cep', cidade='$cidade', estado='$estado', logradouro='$logradouro', numlogradouro='$numlogradouro', bairro='$bairro' WHERE idendereco='$idendereco'");
-                $sqlAtualizarEnd->execute();
-
-                mensagemRetorno("Os dados de <b>" . $novaEmpresa['nome'] . " (CNPJ " . $novaEmpresa['cnpj'] . ")</b> foram atualizados com sucesso!", "success");
+                mensagemRetorno("Os dados de <b>" . $novaEmpresa->getNome() . " (CNPJ " . $novaEmpresa->getCnpj() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
                 BotaoVoltar('../emplista.php', "secondary");
