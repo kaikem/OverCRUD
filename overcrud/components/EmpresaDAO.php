@@ -6,12 +6,27 @@ class EmpresaDAO
     //ATRIBUTOS
     private Empresa $empresa;
 
-    
+
     //-----------------------------------------------------------------------------
     //CONSTRUTOR
     public function __construct($empresaCon)
     {
         $this->empresa = $empresaCon;
+    }
+
+
+    //-----------------------------------------------------------------------------
+    //GETTERS E SETTERS
+    //empresa
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+    public function setEmpresa($empresaSet)
+    {
+        $this->empresa = $empresaSet;
+
+        return $this;
     }
 
 
@@ -42,8 +57,16 @@ class EmpresaDAO
     }
 
     //buscar empresa por cnpj
-    public function buscarPorCnpj($cnpj){
+    public function buscarPorCnpj($cnpj)
+    {
         $sqlVerifCnpj = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cnpj`='$cnpj'");
         return $sqlVerifCnpj;
+    }
+
+    //preparação para inserção de empresa no banco de dados
+    public function prepInserirEmp()
+    {
+        $sqlInsertEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('{$this->getEmpresa()->getNome()}', '{$this->getEmpresa()->getTelefone()}', '{$this->getEmpresa()->getCnpj()}', '{$this->getEmpresa()->getFantasia()}', '{$this->getEmpresa()->getResponsavel()}', '{$this->getEmpresa()->getIdenderecoemp()}')");
+        return $sqlInsertEmp;
     }
 }
