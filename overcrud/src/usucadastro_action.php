@@ -97,44 +97,32 @@ head('- Cadastrar Usuário');
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">CADASTRO DE USUÁRIOS</h1>
 
-            <!-- VERIFICAÇÃO DE CPF + INSERÇÃO NO BD -->
+            <!-- VERIFICAÇÃO DE CPF, CNH E ENDEREÇO + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                $sqlVerifCpf = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
-                $sqlVerifCnh = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
-                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
+                //VERIFICAÇÃO CPF E CNH
+                if (($novoUsuarioDAO->buscarPorCpf($novoUsuario->getCpf()))->rowCount() === 0 && ($novoUsuarioDAO->buscarPorCnh($novoUsuario->getCnh()))->rowCount() === 0) {
+                    //VERIFICAÇÃO ENDEREÇO DUPLICADO
+                    if (($novoEnderecoDAO->buscarEnd())->rowCount() === 0) {
+                        //INSERÇÃO DE ENDEREÇO NO BANCO DE DADOS
+                        $novoEnderecoDAO->inserirNovoEnd();
+                    };
 
-                //VERIFICAÇÃO ENDEREÇO DUPLICADO
-                if ($sqlVerifEnd->rowCount() === 0) {
-                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
-                    $sqlInsertEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInsertEnd->execute();
-                };
-
-                //IDENDERECO DO ENDEREÇO NECESSÁRIO
-                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
-                if ($sqlGetIdEnd->rowCount() > 0) {
-                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
-                    $idenderecousu = $idendereco[0]["MIN(idendereco)"];
-                };
-
-                //VERIFICAÇÃO CPF + CNH
-                if ($sqlVerifCpf->rowCount() === 0 && $sqlVerifCnh->rowCount() === 0) {
-                    //PREPARAÇÃO PARA INSERIR DADOS DO USUÁRIO
-                    $sqlInsertUsu = ConexaoBD::conectarBD()->prepare("INSERT INTO usuarios (nome, telefone, cpf, password, cnh, carro, tipo, status, idempregadoem, idenderecousu) VALUES ('$nome', '$telefone', '$cpf', '$passwordHash', '$cnh', '$carro',  '$tipo', '$status','$empregadoEm', '$idenderecousu')");
+                    //IDENDERECO DO ENDEREÇO NECESSÁRIO
+                    $novoUsuario->setIdenderecousu($novoEnderecoDAO->buscarIdEnd());
 
                     //EXECUÇÃO E VERIFICAÇÃO DAS INSERÇÕES
-                    if ($sqlInsertUsu->execute()) {
+                    if (($novoUsuarioDAO->prepInserirUsu())->execute()) {
                         mensagemRetorno("Dados de <b>" . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getCpf() . ")</b> cadastrados com sucesso!", "success");
                         BotaoVoltar('../usulista.php', "secondary");
                     } else {
                         mensagemRetorno("ERRO: Dados de " . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getCpf() . ") não foram cadastrados...", "danger");
                         BotaoVoltar('../usucadastro.php', "secondary");
                     };
-                } else if ($sqlVerifCpf->rowCount() != 0) {
+                } else if (($novoUsuarioDAO->buscarPorCpf($novoUsuario->getCpf()))->rowCount() != 0) {
                     mensagemRetorno("O CPF " . $novoUsuario->getCpf() . " já existe no banco de dados! Use outro CPF para este cadastro.", "warning");
                     BotaoVoltar('../usucadastro.php', "secondary");
-                } else if ($sqlVerifCnh->rowCount() != 0) {
+                } else if (($novoUsuarioDAO->buscarPorCnh($novoUsuario->getCnh()))->rowCount() != 0) {
                     mensagemRetorno("A CNH " . $novoUsuario->getCnh() . " já existe no banco de dados! Use outra CNH para este cadastro.", "warning");
                     BotaoVoltar('../usucadastro.php', "secondary");
                 };
