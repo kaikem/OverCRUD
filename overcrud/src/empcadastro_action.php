@@ -81,33 +81,22 @@ head('- Cadastrar Empresa');
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">CADASTRO DE EMPRESAS</h1>
 
-            <!-- VERIFICAÇÃO DE CNPJ E ENDEREÇO + INSERÇÃO NO BD -->
+            <!-- VERIFICAÇÃO DE CNPJ E ENDEREÇO + INSERÇÕES NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                
-                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
-
-                //VERIFICAÇÃO ENDEREÇO DUPLICADO
-                if ($sqlVerifEnd->rowCount() === 0) {
-                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
-                    $sqlInserirEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInserirEnd->execute();
-                };
-
-                //IDENDERECO DO ENDEREÇO NECESSÁRIO
-                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro'");
-                if ($sqlGetIdEnd->rowCount() > 0) {
-                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
-                    $idenderecoemp = $idendereco[0]["MIN(idendereco)"];
-                };
-
                 //VERIFICAÇÃO CNPJ
-                if (($novaEmpresaDAO->buscarPorCnpj($cnpj))->rowCount() === 0) {
-                    //PREPARAÇÃO PARA INSERIR DADOS DA EMPRESA
-                    $sqlInsertEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('$nome', '$telefone', '$cnpj', '$fantasia', '$responsavel', '$idenderecoemp')");
+                if (($novaEmpresaDAO->buscarPorCnpj($novaEmpresa->getCnpj()))->rowCount() === 0) {
+                    //VERIFICAÇÃO ENDEREÇO DUPLICADO
+                    if (($novoEnderecoDAO->buscarEnd())->rowCount() === 0) {
+                        //INSERÇÃO DE ENDEREÇO NO BANCO DE DADOS
+                        $novoEnderecoDAO->inserirNovoEnd();
+                    };
+
+                    //IDENDERECO DO ENDEREÇO NECESSÁRIO
+                    $novaEmpresa->setIdenderecoemp($novoEnderecoDAO->buscarIdEnd());
 
                     //EXECUÇÃO E VERIFICAÇÃO DAS INSERÇÕES
-                    if ($sqlInsertEmp->execute()) {
+                    if (($novaEmpresaDAO->prepInserirEmp())->execute()) {
                         mensagemRetorno("Dados de <b>" . $novaEmpresa->getNome() . " (CNPJ " . $novaEmpresa->getCnpj() . ")</b> cadastrados com sucesso!", "success");
                         BotaoVoltar('../emplista.php', "secondary");
                     } else {
