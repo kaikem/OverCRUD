@@ -61,10 +61,33 @@ class EmpresaDAO
         return $sqlVerifCnpj;
     }
 
-    //preparação para inserção de empresa no banco de dados
+    //preparar para inserção de empresa no banco de dados
     public function prepInserirEmp()
     {
-        $sqlInsertEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('{$this->getEmpresa()->getNome()}', '{$this->getEmpresa()->getTelefone()}', '{$this->getEmpresa()->getCnpj()}', '{$this->getEmpresa()->getFantasia()}', '{$this->getEmpresa()->getResponsavel()}', '{$this->getEmpresa()->getIdenderecoemp()}')");
-        return $sqlInsertEmp;
+        $sqlInserirEmp = ConexaoBD::conectarBD()->prepare("INSERT INTO empresas (nome, telefone, cnpj, fantasia, responsavel, idenderecoemp) VALUES ('{$this->getEmpresa()->getNome()}', '{$this->getEmpresa()->getTelefone()}', '{$this->getEmpresa()->getCnpj()}', '{$this->getEmpresa()->getFantasia()}', '{$this->getEmpresa()->getResponsavel()}', '{$this->getEmpresa()->getIdenderecoemp()}')");
+        return $sqlInserirEmp;
+    }
+
+    //consultar empresa por id
+    public function consultaDeIdEmp()
+    {
+        $sqlConsultaIdEmp = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE idempresa='{$this->getEmpresa()->getIdempresa()}'");
+        return $sqlConsultaIdEmp;
+    }
+
+    //consultar empresa por id
+    public function EmpPorId()
+    {
+        $sqlConsultaIdEmp = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE idempresa='{$this->getEmpresa()->getIdempresa()}'");
+
+        $empresa = $sqlConsultaIdEmp->fetch(PDO::FETCH_ASSOC);
+        return $empresa;
+    }
+
+    //consultar empresa por id
+    public function excluirEmp()
+    {
+        $sqlExcluirEmp = ConexaoBD::conectarBD()->prepare("DELETE FROM empresas WHERE idempresa='{$this->getEmpresa()->getIdempresa()}'");
+        $sqlExcluirEmp->execute();
     }
 }
