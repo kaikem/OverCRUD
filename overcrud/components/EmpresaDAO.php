@@ -25,8 +25,6 @@ class EmpresaDAO
     public function setEmpresa($empresaSet)
     {
         $this->empresa = $empresaSet;
-
-        return $this;
     }
 
 
