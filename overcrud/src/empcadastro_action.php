@@ -26,13 +26,14 @@ $cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
 $fantasia = $_POST['fantasia'];
 $telefone = $_POST['telefone'];
+$responsavel = $_POST['responsavel'];
+
 $cep = $_POST['cep'];
 $cidade = $_POST['cidadeestado'];
 $estado = $_POST['estadocidade'];
 $logradouro = $_POST['logradouro'];
 $numlogradouro = $_POST['numlogradouro'];
 $bairro = $_POST['bairro'];
-$responsavel = $_POST['responsavel'];
 
 $novaEmpresa = new Empresa();
 $novaEmpresa->setNome($nome);
