@@ -22,6 +22,7 @@ require_once "$rootOvercrud/components/UsuarioDAO.php";
 require_once "$rootOvercrud/components/EnderecoDAO.php";
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
+//usuário
 $cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
 $password = $_POST['password'];
@@ -32,14 +33,6 @@ $carro = $_POST['carro'];
 $tipo = $_POST['tipo'];
 $status = 0;
 $empregadoEm = intval($_POST['empregadoem']);
-
-$cep = $_POST['cep'];
-$cidade = $_POST['cidadeestado'];
-$estado = $_POST['estadocidade'];
-$logradouro = $_POST['logradouro'];
-$numlogradouro = $_POST['numlogradouro'];
-$bairro = $_POST['bairro'];
-
 
 $novoUsuario = new Usuario();
 $novoUsuario->setCpf($cpf);
@@ -53,6 +46,14 @@ $novoUsuario->setStatus($status);
 $novoUsuario->setIdempregadoem($empregadoEm);
 $idenderecousu = 0;
 $novoUsuarioDAO = new UsuarioDAO($novoUsuario);
+
+//endereço
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);

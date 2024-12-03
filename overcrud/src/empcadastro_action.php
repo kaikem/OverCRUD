@@ -22,18 +22,12 @@ require_once "$rootOvercrud/components/EmpresaDAO.php";
 require_once "$rootOvercrud/components/EnderecoDAO.php";
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
+//empresa
 $cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
 $fantasia = $_POST['fantasia'];
 $telefone = $_POST['telefone'];
 $responsavel = $_POST['responsavel'];
-
-$cep = $_POST['cep'];
-$cidade = $_POST['cidadeestado'];
-$estado = $_POST['estadocidade'];
-$logradouro = $_POST['logradouro'];
-$numlogradouro = $_POST['numlogradouro'];
-$bairro = $_POST['bairro'];
 
 $novaEmpresa = new Empresa();
 $novaEmpresa->setNome($nome);
@@ -43,6 +37,14 @@ $novaEmpresa->setTelefone($telefone);
 $novaEmpresa->setResponsavel($responsavel);
 $idenderecoemp = 0;
 $novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+
+//endereço
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
