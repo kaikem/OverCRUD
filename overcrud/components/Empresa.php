@@ -10,7 +10,7 @@ class Empresa
     private string $fantasia;
     private string $cnpj;
     private string $responsavel;
-    private int $idendereco;
+    private int $idenderecoemp;
 
 
     //-----------------------------------------------------------------------------
@@ -81,12 +81,12 @@ class Empresa
     }
 
     //endereco
-    public function getEndereco()
+    public function getIdenderecoemp()
     {
-        return $this->idendereco;
+        return $this->idenderecoemp;
     }
-    public function setEndereco($enderecoSet)
+    public function setIdenderecoemp($idenderecoSet)
     {
-        $this->idendereco = $enderecoSet;
+        $this->idenderecoemp = $idenderecoSet;
     }
 };
