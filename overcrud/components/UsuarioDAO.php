@@ -104,10 +104,17 @@ class UsuarioDAO
         return $usuario;
     }
 
-    //consultar empresa por id
+    //consultar usuário por id
     public function excluirUsu()
     {
         $sqlExcluirUsu = ConexaoBD::conectarBD()->prepare("DELETE FROM usuarios WHERE idusuario='{$this->getUsuario()->getIdusuario()}'");
         $sqlExcluirUsu->execute();
+    }
+
+    //atualizar usuario por id
+    public function atualizarUsu($idusuario)
+    {
+        $sqlAtualizarUsu = ConexaoBD::conectarBD()->prepare("UPDATE usuarios SET nome='{$this->getUsuario()->getNome()}', telefone='{$this->getUsuario()->getTelefone()}', cpf='{$this->getUsuario()->getCpf()}', cnh='{$this->getUsuario()->getCnh()}', carro='{$this->getUsuario()->getCarro()}', tipo='{$this->getUsuario()->getTipo()}', status='{$this->getUsuario()->getStatus()}', idempregadoem='{$this->getUsuario()->getIdempregadoem()}', idenderecousu='{$this->getUsuario()->getIdenderecousu()}' WHERE idusuario='$idusuario'");
+        $sqlAtualizarUsu->execute();
     }
 };

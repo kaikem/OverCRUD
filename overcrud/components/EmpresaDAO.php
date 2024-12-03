@@ -90,4 +90,11 @@ class EmpresaDAO
         $sqlExcluirEmp = ConexaoBD::conectarBD()->prepare("DELETE FROM empresas WHERE idempresa='{$this->getEmpresa()->getIdempresa()}'");
         $sqlExcluirEmp->execute();
     }
+
+    //atualizar empresa por id
+    public function atualizarEmp($idempresa)
+    {
+        $sqlAtualizarEmp = ConexaoBD::conectarBD()->prepare("UPDATE empresas SET nome='{$this->getEmpresa()->getNome()}', telefone='{$this->getEmpresa()->getTelefone()}', cnpj='{$this->getEmpresa()->getCnpj()}', fantasia='{$this->getEmpresa()->getFantasia()}', responsavel='{$this->getEmpresa()->getResponsavel()}', idenderecoemp='{$this->getEmpresa()->getIdenderecoemp()}' WHERE idempresa='$idempresa'");
+        $sqlAtualizarEmp->execute();
+    }
 }
