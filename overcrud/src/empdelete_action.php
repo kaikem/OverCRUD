@@ -22,7 +22,11 @@ require_once "$rootOvercrud/resources/listas.php";
 
 //RECEBIMENTO DO IDEMPRESA
 $idempresa = $_POST['idempresa'];
-$empresa = [];
+
+$novaEmpresa = new Empresa();
+$novaEmpresa->setIdempresa($idempresa);
+$novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+
 $empresaComVinculo = false;
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
@@ -55,10 +59,7 @@ head('- Excluir Empresa');
             <!-- CONFIRMAÇÃO DE EXCLUSÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                if ($idempresa) {
-                    //CONSULTA DE EMPRESA POR ID
-                    $sqlConsultaIdEmp = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE idempresa='$idempresa'");
-
+                if ($novaEmpresa->getIdempresa()) {
                     //VERIFICAÇÃO SE A EMPRESA ESTÁ VINCULADA
                     foreach ($listaEmpVinculadas as $empresaVinculada) {
                         if ($empresaVinculada['idempresa'] == $idempresa) {
@@ -68,13 +69,14 @@ head('- Excluir Empresa');
                     };
 
                     //VERIFICAÇÃO SE EXISTE EMPRESA COM O ID E SE ELA ESTÁ VINCULADA
-                    if ($sqlConsultaIdEmp->rowCount() > 0 && $empresaComVinculo == false) {
-                        $empresa = $sqlConsultaIdEmp->fetch(PDO::FETCH_ASSOC);
-                        mensagemRetorno("Empresa <b>{$empresa['nome']}</b> excluída com sucesso!", "success");
+                    if (($novaEmpresaDAO->consultaDeIdEmp())->rowCount() > 0 && $empresaComVinculo == false) {
+                        //PEGANDO OS DADOS DA EMPRESA PELO ID
+                        $empresa = $novaEmpresaDAO->EmpPorId();
+                        mensagemRetorno("Empresa <b>" . $empresa['nome'] . "</b> excluída com sucesso!", "success");
 
-                        $sqlExcluir = ConexaoBD::conectarBD()->prepare("DELETE FROM empresas WHERE idempresa='$idempresa'");
-                        $sqlExcluir->execute();
-                    } else if ($sqlConsultaIdEmp->rowCount() == 0) {
+                        //EXCLUIR EMPRESA PELO ID
+                        $novaEmpresaDAO->excluirEmp();
+                    } else if (($novaEmpresaDAO->consultaDeIdEmp())->rowCount() == 0) {
                         mensagemRetorno("Esta empresa não existe no Banco de Dados!", "danger");
                     } else if ($empresaComVinculo) {
                         mensagemRetorno("Empresa vinculada à usuário(s)! Por favor, faça a desvinculação antes de excluir.", "danger");
