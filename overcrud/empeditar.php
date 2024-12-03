@@ -21,7 +21,12 @@ require_once "$rootOvercrud/resources/listas.php";
 
 //RECEBIMENTO DE IDEMPRESA
 $idempresa = $_GET['idempresa'];
-$empresa = [];
+
+$novaEmpresa = new Empresa();
+$novaEmpresa->setIdempresa($idempresa);
+$novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+
+$empresaComVinculo = false;
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
@@ -51,17 +56,14 @@ head('- Editar Empresa');
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">EDITAR EMPRESA</h1>
 
-            <!-- CONFIRMAÇÂO DA EDIÇÃO -->
+            <!-- CONFIRMAÇÃO DA EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                if ($idempresa) {
-                    //CONSULTA DE EMPRESA POR ID
-                    $sqlConsultaIdEmp = ConexaoBD::conectarBD()->prepare("SELECT * FROM empresas WHERE idempresa='$idempresa'");
-                    $sqlConsultaIdEmp->execute();
-
+                if ($novaEmpresa->getIdempresa()) {
                     //VERIFICAÇÃO SE EXISTE EMPRESA COM O ID
-                    if ($sqlConsultaIdEmp->rowCount() > 0) {
-                        $empresa = $sqlConsultaIdEmp->fetch(PDO::FETCH_ASSOC);
+                    if (($novaEmpresaDAO->consultaDeIdEmp())->rowCount() > 0) {
+                        //PEGANDO OS DADOS DA EMPRESA PELO ID
+                        $empresa = $novaEmpresaDAO->EmpPorId();
 
                         //VERIFICAÇÃO SE EXISTE ENDEREÇO PARA A EMPRESA
                         $enderecoEmp = 0;
@@ -82,7 +84,8 @@ head('- Editar Empresa');
             </div>
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
-            <div class="col-6 col-md-8 <?php if ($sqlConsultaIdEmp->rowCount() == 0) echo 'd-none'; ?>">
+            <div
+                class="col-6 col-md-8 <?php if (($novaEmpresaDAO->consultaDeIdEmp())->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="./src/empeditar_action.php" method="POST" novalidate>
                     <!-- FIELDSET EMPRESA -->
                     <fieldset>
