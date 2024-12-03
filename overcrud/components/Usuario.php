@@ -14,7 +14,7 @@ class Usuario
     private int $idempregadoem;
     private int $tipo;
     private int $status;
-    private int $idendereco;
+    private int $idenderecousu;
 
 
     //-----------------------------------------------------------------------------
@@ -125,12 +125,12 @@ class Usuario
     }
 
     //endereco
-    public function getEndereco()
+    public function getIdenderecousu()
     {
-        return $this->idendereco;
+        return $this->idenderecousu;
     }
-    public function setEndereco($enderecoSet)
+    public function setIdenderecousu($idenderecousuSet)
     {
-        $this->idendereco = $enderecoSet;
+        $this->idenderecousu = $idenderecousuSet;
     }
 };
