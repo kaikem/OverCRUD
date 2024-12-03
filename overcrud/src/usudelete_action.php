@@ -17,9 +17,15 @@ require_once "$rootOvercrud/components/ConexaoBD.php";
 //FUNÇÕES DE SUPORTE
 require_once "$rootOvercrud/resources/support.php";
 
+//FUNÇÕES DE SUPORTE
+require_once "$rootOvercrud/resources/listas.php";
+
 //RECEBIMENTO DE IDUSUARIO
 $idusuario = $_POST['idusuario'];
-$usuario = [];
+
+$novoUsuario = new Usuario();
+$novoUsuario->setIdusuario($idusuario);
+$novoUsuarioDAO = new UsuarioDAO($novoUsuario);
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
@@ -51,15 +57,15 @@ head('- Excluir Usuário');
             <!-- CONFIRMAÇÃO DE EXCLUSÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                if ($idusuario) {
-                    $sqlConsulta = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
+                //VERIFICAÇÃO SE EXISTE USUÁRIO COM O ID
+                if ($novoUsuario->getIdusuario()) {
+                    if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() > 0) {
+                        //PEGANDO OS DADOS DO USUÁRIO PELO ID
+                        $usuario = $novoUsuarioDAO->UsuPorId();
+                        mensagemRetorno("Usuario(a) <b>" . $usuario['nome'] . "</b> excluído(a) com sucesso!", "success");
 
-                    if ($sqlConsulta->rowCount() > 0) {
-                        $usuario = $sqlConsulta->fetch(PDO::FETCH_ASSOC);
-                        mensagemRetorno("Usuario(a) <b>{$usuario['nome']}</b> excluído(a) com sucesso!", "success");
-
-                        $sqlExcluir = ConexaoBD::conectarBD()->prepare("DELETE FROM usuarios WHERE idusuario='$idusuario'");
-                        $sqlExcluir->execute();
+                        //EXCLUIR USUÁRIO PELO ID
+                        $novoUsuarioDAO->excluirUsu();
                     } else {
                         mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
                     }
