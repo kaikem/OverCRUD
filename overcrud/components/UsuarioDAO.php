@@ -15,6 +15,17 @@ class UsuarioDAO{
 
 
     //-----------------------------------------------------------------------------
+    //GETTERS E SETTERS
+    //usuario
+    public function getUsuario(){
+        return $this->usuario;
+    }
+    public function setUsuario($usuarioSet){
+        $this->usuario = $usuarioSet;
+    }
+
+
+    //-----------------------------------------------------------------------------
     //FUNÇÕES PRÓPIRAS
     //lista completa de usuarios
     public function listarUsuarios()
@@ -51,5 +62,19 @@ class UsuarioDAO{
             return $listaUsuAtivos;
         };
     }
-}
+
+    //buscar empresa por cpf
+    public function buscarPorCpf($cpf)
+    {
+        $sqlVerifCpf = ConexaoBD::conectarBD()->query("SELECT * FROM empresas WHERE `cpf`='$cpf'");
+        return $sqlVerifCpf;
+    }
+
+    //buscar empresa por cnh
+    public function buscarPorCnh($cnh)
+    {
+        $sqlVerifCnh = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cnh`='$cnh' AND `cnh`!=''");
+        return $sqlVerifCnh;
+    }
+};
 ?>
