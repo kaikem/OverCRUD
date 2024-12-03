@@ -18,25 +18,18 @@ require_once "$rootOvercrud/components/ConexaoBD.php";
 require_once "$rootOvercrud/resources/support.php";
 
 //CLASSES
-require_once "$rootOvercrud/components/Empresa.php";
-require_once "$rootOvercrud/components/Endereco.php";
+require_once "$rootOvercrud/components/EmpresaDAO.php";
+require_once "$rootOvercrud/components/EnderecoDAO.php";
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
+//empresa
 $idempresa = $_POST['idempresa'];
-$cnpj = $_POST['cnpj'];
 $nome = $_POST['nome'];
+$cnpj = $_POST['cnpj'];
 $fantasia = $_POST['fantasia'];
 $telefone = $_POST['telefone'];
-$idenderecoemp = $_POST['idendereco'];
-
-$idendereco = $_POST['idendereco'];
-$cep = $_POST['cep'];
-$cidade = $_POST['cidadeestado'];
-$estado = $_POST['estadocidade'];
-$logradouro = $_POST['logradouro'];
-$numlogradouro = $_POST['numlogradouro'];
-$bairro = $_POST['bairro'];
 $responsavel = $_POST['responsavel'];
+$idenderecoemp = $_POST['idendereco'];
 
 $novaEmpresa = new Empresa();
 $novaEmpresa->setNome($nome);
@@ -44,6 +37,17 @@ $novaEmpresa->setCnpj($cnpj);
 $novaEmpresa->setFantasia($fantasia);
 $novaEmpresa->setTelefone($telefone);
 $novaEmpresa->setResponsavel($responsavel);
+$novaEmpresa->setIdenderecoemp($idenderecoemp);
+$novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+
+//endereço
+$idendereco = $_POST['idendereco'];
+$cep = $_POST['cep'];
+$cidade = $_POST['cidadeestado'];
+$estado = $_POST['estadocidade'];
+$logradouro = $_POST['logradouro'];
+$numlogradouro = $_POST['numlogradouro'];
+$bairro = $_POST['bairro'];
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
@@ -52,6 +56,7 @@ $novoEndereco->setEstado($estado);
 $novoEndereco->setLogradouro($logradouro);
 $novoEndereco->setNumlogradouro($numlogradouro);
 $novoEndereco->setBairro($bairro);
+$novoEnderecoDAO = new EnderecoDAO($novoEndereco);
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
@@ -83,30 +88,21 @@ head('- Editar Empresa');
             <!-- CONFIRMAÇÃO DE EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                //VERIFICAÇÃO DE EXISTÊNCIA DE ENDEREÇO
-                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
-
-                if ($sqlVerifEnd->rowCount() === 0) {
-                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
-                    $sqlInserirEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInserirEnd->execute();
+                //VERIFICAÇÃO ENDEREÇO DUPLICADO
+                if (($novoEnderecoDAO->buscarEnd())->rowCount() === 0) {
+                    //INSERÇÃO DE ENDEREÇO NO BANCO DE DADOS
+                    $novoEnderecoDAO->inserirNovoEnd();
                 };
 
                 //IDENDERECO DO ENDEREÇO NECESSÁRIO
-                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
-                if ($sqlGetIdEnd->rowCount() > 0) {
-                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
-                    $idenderecoemp = $idendereco[0]["MIN(idendereco)"];
-                };
+                $novaEmpresa->setIdenderecoemp($novoEnderecoDAO->buscarIdEnd());
 
                 //ATUALIZAÇÃO DE CAMPOS DA EMPRESA NO BANCO DE DADOS
-                $sqlAtualizarEmp = ConexaoBD::conectarBD()->prepare("UPDATE empresas SET nome='$nome', telefone='$telefone', cnpj='$cnpj', fantasia='$fantasia', responsavel='$responsavel', idenderecoemp='$idenderecoemp' WHERE idempresa='$idempresa'");
-                $sqlAtualizarEmp->execute();
-
+                $novaEmpresaDAO->atualizarEmp($idempresa);
                 mensagemRetorno("Os dados de <b>" . $novaEmpresa->getNome() . " (CNPJ " . $novaEmpresa->getCnpj() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('../emplista.php', "secondary");
+                BotaoVoltar('../usulista.php', "secondary");
                 ?>
             </div>
 

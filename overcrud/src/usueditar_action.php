@@ -18,13 +18,14 @@ require_once "$rootOvercrud/components/ConexaoBD.php";
 require_once "$rootOvercrud/resources/support.php";
 
 //CLASSES
-require_once "$rootOvercrud/components/Usuario.php";
-require_once "$rootOvercrud/components/Endereco.php";
+require_once "$rootOvercrud/components/UsuarioDAO.php";
+require_once "$rootOvercrud/components/EnderecoDAO.php";
 
 //RECEBIMENTO DE DADOS DO FORMULÁRIO
+//usuário
 $idusuario = $_POST['idusuario'];
-$cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
+$cpf = $_POST['cpf'];
 $telefone = $_POST['telefone'];
 $cnh = $_POST['cnh'];
 $carro = $_POST['carro'];
@@ -33,6 +34,19 @@ $status = 0;
 $empregadoEm = $_POST['empregadoem'];
 $idenderecousu = $_POST['idendereco'];
 
+$novoUsuario = new Usuario();
+$novoUsuario->setNome($nome);
+$novoUsuario->setCpf($cpf);
+$novoUsuario->setTelefone($telefone);
+$novoUsuario->setCnh($cnh);
+$novoUsuario->setCarro($carro);
+$novoUsuario->setTipo($tipo);
+$novoUsuario->setStatus($status);
+$novoUsuario->setIdempregadoem($empregadoEm);
+$novoUsuario->setIdenderecousu($idenderecousu);
+$novoUsuarioDAO = new UsuarioDAO($novoUsuario);
+
+//endereço
 $idendereco = $_POST['idendereco'];
 $cep = $_POST['cep'];
 $cidade = $_POST['cidadeestado'];
@@ -41,16 +55,6 @@ $logradouro = $_POST['logradouro'];
 $numlogradouro = $_POST['numlogradouro'];
 $bairro = $_POST['bairro'];
 
-$novoUsuario = new Usuario();
-$novoUsuario->setNome($nome);
-$novoUsuario->setTelefone($telefone);
-$novoUsuario->setCpf($cpf);
-$novoUsuario->setCnh($cnh);
-$novoUsuario->setCarro($carro);
-$novoUsuario->setIdempregadoem($empregadoEm);
-$novoUsuario->setTipo($tipo);
-$novoUsuario->setStatus($status);
-
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
 $novoEndereco->setCidade($cidade);
@@ -58,6 +62,7 @@ $novoEndereco->setEstado($estado);
 $novoEndereco->setLogradouro($logradouro);
 $novoEndereco->setNumlogradouro($numlogradouro);
 $novoEndereco->setBairro($bairro);
+$novoEnderecoDAO = new EnderecoDAO($novoEndereco);
 
 //VERIFICAÇÃO DE EMPREGADO EM
 if ($empregadoEm != 0) {
@@ -95,32 +100,22 @@ head('- Editar Usuário');
             <!-- CONFIRMAÇÃO DE EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                //VERIFICAÇÃO DE EXISTÊNCIA DE ENDEREÇO
-                $sqlVerifEnd = ConexaoBD::conectarBD()->query("SELECT * FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
-
-                if ($sqlVerifEnd->rowCount() === 0) {
-                    //PREPARAÇÃO E INSERÇÃO DE DADOS DO ENDEREÇO
-                    $sqlInserirEnd = ConexaoBD::conectarBD()->prepare("INSERT INTO enderecos (cep, cidade, estado, logradouro, numlogradouro, bairro) VALUES ('$cep', '$cidade', '$estado', '$logradouro', '$numlogradouro', '$bairro')");
-                    $sqlInserirEnd->execute();
+                //VERIFICAÇÃO ENDEREÇO DUPLICADO
+                if (($novoEnderecoDAO->buscarEnd())->rowCount() === 0) {
+                    //INSERÇÃO DE ENDEREÇO NO BANCO DE DADOS
+                    $novoEnderecoDAO->inserirNovoEnd();
                 };
 
                 //IDENDERECO DO ENDEREÇO NECESSÁRIO
-                $sqlGetIdEnd = ConexaoBD::conectarBD()->query("SELECT MIN(idendereco) FROM enderecos WHERE cep='$cep' AND cidade='$cidade' AND estado='$estado' AND logradouro='$logradouro' AND numlogradouro='$numlogradouro' AND bairro='$bairro'");
-                if ($sqlGetIdEnd->rowCount() > 0) {
-                    $idendereco = $sqlGetIdEnd->fetchAll(PDO::FETCH_ASSOC);
-                    $idenderecousu = $idendereco[0]["MIN(idendereco)"];
-                };
+                $novoUsuario->setIdenderecousu($novoEnderecoDAO->buscarIdEnd());
 
-                //ATUALIZAÇÃO DE CAMPOS NO BANCO DE DADOS
-                $sqlAtualizarUsu = ConexaoBD::conectarBD()->prepare("UPDATE usuarios SET nome='$nome', telefone='$telefone', cpf='$cpf', cnh='$cnh', carro='$carro', idempregadoem='$empregadoEm', tipo='$tipo', status='$status', idenderecousu='$idenderecousu' WHERE idusuario='$idusuario'");
-                $sqlAtualizarUsu->execute();
-
-                mensagemRetorno("Os dados de <b> " . $novoUsuario->getNome() . " (CPF " . $novoUsuario->getCpf() . ")</b> foram atualizados com sucesso!", "success");
+                //ATUALIZAÇÃO DE CAMPOS DA EMPRESA NO BANCO DE DADOS
+                $novoUsuarioDAO->atualizarUsu($idusuario);
+                mensagemRetorno("Os dados de <b>" . $novoUsuario->getNome() . " (CNPJ " . $novoUsuario->getCpf() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('../usulista.php', "secondary");
+                BotaoVoltar('../emplista.php', "secondary");
                 ?>
-
             </div>
 
             <!-- FOOTER -->
