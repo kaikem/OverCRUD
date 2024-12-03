@@ -18,38 +18,41 @@ require_once "$rootOvercrud/components/ConexaoBD.php";
 require_once "$rootOvercrud/resources/support.php";
 
 //CLASSES
-require_once "$rootOvercrud/components/Usuario.php";
-require_once "$rootOvercrud/components/Endereco.php";
+require_once "$rootOvercrud/components/UsuarioDAO.php";
+require_once "$rootOvercrud/components/EnderecoDAO.php";
 
-//PHP - RECEBIMENTO DE DADOS DO FORMULÁRIO
+//RECEBIMENTO DE DADOS DO FORMULÁRIO
 $cpf = $_POST['cpf'];
+$nome = $_POST['nome'];
 $password = $_POST['password'];
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-$tipo = $_POST['tipo'];
-$nome = $_POST['nome'];
 $telefone = $_POST['telefone'];
+$cnh = $_POST['cnh'];
+$carro = $_POST['carro'];
+$tipo = $_POST['tipo'];
+$status = 0;
+$empregadoEm = intval($_POST['empregadoem']);
+
 $cep = $_POST['cep'];
 $cidade = $_POST['cidadeestado'];
 $estado = $_POST['estadocidade'];
 $logradouro = $_POST['logradouro'];
 $numlogradouro = $_POST['numlogradouro'];
 $bairro = $_POST['bairro'];
-$cnh = $_POST['cnh'];
-$carro = $_POST['carro'];
-$empregadoEm = intval($_POST['empregadoem']);
-$status = 0;
+
 
 $novoUsuario = new Usuario();
-$novoUsuario->setNome($nome);
-$novoUsuario->setTelefone($telefone);
-$novoUsuario->setPassword($passwordHash);
 $novoUsuario->setCpf($cpf);
+$novoUsuario->setNome($nome);
+$novoUsuario->setPassword($passwordHash);
+$novoUsuario->setTelefone($telefone);
 $novoUsuario->setCnh($cnh);
 $novoUsuario->setCarro($carro);
-$novoUsuario->setIdempregadoem($empregadoEm);
 $novoUsuario->setTipo($tipo);
 $novoUsuario->setStatus($status);
+$novoUsuario->setIdempregadoem($empregadoEm);
 $idenderecousu = 0;
+$novoUsuarioDAO = new UsuarioDAO($novoUsuario);
 
 $novoEndereco = new Endereco();
 $novoEndereco->setCep($cep);
@@ -58,6 +61,7 @@ $novoEndereco->setEstado($estado);
 $novoEndereco->setLogradouro($logradouro);
 $novoEndereco->setNumlogradouro($numlogradouro);
 $novoEndereco->setBairro($bairro);
+$novoEnderecoDAO = new EnderecoDAO($novoEndereco);
 
 //VERIFICAÇÃO DE EMPREGADO EM
 if ($empregadoEm != 0) {
@@ -66,7 +70,7 @@ if ($empregadoEm != 0) {
 };
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
-if (!isset($nome) && !isset($cnpj)) {
+if (!isset($nome) && !isset($cpf)) {
     require_once "$rootOvercrud/resources/logout.php";
 };
 ?>
@@ -93,7 +97,7 @@ head('- Cadastrar Usuário');
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">CADASTRO DE USUÁRIOS</h1>
 
-            <!-- VERIFICAÇÃO DE CAMPO CPF + INSERÇÃO NO BD -->
+            <!-- VERIFICAÇÃO DE CPF + INSERÇÃO NO BD -->
             <div class="col-4 col-md-6 text-center">
                 <?php
                 $sqlVerifCpf = ConexaoBD::conectarBD()->query("SELECT * FROM usuarios WHERE `cpf`='$cpf'");
