@@ -21,7 +21,10 @@ require_once "$rootOvercrud/resources/listas.php";
 
 //RECEBIMENTO DE IDUSUARIO
 $idusuario = $_GET['idusuario'];
-$usuario = [];
+
+$novoUsuario = new Usuario();
+$novoUsuario->setIdusuario($idusuario);
+$novoUsuarioDAO = new UsuarioDAO($novoUsuario);
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
@@ -51,17 +54,14 @@ head('- Editar Usuário');
             <!-- TÍTULO DA SEÇÃO -->
             <h1 class="text-center text-primary display-6 my-5">EDITAR USUÁRIO(A)</h1>
 
-            <!-- CONFIRMAÇÂO DA EDIÇÃO -->
+            <!-- CONFIRMAÇÃO DA EDIÇÃO -->
             <div class="col-4 col-md-6 text-center">
                 <?php
-                if ($idusuario) {
-                    //CONSULTA DE USUÁRIO POR ID
-                    $sqlConsultaIdUsu = ConexaoBD::conectarBD()->prepare("SELECT * FROM usuarios WHERE idusuario='$idusuario'");
-                    $sqlConsultaIdUsu->execute();
-
+                if ($novoUsuario->getIdusuario()) {
                     //VERIFICAÇÃO SE EXISTE USUÁRIO COM O ID
-                    if ($sqlConsultaIdUsu->rowCount() > 0) {
-                        $usuario = $sqlConsultaIdUsu->fetch(PDO::FETCH_ASSOC);
+                    if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() > 0) {
+                        //PEGANDO OS DADOS DO USUÁRIO PELO ID
+                        $usuario = $novoUsuarioDAO->UsuPorId();
 
                         //VERIFICAÇÃO SE EXISTE ENDEREÇO PARA O USUÁRIO
                         $enderecoUsu = 0;
@@ -71,11 +71,11 @@ head('- Editar Usuário');
                             };
                         };
                     } else {
-                        mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
+                        mensagemRetorno("Este usuário não existe no Banco de Dados!", "danger");
                         BotaoVoltar('usulista.php', "secondary");
                     };
                 } else {
-                    mensagemRetorno("Usuário(a) não encontrado(a) (atributo inexistente)!", "danger");
+                    mensagemRetorno("Usuário não encontrado (atributo inexistente)!", "danger");
                     BotaoVoltar('usulista.php', "secondary");
                 };
                 ?>
