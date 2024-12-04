@@ -82,7 +82,8 @@ head('- Editar Usuário');
             </div>
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
-            <div class="col-6 col-md-8 <?php if ($sqlConsultaIdUsu->rowCount() == 0) echo 'd-none'; ?>">
+            <div
+                class="col-6 col-md-8 <?php if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="./src/usueditar_action.php" method="POST" novalidate>
                     <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
                     <input type="hidden" name="idendereco" value="<?= $enderecoUsu['idendereco'] ?>">
@@ -162,9 +163,9 @@ head('- Editar Usuário');
                                     </option>
                                     <option value="AL" <?= $enderecoUsu['estado'] == "AL" ? 'selected' : ''; ?>>AL
                                     </option>
-                                    <option value="AP" <?= $enderecoUsu['estado'] == "AP" ? 'selected' : ''; ?>>AP
-                                    </option>
                                     <option value="AM" <?= $enderecoUsu['estado'] == "AM" ? 'selected' : ''; ?>>AM
+                                    </option>
+                                    <option value="AP" <?= $enderecoUsu['estado'] == "AP" ? 'selected' : ''; ?>>AP
                                     </option>
                                     <option value="BA" <?= $enderecoUsu['estado'] == "BA" ? 'selected' : ''; ?>>BA
                                     </option>
@@ -178,37 +179,37 @@ head('- Editar Usuário');
                                     </option>
                                     <option value="MA" <?= $enderecoUsu['estado'] == "MA" ? 'selected' : ''; ?>>MA
                                     </option>
-                                    <option value="MT" <?= $enderecoUsu['estado'] == "MT" ? 'selected' : ''; ?>>CE
+                                    <option value="MG" <?= $enderecoUsu['estado'] == "MG" ? 'selected' : ''; ?>>MG
                                     </option>
                                     <option value="MS" <?= $enderecoUsu['estado'] == "MS" ? 'selected' : ''; ?>>MS
                                     </option>
-                                    <option value="MG" <?= $enderecoUsu['estado'] == "MG" ? 'selected' : ''; ?>>MG
+                                    <option value="MT" <?= $enderecoUsu['estado'] == "MT" ? 'selected' : ''; ?>>MT
                                     </option>
-                                    <option value="PA" <?= $enderecoUsu['estado'] == "PA" ? 'selected' : ''; ?>>GO
+                                    <option value="PA" <?= $enderecoUsu['estado'] == "PA" ? 'selected' : ''; ?>>PA
                                     </option>
                                     <option value="PB" <?= $enderecoUsu['estado'] == "PB" ? 'selected' : ''; ?>>PB
-                                    </option>
-                                    <option value="PR" <?= $enderecoUsu['estado'] == "PR" ? 'selected' : ''; ?>>PR
                                     </option>
                                     <option value="PE" <?= $enderecoUsu['estado'] == "PE" ? 'selected' : ''; ?>>PE
                                     </option>
                                     <option value="PI" <?= $enderecoUsu['estado'] == "PI" ? 'selected' : ''; ?>>PI
                                     </option>
-                                    <option value="RJ" <?= $enderecoUsu['estado'] == "RJ" ? 'selected' : ''; ?>>RJ
+                                    <option value="PR" <?= $enderecoUsu['estado'] == "PR" ? 'selected' : ''; ?>>PR
                                     </option>
-                                    <option value="RS" <?= $enderecoUsu['estado'] == "RS" ? 'selected' : ''; ?>>RS
+                                    <option value="RJ" <?= $enderecoUsu['estado'] == "RJ" ? 'selected' : ''; ?>>RJ
                                     </option>
                                     <option value="RO" <?= $enderecoUsu['estado'] == "RO" ? 'selected' : ''; ?>>RO
                                     </option>
                                     <option value="RR" <?= $enderecoUsu['estado'] == "RR" ? 'selected' : ''; ?>>RR
                                     </option>
+                                    <option value="RS" <?= $enderecoUsu['estado'] == "RS" ? 'selected' : ''; ?>>RS
+                                    </option>
+                                    <option value="SE" <?= $enderecoUsu['estado'] == "SE" ? 'selected' : ''; ?>>SE
+                                    </option>
                                     <option value="SC" <?= $enderecoUsu['estado'] == "SC" ? 'selected' : ''; ?>>SC
                                     </option>
                                     <option value="SP" <?= $enderecoUsu['estado'] == "SP" ? 'selected' : ''; ?>>SP
                                     </option>
-                                    <option value="SE" <?= $enderecoUsu['estado'] == "SE" ? 'selected' : ''; ?>>SE
-                                    </option>
-                                    <option value="TO" <?= $enderecoUsu['estado'] == "TO" ? 'selected' : ''; ?>>GO
+                                    <option value="TO" <?= $enderecoUsu['estado'] == "TO" ? 'selected' : ''; ?>>TO
                                     </option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
