@@ -114,7 +114,7 @@ head('- Editar Usuário');
                 mensagemRetorno("Os dados de <b>" . $novoUsuario->getNome() . " (CNPJ " . $novoUsuario->getCpf() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('../emplista.php', "secondary");
+                BotaoVoltar('../usulista.php', "secondary");
                 ?>
             </div>
 

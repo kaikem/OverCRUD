@@ -102,7 +102,7 @@ head('- Editar Empresa');
                 mensagemRetorno("Os dados de <b>" . $novaEmpresa->getNome() . " (CNPJ " . $novaEmpresa->getCnpj() . ")</b> foram atualizados com sucesso!", "success");
 
                 //BOTÃO VOLTAR
-                BotaoVoltar('../usulista.php', "secondary");
+                BotaoVoltar('../emplista.php', "secondary");
                 ?>
             </div>
 
