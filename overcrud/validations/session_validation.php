@@ -1,9 +1,6 @@
 <?php
 //INÍCIO DE SESSÃO
 session_start();
-//PATHING
-$root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO EXISTENTE
 if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
@@ -11,9 +8,8 @@ if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     $tipoUsu = $_SESSION['tipo'];
     $_SESSION['valido'] = "validado";
     $nomeUsu = strtok($_SESSION['nome'], " ");
-
-
-    //HIDE ou SHOW DOS LINKS
+    
+    //ESCONDER ou MOSTRAR OS LINKS
     if ($tipoUsu == '0') {
         $linksAdm = 'd-none';
     } else {
@@ -24,7 +20,18 @@ if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     unset($_SESSION['senha']);
     unset($_SESSION['tipo']);
     unset($_SESSION['nome']);
-    if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
-        header('Location:' . $rootOvercrud . '/index.php');
-    };
+    $_SESSION['valido'] = "erro";
+};
+
+
+//REALIZAR LOGOUT E VOLTAR PARA INDEX
+function logoutPagina($voltar){
+    session_start();
+    unset($_SESSION['cpf']);
+    unset($_SESSION['senha']);
+    unset($_SESSION['tipo']);
+    unset($_SESSION['nome']);
+    $_SESSION['valido'] = "validado";
+
+    header("Location: $voltar/index.php");
 };
