@@ -48,17 +48,19 @@ function validaCPF(cpf) {
 formUsu.addEventListener('submit', (evento)=>{
     var inputCpfValue = document.getElementById('cpf').value;
     var retornoCpf = validaCPF(inputCpfValue);
-  
-    if(!formUsu.checkValidity()){
-        evento.preventDefault();
-        evento.stopPropagation();
-        alert("Dados incorretos! Por favor, verifique o formulário.");
-    } else if(!retornoCpf){
+
+
+    if(!retornoCpf){
         evento.preventDefault();
         evento.stopPropagation();
         alert("CPF inválido! Por favor, verifique o número e tente novamente.");
         inputCpf.classList.add('is-invalid');
         inputCpf.classList.remove('is-valid');
-    };
+    } else if(!formUsu.checkValidity()){
+        evento.preventDefault();
+        evento.stopPropagation();
+        alert("Dados incorretos! Por favor, verifique o formulário.");
+	};
+  
 	formUsu.classList.add('was-validated');
 });

@@ -62,17 +62,18 @@ function validaCNPJ(cnpj) {
 formEmp.addEventListener('submit', (evento)=>{
     var inputCnpjValue = document.getElementById('cnpj').value;
     var retornoCnpj = validaCNPJ(inputCnpjValue);
-  
-    if(!formEmp.checkValidity()){
-        evento.preventDefault();
-        evento.stopPropagation();
-        alert("Dados incorretos! Por favor, verifique o formulário.");
-    } else if(!retornoCnpj){
+
+    if(!retornoCnpj){
         evento.preventDefault();
         evento.stopPropagation();
         alert("CNPJ inválido! Por favor, verifique o número e tente novamente.");
         inputCnpj.classList.add('is-invalid');
         inputCnpj.classList.remove('is-valid');
+    }else if(!formEmp.checkValidity()){
+        evento.preventDefault();
+        evento.stopPropagation();
+        alert("Dados incorretos! Por favor, verifique o formulário.");
     };
+  
     formEmp.classList.add('was-validated');
 });
