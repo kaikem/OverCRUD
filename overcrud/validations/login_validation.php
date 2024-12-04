@@ -6,7 +6,7 @@ require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SUBMIT DO FORM E VARIÁVEIS VAZIAS
 if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
-    require_once 'C:/xampp/htdocs/overcrud/components/ConexaoBD.php';
+    require_once "$root/overcrud/components/ConexaoBD.php";
 
     $cpfIndex = $_POST['cpf'];
     $senhaIndex = $_POST['senha'];
@@ -25,24 +25,28 @@ if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
             $_SESSION['senha'] = $senhaIndex;
             $_SESSION['tipo'] = $tipoIndex;
             $_SESSION['nome'] = $nomeLogin;
-            header("Location: ../home.php");
             $_SESSION['valido'] = "validado";
+            header("Location: ../home.php");
+            exit();
         } else {
             unset($_SESSION['cpf']);
             unset($_SESSION['senha']);
             unset($_SESSION['tipo']);
             unset($_SESSION['nome']);
-            header("Refresh: 0");
             $_SESSION['valido'] = "erro";
+            header("Location:../index.php");
+            exit();
         };
     } else {
         unset($_SESSION['cpf']);
         unset($_SESSION['senha']);
         unset($_SESSION['tipo']);
         unset($_SESSION['nome']);
-        header("Refresh: 0");
         $_SESSION['valido'] = "erro";
+        header("Location:../index.php");
+        exit();
     };
 } else {
-    header('Location:' . $rootOvercrud . '/index.php');
+    header("Location:../index.php");
+    exit();
 };
