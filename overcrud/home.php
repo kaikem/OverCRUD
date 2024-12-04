@@ -1,9 +1,13 @@
 <?php
 //PATHING
 require_once "./resources/pathing.php";
+$voltar = ".";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
+if($_SESSION['valido'] == "erro"){
+    logoutPagina($voltar);
+}
 
 //CONEXÃO COM BD
 require_once "$rootOvercrud/components/ConexaoBD.php";
@@ -36,10 +40,6 @@ head('');
                 <h1 class="display-5 text-primary">Seja bem-vindo(a),
                     <b><?= $nomeUsu ?></b>!
                 </h1>
-                <?php
-                $absolutePath = dirname(__FILE__);
-                echo $absolutePath;
-                ?>
             </div>
         </div>
 

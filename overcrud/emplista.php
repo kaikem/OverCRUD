@@ -1,9 +1,13 @@
 <?php
 //PATHING
 require_once "./resources/pathing.php";
+$voltar = ".";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
+if($_SESSION['valido'] == "erro"){
+    logoutPagina($voltar);
+}
 
 //MODALS
 require_once "$rootOvercrud/partials/empmodal.php";

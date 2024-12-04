@@ -3,9 +3,10 @@
 require_once "./resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
-require_once "$rootOvercrud/validations/session_validation.php";
+//require_once "$rootOvercrud/validations/session_validation.php";
 
 //LIMPEZA DE USUÁRIO
+session_start();
 unset($_SESSION['cpf']);
 unset($_SESSION['senha']);
 unset($_SESSION['tipo']);

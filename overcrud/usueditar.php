@@ -1,13 +1,17 @@
 <?php
 //PATHING
 require_once "./resources/pathing.php";
+$voltar = ".";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
+if($_SESSION['valido'] == "erro"){
+    logoutPagina($voltar);
+}
 
 //VERIFICAÇÃO DE ADMIN
 if ($tipoUsu != '1') {
-    require_once "$rootOvercrud/resources/logout.php";
+    logoutPagina($voltar);
 };
 
 //CONEXÃO COM BD
@@ -24,7 +28,7 @@ $idusuario = $_GET['idusuario'];
 
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
-    require_once "$rootOvercrud/resources/logout.php";
+    logoutPagina($voltar);
 } else {
     $novoUsuario = new Usuario();
     $novoUsuario->setIdusuario($idusuario);
