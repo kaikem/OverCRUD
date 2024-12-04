@@ -1,6 +1,6 @@
 <?php
 //PATHING
-require_once "pathing.php";
+require_once "./resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";

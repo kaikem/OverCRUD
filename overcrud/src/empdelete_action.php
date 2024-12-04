@@ -1,7 +1,7 @@
 <?php
 //PATHING
 $root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/pathing.php";
+require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
@@ -23,15 +23,15 @@ require_once "$rootOvercrud/resources/listas.php";
 //RECEBIMENTO DO IDEMPRESA
 $idempresa = $_POST['idempresa'];
 
-$novaEmpresa = new Empresa();
-$novaEmpresa->setIdempresa($idempresa);
-$novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
-
-$empresaComVinculo = false;
-
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idempresa)) {
     require_once "$rootOvercrud/resources/logout.php";
+} else {
+    $novaEmpresa = new Empresa();
+    $novaEmpresa->setIdempresa($idempresa);
+    $novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+
+    $empresaComVinculo = false;
 };
 ?>
 

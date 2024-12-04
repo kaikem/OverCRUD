@@ -1,7 +1,7 @@
 <?php
 //PATHING
 $root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/pathing.php";
+require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
@@ -31,14 +31,19 @@ $telefone = $_POST['telefone'];
 $responsavel = $_POST['responsavel'];
 $idenderecoemp = $_POST['idendereco'];
 
-$novaEmpresa = new Empresa();
-$novaEmpresa->setNome($nome);
-$novaEmpresa->setCnpj($cnpj);
-$novaEmpresa->setFantasia($fantasia);
-$novaEmpresa->setTelefone($telefone);
-$novaEmpresa->setResponsavel($responsavel);
-$novaEmpresa->setIdenderecoemp($idenderecoemp);
-$novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
+if (!isset($idempresa)) {
+    require_once "$rootOvercrud/resources/logout.php";
+} else {
+    $novaEmpresa = new Empresa();
+    $novaEmpresa->setNome($nome);
+    $novaEmpresa->setCnpj($cnpj);
+    $novaEmpresa->setFantasia($fantasia);
+    $novaEmpresa->setTelefone($telefone);
+    $novaEmpresa->setResponsavel($responsavel);
+    $novaEmpresa->setIdenderecoemp($idenderecoemp);
+    $novaEmpresaDAO = new EmpresaDAO($novaEmpresa);
+};
 
 //endereço
 $idendereco = $_POST['idendereco'];
@@ -57,11 +62,6 @@ $novoEndereco->setLogradouro($logradouro);
 $novoEndereco->setNumlogradouro($numlogradouro);
 $novoEndereco->setBairro($bairro);
 $novoEnderecoDAO = new EnderecoDAO($novoEndereco);
-
-//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
-if (!isset($idempresa)) {
-    require_once "$rootOvercrud/resources/logout.php";
-};
 ?>
 
 <!DOCTYPE html>

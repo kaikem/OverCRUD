@@ -1,6 +1,9 @@
 <?php
 //INÍCIO DE SESSÃO
 session_start();
+//PATHING
+$root = $_SERVER["DOCUMENT_ROOT"];
+require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO EXISTENTE
 if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
@@ -22,6 +25,6 @@ if ((isset($_SESSION['cpf']) == true) && (isset($_SESSION['senha']) == true)) {
     unset($_SESSION['tipo']);
     unset($_SESSION['nome']);
     if (basename($_SERVER['SCRIPT_NAME']) !== 'index.php') {
-        header('Location: index.php');
+        header('Location:' . $rootOvercrud . '/index.php');
     };
 };

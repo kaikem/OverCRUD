@@ -1,7 +1,7 @@
 <?php
 //PATHING
 $root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/pathing.php";
+require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
@@ -23,13 +23,13 @@ require_once "$rootOvercrud/resources/listas.php";
 //RECEBIMENTO DE IDUSUARIO
 $idusuario = $_POST['idusuario'];
 
-$novoUsuario = new Usuario();
-$novoUsuario->setIdusuario($idusuario);
-$novoUsuarioDAO = new UsuarioDAO($novoUsuario);
-
 //VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
 if (!isset($idusuario)) {
     require_once "$rootOvercrud/resources/logout.php";
+} else {
+    $novoUsuario = new Usuario();
+    $novoUsuario->setIdusuario($idusuario);
+    $novoUsuarioDAO = new UsuarioDAO($novoUsuario);
 };
 ?>
 

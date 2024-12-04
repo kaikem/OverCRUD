@@ -1,5 +1,8 @@
 <?php
 session_start();
+//PATHING
+$root = $_SERVER["DOCUMENT_ROOT"];
+require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SUBMIT DO FORM E VARIÁVEIS VAZIAS
 if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
@@ -41,5 +44,5 @@ if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
         $_SESSION['valido'] = "erro";
     };
 } else {
-    header('Location: ../index.php');
+    header('Location:' . $rootOvercrud . '/index.php');
 };

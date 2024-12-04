@@ -1,7 +1,7 @@
 <?php
 //PATHING
 $root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/pathing.php";
+require_once "$root/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
@@ -34,18 +34,23 @@ $tipo = $_POST['tipo'];
 $status = 0;
 $empregadoEm = intval($_POST['empregadoem']);
 
-$novoUsuario = new Usuario();
-$novoUsuario->setCpf($cpf);
-$novoUsuario->setNome($nome);
-$novoUsuario->setPassword($passwordHash);
-$novoUsuario->setTelefone($telefone);
-$novoUsuario->setCnh($cnh);
-$novoUsuario->setCarro($carro);
-$novoUsuario->setTipo($tipo);
-$novoUsuario->setStatus($status);
-$novoUsuario->setIdempregadoem($empregadoEm);
-$idenderecousu = 0;
-$novoUsuarioDAO = new UsuarioDAO($novoUsuario);
+//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
+if (!isset($nome) && !isset($cpf)) {
+    require_once "$rootOvercrud/resources/logout.php";
+} else {
+    $novoUsuario = new Usuario();
+    $novoUsuario->setCpf($cpf);
+    $novoUsuario->setNome($nome);
+    $novoUsuario->setPassword($passwordHash);
+    $novoUsuario->setTelefone($telefone);
+    $novoUsuario->setCnh($cnh);
+    $novoUsuario->setCarro($carro);
+    $novoUsuario->setTipo($tipo);
+    $novoUsuario->setStatus($status);
+    $novoUsuario->setIdempregadoem($empregadoEm);
+    $idenderecousu = 0;
+    $novoUsuarioDAO = new UsuarioDAO($novoUsuario);
+};
 
 //endereço
 $cep = $_POST['cep'];
@@ -68,11 +73,6 @@ $novoEnderecoDAO = new EnderecoDAO($novoEndereco);
 if ($empregadoEm != 0) {
     $status = 1;
     $novoUsuario->setStatus($status);
-};
-
-//VERIFICAÇÃO DE DADOS ENVIADOS PELO FORM
-if (!isset($nome) && !isset($cpf)) {
-    require_once "$rootOvercrud/resources/logout.php";
 };
 ?>
 
