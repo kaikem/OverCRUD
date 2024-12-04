@@ -119,30 +119,30 @@ head('- Cadastrar Usuário');
                                     <option disabled selected value>--</option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
-                                    <option value="AP">AP</option>
                                     <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
                                     <option value="BA">BA</option>
                                     <option value="CE">CE</option>
                                     <option value="DF">DF</option>
                                     <option value="ES">ES</option>
                                     <option value="GO">GO</option>
                                     <option value="MA">MA</option>
-                                    <option value="MT">CE</option>
-                                    <option value="MS">MS</option>
                                     <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">CE</option>
                                     <option value="PA">GO</option>
                                     <option value="PB">PB</option>
-                                    <option value="PR">PR</option>
                                     <option value="PE">PE</option>
                                     <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
                                     <option value="RJ">RJ</option>
-                                    <option value="RS">RS</option>
                                     <option value="RO">RO</option>
                                     <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
                                     <option value="SC">SC</option>
-                                    <option value="SP">SP</option>
                                     <option value="SE">SE</option>
-                                    <option value="TO">GO</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
                                 </select>
                                 <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
                             </div>
