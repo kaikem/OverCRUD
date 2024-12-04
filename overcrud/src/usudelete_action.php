@@ -66,13 +66,17 @@ head('- Excluir Usuário');
                     if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() > 0) {
                         //PEGANDO OS DADOS DO USUÁRIO PELO ID
                         $usuario = $novoUsuarioDAO->UsuPorId();
-                        mensagemRetorno("Usuario(a) <b>" . $usuario['nome'] . "</b> excluído(a) com sucesso!", "success");
-
-                        //EXCLUIR USUÁRIO PELO ID
-                        $novoUsuarioDAO->excluirUsu();
+                        if($_SESSION['cpf'] == $usuario['cpf']){
+                            mensagemRetorno("Não é possível excluir este usuário, pois está sendo utilizado no momento!", "danger");
+                        } else {
+                            mensagemRetorno("Usuario(a) <b>" . $usuario['nome'] . "</b> excluído(a) com sucesso!", "success");
+    
+                            //EXCLUIR USUÁRIO PELO ID
+                            $novoUsuarioDAO->excluirUsu();
+                        };
                     } else {
                         mensagemRetorno("Usuário(a) não existe no Banco de Dados!", "danger");
-                    }
+                    };
                 } else {
                     mensagemRetorno("Usuário(a) não encontrado(a) (atributo inexistente)!", "danger");
                 };
