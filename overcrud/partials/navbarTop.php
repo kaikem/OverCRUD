@@ -53,10 +53,7 @@ Nova</a>
     </ul>
 </li>
 <li class='navbar-item'>
-    <a href='#' class='nav-link fs-5'>Contato</a>
-</li>
-<li class='navbar-item'>
-    <a href='#' class='nav-link fs-5'>Sobre</a>
+    <a href='$voltar/about.php' class='nav-link fs-5'>Sobre</a>
 </li>
 <li class='navbar-item d-flex d-md-none'>
     <a href='$voltar/home.php' class='nav-link text-danger fs-5 fw-bold' data-bs-toggle='modal'
