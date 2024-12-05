@@ -43,12 +43,30 @@ function validaCPF(cpf) {
 	return true;   
 }
 
+//VALIDAÇÃO DE SENHA
+function comparaSenha(){
+	const inputSenhaConf = document.getElementById('passwordconf');
+	const senha = document.getElementById('password').value;
+	const senhaConf = document.getElementById('passwordconf').value;
+
+	if(senha !== senhaConf && senhaConf !== ''){
+        inputSenhaConf.classList.add('is-invalid');
+        inputSenhaConf.classList.remove('is-valid');	
+		retornoSenha = false;
+		return retornoSenha;
+	} else {
+		inputSenhaConf.classList.remove('is-invalid');
+        inputSenhaConf.classList.add('is-valid');	
+		retornoSenha = true;
+		return retornoSenha;
+	};
+};
+
 
 //VERIFICAÇÕES NO SUBMIT
 formUsu.addEventListener('submit', (evento)=>{
     var inputCpfValue = document.getElementById('cpf').value;
     var retornoCpf = validaCPF(inputCpfValue);
-
 
     if(!retornoCpf){
         evento.preventDefault();
@@ -56,7 +74,11 @@ formUsu.addEventListener('submit', (evento)=>{
         alert("CPF inválido! Por favor, verifique o número e tente novamente.");
         inputCpf.classList.add('is-invalid');
         inputCpf.classList.remove('is-valid');
-    } else if(!formUsu.checkValidity()){
+    } else if(!retornoSenha) {
+        evento.preventDefault();
+        evento.stopPropagation();
+        alert("As senhas estão diferentes! Por favor, verifique o preenchimento e tente novamente.");
+	}else if(!formUsu.checkValidity()){
         evento.preventDefault();
         evento.stopPropagation();
         alert("Dados incorretos! Por favor, verifique o formulário.");
