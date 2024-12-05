@@ -108,7 +108,8 @@ head('- Editar Empresa', $voltar);
                         <div class="form-group">
                             <label for="cnpj" class="form-label">CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" minlength="18" maxlength="18"
-                                data-mask="00.000.000/0000-00" value="<?= $empresa['cnpj'] ?>" required>
+                                data-mask="00.000.000/0000-00" value="<?= $empresa['cnpj'] ?>"
+                                oninput="validaCNPJ(), atualizaCNPJ()" required>
                             <div class="invalid-feedback" id="cnpjinvalido">CNPJ inválido!</div>
                         </div>
 
@@ -116,7 +117,7 @@ head('- Editar Empresa', $voltar);
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
-                                value="<?= $empresa['nome'] ?>" required>
+                                value="<?= $empresa['nome'] ?>" oninput="validaNome()" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -124,7 +125,7 @@ head('- Editar Empresa', $voltar);
                         <div class="form-group">
                             <label for="fantasia" class="form-label">Nome Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" minlength="1"
-                                maxlength="64" value="<?= $empresa['fantasia'] ?>" required>
+                                maxlength="64" value="<?= $empresa['fantasia'] ?>" oninput="validaFantasia()" required>
                             <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
@@ -144,7 +145,8 @@ head('- Editar Empresa', $voltar);
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
                                 CEP:</label>
                             <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
-                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $enderecoEmp['cep'] ?>" required>
+                                data-mask="00.000-000" value="<?= $enderecoEmp['cep'] ?>"
+                                oninput="buscaCep(), validaCep()" required>
                             <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
@@ -155,10 +157,10 @@ head('- Editar Empresa', $voltar);
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
                                     style="width: 65%;" minlength="1" maxlength="32"
-                                    value="<?= $enderecoEmp['cidade'] ?>" required>
+                                    value="<?= $enderecoEmp['cidade'] ?>" onfocusout="validaCidade()" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade"
-                                    value="<?= $enderecoEmp['estado'] ?>" required>
+                                    value="<?= $enderecoEmp['estado'] ?>" onfocusout="validaEstado()" required>
                                     <option value="AC" <?= $enderecoEmp['estado'] == "AC" ? 'selected' : ''; ?>>AC
                                     </option>
                                     <option value="AL" <?= $enderecoEmp['estado'] == "AL" ? 'selected' : ''; ?>>AL
@@ -224,11 +226,12 @@ head('- Editar Empresa', $voltar);
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
                                     style="width: 60%;" minlength="1" maxlength="64"
-                                    value="<?= $enderecoEmp['logradouro'] ?>" required>
+                                    value="<?= $enderecoEmp['logradouro'] ?>" onfocusout="validaLogradouro()" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" value="<?= $enderecoEmp['numlogradouro'] ?>" required>
+                                    minlength="1" maxlength="6" value="<?= $enderecoEmp['numlogradouro'] ?>"
+                                    onfocusout="validaNumlogradouro()" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -238,7 +241,8 @@ head('- Editar Empresa', $voltar);
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" value="<?= $enderecoEmp['bairro'] ?>" required>
+                                maxlength="32" value="<?= $enderecoEmp['bairro'] ?>" onfocusout="validaBairro()"
+                                required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
@@ -250,7 +254,8 @@ head('- Editar Empresa', $voltar);
                         <div class="form-group">
                             <label for="responsavel" class="form-label">Responsável:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" minlength="1"
-                                maxlength="64" value="<?= $empresa['responsavel'] ?>" required>
+                                maxlength="64" value="<?= $empresa['responsavel'] ?>" oninput="validaResponsavel()"
+                                required>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>

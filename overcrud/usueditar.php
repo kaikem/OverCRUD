@@ -101,7 +101,8 @@ head('- Editar Usuário', $voltar);
                         <div class="form-group">
                             <label for="cpf" class="form-label">CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" minlength="14" maxlength="14"
-                                data-mask="000.000.000-00" value="<?= $usuario['cpf'] ?>" required>
+                                data-mask="000.000.000-00" value="<?= $usuario['cpf'] ?>"
+                                oninput="validaCPF(), atualizaCPF()" required>
                             <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
                         </div>
 
@@ -130,7 +131,7 @@ head('- Editar Usuário', $voltar);
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
-                                value="<?= $usuario['nome'] ?>" required>
+                                value="<?= $usuario['nome'] ?>" oninput="validaNome()" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -151,7 +152,8 @@ head('- Editar Usuário', $voltar);
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
                                 CEP:</label>
                             <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
-                                data-mask="00.000-000" oninput="buscaCep()" value="<?= $enderecoUsu['cep'] ?>" required>
+                                data-mask="00.000-000" value="<?= $enderecoUsu['cep'] ?>"
+                                oninput="buscaCep(), validaCep()" required>
                             <div class="invalid-feedback">CEP inválido</div>
                         </div>
 
@@ -162,10 +164,10 @@ head('- Editar Usuário', $voltar);
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
                                     style="width: 65%;" minlength="1" maxlength="32"
-                                    value="<?= $enderecoUsu['cidade'] ?>" required>
+                                    value="<?= $enderecoUsu['cidade'] ?>" onfocusout="validaCidade()" required>
                                 <span class="input-group-text">UF</span>
                                 <select class="form-select" name="estadocidade" id="estadocidade"
-                                    value="<?= $enderecoUsu['estado'] ?>" required>
+                                    value="<?= $enderecoUsu['estado'] ?>" onfocusout="validaEstado()" required>
                                     <option value="AC" <?= $enderecoUsu['estado'] == "AC" ? 'selected' : ''; ?>>AC
                                     </option>
                                     <option value="AL" <?= $enderecoUsu['estado'] == "AL" ? 'selected' : ''; ?>>AL
@@ -231,11 +233,12 @@ head('- Editar Usuário', $voltar);
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
                                     style="width: 60%;" minlength="1" maxlength="64"
-                                    value="<?= $enderecoUsu['logradouro'] ?>" required>
+                                    value="<?= $enderecoUsu['logradouro'] ?>" onfocusout="validaLogradouro()" required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" value="<?= $enderecoUsu['numlogradouro'] ?>" required>
+                                    minlength="1" maxlength="6" value="<?= $enderecoUsu['numlogradouro'] ?>"
+                                    onfocusout="validaNumlogradouro()" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -245,7 +248,8 @@ head('- Editar Usuário', $voltar);
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" value="<?= $enderecoUsu['bairro'] ?>" required>
+                                maxlength="32" value="<?= $enderecoUsu['bairro'] ?>" onfocusout="validaBairro()"
+                                required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
