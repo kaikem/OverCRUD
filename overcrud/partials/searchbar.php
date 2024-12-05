@@ -17,7 +17,8 @@ require_once "$rootOvercrud/resources/listas.php";
         <select class="form-select form-select-sm fit-content" name="pesquisaselect" id="pesquisaselect">
             <option value="nome" selected>Nome</option>
             <option value="doc" class="<?= str_contains($pagina, 'usulista') ? 'd-flex' : 'd-none' ?>">CPF</option>
-            <option value="empregado" class="<?= str_contains($pagina, 'usulista') ? 'd-flex' : 'd-none' ?>">Empregado Em</option>
+            <option value="empregado" class="<?= str_contains($pagina, 'usulista') ? 'd-flex' : 'd-none' ?>">Empregado
+                Em</option>
             <option value="doc" class="<?= str_contains($pagina, 'emplista') ? 'd-flex' : 'd-none' ?>">CNPJ
             </option>
         </select>
