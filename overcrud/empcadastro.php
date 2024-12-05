@@ -59,8 +59,8 @@ head('- Cadastrar Empresa', $voltar);
                         <div class="form-group">
                             <label for="cnpj" class="form-label"><i class="fa-solid fa-tree-city"></i> CNPJ:</label>
                             <input type="text" class="form-control" name="cnpj" id="cnpj" minlength="18" maxlength="18"
-                                data-mask="00.000.000/0000-00" required>
-                            <div class="invalid-feedback">CNPJ inválido!</div>
+                                data-mask="00.000.000/0000-00" oninput="validaCNPJ(), atualizaCNPJ()" required>
+                            <div class="invalid-feedback">CNPJ inválido! Verifique o número e tente novamente</div>
                         </div>
 
 
@@ -68,7 +68,7 @@ head('- Cadastrar Empresa', $voltar);
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-building"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
-                                required>
+                                oninput="validaNome()" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -77,7 +77,7 @@ head('- Cadastrar Empresa', $voltar);
                             <label for="fantasia" class="form-label"><i class="fa-solid fa-shop"></i> Nome
                                 Fantasia:</label>
                             <input type="text" class="form-control" name="fantasia" id="fantasia" minlength="1"
-                                maxlength="64" required>
+                                maxlength="64" oninput="validaFantasia()" required>
                             <div class="invalid-feedback">O nome fantasia precisa ser preenchido</div>
                         </div>
 
@@ -98,8 +98,9 @@ head('- Cadastrar Empresa', $voltar);
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
                                 CEP:</label>
                             <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
-                                data-mask="00.000-000" oninput="buscaCep()" required>
-                            <div class="invalid-feedback">CEP inválido</div>
+                                data-mask="00.000-000" oninput="buscaCep(), validaCep()" required>
+                            <div class="invalid-feedback" id="cepinvalido">O CEP precisa ser peenchido por completo
+                            </div>
                         </div>
 
                         <!-- CIDADE & ESTADO -->
@@ -108,9 +109,11 @@ head('- Cadastrar Empresa', $voltar);
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" required>
+                                    style="width: 65%;" minlength="1" maxlength="32" onfocusout="validaCidade()"
+                                    required>
                                 <span class="input-group-text">UF</span>
-                                <select class="form-select" name="estadocidade" id="estadocidade" required>
+                                <select class="form-select" name="estadocidade" id="estadocidade"
+                                    onfocusout="validaEstado()" required>
                                     <option disabled selected value>--</option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
@@ -139,7 +142,7 @@ head('- Cadastrar Empresa', $voltar);
                                     <option value="SP">SP</option>
                                     <option value="TO">TO</option>
                                 </select>
-                                <div class="invalid-feedback">A cidade e o Estado precisam ser preenchidos</div>
+                                <div class="invalid-feedback">O Estado e a cidade precisam ser preenchidos</div>
                             </div>
                         </div>
 
@@ -150,11 +153,12 @@ head('- Cadastrar Empresa', $voltar);
                             <div class="input-group">
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                    style="width: 60%;" minlength="1" maxlength="64" required>
+                                    style="width: 60%;" minlength="1" maxlength="64" onfocusout="validaLogradouro()"
+                                    required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" required>
+                                    minlength="1" maxlength="6" onfocusout="validaNumlogradouro()" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -164,7 +168,7 @@ head('- Cadastrar Empresa', $voltar);
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" required>
+                                maxlength="32" onfocusout="validaBairro()" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
@@ -178,7 +182,7 @@ head('- Cadastrar Empresa', $voltar);
                             <label for="responsavel" class="form-label"><i class="fa-solid fa-user-tie"></i>
                                 Responsável pela empresa:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" minlength="1"
-                                maxlength="64" required>
+                                maxlength="64" onfocusout="validaResponsavel()" required>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>
