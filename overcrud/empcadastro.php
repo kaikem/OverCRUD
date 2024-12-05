@@ -17,10 +17,11 @@ if ($tipoUsu != '1') {
 //CONEXÃO COM BD
 require_once "$rootOvercrud/components/ConexaoBD.php";
 
-//TABELAS DO BD
+//ARRAYS DE DADOS
 require_once "$rootOvercrud/resources/listas.php";
 ?>
 
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
