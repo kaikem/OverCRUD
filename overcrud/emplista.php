@@ -22,7 +22,7 @@ require_once "$rootOvercrud/resources/listas.php";
 <?php
 //HEAD
 require_once "$rootOvercrud/partials/head.php";
-head('- Cadastrar Empresa', $voltar);
+head('- Empresas', $voltar);
 
 //MODALS
 require_once "$rootOvercrud/partials/empmodal.php";
