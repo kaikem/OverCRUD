@@ -169,7 +169,7 @@ head('- Usuários', $voltar);
                                 <p class="cardlabel mb-0 text-secondary display-6"> <i
                                         class="fa-solid fa-briefcase"></i>
                                     Empregado em: </p>
-                                <div class="cardinfo mt-0 mb-2 display-6">
+                                <div class="cardinfo mt-0 mb-2 display-6" id="ch_empregado">
                                     <?php
                                         for ($i = 0; $i < count($listaEmp); $i++) {
                                             if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
@@ -207,7 +207,7 @@ head('- Usuários', $voltar);
                     <tr class="table-secondary text-center">
                         <th onclick="ordenar(0)" class="tableheader">NOME</th>
                         <th onclick="ordenar(1)" class="tableheader">CPF</th>
-                        <th onclick="ordenar(2)" class="tableheader">TELEFONE</th>
+                        <th onclick="ordenar(2)" class="tableheader">EMPREGADO EM</th>
                         <th onclick="ordenar(3)" class="tableheader">TIPO</th>
                         <th onclick="ordenar(4)" class="tableheader">STATUS</th>
                         <th> </th>
@@ -219,13 +219,13 @@ head('- Usuários', $voltar);
                     <tr>
                         <td id="tr_nome"><?= $usuario['nome']; ?></td>
                         <td id="tr_doc"><?= $usuario['cpf']; ?></td>
-                        <td>
+                        <td id="tr_empregado">
                             <?php
-                                if ($usuario['telefone'] == "" || $usuario['telefone'] == null) {
-                                    echo "- NÃO POSSUI -";
-                                } else {
-                                    echo $usuario['telefone'];
-                                }
+                                for ($i = 0; $i < count($listaEmp); $i++) {
+                                    if ($usuario['idempregadoem'] == $listaEmp[$i]['idempresa']) {
+                                        echo $listaEmp[$i]['nome'];
+                                    };
+                                };
                                 ?>
                         </td>
                         <td>
