@@ -182,7 +182,7 @@ head('- Cadastrar Empresa', $voltar);
                             <label for="responsavel" class="form-label"><i class="fa-solid fa-user-tie"></i>
                                 Responsável pela empresa:</label>
                             <input type="text" class="form-control" name="responsavel" id="responsavel" minlength="1"
-                                maxlength="64" onfocusout="validaResponsavel()" required>
+                                maxlength="64" oninput="validaResponsavel()" required>
                             <div class="invalid-feedback">O responsável precisa ser preenchido</div>
                         </div>
                     </fieldset>
