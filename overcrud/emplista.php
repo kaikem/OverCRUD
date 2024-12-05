@@ -1,4 +1,5 @@
 <?php
+
 //PATHING
 require_once "./resources/pathing.php";
 $voltar = ".";
@@ -9,20 +10,23 @@ if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
-//MODALS
-require_once "$rootOvercrud/partials/empmodal.php";
-require_once "$rootOvercrud/partials/empdeletemodal.php";
-
 //ARRAYS DE DADOS
 require_once "$rootOvercrud/resources/listas.php";
 ?>
 
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
+<!-- HEAD & MODALS -->
 <?php
+//HEAD
 require_once "$rootOvercrud/partials/head.php";
-head('- Empresas', $voltar);
+head('- Cadastrar Empresa', $voltar);
+
+//MODALS
+require_once "$rootOvercrud/partials/empmodal.php";
+require_once "$rootOvercrud/partials/empdeletemodal.php";
 ?>
 
 <body>

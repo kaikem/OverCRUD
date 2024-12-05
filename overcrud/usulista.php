@@ -9,20 +9,23 @@ if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
-//MODALS
-require_once "$rootOvercrud/partials/usumodal.php";
-require_once "$rootOvercrud/partials/usudeletemodal.php";
-
 //ARRAYS DE DADOS
 require_once "$rootOvercrud/resources/listas.php";
 ?>
 
+<!-- HTML -->
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 
+<!-- HEAD & MODALS -->
 <?php
+//HEAD
 require_once "$rootOvercrud/partials/head.php";
 head('- Usuários', $voltar);
+
+//MODALS
+require_once "$rootOvercrud/partials/usumodal.php";
+require_once "$rootOvercrud/partials/usudeletemodal.php";
 ?>
 
 <body>
@@ -209,7 +212,7 @@ head('- Usuários', $voltar);
                         <th onclick="ordenar(1)" class="tableheader">CPF</th>
                         <th onclick="ordenar(2)" class="tableheader">EMPREGADO EM</th>
                         <th onclick="ordenar(3)" class="tableheader">TIPO</th>
-                        <th onclick="ordenar(4)" class="tableheader">STATUS</th>
+                        <!--<th onclick="ordenar(4)" class="tableheader">STATUS</th>-->
                         <th> </th>
                         <th class="<?= $linksAdm ?>"> </th>
                         <th class="<?= $linksAdm ?>"> </th>
@@ -237,15 +240,15 @@ head('- Usuários', $voltar);
                                 }
                                 ?>
                         </td>
-                        <td>
+                        <!--<td>
                             <?php
-                                if ($usuario['status'] == 1) {
+                            /*if ($usuario['status'] == 1) {
                                     echo "<div class='text-success'>ATIVO</div>";
                                 } else {
                                     echo "<div class='text-danger'>INATIVO</div>";
-                                };
-                                ?>
-                        </td>
+                                };*/
+                            ?>
+                        </td>-->
                         <td>
                             <a class="modalanchor" data-bs-toggle="modal"
                                 data-bs-target="#usumodal<?= $usuario['idusuario'] ?>">
