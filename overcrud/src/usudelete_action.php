@@ -6,7 +6,7 @@ $voltar = "..";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
-if($_SESSION['valido'] == "erro"){
+if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
@@ -42,14 +42,17 @@ if (!isset($idusuario)) {
 
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Excluir Usuário');
+head('- Excluir Usuário', $voltar);
 ?>
 
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/navbartop.php";
+            navbarTop($voltar, $linksAdm);
+            ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -66,11 +69,11 @@ head('- Excluir Usuário');
                     if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() > 0) {
                         //PEGANDO OS DADOS DO USUÁRIO PELO ID
                         $usuario = $novoUsuarioDAO->UsuPorId();
-                        if($_SESSION['cpf'] == $usuario['cpf']){
+                        if ($_SESSION['cpf'] == $usuario['cpf']) {
                             mensagemRetorno("Não é possível excluir este usuário, pois está sendo utilizado no momento!", "danger");
                         } else {
                             mensagemRetorno("Usuario(a) <b>" . $usuario['nome'] . "</b> excluído(a) com sucesso!", "success");
-    
+
                             //EXCLUIR USUÁRIO PELO ID
                             $novoUsuarioDAO->excluirUsu();
                         };
@@ -89,7 +92,10 @@ head('- Excluir Usuário');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once "$rootOvercrud/partials/footer.php" ?>
+        <?php
+        require_once "$rootOvercrud/partials/footer.php";
+        footer($voltar);
+        ?>
     </div>
 
 
@@ -97,9 +103,10 @@ head('- Excluir Usuário');
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
-    <script src="./js/darkmodetoggle.js"></script>
-    <script src="./js/modals.js"></script>
-    <script src="./js/mudarDisplay.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/darkmodetoggle.js"></script>
+    <script src="../js/modals.js"></script>
+    <script src="../js/mudarDisplay.js"></script>
 </body>
 
 </html>

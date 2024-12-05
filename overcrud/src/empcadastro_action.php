@@ -6,7 +6,7 @@ $voltar = "..";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
-if($_SESSION['valido'] == "erro"){
+if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
@@ -70,7 +70,7 @@ $novoEnderecoDAO = new EnderecoDAO($novoEndereco);
 
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Cadastrar Empresa');
+head('- Cadastrar Empresa', $voltar);
 ?>
 
 <body>
@@ -78,7 +78,10 @@ head('- Cadastrar Empresa');
 
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/navbartop.php";
+            navbarTop($voltar, $linksAdm);
+            ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -120,7 +123,10 @@ head('- Cadastrar Empresa');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once "$rootOvercrud/partials/footer.php" ?>
+        <?php
+        require_once "$rootOvercrud/partials/footer.php";
+        footer($voltar);
+        ?>
     </div>
 
 
@@ -128,9 +134,9 @@ head('- Cadastrar Empresa');
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
-    <script src="./js/darkmodetoggle.js"></script>
-    <script src="./js/modals.js"></script>
-    <script src="./js/empFormValidations.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/darkmodetoggle.js"></script>
+    <script src="../js/modals.js"></script>
 </body>
 
 </html>

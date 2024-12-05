@@ -6,7 +6,7 @@ $voltar = "..";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
-if($_SESSION['valido'] == "erro"){
+if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
@@ -85,14 +85,17 @@ if ($empregadoEm != 0) {
 
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Editar Usuário');
+head('- Editar Usuário', $voltar);
 ?>
 
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/navbartop.php";
+            navbarTop($voltar, $linksAdm);
+            ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -123,7 +126,10 @@ head('- Editar Usuário');
             </div>
 
             <!-- FOOTER -->
-            <?php require_once "$rootOvercrud/partials/footer.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/footer.php";
+            footer($voltar);
+            ?>
         </div>
 
 
@@ -131,9 +137,10 @@ head('- Editar Usuário');
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
         <script src="https://kit.fontawesome.com/9e35ffe1bb.js" crossorigin="anonymous"></script>
-        <script src="./js/darkmodetoggle.js"></script>
-        <script src="./js/modals.js"></script>
-        <script src="./js/mudarDisplay.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="../js/darkmodetoggle.js"></script>
+        <script src="../js/modals.js"></script>
+        <script src="../js/mudarDisplay.js"></script>
 </body>
 
 </html>
