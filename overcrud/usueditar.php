@@ -5,7 +5,7 @@ $voltar = ".";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
-if($_SESSION['valido'] == "erro"){
+if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
@@ -42,14 +42,17 @@ if (!isset($idusuario)) {
 <!-- HEAD -->
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Editar Usuário');
+head('- Editar Usuário', $voltar);
 ?>
 
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/navbartop.php";
+            navbarTop($voltar, $linksAdm);
+            ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -293,7 +296,10 @@ head('- Editar Usuário');
             </div>
 
             <!-- FOOTER -->
-            <?php require_once "$rootOvercrud/partials/footer.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/footer.php";
+            footer($voltar);
+            ?>
         </div>
 
 

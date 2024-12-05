@@ -5,7 +5,7 @@ $voltar = ".";
 
 //VERIFICAÇÃO DE SESSÃO
 require_once "$rootOvercrud/validations/session_validation.php";
-if($_SESSION['valido'] == "erro"){
+if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 }
 
@@ -26,14 +26,17 @@ require_once "$rootOvercrud/resources/listas.php";
 
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Cadastrar Usuário');
+head('- Cadastrar Usuário', $voltar);
 ?>
 
 <body>
     <div class="container">
         <!-- ROW DA NAVBAR -->
         <div class="row" id="navbartop">
-            <?php require_once "$rootOvercrud/partials/navbartop.php" ?>
+            <?php
+            require_once "$rootOvercrud/partials/navbartop.php";
+            navbarTop($voltar, $linksAdm);
+            ?>
         </div>
 
         <!-- ROW DO CORPO -->
@@ -63,6 +66,15 @@ head('- Cadastrar Usuário');
                             <input type="password" class="form-control" name="password" id="password" minlength="8"
                                 maxlength="32" required>
                             <div class="invalid-feedback">A senha precisa conter pelo menos 8 caracteres</div>
+                        </div>
+
+                        <!-- CONFIRMAR SENHA -->
+                        <div class="form-group">
+                            <label for="passwordconf" class="form-label"><i class="fa-solid fa-lock"></i> Confirmar
+                                Senha:</label>
+                            <input type="password" class="form-control" name="passwordconf" id="passwordconf"
+                                minlength="8" maxlength="32" oninput="comparaSenha()" required>
+                            <div class="invalid-feedback">As senhas estão diferentes! Por favor, digite novamente.</div>
                         </div>
 
                         <!-- TIPO -->
@@ -216,7 +228,10 @@ head('- Cadastrar Usuário');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once "$rootOvercrud/partials/footer.php" ?>
+        <?php
+        require_once "$rootOvercrud/partials/footer.php";
+        footer($voltar);
+        ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

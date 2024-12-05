@@ -1,6 +1,7 @@
 <?php
 //PATHING
 require_once "./resources/pathing.php";
+$voltar = '.';
 
 //VERIFICAÇÃO DE SESSÃO
 //require_once "$rootOvercrud/validations/session_validation.php";
@@ -25,7 +26,7 @@ require_once "$rootOvercrud/resources/support.php";
 <!-- HEAD -->
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Login');
+head('- Login', $voltar);
 ?>
 
 <body>
@@ -103,7 +104,10 @@ head('- Login');
         </div>
 
         <!-- FOOTER -->
-        <?php require_once "$rootOvercrud/partials/footer.php" ?>
+        <?php
+        require_once "$rootOvercrud/partials/footer.php";
+        footer($voltar);
+        ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
