@@ -1,11 +1,4 @@
 <?php
-//PATHING
-$root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/resources/pathing.php";
-
-//TABELAS DO BD
-require_once "$rootOvercrud/resources/listas.php";
-
 foreach ($listaUsu as $usuario): ?>
 <div class='modal fade' id='usumodal<?= $usuario['idusuario'] ?>'>
     <div class='modal-dialog'>
