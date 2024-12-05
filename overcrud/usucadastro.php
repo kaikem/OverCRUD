@@ -56,15 +56,16 @@ head('- Cadastrar Usuário', $voltar);
                         <div class="form-group">
                             <label for="cpf" class="form-label"><i class="fa-solid fa-person"></i> CPF:</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" minlength="14" maxlength="14"
-                                data-mask="000.000.000-00" required>
-                            <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
+                                data-mask="000.000.000-00" oninput="validaCPF(), atualizaCPF()" required>
+                            <div class="invalid-feedback" id="cpfinvalido">CPF inválido! Verifique o número e tente
+                                novamente</div>
                         </div>
 
                         <!-- SENHA -->
                         <div class="form-group">
                             <label for="password" class="form-label"><i class="fa-solid fa-lock"></i> Senha:</label>
                             <input type="password" class="form-control" name="password" id="password" minlength="8"
-                                maxlength="32" required>
+                                maxlength="32" oninput="validaSenha()" required>
                             <div class="invalid-feedback">A senha precisa conter pelo menos 8 caracteres</div>
                         </div>
 
@@ -73,14 +74,14 @@ head('- Cadastrar Usuário', $voltar);
                             <label for="passwordconf" class="form-label"><i class="fa-solid fa-lock"></i> Confirmar
                                 Senha:</label>
                             <input type="password" class="form-control" name="passwordconf" id="passwordconf"
-                                minlength="8" maxlength="32" oninput="comparaSenha()" required>
+                                minlength="8" maxlength="32" oninput="comparaSenha(), validaSenhaconf()" required>
                             <div class="invalid-feedback">As senhas estão diferentes! Por favor, digite novamente.</div>
                         </div>
 
                         <!-- TIPO -->
                         <div class="form-group">
                             <label for="tipo" class="form-label"><i class="fa-solid fa-file-invoice"></i> Tipo:</label>
-                            <select class="form-select" name="tipo" id="tipo">
+                            <select class="form-select" name="tipo" id="tipo" required>
                                 <option value="0" selected>Comum</option>
                                 <option value="1">Admin</option>
                             </select>
@@ -94,7 +95,7 @@ head('- Cadastrar Usuário', $voltar);
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-user"></i> Nome:</label>
                             <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
-                                required>
+                                oninput="validaNome()" required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
@@ -115,8 +116,9 @@ head('- Cadastrar Usuário', $voltar);
                             <label for="cep" class="form-label"><i class="fa-solid fa-location-dot"></i>
                                 CEP:</label>
                             <input type="text" class="form-control" name="cep" id="cep" minlength="10" maxlength="10"
-                                data-mask="00.000-000" oninput="buscaCep()" required>
-                            <div class="invalid-feedback">CEP inválido</div>
+                                data-mask="00.000-000" oninput="buscaCep(), validaCep()" required>
+                            <div class="invalid-feedback" id="cepinvalido">O CEP precisa ser peenchido por completo
+                            </div>
                         </div>
 
                         <!-- CIDADE & ESTADO -->
@@ -125,9 +127,11 @@ head('- Cadastrar Usuário', $voltar);
                                 Cidade e Estado:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="cidadeestado" id="cidadeestado"
-                                    style="width: 65%;" minlength="1" maxlength="32" required>
+                                    style="width: 65%;" minlength="1" maxlength="32" onfocusout="validaCidade()"
+                                    required>
                                 <span class="input-group-text">UF</span>
-                                <select class="form-select" name="estadocidade" id="estadocidade" required>
+                                <select class="form-select" name="estadocidade" id="estadocidade"
+                                    onfocusout="validaEstado()" required>
                                     <option disabled selected value>--</option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
@@ -167,11 +171,12 @@ head('- Cadastrar Usuário', $voltar);
                             <div class="input-group">
                                 <!-- ENDEREÇO -->
                                 <input type="text" class="form-control" name="logradouro" id="logradouro"
-                                    style="width: 60%;" minlength="1" maxlength="64" required>
+                                    style="width: 60%;" minlength="1" maxlength="64" onfocusout="validaLogradouro()"
+                                    required>
                                 <span class="input-group-text">nº</span>
                                 <!-- NÚMERO -->
                                 <input type="text" class="form-control" name="numlogradouro" id="numlogradouro"
-                                    minlength="1" maxlength="6" required>
+                                    minlength="1" maxlength="6" onfocusout="validaNumlogradouro()" required>
                                 <div class="invalid-feedback">O endereço e o número precisam ser preenchidos</div>
                             </div>
                         </div>
@@ -181,7 +186,7 @@ head('- Cadastrar Usuário', $voltar);
                             <label for="bairro" class="form-label"><i class="fa-solid fa-vector-square"></i>
                                 Bairro:</label>
                             <input type="text" class="form-control" name="bairro" id="bairro" minlength="1"
-                                maxlength="32" required>
+                                maxlength="32" onfocusout="validaBairro()" required>
                             <div class="invalid-feedback">O bairro precisa ser preenchido</div>
                         </div>
                     </fieldset>
