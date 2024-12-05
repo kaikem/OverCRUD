@@ -23,7 +23,7 @@ require_once "$rootOvercrud/resources/listas.php";
 <!-- HEAD -->
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('Home', $voltar);
+head('- Home', $voltar);
 ?>
 
 <body>
