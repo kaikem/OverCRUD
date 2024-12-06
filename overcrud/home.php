@@ -60,11 +60,11 @@ head('- Home', $voltar);
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">EMPRESAS CADASTRADAS</b>
                         <span
-                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= (count($listaEmp) - 1) ?></span>
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= (count($listaEmp) - 1) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">USUÁRIOS CADASTRADOS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) ?></span>
+                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsu) ?></span>
                     </li>
                 </ul>
             </div>
@@ -73,12 +73,12 @@ head('- Home', $voltar);
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">USUÁRIOS COMUNS</b>
                         <span
-                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) - count($listaUsuAdmins) ?></span>
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsu) - count($listaUsuAdmins) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">USUÁRIOS ADMINS</b>
                         <span
-                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsuAdmins) ?></span>
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsuAdmins) ?></span>
                     </li>
                 </ul>
             </div>
@@ -87,12 +87,12 @@ head('- Home', $voltar);
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">USUÁRIOS ATIVOS</b>
                         <span
-                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsuAtivos) ?></span>
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsuAtivos) ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">USUÁRIOS INATIVOS</b>
                         <span
-                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2"><?= count($listaUsu) - count($listaUsuAtivos) ?></span>
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsu) - count($listaUsuAtivos) ?></span>
                     </li>
                 </ul>
             </div>
