@@ -4,7 +4,7 @@ require_once "./resources/pathing.php";
 $voltar = ".";
 
 //VERIFICAÇÃO DE SESSÃO
-require_once "$rootOvercrud/validations/session_validation.php";
+require_once "$voltar/validations/session_validation.php";
 if ($_SESSION['valido'] == "erro") {
     logoutPagina($voltar);
 };
