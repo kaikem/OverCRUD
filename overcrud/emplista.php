@@ -149,9 +149,9 @@ require_once "$rootOvercrud/partials/empdeletemodal.php";
                 <table id="tabelaempresas" class="table table-striped">
                     <!-- TABELA (CABEÇALHO) -->
                     <tr class="table-secondary text-center">
-                        <th onclick="ordenar(0)" class="tableheader">NOME</th>
-                        <th onclick="ordenar(1)" class="tableheader">NOME FANTASIA</th>
-                        <th onclick="ordenar(2)" class="tableheader">CNPJ</th>
+                        <th onclick="ordenar(0)" class="tableheader">NOME <i class="fa-solid fa-sort"></i></th>
+                        <th onclick="ordenar(1)" class="tableheader">NOME FANTASIA <i class="fa-solid fa-sort"></i></th>
+                        <th onclick="ordenar(2)" class="tableheader">CNPJ <i class="fa-solid fa-sort"></i></th>
                         <th> </th>
                         <th class="<?= $linksAdm ?>"> </th>
                         <th class="<?= $linksAdm ?>"> </th>

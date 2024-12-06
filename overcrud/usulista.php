@@ -208,10 +208,10 @@ require_once "$rootOvercrud/partials/usudeletemodal.php";
                 <table id="tabelausuarios" class="table table-striped">
                     <!-- TABELA (CABEÇALHO) -->
                     <tr class="table-secondary text-center">
-                        <th onclick="ordenar(0)" class="tableheader">NOME</th>
-                        <th onclick="ordenar(1)" class="tableheader">CPF</th>
-                        <th onclick="ordenar(2)" class="tableheader">EMPREGADO EM</th>
-                        <th onclick="ordenar(3)" class="tableheader">TIPO</th>
+                        <th onclick="ordenar(0)" class="tableheader">NOME <i class="fa-solid fa-sort"></i></th>
+                        <th onclick="ordenar(1)" class="tableheader">EMPREGADO EM <i class="fa-solid fa-sort"></i></th>
+                        <th onclick="ordenar(2)" class="tableheader">CPF <i class="fa-solid fa-sort"></i></th>
+                        <th onclick="ordenar(3)" class="tableheader">TIPO <i class="fa-solid fa-sort"></i></th>
                         <!--<th onclick="ordenar(4)" class="tableheader">STATUS</th>-->
                         <th> </th>
                         <th class="<?= $linksAdm ?>"> </th>
@@ -221,7 +221,6 @@ require_once "$rootOvercrud/partials/usudeletemodal.php";
                     <!-- TABELA (DADOS DO USUÁRIO -->
                     <tr>
                         <td id="tr_nome"><?= $usuario['nome']; ?></td>
-                        <td id="tr_doc"><?= $usuario['cpf']; ?></td>
                         <td id="tr_empregado">
                             <?php
                                 for ($i = 0; $i < count($listaEmp); $i++) {
@@ -231,6 +230,7 @@ require_once "$rootOvercrud/partials/usudeletemodal.php";
                                 };
                                 ?>
                         </td>
+                        <td id="tr_doc"><?= $usuario['cpf']; ?></td>
                         <td>
                             <?php
                                 if ($usuario['tipo'] == "1") {
