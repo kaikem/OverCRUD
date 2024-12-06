@@ -64,7 +64,7 @@ head('- Sobre', $voltar);
                         Dados salvos em bancos de dados permanentes.</li>
                 </ul>
 
-                <p>Este software foi desenvolvida através de uma parceria entre as empresas:</p>
+                <p>Este software foi desenvolvido através de uma parceria entre as empresas:</p>
                 <div id="imagensparceria" class="text-center">
                     <img src="./img/logo_footer.png" style="width: 30%;" alt="Overdrive Softwares e Consultoria">
                     <img src="./img/plus.png" style="width: 5%;" class="mx-5" alt="+">
