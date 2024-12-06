@@ -126,7 +126,7 @@ require_once "$rootOvercrud/partials/empdeletemodal.php";
                             </div>
                         </div>
                         <!-- BOTÕES EDITAR & EXCLUIR -->
-                        <div class="d-flex align-bottom justify-content-center gap-2 my-2 <?= $linksAdm ?>">
+                        <div class="d-flex align-bottom justify-content-center gap-2 mt-2 mb-3 <?= $linksAdm ?>">
                             <!-- EXCLUIR -->
                             <a data-bs-toggle='modal' data-bs-target='#empdeletemodal<?= $empresa['idempresa'] ?>'>
                                 <i class="fa-solid fa-trash btn btn-outline-danger border-3 p-2 rounded-circle"
@@ -165,21 +165,21 @@ require_once "$rootOvercrud/partials/empdeletemodal.php";
                         <td>
                             <a class="modalanchor" data-bs-toggle="modal"
                                 data-bs-target="#empmodal<?= $empresa['idempresa'] ?>">
-                                <i class="fa-solid fa-circle-info text-primary px-0 py-2" title="Detalhes"></i>
+                                <i class="fa-solid fa-circle-info text-info px-0 py-2" title="Detalhes"></i>
                             </a>
                         </td>
                         <!-- BOTÕES EDITAR & EXCLUIR -->
                         <!-- EXCLUIR -->
                         <td class="<?= $linksAdm ?>">
                             <a data-bs-toggle='modal' data-bs-target='#empdeletemodal<?= $empresa['idempresa'] ?>'>
-                                <i class="fa-solid fa-trash px-0 py-2" title="Excluir" id="deleteicon"></i>
+                                <i class="fa-solid fa-trash px-0 py-2 text-danger" title="Excluir" id="deleteicon"></i>
                             </a>
                         </td>
 
                         <!-- EDITAR -->
                         <td class="<?= $linksAdm ?>">
                             <a href="empeditar.php?idempresa=<?= $empresa['idempresa']; ?>">
-                                <i class="fa-solid fa-pen-to-square px-0 py-2" style="color: white;" title="Editar"></i>
+                                <i class="fa-solid fa-pen-to-square px-0 py-2 text-warning" id="editbtn" title="Editar"></i>
                             </a>
                         </td>
                     </tr>
