@@ -28,11 +28,11 @@ require_once "$rootOvercrud/resources/listas.php";
     <!-- BOTÕES DE ORDENAÇÃO -->
     <!-- ORDENAÇÃO POR NOME CRESCENTE -->
     <div class='btn-group btn-group-lg d-none' id='btnordem'>
-        <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2' id='btnordenarpornome'
+        <button type='button' class='btn btn-outline-success btn-lg rounded-start-3 border-3 py-1 px-2' id='btnordenarpornome'
             onclick='ordenarCards("asc")' title='Ordenar nomes A-Z'><i class='fa-solid fa-arrow-down-a-z'></i></button>
 
         <!-- ORDENAÇÃO POR NOME DECRESCENTE -->
-        <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2' id='btnordenarpornome'
+        <button type='button' class='btn btn-outline-success btn-lg rounded-end-3 border-3 py-1 px-2' id='btnordenarpornome'
             onclick='ordenarCards("dec")' title='Ordenar nomes Z-A'><i class='fa-solid fa-arrow-down-z-a'></i></button>
     </div>
 
@@ -40,16 +40,16 @@ require_once "$rootOvercrud/resources/listas.php";
     <div class='btn-group btn-group-lg'>
         <!-- BOTÃO DE CADASTRO -->
         <a href='<?= str_contains($pagina, 'usulista') ? './usucadastro.php' : './empcadastro.php' ?>'
-            class='btn btn-outline-primary btn-lg rounded-3 border-3 p-2 me-2 <?= $linksAdm ?>' id='btncadastro'
+            class='btn btn-outline-success btn-lg rounded-3 border-3 py-1 px-2 me-2 <?= $linksAdm ?>' id='btncadastro'
             title='Cadastrar novo'><i class='fa-solid fa-plus'></i></a>
 
         <!-- BOTÃO TABELA -->
-        <button type='button' class='btn btn-outline-primary btn-lg rounded-start-3 border-3 p-2 active'
+        <button type='button' class='btn btn-outline-success btn-lg rounded-start-3 border-3 py-1 px-2 active'
             id='btndisplaytabela' onclick='mudarDisplayParaTabela(); pesquisa()' title='Modo Tabela'><i
                 class='fa-solid fa-list'></i></button>
 
         <!-- BOTÃO CARDS -->
-        <button type='button' class='btn btn-outline-primary btn-lg rounded-end-3 border-3 p-2' id='btndisplaycards'
+        <button type='button' class='btn btn-outline-success btn-lg rounded-end-3 border-3 py-1 px-2' id='btndisplaycards'
             onclick='mudarDisplayParaCards(); pesquisa()' title='Modo Cards'><i
                 class='fa-solid fa-table-cells'></i></button>
     </div>
