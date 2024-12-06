@@ -85,7 +85,7 @@ head('- Cadastrar Empresa', $voltar);
                         <div class="form-group">
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000">
+                                maxlength="15" oninput="handlePhone(event)">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>

@@ -90,7 +90,7 @@ head('- Editar Usuário', $voltar);
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div
-                class="col-6 col-md-8 <?php if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() == 0) echo 'd-none'; ?>">
+                class="col-10 col-md-8 <?php if (($novoUsuarioDAO->consultaDeIdUsu())->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="./src/usueditar_action.php" method="POST" novalidate>
                     <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?>">
                     <input type="hidden" name="idendereco" value="<?= $enderecoUsu['idendereco'] ?>">
@@ -139,7 +139,7 @@ head('- Editar Usuário', $voltar);
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000" value="<?= $usuario['telefone'] ?>">
+                                maxlength="15" oninput="handlePhone(event)" value="<?= $usuario['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>
@@ -282,10 +282,10 @@ head('- Editar Usuário', $voltar);
                             <select class="form-select" name="empregadoem" id="empregadoem"
                                 value="<?= $usuario['idempregadoem'] ?>">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"
-                                    <?= $usuario['idempregadoem'] == $empresa['idempresa'] ? 'selected' : '' ?>>
-                                    <?= $empresa['nome'] ?>
-                                </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"
+                                        <?= $usuario['idempregadoem'] == $empresa['idempresa'] ? 'selected' : '' ?>>
+                                        <?= $empresa['nome'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

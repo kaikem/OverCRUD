@@ -97,7 +97,7 @@ head('- Editar Empresa', $voltar);
 
             <!-- FORMULÁRIO DE EDIÇÃO -->
             <div
-                class="col-6 col-md-8 <?php if (($novaEmpresaDAO->consultaDeIdEmp())->rowCount() == 0) echo 'd-none'; ?>">
+                class="col-10 col-md-8 <?php if (($novaEmpresaDAO->consultaDeIdEmp())->rowCount() == 0) echo 'd-none'; ?>">
                 <form class="needs-validation" action="./src/empeditar_action.php" method="POST" novalidate>
                     <!-- FIELDSET EMPRESA -->
                     <fieldset>
@@ -133,7 +133,7 @@ head('- Editar Empresa', $voltar);
                         <div class="form-group">
                             <label for="telefone" class="form-label">Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000" value="<?= $empresa['telefone'] ?>">
+                                maxlength="15" oninput="handlePhone(event)" value="<?= $empresa['telefone'] ?>">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>

@@ -103,7 +103,7 @@ head('- Cadastrar Usuário', $voltar);
                         <div class="form-group">
                             <label for="telefone" class="form-label"><i class="fa-solid fa-phone"></i> Telefone:</label>
                             <input type="tel" class="form-control" name="telefone" id="telefone" minlength="14"
-                                maxlength="15" data-mask="(00) 00000-0000">
+                                maxlength="15" oninput="handlePhone(event)">
                             <div class="invalid-feedback">O telefone precisa ter entre 10 e 11 números</div>
                         </div>
                     </fieldset>
@@ -217,7 +217,7 @@ head('- Cadastrar Usuário', $voltar);
                                 Empresa:</label>
                             <select class="form-select" name="empregadoem" id="empregadoem">
                                 <?php foreach ($listaEmp as $empresa): ?>
-                                <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
+                                    <option value="<?= $empresa['idempresa'] ?>"> <?= $empresa['nome'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
