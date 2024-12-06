@@ -1,4 +1,5 @@
-![logo_white4_small](https://github.com/user-attachments/assets/69f69df9-21dc-48ae-a09f-ad66cfb3aef2)
+![logo_white_index](https://github.com/user-attachments/assets/40eb6e07-396a-4e72-a4d8-6be482b1b808)
+
 <h1>Software de Gestão</h1>
 
 
