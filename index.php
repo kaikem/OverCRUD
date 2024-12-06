@@ -45,7 +45,7 @@ head('- Login', $voltar);
     <div class="container">
         <!-- LOGO -->
         <div class="row d-flex justify-content-center mb-5 mt-4">
-            <img src="./img/logo_white4.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
+            <img src="./img/logo_white_index.png" class="loginlogo" alt="Overdrive Softwares e Consultoria">
         </div>
 
         <!-- TÍTULO & CARD DE LOGIN -->

@@ -10,7 +10,7 @@ function navbarTop($voltar, $linksAdm)
                             <!-- COLUNA 01 (LOGOTIPO) -->
                             <div class='d-none col-lg-4 d-lg-flex p-0'>
                                 <!-- LOGOTIPO GRANDE -->
-                                <a href='$voltar/home.php' class='navbar-brand p-0'><img src='$voltar/img/logo_white3.png' alt='OverCRUD'
+                                <a href='$voltar/home.php' class='navbar-brand p-0'><img src='$voltar/img/logo_white_navbar.png' alt='OverCRUD'
                                         style='width: 75%;'></a>
                             </div>
                             <div class='d-none col-md-3 d-md-flex d-lg-none p-0'>
@@ -38,7 +38,8 @@ function navbarTop($voltar, $linksAdm)
                                             <ul class='dropdown-menu dropdown-menu-dark'>
                                                 <li> <a href='$voltar/emplista.php' class='dropdown-item text-white'>Consultar empresas</a>
                                                 </li>
-                                                <li> <a href='$voltar/empcadastro.php' class='dropdown-item <?php $linksAdm ?> text-white'>Cadastrar
+                                                <li> <a href='$voltar/empcadastro.php' class='dropdown-item <?php $linksAdm ?>
+text-white'>Cadastrar
 Nova</a>
 </li>
 </ul>
