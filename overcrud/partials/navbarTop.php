@@ -33,27 +33,27 @@ function navbarTop($voltar, $linksAdm)
                                             <a href='$voltar/home.php' class='nav-link fs-5'>Home</a>
                                         </li>
                                         <li class='navbar-item dropdown'>
-                                            <a href='#' class='nav-link fs-5 dropdown-toggle'
+                                            <a href='#' class='nav-link fs-5 dropdown-toggle text-white'
                                                 data-bs-toggle='dropdown'>Empresas</a>
                                             <ul class='dropdown-menu dropdown-menu-dark'>
-                                                <li> <a href='$voltar/emplista.php' class='dropdown-item'>Consultar empresas</a>
+                                                <li> <a href='$voltar/emplista.php' class='dropdown-item text-white'>Consultar empresas</a>
                                                 </li>
-                                                <li> <a href='$voltar/empcadastro.php' class='dropdown-item <?php $linksAdm ?>'>Cadastrar
+                                                <li> <a href='$voltar/empcadastro.php' class='dropdown-item <?php $linksAdm ?> text-white'>Cadastrar
 Nova</a>
 </li>
 </ul>
 </li>
 <li class='navbar-item dropdown'>
-    <a href='#' class='nav-link fs-5 dropdown-toggle' data-bs-toggle='dropdown'>Usuários</a>
+    <a href='#' class='nav-link fs-5 dropdown-toggle text-white' data-bs-toggle='dropdown'>Usuários</a>
     <ul class='dropdown-menu dropdown-menu-dark'>
-        <li> <a href='$voltar/usulista.php' class='dropdown-item'>Consultar usuários</a>
+        <li> <a href='$voltar/usulista.php' class='dropdown-item text-white'>Consultar usuários</a>
         </li>
-        <li> <a href='$voltar/usucadastro.php' class='dropdown-item <?php $linksAdm ?>'>Cadastrar Novo</a>
+        <li> <a href='$voltar/usucadastro.php' class='dropdown-item <?php $linksAdm ?> text-white'>Cadastrar Novo</a>
         </li>
     </ul>
 </li>
 <li class='navbar-item'>
-    <a href='$voltar/about.php' class='nav-link fs-5'>Sobre</a>
+    <a href='$voltar/about.php' class='nav-link fs-5 text-white'>Sobre</a>
 </li>
 <li class='navbar-item d-flex d-md-none'>
     <a href='$voltar/home.php' class='nav-link text-danger fs-5 fw-bold' data-bs-toggle='modal'
