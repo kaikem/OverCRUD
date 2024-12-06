@@ -23,7 +23,7 @@ require_once "$rootOvercrud/resources/listas.php";
 <!-- HEAD -->
 <?php
 require_once "$rootOvercrud/partials/head.php";
-head('- Home', $voltar);
+head('', $voltar);
 ?>
 
 <body>
@@ -64,7 +64,8 @@ head('- Home', $voltar);
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center text-center">
                         <b class="text-info fs-5 me-2">USUÁRIOS CADASTRADOS</b>
-                        <span class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsu) ?></span>
+                        <span
+                            class="fw-bolder fs-1 bg-primary px-4 py-1 rounded-1 mb-2 text-white"><?= count($listaUsu) ?></span>
                     </li>
                 </ul>
             </div>
