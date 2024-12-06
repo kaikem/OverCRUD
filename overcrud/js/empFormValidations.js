@@ -6,6 +6,7 @@ const inputCnpj = document.getElementById('cnpj');
 const inputNome = document.getElementById('nome');
 const inputFantasia = document.getElementById('fantasia');
 const inputResponsavel = document.getElementById('responsavel');
+const inputTelefone = document.getElementById('telefone');
 
 //endereço
 const inputCep = document.getElementById('cep');
@@ -14,6 +15,22 @@ const inputEstado = document.getElementById('estadocidade');
 const inputLogradouro = document.getElementById('logradouro');
 const inputNumlogradouro = document.getElementById('numlogradouro');
 const inputBairro = document.getElementById('bairro');
+
+
+//------------------------------------------------------------------
+//MÁSCARA PARA TELEFONE
+const handlePhone = (evento) => {
+    let inputPhone = evento.target;
+    inputPhone.value = phoneMask(inputPhone.value);
+};
+
+const phoneMask = (valor) => {
+    if(!valor) return "";
+    valor = valor.replace(/\D/g,'');
+    valor = valor.replace(/(\d{2})(\d)/,"($1) $2");
+    valor = valor.replace(/(\d)(\d{4})$/,"$1-$2");
+    return valor;
+};
 
 
 //-----------------------------------------------------------------
