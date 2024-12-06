@@ -95,7 +95,7 @@ legend{
 
 /** SHADOWS DOS CARDS **/
 #empcard, #usucard{
-    box-shadow: 0px 0px 31px -13px var(--bs-primary);
+    box-shadow: 0px 0px 12px 1px var(--bs-primary);
 }
 
 /** FONTES DO CORPO DOS CARDS **/
@@ -124,7 +124,6 @@ td{
 
 /** ÍCONES **/
 #deleteicon{
-    color: red;
     cursor: pointer;
 }
 
