@@ -52,6 +52,16 @@ Você pode acessar o [código fonte do projeto](https://github.com/kaikem/OverCR
 
 
 # Abrir e rodar o projeto
+  1. Softwares necessários: Emulador de servidor Apache com suporte à banco de dados em SQL (deixo como sugestão o [XAMPP](https://www.apachefriends.org/pt_br/index.html)).
+  2. Fazer o download do projeto completo e inserir na pasta pertinente do emulador (no caso do XAMPP, normalmente em "C:\xampp\htdocs").
+  3. Fazer a importação do banco de dados da aplicação através do arquivo `overcrud_bd.sql` contido na pasta "database" da aplicação.
+  4. Abrir o emulador e habilitar o servidor Apache e conexão com o banco de dados (no caso do XAMPP, basta apertar o botão "Start" em "Actions", conforme imagem abaixo):
+     
+  ![xampp](https://github.com/user-attachments/assets/975f2cf4-4b92-4ba5-b69b-75812351e434)
+  
+  5. Abrir o navegador de preferência e acessar a aplicação através do endereço emulado (no caso do XAMPP, "localhost/overcrud").
+  6. Caso seja necessário alguma configuração diferente para conexão com Banco de Dados, basta acessar o arquivo `ConexaoBD.php` na pasta "componentes" do projeto e alterar as variáveis conforme o necessário.
+  7. Usuários para teste da aplicação: <b>Usuários Comum:</b> Login 999.999.999-99 e Senha comum123 | <b>Usuários Admin:</b> Login 000.000.000-00 | Senha admin123
 
 
 # Pessoas Contribuidoras
