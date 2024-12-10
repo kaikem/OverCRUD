@@ -60,7 +60,7 @@ Você pode acessar o [código fonte do projeto](https://github.com/kaikem/OverCR
      
   ![xampp](https://github.com/user-attachments/assets/975f2cf4-4b92-4ba5-b69b-75812351e434)
   
-  5. Abrir o navegador de preferência e acessar a aplicação através do endereço emulado (no caso do XAMPP, normalmente em <i>http://localhost/OverCRUD-main/overcrud/</i>). <b><i>OBS.: Acessar o projeto utilizando o HTTP e não HTTPS</i></b>.
+  5. Abrir o navegador de preferência e acessar a aplicação através do endereço emulado (no caso do XAMPP, normalmente em <i>http://localhost/OverCRUD-main/overcrud/</i>). <b><i>OBS.: Devido à ausência de um certificado SSL/TLS válido no ambiente local, é necessário acessar o projeto utilizando sempre o HTTP e não HTTPS.</i></b>.
   6. Caso seja necessário alguma configuração diferente para conexão com Banco de Dados, basta acessar o arquivo `ConexaoBD.php` na pasta <i>"OverCRUD-main/overcrud/components"</i> do projeto e alterar as variáveis conforme o necessário.
   7. Usuários para teste da aplicação: <b>Usuário Comum:</b> Login 999.999.999-99 e Senha comum123 | <b>Usuário Admin:</b> Login 000.000.000-00 e Senha admin123
 
