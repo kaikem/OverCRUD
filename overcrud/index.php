@@ -49,7 +49,7 @@ head('- Login', $voltar);
         </div>
 
         <!-- TÍTULO & CARD DE LOGIN -->
-        <div class="row d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center">
             <div class="col-8 col-sm-10 col-md-8 col-lg-5">
 
                 <!-- TÍTULO -->
@@ -57,12 +57,12 @@ head('- Login', $voltar);
                     <h1 class="display-5 fs-1 lead">SISTEMA DE GESTÃO</h1>
                 </div>
 
-                <div class="row d-flex mb-2 justify-content-center align-items-center">
+                <div class="row d-flex mb-2">
                     <!-- LOGIN CARD -->
                     <div class="card shadow" id="cardlogin">
-                        <div class="card-body text-center align-items-center justify-content-center">
+                        <div class="card-body">
                             <h5 class="card-title text-center fs-2">FAÇA SEU LOGIN</h5>
-                            <div class="card-text">
+                            <div class="card-text text-center">
                                 <!-- FORM -->
                                 <form action="./validations/login_validation.php" class="mt-4"
                                     style="background-color: none;" method="POST">
@@ -82,7 +82,7 @@ head('- Login', $voltar);
                                     </div>
 
                                     <!-- MENSAGEM DE ERRO -->
-                                    <div class='<?= $_SESSION['valido'] == "erro" ? 'd-flex' : 'd-none' ?> text-center'
+                                    <div class='<?= $_SESSION['valido'] == "erro" ? 'd-block' : 'd-none' ?> text-center'
                                         id='errologin'>
                                         <?php mensagemRetorno("CPF/Senha incorretos! Por favor, tente novamente.", "danger") ?>
                                     </div>
