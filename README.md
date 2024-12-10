@@ -54,14 +54,14 @@ Você pode acessar o [código fonte do projeto](https://github.com/kaikem/OverCR
 
 # Abrir e rodar o projeto
   1. Software necessário: Emulador de servidor Apache com suporte à banco de dados em SQL (deixo como sugestão o [XAMPP](https://www.apachefriends.org/pt_br/index.html)).
-  2. Fazer o download do projeto completo e inserir na pasta pertinente do emulador (no caso do XAMPP, normalmente em <i>"C:\xampp\htdocs"</i>).
-  3. Fazer a importação do banco de dados da aplicação através do arquivo `overcrud_bd.sql` contido na pasta <i>"overcrud/database"</i> da aplicação.
+  2. Fazer o download do projeto completo, extrair a pasta <i>"OverCRUD-main"</i> e inserir no diretório pertinente do emulador (no caso do XAMPP, normalmente em <i>"C:\xampp\htdocs"</i>).
+  3. Fazer a importação do banco de dados da aplicação através do arquivo `overcrud_bd.sql` contido na pasta <i>"OverCRUD-main/overcrud/database"</i> da aplicação.
   4. Abrir o emulador e habilitar o servidor Apache e conexão com o banco de dados (no caso do XAMPP, basta apertar o botão "Start" em "Actions", conforme imagem abaixo):
      
   ![xampp](https://github.com/user-attachments/assets/975f2cf4-4b92-4ba5-b69b-75812351e434)
   
-  5. Abrir o navegador de preferência e acessar a aplicação através do endereço emulado (no caso do XAMPP, <i>"localhost/overcrud"</i>).
-  6. Caso seja necessário alguma configuração diferente para conexão com Banco de Dados, basta acessar o arquivo `ConexaoBD.php` na pasta <i>"overcrud/components"</i> do projeto e alterar as variáveis conforme o necessário.
+  5. Abrir o navegador de preferência e acessar a aplicação através do endereço emulado (no caso do XAMPP, normalmente em <i>http://localhost/OverCRUD-main/overcrud/</i>). <b><i>OBS.: Acessar o projeto utilizando o HTTP e não HTTPS</i></b>.
+  6. Caso seja necessário alguma configuração diferente para conexão com Banco de Dados, basta acessar o arquivo `ConexaoBD.php` na pasta <i>"OverCRUD-main/overcrud/components"</i> do projeto e alterar as variáveis conforme o necessário.
   7. Usuários para teste da aplicação: <b>Usuário Comum:</b> Login 999.999.999-99 e Senha comum123 | <b>Usuário Admin:</b> Login 000.000.000-00 e Senha admin123
 
 
