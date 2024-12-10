@@ -2,11 +2,11 @@
 session_start();
 //PATHING
 $root = $_SERVER["DOCUMENT_ROOT"];
-require_once "$root/overcrud/resources/pathing.php";
+require_once "$root/OverCRUD-main/overcrud/resources/pathing.php";
 
 //VERIFICAÇÃO DE SUBMIT DO FORM E VARIÁVEIS VAZIAS
 if (!empty($_POST['cpf']) && !empty($_POST['senha'])) {
-    require_once "$root/overcrud/components/ConexaoBD.php";
+    require_once "$root/OverCRUD-main/overcrud/components/ConexaoBD.php";
 
     $cpfIndex = $_POST['cpf'];
     $senhaIndex = $_POST['senha'];

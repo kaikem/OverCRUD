@@ -60,7 +60,7 @@ head('- Login', $voltar);
                 <div class="row d-flex mb-2 justify-content-center align-items-center">
                     <!-- LOGIN CARD -->
                     <div class="card shadow" id="cardlogin">
-                        <div class="card-body">
+                        <div class="card-body text-center align-items-center justify-content-center">
                             <h5 class="card-title text-center fs-2">FAÇA SEU LOGIN</h5>
                             <div class="card-text">
                                 <!-- FORM -->
