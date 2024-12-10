@@ -150,7 +150,7 @@ function validaSenhaconf(){
         inputSenhaConf.classList.add('is-invalid');
         inputSenhaConf.classList.remove('is-valid');
         return false;
-    }else{
+    }else if (inputSenhaconfValue.length>=8 && comparaSenha()){
         inputSenhaConf.classList.remove('is-invalid');
         inputSenhaConf.classList.add('is-valid');
         return true;
