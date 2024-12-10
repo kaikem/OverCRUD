@@ -23,6 +23,10 @@ $instanciaEmpDAO = new EmpresaDAO($instanciaEmp);
 //Lista Completa de Empresas
 $listaEmp = $instanciaEmpDAO->listarEmpresas();
 
+//Lista Ordenada de Empresas
+$nome = array_column($listaEmp, 'nome');
+array_multisort($nome, SORT_ASC, $listaEmp);
+
 //Lista de Empresas Vinculadas
 $listaEmpVinculadas = $instanciaEmpDAO->listarEmpresasVinculadas();
 
@@ -35,6 +39,10 @@ $instanciaUsuDAO = new UsuarioDAO($instanciaUsu);
 
 //Lista Completa de Usuários
 $listaUsu = $instanciaUsuDAO->listarUsuarios();
+
+//Lista Ordenada de Usuários
+$nome = array_column($listaUsu, 'nome');
+array_multisort($nome, SORT_ASC, $listaUsu);
 
 //Lista de Usuários Admins
 $listaUsuAdmins = $instanciaUsuDAO->listarUsuariosAdm();
