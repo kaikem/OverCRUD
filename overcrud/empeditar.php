@@ -110,7 +110,7 @@ head('- Editar Empresa', $voltar);
                             <input type="text" class="form-control" name="cnpj" id="cnpj" minlength="18" maxlength="18"
                                 data-mask="00.000.000/0000-00" value="<?= $empresa['cnpj'] ?>"
                                 oninput="validaCNPJ(), atualizaCNPJ()" required>
-                            <div class="invalid-feedback" id="cnpjinvalido">CNPJ inválido!</div>
+                            <div class="invalid-feedback" id="cnpjinvalido">CNPJ inválido! Verifique o número e tente novamente</div>
                         </div>
 
                         <!-- NOME -->

@@ -103,7 +103,8 @@ head('- Editar Usuário', $voltar);
                             <input type="text" class="form-control" name="cpf" id="cpf" minlength="14" maxlength="14"
                                 data-mask="000.000.000-00" value="<?= $usuario['cpf'] ?>"
                                 oninput="validaCPF(), atualizaCPF()" required>
-                            <div class="invalid-feedback" id="cpfinvalido">CPF inválido</div>
+                            <div class="invalid-feedback" id="cpfinvalido">CPF inválido! Verifique o número e tente
+                            novamente</div>
                         </div>
 
                         <!-- SENHA
