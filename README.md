@@ -66,7 +66,7 @@ Você pode acessar o [código fonte do projeto](https://github.com/kaikem/OverCR
 
 
 # Pessoas Contribuidoras
-Gostaria de deixar aqui um agradecimento aos monstros sagrados [Felipão](https://www.github.com/felipedegodoy16) e [Pombo](https://github.com/Martins2802/) pela parceria e ajuda inestimáveis e ao mestre [Diego](https://www.github.com/diegonegretto) pela paciência!
+Gostaria de deixar aqui um agradecimento aos monstros sagrados [Felipão](https://www.github.com/felipedegodoy16) e [Pombo](https://github.com/Martins2802/) pela parceria e ajuda inestimáveis e ao mestre [Diego](https://www.github.com/diegonegretto) pela paciência e disponibilidade em ensinar sempre!
 
 
 # Pessoas Desenvolvedoras
