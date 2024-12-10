@@ -35,7 +35,7 @@ CREATE TABLE `empresas` (
   PRIMARY KEY (`idempresa`),
   KEY `empresas_ibfk_1` (`idenderecoemp`),
   CONSTRAINT `empresas_ibfk_1` FOREIGN KEY (`idenderecoemp`) REFERENCES `enderecos` (`idendereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `enderecos` (
   `numlogradouro` varchar(6) DEFAULT NULL,
   `bairro` varchar(32) NOT NULL,
   PRIMARY KEY (`idendereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +101,7 @@ CREATE TABLE `usuarios` (
   KEY `usuarios_ibfk_2` (`idenderecousu`),
   CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`idempregadoem`) REFERENCES `empresas` (`idempresa`),
   CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`idenderecousu`) REFERENCES `enderecos` (`idendereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-04  9:36:48
+-- Dump completed on 2024-12-10 11:31:27
