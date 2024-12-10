@@ -67,8 +67,9 @@ head('- Cadastrar Empresa', $voltar);
                         <!-- NOME -->
                         <div class="form-group">
                             <label for="nome" class="form-label"><i class="fa-solid fa-building"></i> Nome:</label>
-                            <input type="text" class="form-control" name="nome" id="nome" minlength="1" maxlength="64"
-                                oninput="validaNome()" required>
+                            <input type="text" class="form-control" name="nome" id="nome"
+                                style="text-transform:uppercase" minlength="1" maxlength="64" oninput="validaNome()"
+                                required>
                             <div class="invalid-feedback">O nome precisa ser preenchido</div>
                         </div>
 
