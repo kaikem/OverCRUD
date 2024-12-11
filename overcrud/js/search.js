@@ -22,7 +22,7 @@ function pesquisa() {
             };
         };
     } else {
-        if(paginaAtual=='http://localhost/overcrud/usulista.php'){
+        if(paginaAtual=='http://localhost/OverCRUD-main/overcrud/usulista.php'){
             for(i=1; i<linhasTabelaUsuarios.length; i++){
                 if(!(linhasTabelaUsuarios[i].querySelector('#tr_'+selectValor).innerText.toLowerCase()).includes(pesquisa)){
                     linhasTabelaUsuarios[i].classList.add('d-none');
