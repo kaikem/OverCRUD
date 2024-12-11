@@ -40,6 +40,8 @@ head('- Sobre', $voltar);
                 <p class="">Sistema CRUD <i>(Create, Read, Update, and Delete)</i> de gerenciamento de funcionários e
                     empresas que possibilita o cadastro, exclusão, alteração e consulta de informações.</p>
                 <p>Dentre as principais funcionalidades desta aplicação estão:</p>
+
+                <!-- LISTA -->
                 <ul>
                     <li><i class="fa-solid fa-magnifying-glass text-info"></i> <b class="text-info">CONSULTA DE
                             DADOS:</b>
@@ -64,6 +66,7 @@ head('- Sobre', $voltar);
                         Dados salvos em bancos de dados permanentes.</li>
                 </ul>
 
+                <!-- PARCERIA -->
                 <p>Este software foi desenvolvido através de uma parceria entre as empresas:</p>
                 <div id="imagensparceria" class="text-center">
                     <img src="./img/logo_footer.png" style="width: 30%;" alt="Overdrive Softwares e Consultoria">
