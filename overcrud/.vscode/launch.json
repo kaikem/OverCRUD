@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost/overcrud/emplista.php",
+            "url": "http://localhost/OverCRUD-main/overcrud/emplista.php",
             "webRoot": "${workspaceFolder}"
         },
         {
